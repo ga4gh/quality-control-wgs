@@ -13,6 +13,7 @@ The core documentation can be found in [docs](https://github.com/ga4gh/quality-c
 Other Links of Interest:
 - [Roadmap Document](https://docs.google.com/document/d/1T2Ls5HRz5xR9sQkH6YnktFWfjEEmSBchA6twHbfGJ_o/edit?usp=sharing)
 - [Meeting Minutes](https://docs.google.com/document/d/1gjJ_C2OK8aTEbAOBpWn9ygk9VRUPTP0AICa86DBqOOo/edit?usp=sharing)
+- [Original Proposal](https://docs.google.com/document/d/1yrvByDgRdE4WPT1MDfKpF7cbDT6oXLAX6gnlQkud5_I/edit?usp=share_link)
 
 
 ## Mailing List / Google Group
