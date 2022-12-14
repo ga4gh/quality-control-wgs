@@ -5,7 +5,7 @@ branches, commits, and pull requests. Suggested changes to this repo can be init
 ## Issues
 [Issues](https://github.com/ga4gh/quality-control-wgs/issues) are for discussion of bug
 reports, suggested changes and feature requests. When creating an issue, use sentence case
-for the issue title and avoid the use of periods at the end of titles.
+for the issue title and avoid the use of periods at the end of titles. Before posting a new issue, please check that your issue is not duplicative to an already open issue.
 
 ## Branches
 [Branches](https://github.com/ga4gh/quality-control-wgs/branches) are used for
