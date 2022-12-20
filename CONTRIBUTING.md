@@ -12,8 +12,7 @@ Detailed information can be found at [GitHub Issues](https://docs.github.com/en/
 ## Branches
 [Branches](https://github.com/ga4gh/quality-control-wgs/branches) are used for
 versioning and feature additions. Feature branches must be associated with an
-open issue describing the desired feature, and named after the issue
-as [issue number]-[short description].
+open issue describing the desired feature, and named after the issue as [issue number]-[short description].
 
 More information can be found at [About branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) and [Managing branches](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches) in GitHub docs.
 
