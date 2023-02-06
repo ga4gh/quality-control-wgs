@@ -12,9 +12,9 @@ Given the increase in the number of population-scale studies and clinical genome
 The core documentation can be found in [docs](https://github.com/ga4gh/quality-control-wgs/tree/main/docs).
 Other Links of Interest:
 - [Roadmap Document](https://docs.google.com/document/d/1T2Ls5HRz5xR9sQkH6YnktFWfjEEmSBchA6twHbfGJ_o/edit?usp=sharing)
-- [Meeting Minutes](https://docs.google.com/document/d/1gjJ_C2OK8aTEbAOBpWn9ygk9VRUPTP0AICa86DBqOOo/edit?usp=sharing)
+- [Meeting Minutes](https://docs.google.com/document/d/1a4ns_QbN4OzDiSThyfsZ0JITfrZTmW3g3HCWDpqPvr4/edit?usp=share_link)
 - [Landscape Analysis](https://docs.google.com/spreadsheets/d/1SKy1p38RJf3YNJ33XPIS8qLY5exF93pxdfozaiMnJqQ/edit?usp=share_link)
-- [Original Proposal](https://docs.google.com/document/d/1yrvByDgRdE4WPT1MDfKpF7cbDT6oXLAX6gnlQkud5_I/edit?usp=share_link)
+- [Original Proposal](https://docs.google.com/document/d/11xwiM7eGE10kwIl7zsr9tL5ZuNlqGdW9/edit?usp=sharing&ouid=107543167341861034315&rtpof=true&sd=true)
 
 
 ## Mailing List / Google Group
