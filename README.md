@@ -12,7 +12,7 @@ Given the increase in the number of population-scale studies and clinical genome
 
 ## Documentation
 
-The core documentation can be found in [docs](https://github.com/ga4gh/quality-control-wgs/tree/main/docs).
+The core documentation can be found in [metrics definitions](https://github.com/ga4gh/quality-control-wgs/tree/main/metrics_definitions).
 Other Links of Interest:
 
 - [Roadmap Document](https://docs.google.com/document/d/1T2Ls5HRz5xR9sQkH6YnktFWfjEEmSBchA6twHbfGJ_o/edit?usp=sharing)
