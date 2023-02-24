@@ -1,0 +1,3 @@
+[submodule "reference_implementations/npm-sample-qc"]
+	path = reference_implementations/npm-sample-qc
+	url = git@github.com:c-BIG/NPM-sample-qc.git
