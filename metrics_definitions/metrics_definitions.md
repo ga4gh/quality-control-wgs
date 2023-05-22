@@ -79,6 +79,14 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing coverage of non duplicated reads, non clipped bases, non overlapping bases, primary alignments, achieving a mapping quality of 20 or greater is derived from [mosdepth v0.3.2](#mosdepth). It is further narrowed down to the non gap regions of GRCh38 assembly, autosomes only using [bedtools intersect](#bedtools-intersect). The median absolute deviation of the coverage is then calculated using [datamash](#datamash).
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
 
+### Cross contamination
+
+- **ID:** cross_contamination_rate
+- **Description:** Estimation of inter-sample contamination rate of short paired-end sequencing [high quality reads](#high-quality-reads), [primary alignments](#primary-alignments), mapped on [GRCh38 assembly](#grch38-assembly). [Duplicated reads](#duplicated-reads) and [clipped bases](#clipped-bases) are included. No minimum [mapping quality](#mapping-quality) is imposed.
+- **Implementation details:** The estimation of inter-sample DNA contamination of short paired-end sequencing high quality, aligned sequence reads (BAM/CRAM) mapped on GRCh38 assembly with pre-calculated reference panel of [1000 Genome Project](#verifybamid-reference-panel) dataset from the VerifyBamID resource using [VerifyBamID2](#verifybamid2) with NumPC “4” (# of Principal Components used in estimation), the key information “FREEMIX” in “.selfSM” in the results indicates the estimated contamination level.
+- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark resources
+[Candidate] All Of Us QC Report: Q2 2022 release. QC key name : key information FREEMIX in “.selfSM”
+
 ## Terminologies & Concepts
 
 ### High quality reads
@@ -150,3 +158,15 @@ Overlapping bases refers to [mosdepth documentation](https://github.com/brentp/m
 ### Samtools stats
 
 [http://www.htslib.org/doc/samtools-stats.html](http://www.htslib.org/doc/samtools-stats.html)
+
+### VerifyBamID2
+
+[https://github.com/Griffan/VerifyBamID](https://github.com/Griffan/VerifyBamID)
+
+### VerifyBamID reference panel
+
+Pre-calculated reference panel of 1000 Genome Project phase 3 dataset: 100,000 sites mapped on GRCh38
+
+- UDPath: [https://raw.githubusercontent.com/Griffan/VerifyBamID/master/resource/1000g.phase3.100k.b38.vcf.gz.dat.UD](https://raw.githubusercontent.com/Griffan/VerifyBamID/master/resource/1000g.phase3.100k.b38.vcf.gz.dat.UD)
+- BedPath: [https://raw.githubusercontent.com/Griffan/VerifyBamID/master/resource/1000g.phase3.100k.b38.vcf.gz.dat.bed](https://raw.githubusercontent.com/Griffan/VerifyBamID/master/resource/1000g.phase3.100k.b38.vcf.gz.dat.bed)
+- MeanPath: [https://raw.githubusercontent.com/Griffan/VerifyBamID/master/resource/1000g.phase3.100k.b38.vcf.gz.dat.mu](https://raw.githubusercontent.com/Griffan/VerifyBamID/master/resource/1000g.phase3.100k.b38.vcf.gz.dat.mu)
