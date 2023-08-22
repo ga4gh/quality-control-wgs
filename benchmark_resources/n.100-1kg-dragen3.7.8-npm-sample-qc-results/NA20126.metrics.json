@@ -1,0 +1,16 @@
+{
+    "biosample": {
+        "id": "NA20126"
+    },
+    "wgs_qc_metrics": {
+        "cross_contamination_rate": 5.96707e-09,
+        "insert_size_std_deviation": 99.7,
+        "mad_autosome_coverage": 2.4,
+        "mean_autosome_coverage": 30.85476,
+        "mean_insert_size": 440.6,
+        "pct_autosomes_15x": 95.83108,
+        "pct_reads_mapped": 99.72261,
+        "pct_reads_properly_paired": 97.95775,
+        "yield_bp_q30": 101940474346
+    }
+}
