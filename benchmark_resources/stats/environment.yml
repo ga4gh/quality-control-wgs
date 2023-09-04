@@ -1,0 +1,9 @@
+name: wgsqc
+dependencies:
+- python=3.10.4
+- pip
+- pip:
+  - jupyterlab
+  - pandas
+  - numpy
+  - plotly
