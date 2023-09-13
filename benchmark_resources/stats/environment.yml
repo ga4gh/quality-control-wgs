@@ -6,4 +6,4 @@ dependencies:
   - jupyterlab
   - pandas
   - numpy
-  - plotly
+  - seaborn
