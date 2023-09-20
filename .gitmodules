@@ -1,3 +1,6 @@
 [submodule "reference_implementations/npm-sample-qc"]
 	path = reference_implementations/npm-sample-qc
 	url = git@github.com:c-BIG/NPM-sample-qc.git
+[submodule "reference_implementations/argo-dnaalnqc"]
+	path = reference_implementations/argo-dnaalnqc
+	url = https://github.com/icgc-argo-workflows/dnaalnqc
