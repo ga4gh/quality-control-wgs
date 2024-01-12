@@ -22,4 +22,4 @@ Other Links of Interest:
 
 ## Mailing List / Google Group
 
-This project has a Google Group/mailing list for those interested in contributing to development of the stadard or following akong with progress. Please reach out to lindsay.smith@ga4gh.org for more information.
+This project has a Google Group/mailing list for those interested in contributing to development of the stadard or following akong with progress. Please reach out to reggan.thomas@ga4gh.org for more information.
