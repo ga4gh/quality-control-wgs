@@ -31,17 +31,17 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** mean_autosome_coverage
 - **Description:** The mean sequencing coverage derived from short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 20 or greater ([Phred scale](#phred-scale)) and [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads).
 - **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing mean coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard CollectWgsMetrics).
-
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
   - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].wgs_coverage_metrics.csv, key name: `COVERAGE SUMMARY,,Average autosomal coverage over genome`
-  - [Candidate] [argodnaalnqc vx.x.x](#ARGO).
+  - [Candidate] [argodnaalnqc vx.x.x](#ARGO). Extracted from [sample-id].metrics.json, key name: `mean_autosome_coverag`
 
 ### Percent autosomes covered ≥ 15 X
 
 - **ID:** pct_autosomes_15x
-- **Description:** The percentage of bases attaining at least 15X sequencing coverage in short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Clipped bases](#clipped-bases) are excluded. [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads) and [clipped bases](#clipped-bases).
-- **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing coverage of non duplicated reads, non clipped bases, non overlapping bases, primary alignments, achieving a mapping quality of 20 or greater is derived from [mosdepth v0.3.2](#mosdepth). It is further narrowed down to the non gap regions of GRCh38 assembly, autosomes only using [bedtools intersect](#bedtools-intersect). The percentage of bases attaining at least 15X coverage is then calculated using [datamash](#datamash).
+- **Description:** The percentage of bases attaining at least 15X sequencing coverage in short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 20 or greater ([Phred scale](#phred-scale)) and [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads).
+- **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing coverage percentage of bases attaining at least 15X of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard CollectWgsMetrics).
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+  - [Candidate] [argodnaalnqc vx.x.x](#ARGO). Extracted from [sample-id].metrics.json, key name: `pct_autosomes_15x`
 
 ### Percent reads mapped
 
@@ -78,9 +78,10 @@ This section lists several example metrics in an attempt to capture which fields
 ### Genome coverage uniformity
 
 - **ID:** mad_autosome_coverage
-- **Description:** The median absolute deviation of sequencing coverage derived from short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Clipped bases](#clipped-bases) are excluded. [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads) and [clipped bases](#clipped-bases).
-- **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing coverage of non duplicated reads, non clipped bases, non overlapping bases, primary alignments, achieving a mapping quality of 20 or greater is derived from [mosdepth v0.3.2](#mosdepth). It is further narrowed down to the non gap regions of GRCh38 assembly, autosomes only using [bedtools intersect](#bedtools-intersect). The median absolute deviation of the coverage is then calculated using [datamash](#datamash).
+- **Description:** The median absolute deviation of sequencing coverage derived from short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 20 or greater ([Phred scale](#phred-scale)) and [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads).
+- **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing median absolute deviation coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard CollectWgsMetrics).
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+  - [Candidate] [argodnaalnqc vx.x.x](#ARGO). Extracted from [sample-id].metrics.json, key name: `mad_autosome_coverage`
 
 ### Cross contamination
 
@@ -145,6 +146,10 @@ GRCh38 assembly refers to [1000genome-dragen-3.7.6 reference](https://1000genome
 Overlapping bases refers to [mosdepth documentation](https://github.com/brentp/mosdepth), section "how it works"
 
 ## References
+
+### ARGO
+
+[]()
 
 ### DRAGEN
 
