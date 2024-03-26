@@ -122,9 +122,9 @@ This section lists several example metrics in an attempt to capture which fields
 ### Ratio of Insertion/Deletion
 
 - **ID:** pass_ind_del
-- **Description:** 
-- **Implementation details:**
-- **Functionally equivalent implementations:** 
+- **Description:** The ration between number of insertion and deletion in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of variant calls [PASS FILTER](#PASS-FILTER).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of insertions and deletion in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using `bcftools view`. `bcftools view -H -v indels -f PASS....INS/bcftools view -H -v indels -f PASS....DEL`
+- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
   - [Candidate]
 
 ### Ratio of Heterozygous/Homozygous SNVs
