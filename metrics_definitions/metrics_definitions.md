@@ -111,9 +111,9 @@ This section lists several example metrics in an attempt to capture which fields
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
   - [Candidate]
 
-### Count: count_deletions_pass
+### Count: Deletions
 
-- **ID:** pass_del
+- **ID:** count_deletions_pass 
 - **Description:** The number of variant type indels only deletions in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of variant calls [PASS FILTER](#PASS-FILTER).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant type indels only deletions in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using [bcftools view](#Samtools-view), (`bcftools view -H -v indels -f PASS....DEL`). Deletions are only considered in this metric short, less than 50bp, deletion as commonly identified by most short reads variant callers. Structural variations which include deletions larger than 50bp and which are typically identified using dedicated SV callers are not considered
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
