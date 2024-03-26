@@ -103,7 +103,7 @@ This section lists several example metrics in an attempt to capture which fields
   - [Candidate] 
 
 
-### Number of Insertion
+### Number of Insertions
 
 - **ID:** pass_ins
 - **Description:** The number of variant type indels only insertions in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of variant calls [PASS FILTER](#PASS-FILTER). 
@@ -111,7 +111,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
   - [Candidate]
 
-### Number of Deletion
+### Number of Deletions
 
 - **ID:** pass_del
 - **Description:** The number of variant type indels only deletions in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of variant calls [PASS FILTER](#PASS-FILTER).
@@ -119,7 +119,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
   - [Candidate]
 
-### Ratio of Insertion/Deletion
+### Ratio of Insertions/Deletions
 
 - **ID:** pass_ind_del
 - **Description:** The ration between number of insertion and deletion in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of variant calls [PASS FILTER](#PASS-FILTER).
