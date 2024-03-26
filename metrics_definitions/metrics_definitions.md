@@ -97,8 +97,8 @@ This section lists several example metrics in an attempt to capture which fields
 ### Number of SNVs
 
 - **ID:** pass_snvs
-- **Description:** The number of variant type SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes non gap regions) of variant calls [PASS filter](#PASS FILTER).
-- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant type SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes non gap regions) variant calls, PASS the [FILTER](#PASS FILTER) using [bcftools view](#Samtools view). `bcftools view -H -v snps -f PASS`
+- **Description:** The number of variant type SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of variant calls [PASS filter](#PASS-FILTER).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant type SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using [bcftools view](#Samtools-view). `bcftools view -H -v snps -f PASS`
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
 
 
