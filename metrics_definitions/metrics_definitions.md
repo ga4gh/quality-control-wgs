@@ -5,7 +5,7 @@ In this document, the QC of WGS workgroup intends to identify a set of key QC me
 ## General notes
 
 - The document is just a first draft to capture conversations from our regular meetings. It provides some templated sections as a guide, but those may not be exhaustive. As such, feel free to make as many changes as needed; we can always recover previous versions of the document using the file history.
-- In terms of scope, the workgroup has agreed to focus on QC of germline WGS first. While all of the workgroup participants are working with short-read data at the moment, we wish to make the definitions general enough to be applicable to other technologies as well. The workgroup also acknowledges that there are multiple stages in the analysis pipeline at which one may want to perform QC (e.g. post-FASTQ generation, post-alignment, post-variant calling). For the first iteration of the guidelines, the workgroup has agreed to focus on metrics that can be obtained from a BAM/CRAM file. Thus, metrics such as contamination or variant counts remain out of scope at the moment.
+- In terms of scope, the workgroup has agreed to focus on QC of germline WGS first. While all of the workgroup participants are working with short-read data at the moment, we wish to make the definitions general enough to be applicable to other technologies as well. The workgroup also acknowledges that there are multiple stages in the analysis pipeline at which one may want to perform QC (e.g. post-FASTQ generation, post-alignment, post-variant calling).
 
 ## Controlled vocabulary
 
@@ -16,7 +16,7 @@ This section lists several example metrics in an attempt to capture which fields
 - Implementation details (mandatory): Tool and version used to calculate the metric & insights into the metric implementation, where possible.
 - Functionally equivalent implementations (optional): A description of what constitute a valid alternative implementation producing values within an acceptable range of variation when compared to value(s) reported by the reference implementation when computing the metric i.e Validated equivalent implementations. We welcome the inclusion of candidate equivalent implementations
 
-## Metric list
+## Post Alignment Metric list
 
 ### Bases ≥ Q30
 
@@ -33,7 +33,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing mean coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard CollectWgsMetrics).
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
   - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].wgs_coverage_metrics.csv, key name: `COVERAGE SUMMARY,,Average autosomal coverage over genome`
-  - [Candidate] [argodnaalnqc vx.x.x](#ARGO). Extracted from [sample-id].metrics.json, key name: `mean_autosome_coverag`
+  - [Candidate] [argodnaalnqc vx.x.x](#ARGO). Extracted from [sample-id].metrics.json, key name: `mean_autosome_coverage`
 
 ### Percent autosomes covered ≥ 15 X
 
@@ -91,6 +91,12 @@ This section lists several example metrics in an attempt to capture which fields
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark resources
 [Candidate] All Of Us QC Report: Q2 2022 release. QC key name : key information FREEMIX in “.selfSM”
 
+
+## Post Variant Calling Metric list
+
+
+
+### 
 ## Terminologies & Concepts
 
 ### High quality reads
@@ -145,6 +151,9 @@ GRCh38 assembly refers to [1000genome-dragen-3.7.6 reference](https://1000genome
 
 Overlapping bases refers to [mosdepth documentation](https://github.com/brentp/mosdepth), section "how it works"
 
+### PASS FILTER
+PASS FILTER refers to [VCF Format Specicification v4.2](https://samtools.github.io/hts-specs/VCFv4.2.pdf), section 1.4.1 "FILTER - filter status:" & [GATK generic hard-filtering recommendations](https://gatk.broadinstitute.org/hc/en-us/articles/360035890471-Hard-filtering-germline-short-variants)
+
 ## References
 
 ### ARGO
@@ -166,6 +175,10 @@ Overlapping bases refers to [mosdepth documentation](https://github.com/brentp/m
 ### Samtools stats
 
 [http://www.htslib.org/doc/samtools-stats.html](http://www.htslib.org/doc/samtools-stats.html)
+
+### Samtools view
+
+[http://www.htslib.org/doc/samtools-view.html](http://www.htslib.org/doc/samtools-view.html)
 
 ### VerifyBamID2
 
