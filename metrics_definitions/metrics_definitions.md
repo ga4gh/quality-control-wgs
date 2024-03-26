@@ -94,7 +94,7 @@ This section lists several example metrics in an attempt to capture which fields
 
 ## Post Variant Calling Metric list
 
-### Number of SNVs
+### Count: SNVs
 
 - **ID:** pass_snvs
 - **Description:** The number of variant type SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of variant calls [PASS FILTER](#PASS-FILTER).
@@ -103,7 +103,7 @@ This section lists several example metrics in an attempt to capture which fields
   - [Candidate] 
 
 
-### Number of Insertions
+### Count: Insertions
 
 - **ID:** pass_ins
 - **Description:** The number of variant type indels only insertions in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of variant calls [PASS FILTER](#PASS-FILTER). 
@@ -111,7 +111,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
   - [Candidate]
 
-### Number of Deletions
+### Count: Deletions
 
 - **ID:** pass_del
 - **Description:** The number of variant type indels only deletions in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of variant calls [PASS FILTER](#PASS-FILTER).
@@ -119,7 +119,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
   - [Candidate]
 
-### Ratio of Insertions/Deletions
+### Ratio: Insertions/Deletions
 
 - **ID:** pass_ind_del
 - **Description:** The ration between number of insertion and deletion in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of variant calls [PASS FILTER](#PASS-FILTER).
@@ -127,7 +127,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
   - [Candidate]
 
-### Ratio of Heterozygous/Homozygous SNVs
+### Ratio: Heterozygous/Homozygous (SNVs)
 
 - **ID:** pass_snv_het_hom
 - **Description:** 
@@ -135,7 +135,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Functionally equivalent implementations:** 
   - [Candidate]
 
-### Ratio of hom/het indels
+### Ratio: Heterozygous/Homozygous (indels)
 
 - **ID:** pass_indel_het_hom
 - **Description:** 
@@ -143,7 +143,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Functionally equivalent implementations:** 
   - [Candidate]
 
-### Ratio of ti/tv
+### Ratio: Transitions/Transversions (ti/tv)
 
 - **ID:** pass_snp_ts_tv
 - **Description:** 
