@@ -102,6 +102,56 @@ This section lists several example metrics in an attempt to capture which fields
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
   - [Candidate] 
 
+
+### Number of Insertion
+
+- **ID:** pass_ins
+- **Description:** 
+- **Implementation details:** 
+- **Functionally equivalent implementations:** 
+  - [Candidate]
+
+### Number of Deletion
+
+- **ID:** pass_del
+- **Description:** 
+- **Implementation details:**
+- **Functionally equivalent implementations:** 
+  - [Candidate]
+
+### Ratio of Insertion/Deletion
+
+- **ID:** pass_ind_del
+- **Description:** 
+- **Implementation details:**
+- **Functionally equivalent implementations:** 
+  - [Candidate]
+
+### Ratio of Heterozygous/Homozygous SNVs
+
+- **ID:** pass_snv_het_hom
+- **Description:** 
+- **Implementation details:**
+- **Functionally equivalent implementations:** 
+  - [Candidate]
+
+### Ratio of hom/het indels
+
+- **ID:** pass_indel_het_hom
+- **Description:** 
+- **Implementation details:**
+- **Functionally equivalent implementations:** 
+  - [Candidate]
+
+### Ratio of ti/tv
+
+- **ID:** pass_snp_ts_tv
+- **Description:** 
+- **Implementation details:**
+- **Functionally equivalent implementations:** 
+  - [Candidate]
+
+
 ### 
 ## Terminologies & Concepts
 
