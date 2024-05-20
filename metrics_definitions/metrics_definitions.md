@@ -122,7 +122,7 @@ This section lists several example metrics in an attempt to capture which fields
 ### Ratio: Insertions/Deletions
 
 - **ID:** ratio_insertion_deletion
-- **Description:** The ration between number of insertion and deletion in VCF, only in [autosomal regions](#Autosomes-non-gap-regions) [high quality variants](#High quality variants).
+- **Description:** The ratio between number of insertion and deletion in VCF, only in [autosomal regions](#Autosomes-non-gap-regions) [high quality variants](#High quality variants).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of insertions and deletion in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using `bcftools view`, (`bcftools view -H -v indels -f PASS....INS/bcftools view -H -v indels -f PASS....DEL`). Insertions and Deletions are only considered in this metric short, less than 50bp, insertions, deletion as commonly identified by most short reads variant callers. Structural variations which include insertions, deletions larger than 50bp and which are typically identified using dedicated SV callers are not considered
 - **Functionally equivalent implementations:** NA
   - [Candidate]
@@ -130,14 +130,14 @@ This section lists several example metrics in an attempt to capture which fields
 ### Ratio: Heterozygous/Homozygous (SNVs)
 
 - **ID:** ratio_heterozygous_homzygous_snv
-- **Description:** The ratio of heterozygous and homozygous variant type SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) [high quality variants](#High quality variants).- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of heterozygous and homozygous variant type SNVs in VCF, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using `bcftools view`, (`bcftools view -H -v snps -f PASS -g het / bcftools view -H -v snps -f PASS -g hom`).
+- **Description:** The ratio of heterozygous and homozygous variant type SNVs in VCF, only in [autosomal regions](#Autosomes-non-gap-regions) [high quality variants](#High quality variants).- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of heterozygous and homozygous variant type SNVs in VCF, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using `bcftools view`, (`bcftools view -H -v snps -f PASS -g het / bcftools view -H -v snps -f PASS -g hom`).
 - **Functionally equivalent implementations:** NA
   - [Candidate]
 
 ### Ratio: Heterozygous/Homozygous (indels)
 
 - **ID:** ratio_heterozygous_homzygous_indel
-- **Description:** The ratio of heterozygous and homozygous variant type indels in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) [high quality variants](#High quality variants).
+- **Description:** The ratio of heterozygous and homozygous variant type indels in VCF, only in [autosomal regions](#Autosomes-non-gap-regions) [high quality variants](#High quality variants).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of heterozygous and homozygous variant type indels in VCF, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using `bcftools view`, (`bcftools view -H -v indels -f PASS -g het / bcftools view -H -v indels -f PASS -g hom`).
 - **Functionally equivalent implementations:** NA
   - [Candidate]
@@ -145,7 +145,7 @@ This section lists several example metrics in an attempt to capture which fields
 ### Ratio: Transitions/Transversions (ti/tv)
 
 - **ID:** ratio_transitions_transversions_snv
-- **Description:** The ratio of transitions and transversions of bi-allelic SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) [high quality variants](#High quality variants).
+- **Description:** The ratio of transitions and transversions of bi-allelic SNVs in VCF, only in [autosomal regions](#Autosomes-non-gap-regions) [high quality variants](#High quality variants).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of transitions and transversions of bi-allelic SNVs in VCF, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using `bcftools stats`, (bcftools stats -f PASS ... TSTV).
 - **Functionally equivalent implementations:** NA
   - [Candidate]
