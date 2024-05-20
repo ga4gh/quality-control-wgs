@@ -145,7 +145,7 @@ This section lists several example metrics in an attempt to capture which fields
 
 ### Ratio: Transitions/Transversions (ti/tv)
 
-- **ID:** ratio_transitions_transversions
+- **ID:** ratio_transitions_transversions_snv
 - **Description:** The ratio of transitions and transversions of bi-allelic SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of variant calls [PASS FILTER](#PASS-FILTER).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of transitions and transversions of bi-allelic SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using `bcftools stats`, (bcftools stats -f PASS ... TSTV).
 - **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
