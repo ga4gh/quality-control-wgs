@@ -23,7 +23,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** yield_bp_q30
 - **Description:** The number of bases in short paired-end sequencing [high quality reads](#high-quality-reads), [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 30 or greater ([Phred scale](#phred-scale)). [Duplicated reads](#duplicated-reads) and [clipped bases](#clipped-bases) are included. No minimum [mapping quality](#mapping-quality) is imposed.
 - **Implementation details:** In the NPM-sample-QC reference implementation it is computed using [GATK Picard’s CollectQualityYieldMetrics](#picard-collectqualityyieldmetrics), reporting the PF_Q30_BASES field. Only high quality bases from primary alignments are considered. No filter on duplicated reads, clipped bases or mapping qualiy is applied.
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Q30 bases`
 
 ### Mean autosome coverage
@@ -31,7 +31,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** mean_autosome_coverage
 - **Description:** The mean sequencing coverage derived from short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 20 or greater ([Phred scale](#phred-scale)) and [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads).
 - **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing mean coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics).
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].wgs_coverage_metrics.csv, key name: `COVERAGE SUMMARY,,Average autosomal coverage over genome`
   - [Candidate] [argodnaalnqc vx.x.x](#ARGO). Extracted from [sample-id].metrics.json, key name: `mean_autosome_coverage`
 
@@ -40,7 +40,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** pct_autosomes_15x
 - **Description:** The percentage of bases attaining at least 15X sequencing coverage in short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 20 or greater ([Phred scale](#phred-scale)) and [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads).
 - **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing coverage percentage of bases attaining at least 15X of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics).
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate] [argodnaalnqc vx.x.x](#ARGO). Extracted from [sample-id].metrics.json, key name: `pct_autosomes_15x`
 
 ### Percent reads mapped
@@ -48,7 +48,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** pct_reads_mapped
 - **Description:** The percentage of short paired-end sequencing [high quality reads](#high-quality-reads), [primary alignments](#primary-alignments), mapped on [GRCh38 assembly](#grch38-assembly). [Duplicated reads](#duplicated-reads) and [clipped bases](#clipped-bases) are included. No minimum [mapping quality](#mapping-quality) is imposed.
 - **Implementation details:** In the NPM-sample-QC reference implementation it is computed using [samtools stats](#samtools-stats), reporting the percentage of reads mapped on GRCh38 assembly. Duplicated reads are included. No mapping qualiy is applied.
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Mapped reads`
 
 ### Percent reads properly paired
@@ -56,7 +56,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** pct_reads_properly_paired
 - **Description:** The percentage of short paired-end sequencing [high quality](#high-quality-reads), properly paired reads, [primary alignments](#primary-alignments), mapped on [GRCh38 assembly](#grch38-assembly). [Duplicated reads](#duplicated-reads) are included. No minimum [mapping quality](#mapping-quality) is imposed.
 - **Implementation details:** In the NPM-sample-QC reference implementation it is computed using [samtools stats](#samtools-stats), reporting the percentage of properly paired reads mapped on GRCh38 assembly. Duplicated reads are included. No mapping qualiy is applied.
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Properly paired reads`
 
 ### Mean insert size
@@ -64,7 +64,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** mean_insert_size
 - **Description:** The mean insert size of short paired-end sequencing [high quality reads](#high-quality-reads), [primary alignments](#primary-alignments), mapped on [GRCh38 assembly](#grch38-assembly). [Duplicated reads](#duplicated-reads) and [clipped bases](#clipped-bases) are included. No minimum [mapping quality](#mapping-quality) is imposed.
 - **Implementation details:** In the NPM-sample-QC reference implementation it is computed using [samtools stats](#samtools-stats), reporting the insert_size_average field. Duplicated reads are included. No mapping qualiy is applied.
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Insert length: mean`
 
 ### Insert size standard deviation
@@ -72,7 +72,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** insert_size_std_deviation
 - **Description:** The insert size standard deviation of short paired-end sequencing [high quality reads](#high-quality-reads), [primary alignments](#primary-alignments), mapped on [GRCh38 assembly](#grch38-assembly). [Duplicated reads](#duplicated-reads) and [clipped bases](#clipped-bases) are included. No minimum [mapping quality](#mapping-quality) is imposed.
 - **Implementation details:** In the NPM-sample-QC reference implementation it is computed using [samtools stats](#samtools-stats), reporting the insert_size_standard_deviation field. Duplicated reads are included. No mapping qualiy is applied.
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Insert length: standard deviation`
 
 ### Genome coverage uniformity
@@ -80,7 +80,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** mad_autosome_coverage
 - **Description:** The median absolute deviation of sequencing coverage derived from short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 20 or greater ([Phred scale](#phred-scale)) and [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads).
 - **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing median absolute deviation coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics).
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate] [argodnaalnqc vx.x.x](#ARGO). Extracted from [sample-id].metrics.json, key name: `mad_autosome_coverage`
 
 ### Cross contamination
@@ -88,7 +88,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** cross_contamination_rate
 - **Description:** Estimation of inter-sample contamination rate of short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), mapped on [GRCh38 assembly](#grch38-assembly). No minimum [mapping quality](#mapping-quality) is imposed. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads) and [clipped bases](#clipped-bases).
 - **Implementation details:** The estimation of inter-sample DNA contamination of short paired-end sequencing high quality, aligned sequence reads (BAM/CRAM) mapped on GRCh38 assembly with pre-calculated reference panel of [1000 Genome Project](#verifybamid-reference-panel) dataset from the VerifyBamID resource using [VerifyBamID2](#verifybamid2) with NumPC “4” (# of Principal Components used in estimation), the key information “FREEMIX” in “.selfSM” in the results indicates the estimated contamination level.
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark resources
+- **Functionally equivalent implementations:** NA
  - [Candidate] All Of Us QC Report: Q2 2022 release. QC key name : key information `FREEMIX` in “.selfSM”
 
 
@@ -99,7 +99,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** count_snvs
 - **Description:** The number of variant type SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of [high quality variants](#High quality variants).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant type SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using [bcftools view](#Samtools-view). (`bcftools view -H -v snps -f PASS`)
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate] 
 
 
@@ -108,7 +108,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** count_insertions
 - **Description:** The number of variant type indels only insertions in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of [high quality variants](#High quality variants). 
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant type indels only insertions in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using [bcftools view](#Samtools-view), (`bcftools view -H -v indels -f PASS....INS`). Insertions are only considered in this metric short, less than 50bp, insertions as commonly identified by most short reads variant callers. Structural variations which include insertions larger than 50bp and which are typically identified using dedicated SV callers are not considered.
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate]
 
 ### Count: Deletions
@@ -116,7 +116,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** count_deletions
 - **Description:** The number of variant type indels only deletions in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of [high quality variants](#High quality variants).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant type indels only deletions in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using [bcftools view](#Samtools-view), (`bcftools view -H -v indels -f PASS....DEL`). Deletions are only considered in this metric short, less than 50bp, deletion as commonly identified by most short reads variant callers. Structural variations which include deletions larger than 50bp and which are typically identified using dedicated SV callers are not considered
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate]
 
 ### Ratio: Insertions/Deletions
@@ -124,7 +124,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** ratio_insertion_deletion
 - **Description:** The ration between number of insertion and deletion in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of [high quality variants](#High quality variants).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of insertions and deletion in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using `bcftools view`, (`bcftools view -H -v indels -f PASS....INS/bcftools view -H -v indels -f PASS....DEL`). Insertions and Deletions are only considered in this metric short, less than 50bp, insertions, deletion as commonly identified by most short reads variant callers. Structural variations which include insertions, deletions larger than 50bp and which are typically identified using dedicated SV callers are not considered
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate]
 
 ### Ratio: Heterozygous/Homozygous (SNVs)
@@ -132,7 +132,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** ratio_heterozygous_homzygous_snv
 - **Description:** The ratio of heterozygous and homozygous variant type SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of [high quality variants](#High quality variants). 
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of heterozygous and homozygous variant type SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using `bcftools view`, (`bcftools view -H -v snps -f PASS -g het / bcftools view -H -v snps -f PASS -g hom`).
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate]
 
 ### Ratio: Heterozygous/Homozygous (indels)
@@ -140,7 +140,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** ratio_heterozygous_homzygous_indel
 - **Description:** The ratio of heterozygous and homozygous variant type indels in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of [high quality variants](#High quality variants).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of heterozygous and homozygous variant type indels in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using `bcftools view`, (`bcftools view -H -v indels -f PASS -g het / bcftools view -H -v indels -f PASS -g hom`).
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate]
 
 ### Ratio: Transitions/Transversions (ti/tv)
@@ -148,7 +148,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** ratio_transitions_transversions_snv
 - **Description:** The ratio of transitions and transversions of bi-allelic SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) of [high quality variants](#High quality variants).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of transitions and transversions of bi-allelic SNVs in short paired-end sequencing, only in [autosomal regions](#Autosomes-non-gap-regions) variant calls, PASS the [FILTER](#PASS-FILTER) using `bcftools stats`, (bcftools stats -f PASS ... TSTV).
-- **Functionally equivalent implementations:** Are considered functionally equivalent alternative implementations producing values within 1% of those reported by the reference implementation when computing the metric for data in the benchmark_resources
+- **Functionally equivalent implementations:** NA
   - [Candidate]
 
 
