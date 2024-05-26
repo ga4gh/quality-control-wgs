@@ -97,8 +97,8 @@ This section lists several example metrics in an attempt to capture which fields
 ### Count: SNVs
 
 - **ID:** count_snvs
-- **Description:** The number of variant type SNVs in [VCF](#VCF-Format), only in [autosomal regions](#Autosomes-non-gap-regions) [high quality variants](#High quality variants).
-- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant type SNVs in VCF, only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High quality variants) by [bcftools view](#Samtools-view). (`bcftools view -H -v snps -f PASS`)
+- **Description:** The number of variant type SNVs in [VCF](#VCF-Format), only in [autosomal regions](#Autosomes-non-gap-regions) [high quality variants](#High-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant type SNVs in VCF, only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants) by [bcftools view](#Samtools-view). (`bcftools view -H -v snps -f PASS`)
 - **Functionally equivalent implementations:** NA
   - [Candidate] 
 
