@@ -17,7 +17,7 @@ y_min = df['yield_bp_q30_Dragen'].min()
 y_max = df['yield_bp_q30_Dragen'].max()
 
 lineStart = min(x_min,y_min)
-lineEnd = max(y_max,y_max)
+lineEnd = max(x_max,y_max)
 
 plt.scatter(x, y, c='tab:blue')
 plt.xlabel('NPM')
