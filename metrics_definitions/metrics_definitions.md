@@ -149,6 +149,7 @@ Overlapping bases refers to [mosdepth documentation](https://github.com/brentp/m
 ## References
 
 ### ARGO
+[https://github.com/icgc-argo-workflows/argo-modules](https://github.com/icgc-argo-workflows/argo-modules)
 
 ### DRAGEN
 
