@@ -147,7 +147,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of heterozygous and homozygous variant type SNVs in VCF, only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants) by `bcftools view`, (`bcftools view -H -v snps -f PASS -g het / bcftools view -H -v snps -f PASS -g hom`).
 - **Functionally equivalent implementations:**
   - Criteria: NA
-  - [Candidate]
+  - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].vc_metrics.csv, key name: `VARIANT CALLER POSTFILTER,<sampleID>,Het/Hom ratio`
 
 ### Ratio: Heterozygous/Homozygous (indels)
 
@@ -165,7 +165,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of transitions and transversions of bi-allelic SNVs in VCF, only in [autosomal regions](#Autosomes-non-gap-regions), [high quality-variants](#High-quality-variants) by `bcftools stats`, (bcftools stats -f PASS ... TSTV).
 - **Functionally equivalent implementations:**
   - Criteria: NA
-  - [Candidate]
+  - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].vc_metrics.csv, key name: `VARIANT CALLER POSTFILTER,<sampleID>,Ti/Tv ratio`
 
 
 ### 
