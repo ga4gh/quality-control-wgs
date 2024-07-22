@@ -25,8 +25,8 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the NPM-sample-QC reference implementation it is computed using [GATK Picard’s CollectQualityYieldMetrics](#picard-collectqualityyieldmetrics), reporting the PF_Q30_BASES field. Only high quality bases from primary alignments are considered. No filter on duplicated reads, clipped bases or mapping qualiy is applied.
 - **Functionally equivalent implementations:**
   - criteria: NA
-  - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Q30 bases`
-  - [argodnaalnqc v1.0.0](#argo)
+  - [Candidate][DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Q30 bases`
+  - [Candidate][argodnaalnqc v1.0.0](#argo)
 
 ### Mean autosome coverage
 
