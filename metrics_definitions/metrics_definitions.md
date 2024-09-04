@@ -33,9 +33,8 @@ This section lists several example metrics in an attempt to capture which fields
 - **Description:** The mean sequencing coverage derived from short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 20 or greater ([Phred scale](#phred-scale)) and [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads).
 - **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing mean coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics).
 - **Functionally equivalent implementations:**
-  - Criteria: NA
-  - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].wgs_coverage_metrics.csv, key name: `COVERAGE SUMMARY,,Average autosomal coverage over genome`
-  - [Candidate] [argodnaalnqc vx.x.x](#ARGO). Extracted from [sample-id].metrics.json, key name: `mean_autosome_coverag`
+  - [argodnaalnqc v1.0.0](#ARGO). Extracted from [sample-id].metrics.json, key name: `mean_autosome_coverage`
+  - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].wgs_coverage_metrics.csv, key name: `COVERAGE SUMMARY,,Average autosomal coverage over genome`
 
 ### Percent autosomes covered ≥ 15 X
 
