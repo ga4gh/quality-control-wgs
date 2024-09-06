@@ -94,74 +94,57 @@ This section lists several example metrics in an attempt to capture which fields
   - [argodnaalnqc v1.0.0](#argo)
   - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Estimated sample contamination`
 
-## Post Variant Calling Metric list
+## Variant calling metric list
 
 ### Count: SNVs
 
 - **ID:** count_snvs
-- **Description:** The number of variant type SNVs in [VCF](#VCF-Format), only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants).
-- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant type SNVs in VCF, only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants) by [bcftools view](#Samtools-view). (`bcftools view -H -v snps -f PASS`)
+- **Description:** The number of variant of type SNVs in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant of type SNVs in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view). (`bcftools view -H -v snps -f PASS`)
 - **Functionally equivalent implementations:**
-  - Criteria: NA
-  - [Candidate] 
-
 
 ### Count: Insertions
 
 - **ID:** count_insertions
-- **Description:** The number of variant type indels only insertions in [VCF](#VCF-Format), only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants). 
-- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant type indels only insertions in VCF, only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants) by [bcftools view](#Samtools-view), (`bcftools view -H -v indels -f PASS....INS`). Insertions are only considered in this metric short, less than 50bp, insertions as commonly identified by most short reads variant callers. Structural variations which include insertions larger than 50bp and which are typically identified using dedicated SV callers are not considered.
+- **Description:** The number of variant of type indels categorized as short insertions (less than 50bp) in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant of type indels categorized as insertions in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS....INS`).
 - **Functionally equivalent implementations:**
-  - Criteria: NA
-  - [Candidate]
 
 ### Count: Deletions
 
 - **ID:** count_deletions
-- **Description:** The number of variant type indels only deletions in [VCF](#VCF-Format), only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants).
-- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant type indels only deletions in VCF, only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants) by [bcftools view](#Samtools-view), (`bcftools view -H -v indels -f PASS....DEL`). Deletions are only considered in this metric short, less than 50bp, deletion as commonly identified by most short reads variant callers. Structural variations which include deletions larger than 50bp and which are typically identified using dedicated SV callers are not considered.
+- **Description:** The number of variant type indels categorized as short deletions (less than 50bp) in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant of type indels categorized as deletions in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS....DEL`).
 - **Functionally equivalent implementations:**
-  - Criteria: NA
-  - [Candidate]
 
 ### Ratio: Insertions/Deletions
 
 - **ID:** ratio_insertion_deletion
-- **Description:** The ratio between number of insertion and deletion in [VCF](#VCF-Format), only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants).
-- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of insertions and deletion in VCF, only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants) by `bcftools view`, (`bcftools view -H -v indels -f PASS....INS/bcftools view -H -v indels -f PASS....DEL`). Insertions and Deletions are only considered in this metric short, less than 50bp, insertions, deletion as commonly identified by most short reads variant callers. Structural variations which include insertions, deletions larger than 50bp and which are typically identified using dedicated SV callers are not considered.
+- **Description:** The ratio between number of short insertion and deletion (less than 50bp) in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of insertions and deletion in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS....INS / bcftools view -H -v indels -f PASS....DEL`).
 - **Functionally equivalent implementations:**
-  - Criteria: NA
-  - [Candidate]
 
 ### Ratio: Heterozygous/Homozygous (SNVs)
 
 - **ID:** ratio_heterozygous_homzygous_snv
-- **Description:** The ratio of heterozygous and homozygous variant type SNVs in [VCF](#VCF-Format), only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants).
-- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of heterozygous and homozygous variant type SNVs in VCF, only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants) by `bcftools view`, (`bcftools view -H -v snps -f PASS -g het / bcftools view -H -v snps -f PASS -g hom`).
+- **Description:** The ratio of heterozygous and homozygous variant of type SNVs in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of heterozygous and homozygous variant of type SNVs in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v snps -f PASS -g het / bcftools view -H -v snps -f PASS -g hom`).
 - **Functionally equivalent implementations:**
-  - Criteria: NA
-  - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].vc_metrics.csv, key name: `VARIANT CALLER POSTFILTER,<sampleID>,Het/Hom ratio`
 
 ### Ratio: Heterozygous/Homozygous (indels)
 
 - **ID:** ratio_heterozygous_homzygous_indel
-- **Description:** The ratio of heterozygous and homozygous variant type indels in [VCF](#VCF-Format), only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants).
-- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of heterozygous and homozygous variant type indels in VCF, only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants) by `bcftools view`, (`bcftools view -H -v indels -f PASS -g het / bcftools view -H -v indels -f PASS -g hom`).
+- **Description:** The ratio of heterozygous and homozygous variant of type indels in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of heterozygous and homozygous variant of type indels in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS -g het / bcftools view -H -v indels -f PASS -g hom`).
 - **Functionally equivalent implementations:**
-  - Criteria: NA
-  - [Candidate]
 
 ### Ratio: Transitions/Transversions (ti/tv)
 
 - **ID:** ratio_transitions_transversions_snv
-- **Description:** The ratio of transitions and transversions of bi-allelic SNVs in [VCF](#VCF-Format), only in [autosomal regions](#Autosomes-non-gap-regions), [high quality variants](#High-quality-variants).
-- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of transitions and transversions of bi-allelic SNVs in VCF, only in [autosomal regions](#Autosomes-non-gap-regions), [high quality-variants](#High-quality-variants) by `bcftools stats`, (bcftools stats -f PASS ... TSTV).
+- **Description:** The ratio of transitions and transversions of bi-allelic SNVs in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of transitions and transversions of bi-allelic SNVs in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality-variants](#high-quality-variants) by `bcftools stats`, (`bcftools stats -f PASS ... TSTV`).
 - **Functionally equivalent implementations:**
-  - Criteria: NA
-  - [Candidate] [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].vc_metrics.csv, key name: `VARIANT CALLER POSTFILTER,<sampleID>,Ti/Tv ratio`
 
-
-### 
 ## Terminologies & Concepts
 
 ### High quality reads
@@ -217,6 +200,7 @@ GRCh38 assembly refers to [1000genome-dragen-3.7.6 reference](https://1000genome
 Overlapping bases refers to [mosdepth documentation](https://github.com/brentp/mosdepth), section "how it works"
 
 ### High quality variants
+
 High quality variants (`PASS FILTER`) refers to [VCF Format Specicification v4.2](https://samtools.github.io/hts-specs/VCFv4.2.pdf), section 1.4.1 "FILTER - filter status:" & [GATK generic hard-filtering recommendations](https://gatk.broadinstitute.org/hc/en-us/articles/360035890471-Hard-filtering-germline-short-variants)
 
 ## References
