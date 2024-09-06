@@ -30,7 +30,7 @@ This section lists several example metrics in an attempt to capture which fields
 
 - **ID:** mean_autosome_coverage
 - **Description:** The mean sequencing coverage derived from short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 20 or greater ([Phred scale](#phred-scale)) and [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads).
-- **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing mean coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics).
+- **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing mean coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics), reporting the MEAN_COVERAGE field.
 - **Functionally equivalent implementations:**
   - [argodnaalnqc v1.0.0](#argo)
 
@@ -38,7 +38,7 @@ This section lists several example metrics in an attempt to capture which fields
 
 - **ID:** pct_autosomes_15x
 - **Description:** The percentage of bases attaining at least 15X sequencing coverage in short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 20 or greater ([Phred scale](#phred-scale)) and [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads).
-- **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing coverage percentage of bases attaining at least 15X of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics).
+- **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing coverage percentage of bases attaining at least 15X of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics), reporting the PCT_15X field.
 - **Functionally equivalent implementations:**
   - [argodnaalnqc v1.0.0](#argo)
 
@@ -81,7 +81,7 @@ This section lists several example metrics in an attempt to capture which fields
 
 - **ID:** mad_autosome_coverage
 - **Description:** The median absolute deviation of sequencing coverage derived from short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 20 or greater ([Phred scale](#phred-scale)) and [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads).
-- **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing median absolute deviation coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics).
+- **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing median absolute deviation coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics), reporting the MAD_COVERAGE field.
 - **Functionally equivalent implementations:**
   - [argodnaalnqc v1.0.0](#argo)
 
@@ -93,6 +93,57 @@ This section lists several example metrics in an attempt to capture which fields
 - **Functionally equivalent implementations:**
   - [argodnaalnqc v1.0.0](#argo)
   - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Estimated sample contamination`
+
+## Variant calling metric list
+
+### Count: SNVs
+
+- **ID:** count_snvs
+- **Description:** The number of variant of type SNVs in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant of type SNVs in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view). (`bcftools view -H -v snps -f PASS`)
+- **Functionally equivalent implementations:**
+
+### Count: Insertions
+
+- **ID:** count_insertions
+- **Description:** The number of variant of type indels categorized as short insertions (less than 50bp) in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant of type indels categorized as insertions in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS....INS`).
+- **Functionally equivalent implementations:**
+
+### Count: Deletions
+
+- **ID:** count_deletions
+- **Description:** The number of variant type indels categorized as short deletions (less than 50bp) in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant of type indels categorized as deletions in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS....DEL`).
+- **Functionally equivalent implementations:**
+
+### Ratio: Insertions/Deletions
+
+- **ID:** ratio_insertion_deletion
+- **Description:** The ratio between number of short insertion and deletion (less than 50bp) in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of insertions and deletion in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS....INS / bcftools view -H -v indels -f PASS....DEL`).
+- **Functionally equivalent implementations:**
+
+### Ratio: Heterozygous/Homozygous (SNVs)
+
+- **ID:** ratio_heterozygous_homzygous_snv
+- **Description:** The ratio of heterozygous and homozygous variant of type SNVs in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of heterozygous and homozygous variant of type SNVs in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v snps -f PASS -g het / bcftools view -H -v snps -f PASS -g hom`).
+- **Functionally equivalent implementations:**
+
+### Ratio: Heterozygous/Homozygous (indels)
+
+- **ID:** ratio_heterozygous_homzygous_indel
+- **Description:** The ratio of heterozygous and homozygous variant of type indels in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of heterozygous and homozygous variant of type indels in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS -g het / bcftools view -H -v indels -f PASS -g hom`).
+- **Functionally equivalent implementations:**
+
+### Ratio: Transitions/Transversions (ti/tv)
+
+- **ID:** ratio_transitions_transversions_snv
+- **Description:** The ratio of transitions and transversions of bi-allelic SNVs in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of transitions and transversions of bi-allelic SNVs in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality-variants](#high-quality-variants) by `bcftools stats`, (`bcftools stats -f PASS ... TSTV`).
+- **Functionally equivalent implementations:**
 
 ## Terminologies & Concepts
 
@@ -148,6 +199,10 @@ GRCh38 assembly refers to [1000genome-dragen-3.7.6 reference](https://1000genome
 
 Overlapping bases refers to [mosdepth documentation](https://github.com/brentp/mosdepth), section "how it works"
 
+### High quality variants
+
+High quality variants (`PASS FILTER`) refers to [VCF Format Specicification v4.2](https://samtools.github.io/hts-specs/VCFv4.2.pdf), section 1.4.1 "FILTER - filter status:" & [GATK generic hard-filtering recommendations](https://gatk.broadinstitute.org/hc/en-us/articles/360035890471-Hard-filtering-germline-short-variants)
+
 ## References
 
 ### ARGO
@@ -169,6 +224,14 @@ Overlapping bases refers to [mosdepth documentation](https://github.com/brentp/m
 ### Samtools stats
 
 [http://www.htslib.org/doc/samtools-stats.html](http://www.htslib.org/doc/samtools-stats.html)
+
+### Samtools view
+
+[http://www.htslib.org/doc/samtools-view.html](http://www.htslib.org/doc/samtools-view.html)
+
+### VCF Format
+
+[https://samtools.github.io/hts-specs/VCFv4.2.pdf]
 
 ### VerifyBamID2
 
