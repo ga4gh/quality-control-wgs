@@ -5,5 +5,5 @@
 **/*checkpoints*
 ./
 # Datasets
-benchmark_resources/n.10000-sg100k-r1.0/*
-benchmark_resources/n.100-1kg-dragen3.7.6-npm-dev*/*
+benchmark_resources/n.10000-sg100k-r1.0
+benchmark_resources/n.100-1kg-dragen3.7.6-npm-dev*
