@@ -1,0 +1,27 @@
+{
+    "biosample": {
+        "id": "NA21137"
+    },
+    "wgs_qc_metrics": {
+        "aln_metrics": {
+            "cross_contamination_rate": 6.33174e-09,
+            "insert_size_std_deviation": 101.7,
+            "mad_autosome_coverage": 4,
+            "mean_autosome_coverage": 29.38,
+            "mean_insert_size": 439.6,
+            "pct_autosomes_15x": 95.76,
+            "pct_reads_mapped": 99.73,
+            "pct_reads_properly_paired": 98.0,
+            "yield_bp_q30": 100315799255
+        },
+        "variant_metrics": {
+            "count_deletions": 440363,
+            "count_insertions": 425960,
+            "count_snvs": 3985175,
+            "ratio_heterozygous_homzygous_indel": 1.98,
+            "ratio_heterozygous_homzygous_snv": 1.61,
+            "ratio_insertion_deletion": 0.97,
+            "ratio_transitions_transversions_snv": 1.96
+        }
+    }
+}
