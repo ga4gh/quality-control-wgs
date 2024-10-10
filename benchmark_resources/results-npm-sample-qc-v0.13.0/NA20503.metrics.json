@@ -3,21 +3,25 @@
         "id": "NA20503"
     },
     "wgs_qc_metrics": {
-        "count_deletions": 436083,
-        "count_insertions": 422501,
-        "count_snvs": 3932520,
-        "cross_contamination_rate": "2.59573e-09",
-        "insert_size_std_deviation": "98.4",
-        "mad_autosome_coverage": "5",
-        "mean_autosome_coverage": "33.99",
-        "mean_insert_size": "435.0",
-        "pct_autosomes_15x": "96.11",
-        "pct_reads_mapped": "99.75",
-        "pct_reads_properly_paired": "98.1",
-        "ratio_heterozygous_homzygous_indel": 1.96,
-        "ratio_heterozygous_homzygous_snv": 1.57,
-        "ratio_insertion_deletion": 0.97,
-        "ratio_transitions_transversions_snv": 1.96,
-        "yield_bp_q30": "117937626140"
+        "aln_metrics": {
+            "cross_contamination_rate": 2.70452e-09,
+            "insert_size_std_deviation": 98.4,
+            "mad_autosome_coverage": 5,
+            "mean_autosome_coverage": 33.99,
+            "mean_insert_size": 435.0,
+            "pct_autosomes_15x": 96.11,
+            "pct_reads_mapped": 99.75,
+            "pct_reads_properly_paired": 98.1,
+            "yield_bp_q30": 117937626140
+        },
+        "variant_metrics": {
+            "count_deletions": 436083,
+            "count_insertions": 422501,
+            "count_snvs": 3932520,
+            "ratio_heterozygous_homzygous_indel": 1.96,
+            "ratio_heterozygous_homzygous_snv": 1.57,
+            "ratio_insertion_deletion": 0.97,
+            "ratio_transitions_transversions_snv": 1.96
+        }
     }
 }
