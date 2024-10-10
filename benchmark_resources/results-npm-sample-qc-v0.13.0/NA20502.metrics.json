@@ -1,0 +1,23 @@
+{
+    "biosample": {
+        "id": "NA20502"
+    },
+    "wgs_qc_metrics": {
+        "count_deletions": 432716,
+        "count_insertions": 418034,
+        "count_snvs": 3886407,
+        "cross_contamination_rate": "6.98002e-09",
+        "insert_size_std_deviation": "100.4",
+        "mad_autosome_coverage": "5",
+        "mean_autosome_coverage": "32.40",
+        "mean_insert_size": "443.8",
+        "pct_autosomes_15x": "96.00",
+        "pct_reads_mapped": "99.72",
+        "pct_reads_properly_paired": "98.0",
+        "ratio_heterozygous_homzygous_indel": 1.95,
+        "ratio_heterozygous_homzygous_snv": 1.57,
+        "ratio_insertion_deletion": 0.97,
+        "ratio_transitions_transversions_snv": 1.96,
+        "yield_bp_q30": "111299579597"
+    }
+}
