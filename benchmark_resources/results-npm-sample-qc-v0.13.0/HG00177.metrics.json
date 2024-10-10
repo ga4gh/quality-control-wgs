@@ -1,0 +1,23 @@
+{
+    "biosample": {
+        "id": "HG00177"
+    },
+    "wgs_qc_metrics": {
+        "count_deletions": 430262,
+        "count_insertions": 417393,
+        "count_snvs": 3866918,
+        "cross_contamination_rate": "1.91266e-09",
+        "insert_size_std_deviation": "98.8",
+        "mad_autosome_coverage": "4",
+        "mean_autosome_coverage": "29.74",
+        "mean_insert_size": "433.9",
+        "pct_autosomes_15x": "95.85",
+        "pct_reads_mapped": "99.77",
+        "pct_reads_properly_paired": "98.2",
+        "ratio_heterozygous_homzygous_indel": 1.92,
+        "ratio_heterozygous_homzygous_snv": 1.55,
+        "ratio_insertion_deletion": 0.97,
+        "ratio_transitions_transversions_snv": 1.96,
+        "yield_bp_q30": "103575432675"
+    }
+}
