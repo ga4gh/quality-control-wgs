@@ -10,11 +10,21 @@ For development and production samples, QC of Whole Genome Sequencing (WGS) resu
 
 Given the increase in the number of population-scale studies and clinical genome testing, we believe that creating a common framework for QC of WGS results is needed to ensure that data generation adheres to published guidelines, in turn establishing confidence in the data quality and facilitating the exchange of results across initiatives. We propose to engage with GA4GH/NI contributors and relevant tool developers to work on a reference implementation that would provide practical recommendations on this matter. In particular, such work would complement existing guidelines by providing (i) standardized definitions for key QC metrics, (ii) a new file format/schema to make it easier to report QC metric outputs, (iii) tools for calculating them, and (iv) benchmarking resources that would aid in the interpretation and monitoring of results.
 
-## Documentation
+## WGS Quality Control - Metrics Definition 
 
-The core documentation can be found in [metrics definitions](https://github.com/ga4gh/quality-control-wgs/tree/main/metrics_definitions).
-Other Links of Interest:
+Definitions for WGS Quality Control Metrics can be found in [metrics definitions](https://github.com/ga4gh/quality-control-wgs/tree/main/metrics_definitions).
 
+## WGS Quality Control - Implementions
+
+Pointers to github-hosted implementations' source code for WGS Quality Control can be found in [reference implementations](https://github.com/ga4gh/quality-control-wgs/tree/main/reference_implementations).
+
+Deployment of WGS Quality Control Implementions via GA4GH [DockStore](https://dockstore.org/) 
+ - [NPM-sample-qc](https://dockstore.org/workflows/github.com/c-BIG/NPM-sample-qc/NPM-sample-qc:master?tab=info)
+ - [ICGC-ARGO-dnaalnqc](https://dockstore.org/workflows/github.com/icgc-argo-workflows/dnaalnqc/dnaalnqc:main?tab=info)
+
+## Other Links of Interest
+
+["WGS Quality Control Standards"](https://www.ga4gh.org/product/wgs-quality-control-standards/) GA4GH product page
 - [Roadmap Document](https://docs.google.com/document/d/1T2Ls5HRz5xR9sQkH6YnktFWfjEEmSBchA6twHbfGJ_o/edit?usp=sharing)
 - [Meeting Minutes](https://docs.google.com/document/d/1a4ns_QbN4OzDiSThyfsZ0JITfrZTmW3g3HCWDpqPvr4/edit?usp=share_link)
 - [Landscape Analysis](https://docs.google.com/spreadsheets/d/1SKy1p38RJf3YNJ33XPIS8qLY5exF93pxdfozaiMnJqQ/edit?usp=share_link)
