@@ -1,0 +1,16 @@
+{
+  "biosample": {
+    "id": "HG02462"
+  },
+  "wgs_qc_metrics": {
+    "yield_bp_q30": 113627494040.0,
+    "mean_autosome_coverage": 32.21,
+    "pct_autosomes_15x": 96.0,
+    "mad_autosome_coverage": 5.0,
+    "pct_reads_mapped": 99.75,
+    "pct_reads_properly_paired": 98.02,
+    "mean_insert_size": 442.4,
+    "insert_size_std_deviation": 101.9,
+    "cross_contamination_rate": 2.4133147146036066e-05
+  }
+}
