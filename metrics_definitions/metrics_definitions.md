@@ -154,9 +154,9 @@ This section lists several example metrics in an attempt to capture which fields
 
 ### Yield: Base Pair
 
-- **ID:** yield_bp_xx
+- **ID:** yield_bp_30_long
 - **Description:** The number of bases in long sequencing...
-The number of bases in long sequencing [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of xx or greater ([Phred scale](#phred-scale)). No minimum [mapping quality](#mapping-quality) is imposed.
+The number of bases in long sequencing [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 30 or greater ([Phred scale](#phred-scale)). No minimum [mapping quality](#mapping-quality) is imposed.
 - **Implementation details:** In the NPM-sample-QC reference implementation it is computed using....
 - **Functionally equivalent implementations:**
 
