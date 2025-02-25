@@ -4,8 +4,7 @@ In this document, the QC of WGS workgroup intends to identify a set of key QC me
 
 ## General notes
 
-In terms of scope, the workgroup has agreed to focus on QC of germline WGS first. While all of the workgroup participants are working with short-read data at the moment, we wish to make the definitions general enough to be applicable to other technologies as well. The workgroup also acknowledges that there are multiple stages in the analysis pipeline at which one may want to perform QC (e.g. post-FASTQ generation, post-alignment, post-variant calling). For the first iteration of the guidelines, the workgroup has agreed to focus on metrics that can be obtained from a BAM/CRAM file. Thus, metrics such as contamination or variant counts remain out of scope at the moment.
-
+In terms of scope, the workgroup has agreed to focus on QC of germline WGS first. While all of the workgroup participants are working with short-read data at the moment, we wish to make the definitions general enough to be applicable to other technologies as well. The workgroup also acknowledges that there are multiple stages in the analysis pipeline at which one may want to perform QC (e.g. post-FASTQ generation, post-alignment, post-variant calling). For the first iteration of the guidelines, the workgroup has agreed to focus on metrics that can be obtained from a BAM/CRAM and VCF file.
 ## Controlled vocabulary
 
 This section lists several example metrics in an attempt to capture which fields would be required to accurately describe how each metric has been calculated. When defining each metric, we attempt to align to the following general template:
@@ -143,6 +142,14 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** ratio_transitions_transversions_snv
 - **Description:** The ratio of transitions and transversions of bi-allelic SNVs in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of transitions and transversions of bi-allelic SNVs in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality-variants](#high-quality-variants) by `bcftools stats`, (`bcftools stats -f PASS ... TSTV`).
+- **Functionally equivalent implementations:**
+
+## Long-read Alignment metric list
+### N50
+
+- **ID:** read_N50
+- **Description:** The length at which 50% of the total bases in a sequencing dataset are contained in reads of at least that length.
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the read N50 in [primary alignments](#primary-alignments), mapped on [GRCh38 assembly](#grch38-assembly). No minimum [mapping quality](#mapping-quality) is imposed.
 - **Functionally equivalent implementations:**
 
 ## Terminologies & Concepts
