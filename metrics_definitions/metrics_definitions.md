@@ -148,9 +148,39 @@ This section lists several example metrics in an attempt to capture which fields
 ### N50
 
 - **ID:** read_N50
+- **Description:** The length at which 50% of the total bases of a long-read sequencing dataset are contained in reads of at least that length in [primary alignments](#primary-alignments), mapped on [GRCh38 assembly].
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the read N50 in [primary alignments](#primary-alignments), mapped on [GRCh38 assembly](#grch38-assembly). No minimum [mapping quality](#mapping-quality) is imposed.
+- **Functionally equivalent implementations:**
+
+### Yield: Base Pair
+
+- **ID:** yield_bp_xx
+- **Description:** The number of bases in long sequencing...
+The number of bases in long sequencing [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of xx or greater ([Phred scale](#phred-scale)). No minimum [mapping quality](#mapping-quality) is imposed.
+- **Implementation details:** In the NPM-sample-QC reference implementation it is computed using....
+- **Functionally equivalent implementations:**
+
+### Yield: Read 15kb
+
+- **ID:** yield_read_15kb
+- **Description:** Long-read sequencing yield reads over 15kb to the total number of sequencing reads that are greater than 15,000 base pairs (15kb) in length in [primary alignments](#primary-alignments), mapped on [GRCh38 assembly](#grch38-assembly).
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the reads over 15kb to the total number of sequencing reads that are greater than 15,000 base pairs (15kb) in [primary alignments](#primary-alignments), mapped on [GRCh38 assembly](#grch38-assembly). No minimum [mapping quality](#mapping-quality) is imposed.
+- **Functionally equivalent implementations:**
+
+### Percent read mapped Long-read
+
+- **ID:** pct_reads_mapped_long
 - **Description:** The length at which 50% of the total bases in a sequencing dataset are contained in reads of at least that length.
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the read N50 in [primary alignments](#primary-alignments), mapped on [GRCh38 assembly](#grch38-assembly). No minimum [mapping quality](#mapping-quality) is imposed.
 - **Functionally equivalent implementations:**
+
+### Percent autosomes covered ≥ 15 X
+
+- **ID:** pct_autosomes_15x_long
+- **Description:** The length at which 50% of the total bases in a sequencing dataset are contained in reads of at least that length.
+- **Implementation details:** In the NPM-sample-QC reference implementation, calculate the read N50 in [primary alignments](#primary-alignments), mapped on [GRCh38 assembly](#grch38-assembly). No minimum [mapping quality](#mapping-quality) is imposed.
+- **Functionally equivalent implementations:**
+
 
 ## Terminologies & Concepts
 
