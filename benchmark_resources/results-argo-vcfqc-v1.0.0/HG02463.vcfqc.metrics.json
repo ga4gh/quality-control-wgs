@@ -1,0 +1,14 @@
+{
+  "biosample": {
+    "id": "HG02463"
+  },
+  "vcf_qc_metrics": {
+    "ratio_transitions_transversions_snv": 1.97,
+    "count_deletions": 507657,
+    "ratio_heterozygous_homzygous_indel": 2.63,
+    "ratio_heterozygous_homzygous_snv": 1.95,
+    "count_insertions": 483302,
+    "ratio_insertion_deletion": 0.95,
+    "count_snvs": 4689368
+  }
+}
