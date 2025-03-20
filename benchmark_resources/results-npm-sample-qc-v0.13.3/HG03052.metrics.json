@@ -4,7 +4,7 @@
     },
     "wgs_qc_metrics": {
         "aln_metrics": {
-            "cross_contamination_rate_round": 0.0,
+            "cross_contamination_rate": 0.0,
             "insert_size_std_deviation": 104.7,
             "mad_autosome_coverage": 4,
             "mean_autosome_coverage": 30.2,
