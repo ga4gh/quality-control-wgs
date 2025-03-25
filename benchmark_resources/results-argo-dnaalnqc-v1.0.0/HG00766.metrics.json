@@ -5,7 +5,7 @@
   "wgs_qc_metrics": {
     "yield_bp_q30": 108453041044.0,
     "mean_autosome_coverage": 31.61,
-    "pct_autosomes_15x": 96.0,
+    "pct_autosomes_15x": 95.99,
     "mad_autosome_coverage": 5.0,
     "pct_reads_mapped": 99.79,
     "pct_reads_properly_paired": 98.28,
