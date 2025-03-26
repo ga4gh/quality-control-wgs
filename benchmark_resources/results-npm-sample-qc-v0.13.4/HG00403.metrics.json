@@ -1,0 +1,27 @@
+{
+    "biosample": {
+        "id": "HG00403"
+    },
+    "wgs_qc_metrics": {
+        "aln_metrics": {
+            "cross_contamination_rate": 0.0,
+            "insert_size_std_deviation": 100.7,
+            "mad_autosome_coverage": 4,
+            "mean_autosome_coverage": 30.16,
+            "mean_insert_size": 439.5,
+            "pct_autosomes_15x": 95.92,
+            "pct_reads_mapped": 99.77,
+            "pct_reads_properly_paired": 98.0,
+            "yield_bp_q30": 105917284902
+        },
+        "variant_metrics": {
+            "count_deletions": 436584,
+            "count_insertions": 423643,
+            "count_snvs": 3931812,
+            "ratio_heterozygous_homzygous_indel": 1.74,
+            "ratio_heterozygous_homzygous_snv": 1.4,
+            "ratio_insertion_deletion": 0.97,
+            "ratio_transitions_transversions_snv": 1.96
+        }
+    }
+}
