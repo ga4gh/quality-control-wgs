@@ -145,6 +145,53 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the ratio of transitions and transversions of bi-allelic SNVs in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality-variants](#high-quality-variants) by `bcftools stats`, (`bcftools stats -f PASS ... TSTV`).
 - **Functionally equivalent implementations:**
 
+## Somatic Variant metric list
+
+### Tumour In Normal Contamination
+- **ID:** tumour_in_normal_contamination_rate
+- **Description:** The fraction of tumour DNA sequence reads found in normal sample, impacts the detection of true somatic variants.
+- **Implementation details:**
+- **Type:** Decimal.
+- **Functionally equivalent implementations:**
+### Ploidy
+- **ID:** ploidy
+- **Description:** The measure of sets of chromosomes; particular interest in Aneuploidy
+- **Implementation details:**
+- **Type:** Decimal.
+- **Functionally equivalent implementations:**
+### Tumour Purity
+- **ID:** tumour_purity_rate
+- **Description:** The fraction of cancer cells in sample, low purity samples make somatic call detection difficult
+- **Implementation details:**
+- **Type:** Decimal.
+- **Functionally equivalent implementations:**
+### Tumour Mutation Burden
+- **ID:** tumour_mutation_burden
+- **Description:** The number of somatic mutations per megabase of interrogated genomic sequence
+- **Implementation details:**
+- **Type:** Decimal.
+- **Functionally equivalent implementations:**
+### Mean Variant Allele Frequency
+- **ID:** mean_vaf
+- **Description:** The mean fraction of observed variant sequence reads at high quality variants in autosomal regions
+- **Implementation details:**
+- **Type:** Decimal.
+- **Functionally equivalent implementations:**
+### dbSNP Overlap Rate
+- **ID:** dbsnp_overlap_rate
+- **Description:** The fraction of called variants that overlap known entries in dbSNP.
+- **Implementation details:**
+- **Type:** Decimal.
+- **Functionally equivalent implementations:**
+### Callablility
+- **ID:** callability
+- **Description:** Fraction of targeted (or genome-wide) bases or intervals where have at least 10X sequencing coverage
+- **Implementation details:**
+- **Type:** Decimal.
+- **Functionally equivalent implementations:**
+
+
+
 ## Terminologies & Concepts
 
 ### High quality reads
