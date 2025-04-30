@@ -89,7 +89,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** mad_autosome_coverage
 - **Description:** The median absolute deviation of sequencing coverage derived from short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 20 or greater ([Phred scale](#phred-scale)) and [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads).
 - **Implementation details:** In the NPM-sample-QC reference implementation, the genome-wide sequencing median absolute deviation coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics), reporting the MAD_COVERAGE field.
-- **Type:** Integer
+- **Type:** Integer (eg. 4)
 - **Functionally equivalent implementations:**
   - [argodnaalnqc v1.0.0](#argo)
 
@@ -110,7 +110,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** count_snvs
 - **Description:** The number of variant of type SNVs in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant of type SNVs in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v snps -f PASS`).
-- **Type:** Integer
+- **Type:** Integer (eg. 3906868)
 - **Functionally equivalent implementations:**
 
 ### Count: Insertions
@@ -118,7 +118,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** count_insertions
 - **Description:** The number of variant of type indels categorized as short insertions (less than 50bp) in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant of type indels categorized as insertions in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS....INS`).
-- **Type:** Integer
+- **Type:** Integer (eg. 490511)
 - **Functionally equivalent implementations:**
 
 ### Count: Deletions
@@ -126,7 +126,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **ID:** count_deletions
 - **Description:** The number of variant type indels categorized as short deletions (less than 50bp) in [VCF](#vcf-format), only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants).
 - **Implementation details:** In the NPM-sample-QC reference implementation, calculate the number of variant of type indels categorized as deletions in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS....DEL`).
-- **Type:** Integer
+- **Type:** Integer (eg. 444892)
 - **Functionally equivalent implementations:**
 
 ### Ratio: Insertions/Deletions
