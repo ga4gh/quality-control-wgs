@@ -5,12 +5,12 @@
   "wgs_qc_metrics": {
     "yield_bp_q30": 110149704975.0,
     "mean_autosome_coverage": 31.71,
-    "pct_autosomes_15x": 96.0,
+    "pct_autosomes_15x": 96.05,
     "mad_autosome_coverage": 5.0,
     "pct_reads_mapped": 99.7,
     "pct_reads_properly_paired": 97.76,
     "mean_insert_size": 442.5,
     "insert_size_std_deviation": 101.8,
-    "cross_contamination_rate": 0.0018462008617550745
+    "cross_contamination_rate": 0.0018
   }
 }
