@@ -1,0 +1,14 @@
+{
+  "biosample": {
+    "id": "NA19702"
+  },
+  "vcf_qc_metrics": {
+    "ratio_transitions_transversions_snv": 1.97,
+    "count_deletions": 574951,
+    "ratio_heterozygous_homzygous_indel": 2.718341901055467,
+    "ratio_heterozygous_homzygous_snv": 2.0516621397953028,
+    "count_insertions": 562266,
+    "ratio_insertion_deletion": 0.9779372503048086,
+    "count_snvs": 4648069
+  }
+}
