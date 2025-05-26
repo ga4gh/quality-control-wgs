@@ -15,12 +15,12 @@
             "yield_bp_q30": 110149704975
         },
         "variant_metrics": {
-            "count_deletions": 454536,
-            "count_insertions": 506246,
+            "count_deletions": 497630,
+            "count_insertions": 494847,
             "count_snvs": 4008431,
             "ratio_heterozygous_homzygous_indel": 2.03,
             "ratio_heterozygous_homzygous_snv": 1.61,
-            "ratio_insertion_deletion": 1.11,
+            "ratio_insertion_deletion": 0.99,
             "ratio_transitions_transversions_snv": 1.96
         }
     }
