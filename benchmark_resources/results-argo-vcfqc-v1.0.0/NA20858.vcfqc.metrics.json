@@ -4,11 +4,11 @@
   },
   "vcf_qc_metrics": {
     "ratio_transitions_transversions_snv": 1.96,
-    "count_deletions": 440455,
-    "ratio_heterozygous_homzygous_indel": 2.08,
-    "ratio_heterozygous_homzygous_snv": 1.66,
-    "count_insertions": 427462,
-    "ratio_insertion_deletion": 0.97,
+    "count_deletions": 493466,
+    "ratio_heterozygous_homzygous_indel": 2.075413455182549,
+    "ratio_heterozygous_homzygous_snv": 1.6589499239413448,
+    "count_insertions": 490252,
+    "ratio_insertion_deletion": 0.9934868866345402,
     "count_snvs": 3988845
   }
 }
