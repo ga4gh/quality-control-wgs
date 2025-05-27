@@ -4,3 +4,6 @@
 [submodule "reference_implementations/argo-dnaalnqc"]
 	path = reference_implementations/argo-dnaalnqc
 	url = https://github.com/icgc-argo-workflows/dnaalnqc
+[submodule "reference_implementations/argo-vcfqc"]
+	path = reference_implementations/argo-vcfqc
+	url = https://github.com/icgc-argo-workflows/vcfqc
