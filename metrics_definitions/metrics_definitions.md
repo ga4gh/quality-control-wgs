@@ -223,7 +223,8 @@ High quality variants (`PASS FILTER`) refers to [VCF Format Specicification v4.2
 
 ### ARGO
 
-[https://github.com/icgc-argo-workflows/argo-modules](https://github.com/icgc-argo-workflows/argo-modules)
+[https://github.com/icgc-argo-workflows/argo-modules](https://github.com/icgc-argo-workflows/dnaalnqc)
+[https://github.com/icgc-argo-workflows/argo-modules](https://github.com/icgc-argo-workflows/vcfqc)
 
 ### DRAGEN
 
@@ -236,6 +237,9 @@ High quality variants (`PASS FILTER`) refers to [VCF Format Specicification v4.2
 ### Datamash
 
 [https://www.gnu.org/software/datamash/](https://www.gnu.org/software/datamash/)
+
+### NPM-sample-qc
+[https://github.com/c-BIG/NPM-sample-qc](https://github.com/c-BIG/NPM-sample-qc)
 
 ### Samtools stats
 
