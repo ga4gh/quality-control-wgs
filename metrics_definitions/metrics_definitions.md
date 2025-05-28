@@ -223,8 +223,8 @@ High quality variants (`PASS FILTER`) refers to [VCF Format Specicification v4.2
 
 ### ARGO
 
-[https://github.com/icgc-argo-workflows/argo-modules](https://github.com/icgc-argo-workflows/dnaalnqc)
-[https://github.com/icgc-argo-workflows/argo-modules](https://github.com/icgc-argo-workflows/vcfqc)
+[https://github.com/icgc-argo-workflows/dnaalnqc](https://github.com/icgc-argo-workflows/dnaalnqc)
+[https://github.com/icgc-argo-workflows/vcfqc](https://github.com/icgc-argo-workflows/vcfqc)
 
 ### DRAGEN
 
