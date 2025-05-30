@@ -11,7 +11,7 @@
             "mean_insert_size": 450.2,
             "pct_autosomes_15x": 96.07,
             "pct_reads_mapped": 99.75,
-            "pct_reads_properly_paired": 98.2,
+            "pct_reads_properly_paired": 98.22,
             "yield_bp_q30": 108960909689
         },
         "variant_metrics": {
