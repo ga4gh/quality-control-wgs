@@ -5,10 +5,10 @@
   "vcf_qc_metrics": {
     "ratio_transitions_transversions_snv": 1.97,
     "count_deletions": 491322,
-    "ratio_heterozygous_homzygous_indel": 2.0571751970397543,
-    "ratio_heterozygous_homzygous_snv": 1.6299097897667683,
+    "ratio_heterozygous_homzygous_indel": 2.06,
+    "ratio_heterozygous_homzygous_snv": 1.63,
     "count_insertions": 487076,
-    "ratio_insertion_deletion": 0.9913580096148757,
+    "ratio_insertion_deletion": 0.99,
     "count_snvs": 3951997
   }
 }
