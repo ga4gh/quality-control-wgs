@@ -24,7 +24,7 @@ Deployment of WGS Quality Control Implementions via GA4GH [DockStore](https://do
 
 ## Other Links of Interest
 
-["WGS Quality Control Standards"](https://www.ga4gh.org/product/wgs-quality-control-standards/) GA4GH product page
+["WGS Quality Control Standards"](https://www.ga4gh.org/product/wgs-quality-control-standards/) GA4GH product page and ["product specification"] (https://c-big.github.io/NPM-sample-qc/)
 - [Roadmap Document](https://docs.google.com/document/d/1T2Ls5HRz5xR9sQkH6YnktFWfjEEmSBchA6twHbfGJ_o/edit?usp=sharing)
 - [Meeting Minutes](https://docs.google.com/document/d/1a4ns_QbN4OzDiSThyfsZ0JITfrZTmW3g3HCWDpqPvr4/edit?usp=share_link)
 - [Landscape Analysis](https://docs.google.com/spreadsheets/d/1SKy1p38RJf3YNJ33XPIS8qLY5exF93pxdfozaiMnJqQ/edit?usp=share_link)
