@@ -259,7 +259,7 @@ vcfqc: [https://github.com/icgc-argo-workflows/vcfqc](https://github.com/icgc-ar
 
 ### VCF Format
 
-[https://samtools.github.io/hts-specs/VCFv4.2.pdf]
+[https://samtools.github.io/hts-specs/VCFv4.2.pdf](https://samtools.github.io/hts-specs/VCFv4.2.pdf)
 
 ### VerifyBamID2
 
