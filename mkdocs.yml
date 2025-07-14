@@ -1,0 +1,11 @@
+site_name: GA4GH Quality Control of Whole Genome Sequencing Specifications
+site_url: https://ga4gh.github.io/wgs-qc
+repo_url: https://github.com/ga4gh/quality-control-wgs
+copyright: GA4GH Large Scale Genomics Workstream, wgs-qc team
+
+nav:
+  - Home: README.md
+  - Specifications: 
+    - metrics_definitions: metrics_definitions/metrics_definitions.md
+
+theme: readthedocs
