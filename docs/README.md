@@ -1,7 +1,8 @@
-<div class="title container">
-<img src="img/ga4gh-logo.png" class="title" width="300">
-<h1>WGS QC specifications</h1>
+<div class="title container" style="display: flex; align-items: center; gap: 50px;">
+  <h1 style="font-size: 2rem; font-weight: normal; color: #888888; margin: 0;">WGS QC specifications</h1>
+  <img src="img/ga4gh-logo.png" class="title" width="300">
 </div>
+
 
 # Quality Control of WGS
 
