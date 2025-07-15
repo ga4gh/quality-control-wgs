@@ -1,3 +1,10 @@
+<div class="title container" style="display: flex; align-items: center; gap: 50px;">
+  <h1 style="font-size: 2rem; font-weight: normal; color: #888888; margin: 0;">GA4GH WGS Quality Control Standards</h1>
+  <img src="https://www.ga4gh.org/wp-content/themes/ga4gh/dist/assets/svg/logos/logo-full-color.svg" class="title" width="300">
+</div>
+<br>
+
+
 # Motivation & Mandate
 
 Robust quality control (QC) of results is key for the successful delivery of population-scale sequencing efforts, even more so when the scope of such efforts includes clinical diagnostic testing. 

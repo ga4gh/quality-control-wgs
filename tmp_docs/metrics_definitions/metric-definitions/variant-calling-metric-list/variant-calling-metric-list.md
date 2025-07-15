@@ -1,2 +1,0 @@
-# Variant calling metric list
-
