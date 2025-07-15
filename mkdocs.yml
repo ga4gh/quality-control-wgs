@@ -8,13 +8,12 @@ plugins:
 #  - mkdocs-video
 
 nav:
-  - Home: index.md
   - About:
      - motivation.md
      - implementations.md
      - links.md
-  - metrics definitions: 
-     - About: metrics_definitions/about.md 
+  - Specifications: 
+     - Metric definitions: metrics_definitions/about.md 
      - Alignment metrics:
        - metrics_definitions/bases-q30.md
        - metrics_definitions/cross-contamination.md
