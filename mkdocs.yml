@@ -1,11 +1,42 @@
-site_name: GA4GH Quality Control of Whole Genome Sequencing Specifications
+site_name: GA4GH WGS Quality Control Standards
 site_url: https://ga4gh.github.io/wgs-qc
 repo_url: https://github.com/ga4gh/quality-control-wgs
 copyright: GA4GH Large Scale Genomics Workstream, wgs-qc team
 
-nav:
-  - Home: README.md
-  - Specifications: 
-    - metrics_definitions: metrics_definitions/metrics_definitions.md
+plugins:
+  - search
+#  - mkdocs-video
 
-theme: readthedocs 
+nav:
+  - Home: index.md
+  - About:
+     - motivation.md
+     - implementations.md
+     - links.md
+  - metrics definitions: 
+     - About: metrics_definitions/about.md 
+     - Alignment metrics:
+       - metrics_definitions/bases-q30.md
+       - metrics_definitions/cross-contamination.md
+       - metrics_definitions/genome-coverage-uniformity.md
+       - metrics_definitions/insert-size-standard-deviation.md
+       - metrics_definitions/mean-autosome-coverage.md
+       - metrics_definitions/mean-insert-size.md
+       - metrics_definitions/metrics_definitions.md
+       - metrics_definitions/percent-autosomes-covered-15-x.md
+       - metrics_definitions/percent-reads-mapped.md
+       - metrics_definitions/percent-reads-properly-paired.md
+     - Variant calling metrics:
+       - metrics_definitions/count-deletions.md
+       - metrics_definitions/count-insertions.md
+       - metrics_definitions/count-snvs.md
+       - metrics_definitions/ratio-heterozygous-homozygous-indels.md
+       - metrics_definitions/ratio-heterozygous-homozygous-snvs.md
+       - metrics_definitions/ratio-insertions-deletions.md
+       - metrics_definitions/ratio-transitions-transversions-ti-tv.md
+     - Terminologies & Concepts: metrics_definitions/terminologies.md
+
+theme: readthedocs
+
+extra_css:
+  - stylesheets/extra.css 
