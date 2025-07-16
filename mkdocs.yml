@@ -21,7 +21,6 @@ nav:
        - metrics_definitions/insert-size-standard-deviation.md
        - metrics_definitions/mean-autosome-coverage.md
        - metrics_definitions/mean-insert-size.md
-       - metrics_definitions/metrics_definitions.md
        - metrics_definitions/percent-autosomes-covered-15-x.md
        - metrics_definitions/percent-reads-mapped.md
        - metrics_definitions/percent-reads-properly-paired.md
