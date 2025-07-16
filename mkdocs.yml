@@ -5,7 +5,6 @@ copyright: GA4GH Large Scale Genomics Workstream, wgs-qc team
 
 plugins:
   - search
-#  - mkdocs-video
 
 nav:
   - About:
@@ -36,5 +35,3 @@ nav:
 
 theme: readthedocs
 
-extra_css:
-  - stylesheets/extra.css 
