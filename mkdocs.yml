@@ -10,6 +10,7 @@ nav:
   - About:
      - motivation.md
      - implementations.md
+     - benchmark_resources.md
      - links.md
   - Specifications: 
      - Metric definitions: metrics_definitions/about.md 
