@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://ga4gh.github.io/quality-control-wgs/metrics_definitions/mean-autosome-coverage/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://ga4gh.github.io/wgs-qc/metrics_definitions/mean-autosome-coverage/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Mean autosome coverage - GA4GH WGS Quality Control Standards</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -14,7 +14,7 @@
         // Current page data
         var mkdocs_page_name = "Mean autosome coverage";
         var mkdocs_page_input_path = "metrics_definitions/mean-autosome-coverage.md";
-        var mkdocs_page_url = "/quality-control-wgs/metrics_definitions/mean-autosome-coverage/";
+        var mkdocs_page_url = "/wgs-qc/metrics_definitions/mean-autosome-coverage/";
       </script>
     
     <!--[if lt IE 9]>
@@ -96,6 +96,17 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../terminologies/">Terminologies & Concepts</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../References/">References</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Implementation Benchmarking</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../benchmark_resources_about/">About</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../benchmark_resources_data/">Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../benchmark_resources_notebook/">Jupyter Notebook</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -127,7 +138,7 @@
 <ul>
 <li><strong>ID:</strong> mean_autosome_coverage</li>
 <li><strong>Description:</strong> The mean sequencing coverage derived from short paired-end sequencing <a href="../terminologies/#high-quality-reads">high quality</a>, <a href="../terminologies/#duplicated-reads">non duplicated</a> reads, <a href="../terminologies/#primary-alignments">primary alignments</a>, achieving a <a href="../terminologies/#base-quality-score">base quality score</a> of 20 or greater (<a href="../terminologies/#phred-scale">Phred scale</a>) and <a href="../terminologies/#mapping-quality">mapping quality</a> of 20 or greater, in <a href="../terminologies/#autosomes-non-gap-regions">autosomes non gap regions</a> of <a href="../terminologies/#grch38-assembly">GRCh38 assembly</a>. <a href="../terminologies/#overlapping-bases">Overlapping bases</a> are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for <a href="../terminologies/#duplicated-reads">duplicated reads</a>.</li>
-<li><strong>Implementation details:</strong> In the <a href="../terminologies/#npm-sample-qc">NPM-sample-QC</a> reference implementation, the genome-wide sequencing mean coverage of the non gap regions of GRCh38 assembly, autosomes only using <a href="../terminologies/#bedtools-subtract">bedtools subtract</a>, non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from <a href="../terminologies/#Picard-CollectWgsMetrics">picard 2.27.0 CollectWgsMetrics</a>, reporting the MEAN_COVERAGE field.</li>
+<li><strong>Implementation details:</strong> In the <a href="../terminologies/#npm-sample-qc">NPM-sample-QC</a> reference implementation, the genome-wide sequencing mean coverage of the non gap regions of GRCh38 assembly, autosomes only using <a href="../terminologies/#bedtools-subtract">bedtools subtract</a>, non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from <a href="../terminologies/#picard-collectwgsmetrics">GATK Picard’s CollectWgsMetrics</a>, reporting the MEAN_COVERAGE field.</li>
 <li><strong>Type:</strong> Float 2 decimal precision (eg. 30.94)</li>
 <li><strong>Functionally equivalent implementations:</strong><ul>
 <li><a href="../terminologies/#argo">ARGO dnaalnqc v1.1.0</a></li>

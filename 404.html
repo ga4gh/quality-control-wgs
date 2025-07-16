@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="/quality-control-wgs/img/favicon.ico" />
+      <link rel="shortcut icon" href="/wgs-qc/img/favicon.ico" />
     <title>GA4GH WGS Quality Control Standards</title>
-    <link rel="stylesheet" href="/quality-control-wgs/css/theme.css" />
-    <link rel="stylesheet" href="/quality-control-wgs/css/theme_extra.css" />
+    <link rel="stylesheet" href="/wgs-qc/css/theme.css" />
+    <link rel="stylesheet" href="/wgs-qc/css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
     <!--[if lt IE 9]>
-      <script src="/quality-control-wgs/js/html5shiv.min.js"></script>
+      <script src="/wgs-qc/js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
@@ -23,9 +23,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="/quality-control-wgs/." class="icon icon-home"> GA4GH WGS Quality Control Standards
+          <a href="/wgs-qc/." class="icon icon-home"> GA4GH WGS Quality Control Standards
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="/quality-control-wgs//search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="/wgs-qc//search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -34,58 +34,69 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">About</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="/quality-control-wgs/motivation/">Motivation</a>
+                  <li class="toctree-l1"><a class="reference internal" href="/wgs-qc/motivation/">Motivation</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="/quality-control-wgs/implementations/">Implementations</a>
+                  <li class="toctree-l1"><a class="reference internal" href="/wgs-qc/implementations/">Implementations</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="/quality-control-wgs/links/">Links</a>
+                  <li class="toctree-l1"><a class="reference internal" href="/wgs-qc/links/">Links</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Specifications</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/about/">Metric definitions</a>
+                  <li class="toctree-l1"><a class="reference internal" href="/wgs-qc/metrics_definitions/about/">Metric definitions</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" >Alignment metrics</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/bases-q30/">Bases ≥ Q30</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/bases-q30/">Bases ≥ Q30</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/cross-contamination/">Cross contamination</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/cross-contamination/">Cross contamination</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/genome-coverage-uniformity/">Genome coverage uniformity</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/genome-coverage-uniformity/">Genome coverage uniformity</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/insert-size-standard-deviation/">Insert size standard deviation</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/insert-size-standard-deviation/">Insert size standard deviation</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/mean-autosome-coverage/">Mean autosome coverage</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/mean-autosome-coverage/">Mean autosome coverage</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/mean-insert-size/">Mean insert size</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/mean-insert-size/">Mean insert size</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/percent-autosomes-covered-15-x/">Percent autosomes covered ≥ 15 X</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/percent-autosomes-covered-15-x/">Percent autosomes covered ≥ 15 X</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/percent-reads-mapped/">Percent reads mapped</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/percent-reads-mapped/">Percent reads mapped</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/percent-reads-properly-paired/">Percent reads properly paired</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/percent-reads-properly-paired/">Percent reads properly paired</a>
                 </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" >Variant calling metrics</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/count-deletions/">Count: Deletions</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/count-deletions/">Count: Deletions</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/count-insertions/">Count: Insertions</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/count-insertions/">Count: Insertions</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/count-snvs/">Count: SNVs</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/count-snvs/">Count: SNVs</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/ratio-heterozygous-homozygous-indels/">Ratio: Heterozygous/Homozygous (indels)</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/ratio-heterozygous-homozygous-indels/">Ratio: Heterozygous/Homozygous (indels)</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/ratio-heterozygous-homozygous-snvs/">Ratio: Heterozygous/Homozygous (SNVs)</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/ratio-heterozygous-homozygous-snvs/">Ratio: Heterozygous/Homozygous (SNVs)</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/ratio-insertions-deletions/">Ratio: Insertions/Deletions</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/ratio-insertions-deletions/">Ratio: Insertions/Deletions</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/ratio-transitions-transversions-ti-tv/">Ratio: Transitions/Transversions (ti/tv)</a>
+                <li class="toctree-l2"><a class="reference internal" href="/wgs-qc/metrics_definitions/ratio-transitions-transversions-ti-tv/">Ratio: Transitions/Transversions (ti/tv)</a>
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="/quality-control-wgs/metrics_definitions/terminologies/">Terminologies & Concepts</a>
+                  <li class="toctree-l1"><a class="reference internal" href="/wgs-qc/metrics_definitions/terminologies/">Terminologies & Concepts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/wgs-qc/metrics_definitions/References/">References</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Implementation Benchmarking</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="/wgs-qc/benchmark_resources_about/">About</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/wgs-qc/benchmark_resources_data/">Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/wgs-qc/benchmark_resources_notebook/">Jupyter Notebook</a>
                   </li>
               </ul>
       </div>
@@ -95,13 +106,13 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="/quality-control-wgs/.">GA4GH WGS Quality Control Standards</a>
+          <a href="/wgs-qc/.">GA4GH WGS Quality Control Standards</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="/quality-control-wgs/." class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="/wgs-qc/." class="icon icon-home" aria-label="Docs"></a></li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -147,11 +158,11 @@
     
   </span>
 </div>
-    <script src="/quality-control-wgs/js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "/quality-control-wgs/";</script>
-    <script src="/quality-control-wgs/js/theme_extra.js"></script>
-    <script src="/quality-control-wgs/js/theme.js"></script>
-      <script src="/quality-control-wgs/search/main.js"></script>
+    <script src="/wgs-qc/js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "/wgs-qc/";</script>
+    <script src="/wgs-qc/js/theme_extra.js"></script>
+    <script src="/wgs-qc/js/theme.js"></script>
+      <script src="/wgs-qc/search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);

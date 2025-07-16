@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://ga4gh.github.io/wgs-qc/motivation/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://ga4gh.github.io/wgs-qc/benchmark_resources_notebook/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Motivation - GA4GH WGS Quality Control Standards</title>
+    <title>Jupyter Notebook - GA4GH WGS Quality Control Standards</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Motivation";
-        var mkdocs_page_input_path = "motivation.md";
-        var mkdocs_page_url = "/wgs-qc/motivation/";
+        var mkdocs_page_name = "Jupyter Notebook";
+        var mkdocs_page_input_path = "benchmark_resources_notebook.md";
+        var mkdocs_page_url = "/wgs-qc/benchmark_resources_notebook/";
       </script>
     
     <!--[if lt IE 9]>
@@ -40,10 +40,8 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">About</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Motivation</a>
-    <ul class="current">
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../motivation/">Motivation</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../implementations/">Implementations</a>
                   </li>
@@ -100,12 +98,14 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Implementation Benchmarking</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../benchmark_resources_about/">About</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../benchmark_resources_data/">Resources</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../benchmark_resources_notebook/">Jupyter Notebook</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Jupyter Notebook</a>
+    <ul class="current">
+    </ul>
                   </li>
               </ul>
       </div>
@@ -122,10 +122,10 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">About</li>
-      <li class="breadcrumb-item active">Motivation</li>
+          <li class="breadcrumb-item">Implementation Benchmarking</li>
+      <li class="breadcrumb-item active">Jupyter Notebook</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/ga4gh/quality-control-wgs/edit/master/docs/motivation.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/ga4gh/quality-control-wgs/edit/master/docs/benchmark_resources_notebook.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -138,17 +138,23 @@
   <img src="https://www.ga4gh.org/wp-content/themes/ga4gh/dist/assets/svg/logos/logo-full-color.svg" class="title" width="300">
 </div>
 <p><br></p>
-<h1 id="motivation-mandate">Motivation &amp; Mandate</h1>
-<p>Robust quality control (QC) of results is key for the successful delivery of population-scale sequencing efforts, even more so when the scope of such efforts includes clinical diagnostic testing. 
-Multiple studies have discussed the need to evaluate the performance of variant calling pipelines prior to introducing them in production, and consortia like Genome in a Bottle (GIAB) and the 
-Sequencing Quality Control 2 Study have provided practical guidelines on how to achieve such evaluations using well-characterized cell lines (i.e. reference materials, or RMs). However, cell-line based RMs do not fully represent the heterogeneity and diversity of primary samples derived from research or clinical samples, nor give metrics for every sample run, and it is thus important to continue to monitor the quality of results beyond initial methods validation.</p>
-<p>For development and production samples, QC of Whole Genome Sequencing (WGS) results can be achieved through a range of tools that compute metrics from FASTQ, BAM, and/or VCF files. Recommendations on which metrics to include in routine QC have been discussed in published guidelines and continue to be actively developed. Nonetheless, contrary to the situation encountered when discussing best practices for benchmarking, standardized definitions and implementations of recommended QC metrics have yet to be addressed. For example, guidelines will often refer to the need to track genome coverage, and multiple tools exist to directly report this metric or to produce intermediate outputs that can be used to calculate it (i.e. picard, samtools, sambamba, indexcov, mosdepth). Yet the interpretation and comparison of results require an accurate understanding of how the metric was calculated, e.g. does it include all chromosomes or autosomes only, are unknown or unspecified bases (N bases) masked, does the metric exclude duplicates and portions of the reads that do not align to the genome from end to end (soft-clipped bases), does it include any base quality or mapping quality filters, what is the window size used, etc. Even though such details can have a substantial effect on the results, they are often not reflected in the documentation of the tool, and it is necessary to inspect the source code to retrieve them.</p>
-<p>Given the increase in the number of population-scale studies and clinical genome testing, we believe that creating a common framework for QC of WGS results is needed to ensure that data generation adheres to published guidelines, in turn establishing confidence in the data quality and facilitating the exchange of results across initiatives. We propose to engage with GA4GH/NI contributors and relevant tool developers to work on a reference implementation that would provide practical recommendations on this matter. In particular, such work would complement existing guidelines by providing (i) standardized definitions for key QC metrics, (ii) a new file format/schema to make it easier to report QC metric outputs, (iii) tools for calculating them, and (iv) benchmarking resources that would aid in the interpretation and monitoring of results.</p>
+<h1 id="benchmarking-resources">Benchmarking Resources</h1>
+<p>The benchmarking resources provided here are designed to ensure consistency, reliability, and transparency in the evaluation of Whole Genome Sequencing (WGS) Quality Control (QC) tools.</p>
+<p>These resources serve multiple key purposes:</p>
+<ul>
+<li>
+<p>They act as a standardized set of "unit tests" for validating reference implementation tools—verifying correct input handling, output formatting, and generation of functionally equivalent QC metrics.</p>
+</li>
+<li>
+<p>They support the evaluation of implementation quality and performance by benchmarking computational efficiency, including runtime and memory usage.</p>
+</li>
+</ul>
+<p>To assist with result interpretation, we also provide an interactive <a href="https://github.com/ga4gh/quality-control-wgs/blob/main/benchmark_resources/stats/Metrics_distribution.ipynb">Jupyter Notebook</a> that visualizes metric distributions across these samples. This enables users to explore how QC metrics vary at the population level and supports comparative analysis.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../implementations/" class="btn btn-neutral float-right" title="Implementations">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../benchmark_resources_data/" class="btn btn-neutral float-left" title="Resources"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -176,8 +182,8 @@ Sequencing Quality Control 2 Study have provided practical guidelines on how to 
         </span>
     
     
+      <span><a href="../benchmark_resources_data/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
-      <span><a href="../implementations/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

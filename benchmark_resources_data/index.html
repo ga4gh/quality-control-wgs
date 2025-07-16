@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://ga4gh.github.io/wgs-qc/benchmark_resources_data/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Resources - GA4GH WGS Quality Control Standards</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Resources";
+        var mkdocs_page_input_path = "benchmark_resources_data.md";
+        var mkdocs_page_url = "/wgs-qc/benchmark_resources_data/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> GA4GH WGS Quality Control Standards
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../motivation/">Motivation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../implementations/">Implementations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../links/">Links</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Specifications</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../metrics_definitions/about/">Metric definitions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Alignment metrics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/bases-q30/">Bases ≥ Q30</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/cross-contamination/">Cross contamination</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/genome-coverage-uniformity/">Genome coverage uniformity</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/insert-size-standard-deviation/">Insert size standard deviation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/mean-autosome-coverage/">Mean autosome coverage</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/mean-insert-size/">Mean insert size</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/percent-autosomes-covered-15-x/">Percent autosomes covered ≥ 15 X</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/percent-reads-mapped/">Percent reads mapped</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/percent-reads-properly-paired/">Percent reads properly paired</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Variant calling metrics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/count-deletions/">Count: Deletions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/count-insertions/">Count: Insertions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/count-snvs/">Count: SNVs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/ratio-heterozygous-homozygous-indels/">Ratio: Heterozygous/Homozygous (indels)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/ratio-heterozygous-homozygous-snvs/">Ratio: Heterozygous/Homozygous (SNVs)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/ratio-insertions-deletions/">Ratio: Insertions/Deletions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/ratio-transitions-transversions-ti-tv/">Ratio: Transitions/Transversions (ti/tv)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../metrics_definitions/terminologies/">Terminologies & Concepts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../metrics_definitions/References/">References</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Implementation Benchmarking</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark_resources_about/">About</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Resources</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark_resources_notebook/">Jupyter Notebook</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">GA4GH WGS Quality Control Standards</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Implementation Benchmarking</li>
+      <li class="breadcrumb-item active">Resources</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ga4gh/quality-control-wgs/edit/master/docs/benchmark_resources_data.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div class="title container" style="display: flex; align-items: center; gap: 50px;">
+  <h1 style="font-size: 2rem; font-weight: normal; color: #888888; margin: 0;">GA4GH WGS Quality Control Standards</h1>
+  <img src="https://www.ga4gh.org/wp-content/themes/ga4gh/dist/assets/svg/logos/logo-full-color.svg" class="title" width="300">
+</div>
+<p><br></p>
+<h1 id="benchmarking-resources">Benchmarking Resources</h1>
+<p>Our <strong>Benchmarking Sample Manifest</strong> includes predefined input files (such as CRAM/BAM and VCF) along with corresponding expected outputs in JSON format, generated by the reference QC tool.</p>
+<p>We execute our benchmarking pipelines on publicly available WGS data—specifically, Genome in a Bottle (GIAB) samples from the 1000 Genomes Phase 3 Reanalysis, accessible through the <a href="https://registry.opendata.aws/ilmn-dragen-1kgp/">Registry of Open Data on AWS</a>.</p>
+<p>The <strong>1000 Genomes</strong> dataset generated by Illumina DRAGEN Germline is widely adopted across the genomics community, including in major population-scale efforts such as the <strong>UK Biobank</strong> and the <strong>All of Us Research Program</strong>. To promote diversity and representation, we curated a subset of <a href="https://github.com/ga4gh/quality-control-wgs/blob/main/benchmark_resources/n.100-1kg-sample-info-igsr.csv">100 samples</a> from this dataset, ensuring balanced coverage across multiple populations and both genders.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sample_name</th>
+<th style="text-align: left;">Sex</th>
+<th style="text-align: left;">Biosample_ID</th>
+<th style="text-align: left;">Population_code</th>
+<th style="text-align: left;">Population_name</th>
+<th style="text-align: left;">Superpopulation_code</th>
+<th style="text-align: left;">Superpopulation_name</th>
+<th style="text-align: left;">Population_elastic_ID</th>
+<th style="text-align: left;">Data_collections</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">HG00100</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME125154</td>
+<td style="text-align: left;">GBR</td>
+<td style="text-align: left;">British</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">GBR</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00101</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME125153</td>
+<td style="text-align: left;">GBR</td>
+<td style="text-align: left;">British</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">GBR</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00102</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME123945</td>
+<td style="text-align: left;">GBR</td>
+<td style="text-align: left;">British</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">GBR</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00103</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME125151</td>
+<td style="text-align: left;">GBR</td>
+<td style="text-align: left;">British</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">GBR</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00176</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124956</td>
+<td style="text-align: left;">FIN</td>
+<td style="text-align: left;">Finnish</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">FIN</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00177</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124957</td>
+<td style="text-align: left;">FIN</td>
+<td style="text-align: left;">Finnish</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">FIN</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00183</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME123642</td>
+<td style="text-align: left;">FIN</td>
+<td style="text-align: left;">Finnish</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">FIN</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00185</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME123648</td>
+<td style="text-align: left;">FIN</td>
+<td style="text-align: left;">Finnish</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">FIN</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00403</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME123160</td>
+<td style="text-align: left;">CHS</td>
+<td style="text-align: left;">Southern Han Chinese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">CHS</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00404</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME123158</td>
+<td style="text-align: left;">CHS</td>
+<td style="text-align: left;">Southern Han Chinese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">CHS</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00551</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124252</td>
+<td style="text-align: left;">PUR</td>
+<td style="text-align: left;">Puerto Rican</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">PUR</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00552</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124253</td>
+<td style="text-align: left;">PUR</td>
+<td style="text-align: left;">Puerto Rican</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">PUR</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00759</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME125020</td>
+<td style="text-align: left;">CDX</td>
+<td style="text-align: left;">Dai Chinese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">CDX</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00766</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124458</td>
+<td style="text-align: left;">CDX</td>
+<td style="text-align: left;">Dai Chinese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">CDX</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG00844</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME123952</td>
+<td style="text-align: left;">CDX</td>
+<td style="text-align: left;">Dai Chinese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">CDX</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01028</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME123524</td>
+<td style="text-align: left;">CDX</td>
+<td style="text-align: left;">Dai Chinese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">CDX</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01112</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME123485</td>
+<td style="text-align: left;">CLM</td>
+<td style="text-align: left;">Colombian</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">CLM</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01113</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME123484</td>
+<td style="text-align: left;">CLM</td>
+<td style="text-align: left;">Colombian</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">CLM</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01114</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME123483</td>
+<td style="text-align: left;">CLM</td>
+<td style="text-align: left;">Colombian</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">CLM</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38,Human Genome Structural Variation Consortium, Phase 2,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01121</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1840127</td>
+<td style="text-align: left;">CLM</td>
+<td style="text-align: left;">Colombian</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">CLM</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01500</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124941</td>
+<td style="text-align: left;">IBS</td>
+<td style="text-align: left;">Iberian</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">IBS</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01501</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124942</td>
+<td style="text-align: left;">IBS</td>
+<td style="text-align: left;">Iberian</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">IBS</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01502</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124943</td>
+<td style="text-align: left;">IBS</td>
+<td style="text-align: left;">Iberian</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">IBS</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01507</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124948</td>
+<td style="text-align: left;">IBS</td>
+<td style="text-align: left;">Iberian</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">IBS</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01565</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124566</td>
+<td style="text-align: left;">PEL</td>
+<td style="text-align: left;">Peruvian</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">PEL</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01566</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124564</td>
+<td style="text-align: left;">PEL</td>
+<td style="text-align: left;">Peruvian</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">PEL</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01567</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124565</td>
+<td style="text-align: left;">PEL</td>
+<td style="text-align: left;">Peruvian</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">PEL</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01571</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124346</td>
+<td style="text-align: left;">PEL</td>
+<td style="text-align: left;">Peruvian</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">PEL</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01583</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839895</td>
+<td style="text-align: left;">PJL</td>
+<td style="text-align: left;">Punjabi</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">PJL</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01595</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME123569</td>
+<td style="text-align: left;">KHV</td>
+<td style="text-align: left;">Kinh Vietnamese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">KHV</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01596</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME125227</td>
+<td style="text-align: left;">KHV</td>
+<td style="text-align: left;">Kinh Vietnamese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">KHV</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,Human Genome Structural Variation Consortium, Phase 2,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01597</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME125226</td>
+<td style="text-align: left;">KHV</td>
+<td style="text-align: left;">Kinh Vietnamese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">KHV</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01840</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME123552</td>
+<td style="text-align: left;">KHV</td>
+<td style="text-align: left;">Kinh Vietnamese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">KHV</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01879</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839037</td>
+<td style="text-align: left;">ACB</td>
+<td style="text-align: left;">African Caribbean</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">ACB</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01880</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839109</td>
+<td style="text-align: left;">ACB</td>
+<td style="text-align: left;">African Caribbean</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">ACB</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01881</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839193</td>
+<td style="text-align: left;">ACB</td>
+<td style="text-align: left;">African Caribbean</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">ACB</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG01882</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME122849</td>
+<td style="text-align: left;">ACB</td>
+<td style="text-align: left;">African Caribbean</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">ACB</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG02461</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839993</td>
+<td style="text-align: left;">GWD</td>
+<td style="text-align: left;">Gambian Mandinka</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">GWD</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,Gambian Genome Variation Project (GRCh38)</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG02462</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839991</td>
+<td style="text-align: left;">GWD</td>
+<td style="text-align: left;">Gambian Mandinka</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">GWD</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,Gambian Genome Variation Project (GRCh38)</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG02463</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839983</td>
+<td style="text-align: left;">GWD</td>
+<td style="text-align: left;">Gambian Mandinka</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">GWD</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG02465</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839973</td>
+<td style="text-align: left;">GWD</td>
+<td style="text-align: left;">Gambian Mandinka</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">GWD</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,Gambian Genome Variation Project (GRCh38)</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG02490</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839625</td>
+<td style="text-align: left;">PJL</td>
+<td style="text-align: left;">Punjabi</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">PJL</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG02601</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1840293</td>
+<td style="text-align: left;">PJL</td>
+<td style="text-align: left;">Punjabi</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">PJL</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG02922</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839441</td>
+<td style="text-align: left;">ESN</td>
+<td style="text-align: left;">Esan</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">ESN</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG02923</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839436</td>
+<td style="text-align: left;">ESN</td>
+<td style="text-align: left;">Esan</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">ESN</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG02924</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839516</td>
+<td style="text-align: left;">ESN</td>
+<td style="text-align: left;">Esan</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">ESN</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG02945</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839075</td>
+<td style="text-align: left;">ESN</td>
+<td style="text-align: left;">Esan</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">ESN</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03052</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839496</td>
+<td style="text-align: left;">MSL</td>
+<td style="text-align: left;">Mende</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">MSL</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03054</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839507</td>
+<td style="text-align: left;">MSL</td>
+<td style="text-align: left;">Mende</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">MSL</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03056</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839518</td>
+<td style="text-align: left;">MSL</td>
+<td style="text-align: left;">Mende</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">MSL</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03073</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839019</td>
+<td style="text-align: left;">MSL</td>
+<td style="text-align: left;">Mende</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">MSL</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03593</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839171</td>
+<td style="text-align: left;">BEB</td>
+<td style="text-align: left;">Bengali</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">BEB</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03598</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839194</td>
+<td style="text-align: left;">BEB</td>
+<td style="text-align: left;">Bengali</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">BEB</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03604</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1840236</td>
+<td style="text-align: left;">BEB</td>
+<td style="text-align: left;">Bengali</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">BEB</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03606</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1840248</td>
+<td style="text-align: left;">BEB</td>
+<td style="text-align: left;">Bengali</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">BEB</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03616</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839955</td>
+<td style="text-align: left;">BEB</td>
+<td style="text-align: left;">Bengali</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">BEB</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03642</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839627</td>
+<td style="text-align: left;">STU</td>
+<td style="text-align: left;">Tamil</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">STU</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03644</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839638</td>
+<td style="text-align: left;">STU</td>
+<td style="text-align: left;">Tamil</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">STU</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03646</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839643</td>
+<td style="text-align: left;">STU</td>
+<td style="text-align: left;">Tamil</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">STU</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03718</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839834</td>
+<td style="text-align: left;">ITU</td>
+<td style="text-align: left;">Telugu</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">ITU</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03720</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839562</td>
+<td style="text-align: left;">ITU</td>
+<td style="text-align: left;">Telugu</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">ITU</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03721</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839659</td>
+<td style="text-align: left;">ITU</td>
+<td style="text-align: left;">Telugu</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">ITU</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03722</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME1839664</td>
+<td style="text-align: left;">ITU</td>
+<td style="text-align: left;">Telugu</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">ITU</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">HG03890</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME1839864</td>
+<td style="text-align: left;">STU</td>
+<td style="text-align: left;">Tamil</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">STU</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA06991</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124936</td>
+<td style="text-align: left;">CEU</td>
+<td style="text-align: left;">CEPH</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">CEU</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA06993</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124934</td>
+<td style="text-align: left;">CEU</td>
+<td style="text-align: left;">CEPH</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">CEU</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA06994</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124931</td>
+<td style="text-align: left;">CEU</td>
+<td style="text-align: left;">CEPH</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">CEU</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA06997</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124930</td>
+<td style="text-align: left;">CEU</td>
+<td style="text-align: left;">CEPH</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">CEU</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA18484</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124101</td>
+<td style="text-align: left;">YRI</td>
+<td style="text-align: left;">Yoruba</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">YRI</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA18485</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124100</td>
+<td style="text-align: left;">YRI</td>
+<td style="text-align: left;">Yoruba</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">YRI</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA18486</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124099</td>
+<td style="text-align: left;">YRI</td>
+<td style="text-align: left;">Yoruba</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">YRI</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA18488</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124103</td>
+<td style="text-align: left;">YRI</td>
+<td style="text-align: left;">Yoruba</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">YRI</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA18525</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124672</td>
+<td style="text-align: left;">CHB</td>
+<td style="text-align: left;">Han Chinese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">CHB</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA18526</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124673</td>
+<td style="text-align: left;">CHB</td>
+<td style="text-align: left;">Han Chinese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">CHB</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,90 Han Chinese high coverage genomes</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA18530</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124484</td>
+<td style="text-align: left;">CHB</td>
+<td style="text-align: left;">Han Chinese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">CHB</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA18546</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124263</td>
+<td style="text-align: left;">CHB</td>
+<td style="text-align: left;">Han Chinese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">CHB</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA18939</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME123041</td>
+<td style="text-align: left;">JPT</td>
+<td style="text-align: left;">Japanese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">JPT</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,Human Genome Structural Variation Consortium, Phase 2,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA18941</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124311</td>
+<td style="text-align: left;">JPT</td>
+<td style="text-align: left;">Japanese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">JPT</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA18943</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124309</td>
+<td style="text-align: left;">JPT</td>
+<td style="text-align: left;">Japanese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">JPT</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA18944</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124314</td>
+<td style="text-align: left;">JPT</td>
+<td style="text-align: left;">Japanese</td>
+<td style="text-align: left;">EAS</td>
+<td style="text-align: left;">East Asian Ancestry</td>
+<td style="text-align: left;">JPT</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA19017</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124259</td>
+<td style="text-align: left;">LWK</td>
+<td style="text-align: left;">Luhya</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">LWK</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA19019</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124000</td>
+<td style="text-align: left;">LWK</td>
+<td style="text-align: left;">Luhya</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">LWK</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA19020</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124855</td>
+<td style="text-align: left;">LWK</td>
+<td style="text-align: left;">Luhya</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">LWK</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA19025</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124852</td>
+<td style="text-align: left;">LWK</td>
+<td style="text-align: left;">Luhya</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">LWK</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA19648</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME123307</td>
+<td style="text-align: left;">MXL</td>
+<td style="text-align: left;">Mexican Ancestry</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">MXL</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA19649</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME123442</td>
+<td style="text-align: left;">MXL</td>
+<td style="text-align: left;">Mexican Ancestry</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">MXL</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA19650</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124976</td>
+<td style="text-align: left;">MXL</td>
+<td style="text-align: left;">Mexican Ancestry</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">MXL</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38,Human Genome Structural Variation Consortium, Phase 2,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA19651</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME123123</td>
+<td style="text-align: left;">MXL</td>
+<td style="text-align: left;">Mexican Ancestry</td>
+<td style="text-align: left;">AMR</td>
+<td style="text-align: left;">American Ancestry</td>
+<td style="text-align: left;">MXL</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA19700</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124233</td>
+<td style="text-align: left;">ASW</td>
+<td style="text-align: left;">African Ancestry SW</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">ASW</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA19701</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124232</td>
+<td style="text-align: left;">ASW</td>
+<td style="text-align: left;">African Ancestry SW</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">ASW</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA19702</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124231</td>
+<td style="text-align: left;">ASW</td>
+<td style="text-align: left;">African Ancestry SW</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">ASW</td>
+<td style="text-align: left;">1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA19704</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124236</td>
+<td style="text-align: left;">ASW</td>
+<td style="text-align: left;">African Ancestry SW</td>
+<td style="text-align: left;">AFR</td>
+<td style="text-align: left;">African Ancestry</td>
+<td style="text-align: left;">ASW</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA20502</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124358</td>
+<td style="text-align: left;">TSI</td>
+<td style="text-align: left;">Toscani</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">TSI</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA20503</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME124357</td>
+<td style="text-align: left;">TSI</td>
+<td style="text-align: left;">Toscani</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">TSI</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA20509</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124354</td>
+<td style="text-align: left;">TSI</td>
+<td style="text-align: left;">Toscani</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">TSI</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,Human Genome Structural Variation Consortium, Phase 2,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA20510</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME124562</td>
+<td style="text-align: left;">TSI</td>
+<td style="text-align: left;">Toscani</td>
+<td style="text-align: left;">EUR</td>
+<td style="text-align: left;">European Ancestry</td>
+<td style="text-align: left;">TSI</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release,1000 Genomes phase 1 release,Geuvadis</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA20845</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME123430</td>
+<td style="text-align: left;">GIH</td>
+<td style="text-align: left;">Gujarati</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">GIH</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA20853</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME123243</td>
+<td style="text-align: left;">GIH</td>
+<td style="text-align: left;">Gujarati</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">GIH</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA20854</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">SAME123248</td>
+<td style="text-align: left;">GIH</td>
+<td style="text-align: left;">Gujarati</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">GIH</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+<tr>
+<td style="text-align: left;">NA20858</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">SAME123207</td>
+<td style="text-align: left;">GIH</td>
+<td style="text-align: left;">Gujarati</td>
+<td style="text-align: left;">SAS</td>
+<td style="text-align: left;">South Asian Ancestry</td>
+<td style="text-align: left;">GIH</td>
+<td style="text-align: left;">1000 Genomes on GRCh38,1000 Genomes 30x on GRCh38,1000 Genomes phase 3 release</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../benchmark_resources_about/" class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../benchmark_resources_notebook/" class="btn btn-neutral float-right" title="Jupyter Notebook">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>GA4GH Large Scale Genomics Workstream, wgs-qc team</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ga4gh/quality-control-wgs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../benchmark_resources_about/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../benchmark_resources_notebook/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
