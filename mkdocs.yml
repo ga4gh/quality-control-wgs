@@ -5,12 +5,12 @@ copyright: GA4GH Large Scale Genomics Workstream, wgs-qc team
 
 plugins:
   - search
+  - table-reader
 
 nav:
   - About:
      - motivation.md
      - implementations.md
-     - benchmark_resources.md
      - links.md
   - Specifications: 
      - Metric definitions: metrics_definitions/about.md 
@@ -34,5 +34,12 @@ nav:
        - metrics_definitions/ratio-transitions-transversions-ti-tv.md
      - Terminologies & Concepts: metrics_definitions/terminologies.md
      - References: metrics_definitions/References.md
+  - Implementation Benchmarking:
+     - About: benchmark_resources_about.md
+     - Resources: benchmark_resources_data.md
+     - Jupyter Notebook: benchmark_resources_notebook.md 
+
+
+
 theme: readthedocs
 
