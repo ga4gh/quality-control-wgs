@@ -32,6 +32,6 @@ nav:
        - metrics_definitions/ratio-insertions-deletions.md
        - metrics_definitions/ratio-transitions-transversions-ti-tv.md
      - Terminologies & Concepts: metrics_definitions/terminologies.md
-
+     - References: metrics_definitions/References.md
 theme: readthedocs
 
