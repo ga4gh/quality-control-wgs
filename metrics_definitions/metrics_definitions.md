@@ -258,10 +258,6 @@ vcfqc: [https://github.com/icgc-argo-workflows/vcfqc](https://github.com/icgc-ar
 
 [https://bedtools.readthedocs.io/en/latest/content/tools/subtract.html](https://bedtools.readthedocs.io/en/latest/content/tools/subtract.html)
 
-### Datamash
-
-[https://www.gnu.org/software/datamash/](https://www.gnu.org/software/datamash/)
-
 ### NPM-sample-qc
 [https://github.com/c-BIG/NPM-sample-qc](https://github.com/c-BIG/NPM-sample-qc)
 
