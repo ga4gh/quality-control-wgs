@@ -5,6 +5,7 @@ copyright: GA4GH Large Scale Genomics Workstream, wgs-qc team
 
 plugins:
   - search
+  - table-reader
 
 nav:
   - About:
@@ -32,6 +33,13 @@ nav:
        - metrics_definitions/ratio-insertions-deletions.md
        - metrics_definitions/ratio-transitions-transversions-ti-tv.md
      - Terminologies & Concepts: metrics_definitions/terminologies.md
+     - References: metrics_definitions/References.md
+  - Implementation Benchmarking:
+     - About: benchmark_resources_about.md
+     - Resources: benchmark_resources_data.md
+     - Jupyter Notebook: benchmark_resources_notebook.md 
+
+
 
 theme: readthedocs
 

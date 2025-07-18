@@ -5,6 +5,7 @@
 - **Implementation details:** In the [NPM-sample-QC](terminologies.md#npm-sample-qc) reference implementation it is computed using [GATK Picard’s CollectQualityYieldMetrics](terminologies.md#picard-collectqualityyieldmetrics), reporting the PF_Q30_BASES field. Only high quality bases from primary alignments are considered. No filter on duplicated reads, clipped bases or mapping qualiy is applied.
 - **Type:** Integer (eg. 102984371235)
 - **Functionally equivalent implementations:**
-    - [ARGO dnaalnqc v1.1.0](terminologies.md#argo)
-    - [DRAGEN v3.7.6](terminologies.md#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Q30 bases`
+    - [NPM sample qc](References.md#npm-sample-qc)
+    - [ARGO dnaalnqc](References.md#argo)
+    - [DRAGEN v3.7.6](References.md#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Q30 bases`
 
