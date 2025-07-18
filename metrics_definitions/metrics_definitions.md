@@ -25,7 +25,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Integer (eg. 102984371235)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
+  - [ICGC-ARGO dnaalnqc](#icgc-argo)
   - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Q30 bases`
 
 ### Mean autosome coverage
@@ -36,7 +36,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Float 2 decimal precision (eg. 30.94)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
+  - [ICGC-ARGO dnaalnqc](#icgc-argo)
 
 ### Percent autosomes covered ≥ 15 X
 
@@ -46,7 +46,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Float 2 decimal precision (eg. 96.02)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
+  - [ICGC-ARGO dnaalnqc](#icgc-argo)
 
 ### Percent reads mapped
 
@@ -56,7 +56,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Float 2 decimal precision (eg. 99.78)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
+  - [ICGC-ARGO dnaalnqc](#icgc-argo)
   - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Mapped reads`
 
 ### Percent reads properly paired
@@ -67,7 +67,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Float 2 decimal precision (eg. 98.33)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
+  - [ICGC-ARGO dnaalnqc](#icgc-argo)
   - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Properly paired reads`
 
 ### Mean insert size
@@ -78,7 +78,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Float 1 decimal precision (eg. 430.1)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
+  - [ICGC-ARGO dnaalnqc](#icgc-argo)
   - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Insert length: mean`
 
 ### Insert size standard deviation
@@ -89,7 +89,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Float 1 decimal precision (eg. 99.4)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
+  - [ICGC-ARGO dnaalnqc](#icgc-argo)
 
 ### Genome coverage uniformity
 
@@ -99,7 +99,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Integer (eg. 4)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
+  - [ICGC-ARGO dnaalnqc](#icgc-argo)
 
 ### Cross contamination
 
@@ -109,7 +109,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Float 4 decimal precision (eg. 0.0007)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
+  - [ICGC-ARGO dnaalnqc](#icgc-argo)
   - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Estimated sample contamination`
 
 ## Variant calling metric list
@@ -122,7 +122,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Integer (eg. 3906868)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO vcfqc](References.md#icgc-argo)
+  - [ICGC-ARGO vcfqc](#icgc-argo)
 
 ### Count: Insertions
 
@@ -132,7 +132,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Integer (eg. 490511)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO vcfqc](References.md#icgc-argo)
+  - [ICGC-ARGO vcfqc](#icgc-argo)
 
 ### Count: Deletions
 
@@ -142,7 +142,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Integer (eg. 444892)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO vcfqc](References.md#icgc-argo)
+  - [ICGC-ARGO vcfqc](#icgc-argo)
 
 ### Ratio: Insertions/Deletions
 
@@ -152,7 +152,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Float 2 decimal precision (eg. 1.13)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO vcfqc](References.md#icgc-argo)
+  - [ICGC-ARGO vcfqc](#icgc-argo)
 
 ### Ratio: Heterozygous/Homozygous (SNVs)
 
@@ -162,7 +162,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Float 2 decimal precision (eg. 1.64)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO vcfqc](References.md#icgc-argo)
+  - [ICGC-ARGO vcfqc](#icgc-argo)
 
 ### Ratio: Heterozygous/Homozygous (indels)
 
@@ -172,7 +172,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Float 2 decimal precision (eg. 2.02)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO vcfqc](References.md#icgc-argo)
+  - [ICGC-ARGO vcfqc](#icgc-argo)
 
 ### Ratio: Transitions/Transversions (ti/tv)
 
@@ -182,7 +182,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Type:** Float 2 decimal precision (eg. 1.12)
 - **Functionally equivalent implementations:**
   - [NPM sample qc](#npm-sample-qc)
-  - [ICGC-ARGO vcfqc](References.md#icgc-argo)
+  - [ICGC-ARGO vcfqc](#icgc-argo)
 
 ## Terminologies & Concepts
 
