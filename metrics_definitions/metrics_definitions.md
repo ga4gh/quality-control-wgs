@@ -24,6 +24,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation it is computed using [GATK Picard’s CollectQualityYieldMetrics](#picard-collectqualityyieldmetrics), reporting the PF_Q30_BASES field. Only high quality bases from primary alignments are considered. No filter on duplicated reads, clipped bases or mapping qualiy is applied.
 - **Type:** Integer (eg. 102984371235)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO dnaalnqc v1.1.0](#argo)
   - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Q30 bases`
 
@@ -31,9 +32,10 @@ This section lists several example metrics in an attempt to capture which fields
 
 - **ID:** mean_autosome_coverage
 - **Description:** The mean sequencing coverage derived from short paired-end sequencing [high quality](#high-quality-reads), [non duplicated](#duplicated-reads) reads, [primary alignments](#primary-alignments), achieving a [base quality score](#base-quality-score) of 20 or greater ([Phred scale](#phred-scale)) and [mapping quality](#mapping-quality) of 20 or greater, in [autosomes non gap regions](#autosomes-non-gap-regions) of [GRCh38 assembly](#grch38-assembly). [Overlapping bases](#overlapping-bases) are counted only once. It is critical that the (BAM/CRAM) alignment files be readily marked for [duplicated reads](#duplicated-reads).
-- **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation, the genome-wide sequencing mean coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics), reporting the MEAN_COVERAGE field.
+- **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation, the genome-wide sequencing mean coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#picard-collectwgsmetrics), reporting the MEAN_COVERAGE field.
 - **Type:** Float 2 decimal precision (eg. 30.94)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO dnaalnqc v1.1.0](#argo)
 
 ### Percent autosomes covered ≥ 15 X
@@ -43,6 +45,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation, the genome-wide sequencing coverage percentage of bases attaining at least 15X of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics), reporting the PCT_15X field.
 - **Type:** Float 2 decimal precision (eg. 96.02)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO dnaalnqc v1.1.0](#argo)
 
 ### Percent reads mapped
@@ -52,6 +55,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation it is computed using [samtools stats](#samtools-stats), reporting the percentage of reads mapped on GRCh38 assembly. Duplicated reads are included. No mapping qualiy is applied.
 - **Type:** Float 2 decimal precision (eg. 99.78)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO dnaalnqc v1.1.0](#argo)
   - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Mapped reads`
 
@@ -62,6 +66,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation it is computed using [samtools stats](#samtools-stats), reporting the percentage of properly paired reads mapped on GRCh38 assembly. Duplicated reads are included. No mapping qualiy is applied.
 - **Type:** Float 2 decimal precision (eg. 98.33)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO dnaalnqc v1.1.0](#argo)
   - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Properly paired reads`
 
@@ -72,6 +77,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation it is computed using [samtools stats](#samtools-stats), reporting the insert_size_average field. Duplicated reads are included. No mapping qualiy is applied.
 - **Type:** Float 1 decimal precision (eg. 430.1)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO dnaalnqc v1.1.0](#argo)
   - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Insert length: mean`
 
@@ -82,6 +88,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation it is computed using [samtools stats](#samtools-stats), reporting the insert_size_standard_deviation field. Duplicated reads are included. No mapping qualiy is applied.
 - **Type:** Float 1 decimal precision (eg. 99.4)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO dnaalnqc v1.1.0](#argo)
 
 ### Genome coverage uniformity
@@ -91,6 +98,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation, the genome-wide sequencing median absolute deviation coverage of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [picard 2.27.0 CollectWgsMetrics](#Picard-CollectWgsMetrics), reporting the MAD_COVERAGE field.
 - **Type:** Integer (eg. 4)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO dnaalnqc v1.1.0](#argo)
 
 ### Cross contamination
@@ -100,6 +108,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation, the estimation of inter-sample DNA contamination of short paired-end sequencing high quality, aligned sequence reads (BAM/CRAM) mapped on GRCh38 assembly with pre-calculated reference panel of [1000 Genome Project](#verifybamid-reference-panel) dataset from the VerifyBamID resource using [VerifyBamID2](#verifybamid2) with NumPC “4” (# of Principal Components used in estimation), the key information “FREEMIX” in “.selfSM” in the results indicates the estimated contamination level.
 - **Type:** Float 4 decimal precision (eg. 0.0007)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO dnaalnqc v1.1.0](#argo)
   - [DRAGEN v3.7.6](#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Estimated sample contamination`
 
@@ -112,6 +121,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation, calculate the number of variant of type SNVs in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v snps -f PASS`).
 - **Type:** Integer (eg. 3906868)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO vcfqc](#argo)
 
 ### Count: Insertions
@@ -121,6 +131,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation, calculate the number of variant of type indels categorized as insertions in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS....INS`).
 - **Type:** Integer (eg. 490511)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO vcfqc](#argo)
 
 ### Count: Deletions
@@ -130,6 +141,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation, calculate the number of variant of type indels categorized as deletions in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS....DEL`).
 - **Type:** Integer (eg. 444892)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO vcfqc](#argo)
 
 ### Ratio: Insertions/Deletions
@@ -139,6 +151,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation, calculate the ratio of insertions and deletion in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS....INS / bcftools view -H -v indels -f PASS....DEL`).
 - **Type:** Float 2 decimal precision (eg. 1.13)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO vcfqc](#argo)
 
 ### Ratio: Heterozygous/Homozygous (SNVs)
@@ -148,6 +161,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation, calculate the ratio of heterozygous and homozygous variant of type SNVs in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v snps -f PASS -g het / bcftools view -H -v snps -f PASS -g hom`).
 - **Type:** Float 2 decimal precision (eg. 1.64)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO vcfqc](#argo)
 
 ### Ratio: Heterozygous/Homozygous (indels)
@@ -157,6 +171,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation, calculate the ratio of heterozygous and homozygous variant of type indels in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality variants](#high-quality-variants) by [bcftools view](#samtools-view), (`bcftools view -H -v indels -f PASS -g het / bcftools view -H -v indels -f PASS -g hom`).
 - **Type:** Float 2 decimal precision (eg. 2.02)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO vcfqc](#argo)
 
 ### Ratio: Transitions/Transversions (ti/tv)
@@ -166,6 +181,7 @@ This section lists several example metrics in an attempt to capture which fields
 - **Implementation details:** In the [NPM-sample-QC](#npm-sample-qc) reference implementation, calculate the ratio of transitions and transversions of bi-allelic SNVs in VCF, only in [autosomal regions](#autosomes-non-gap-regions), [high quality-variants](#high-quality-variants) by `bcftools stats`, (`bcftools stats -f PASS ... TSTV`).
 - **Type:** Float 2 decimal precision (eg. 1.12)
 - **Functionally equivalent implementations:**
+  - [NPM sample qc](#npm-sample-qc)
   - [ARGO vcfqc](#argo)
 
 ## Terminologies & Concepts
