@@ -6,4 +6,4 @@
 - **Type:** Integer (eg. 490511)
 - **Functionally equivalent implementations:**
     - [NPM sample qc](References.md#npm-sample-qc)
-    - [ARGO vcfqc](References.md#argo)
+    - [ICGC-ARGO vcfqc](References.md#icgc-argo)

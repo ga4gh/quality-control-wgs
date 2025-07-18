@@ -6,4 +6,4 @@
 - **Type:** Float 2 decimal precision (eg. 1.13)
 - **Functionally equivalent implementations:**
     - [NPM sample qc](References.md#npm-sample-qc)
-    - [ARGO vcfqc](References.md#argo)
+    - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)

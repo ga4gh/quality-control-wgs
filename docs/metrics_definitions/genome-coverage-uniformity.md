@@ -6,6 +6,4 @@
 - **Type:** Integer (eg. 4)
 - **Functionally equivalent implementations:**
     - [NPM sample qc](References.md#npm-sample-qc)
-    - [ARGO dnaalnqc](References.md#argo)
-    - [DRAGEN v3.7.6](References.md#dragen).
-
+    - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)

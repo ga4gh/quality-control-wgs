@@ -1,6 +1,6 @@
 ## References
 
-### ARGO
+### ICGC ARGO
 
 dnaalnqc: [https://github.com/icgc-argo-workflows/dnaalnqc](https://github.com/icgc-argo-workflows/dnaalnqc)
 

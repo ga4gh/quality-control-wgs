@@ -6,6 +6,6 @@
 - **Type:** Float 1 decimal precision (eg. 430.1)
 - **Functionally equivalent implementations:**
     - [NPM sample qc](References.md#npm-sample-qc)
-    - [ARGO dnaalnqc](References.md#argo)
+    - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
     - [DRAGEN v3.7.6](References.md#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Insert length: mean`
 
