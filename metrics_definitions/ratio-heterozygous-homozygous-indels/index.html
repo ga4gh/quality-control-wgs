@@ -141,7 +141,8 @@
 <li><strong>Implementation details:</strong> In the <a href="../terminologies/#npm-sample-qc">NPM-sample-QC</a> reference implementation, calculate the ratio of heterozygous and homozygous variant of type indels in VCF, only in <a href="../terminologies/#autosomes-non-gap-regions">autosomal regions</a>, <a href="../terminologies/#high-quality-variants">high quality variants</a> by <a href="../terminologies/#samtools-view">bcftools view</a>, (<code>bcftools view -H -v indels -f PASS -g het / bcftools view -H -v indels -f PASS -g hom</code>).</li>
 <li><strong>Type:</strong> Float 2 decimal precision (eg. 2.02)</li>
 <li><strong>Functionally equivalent implementations:</strong><ul>
-<li><a href="../terminologies/#argo">ARGO vcfqc</a></li>
+<li><a href="../References/#npm-sample-qc">NPM sample qc</a></li>
+<li><a href="../References/#argo">ARGO vcfqc</a></li>
 </ul>
 </li>
 </ul>
