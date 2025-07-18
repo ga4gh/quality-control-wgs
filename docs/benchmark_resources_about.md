@@ -10,7 +10,7 @@ The benchmarking resources provided here are designed to ensure consistency, rel
 
 These resources serve multiple key purposes:
 
-- They act as a standardized set of "unit tests" for validating reference implementation tools—verifying correct input handling, output formatting, and generation of functionally equivalent QC metrics.
+- They act as a standardized set of "unit tests" for validating reference implementation tools verifying correct input handling, output formatting, and generation of functionally equivalent QC metrics.
 
 - They support the evaluation of implementation quality and performance by benchmarking computational efficiency, including runtime and memory usage.
 
