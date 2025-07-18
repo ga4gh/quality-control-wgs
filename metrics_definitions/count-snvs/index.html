@@ -137,8 +137,8 @@
                 <h1 id="count-snvs">Count: SNVs</h1>
 <ul>
 <li><strong>ID:</strong> count_snvs</li>
-<li><strong>Description:</strong> The number of variant of type SNVs in <a href="../terminologies/#vcf-format">VCF</a>, only in <a href="../terminologies/#autosomes-non-gap-regions">autosomal regions</a>, <a href="../terminologies/#high-quality-variants">high quality variants</a>.</li>
-<li><strong>Implementation details:</strong> In the <a href="../terminologies/#npm-sample-qc">NPM-sample-QC</a> reference implementation, calculate the number of variant of type SNVs in VCF, only in <a href="../terminologies/#autosomes-non-gap-regions">autosomal regions</a>, <a href="../terminologies/#high-quality-variants">high quality variants</a> by <a href="../terminologies/#samtools-view">bcftools view</a>, (<code>bcftools view -H -v snps -f PASS</code>).</li>
+<li><strong>Description:</strong> The number of variant of type SNVs in <a href="../References/#vcf-format">VCF</a>, only in <a href="../terminologies/#autosomes-non-gap-regions">autosomal regions</a>, <a href="../terminologies/#high-quality-variants">high quality variants</a>.</li>
+<li><strong>Implementation details:</strong> In the <a href="../References/#npm-sample-qc">NPM-sample-QC</a> reference implementation, calculate the number of variant of type SNVs in VCF, only in <a href="../terminologies/#autosomes-non-gap-regions">autosomal regions</a>, <a href="../terminologies/#high-quality-variants">high quality variants</a> by <a href="../References/#samtools-view">bcftools view</a>, (<code>bcftools view -H -v snps -f PASS</code>).</li>
 <li><strong>Type:</strong> Integer (eg. 3906868)</li>
 <li><strong>Functionally equivalent implementations:</strong><ul>
 <li><a href="../References/#npm-sample-qc">NPM sample qc</a></li>

@@ -137,12 +137,12 @@
                 <h1 id="ratio-insertionsdeletions">Ratio: Insertions/Deletions</h1>
 <ul>
 <li><strong>ID:</strong> ratio_insertion_deletion</li>
-<li><strong>Description:</strong> The ratio between number of short insertion and deletion (less than 50bp) in <a href="../terminologies/#vcf-format">VCF</a>, only in <a href="../terminologies/#autosomes-non-gap-regions">autosomal regions</a>, <a href="../terminologies/#high-quality-variants">high quality variants</a>.</li>
-<li><strong>Implementation details:</strong> In the <a href="../terminologies/#npm-sample-qc">NPM-sample-QC</a> reference implementation, calculate the ratio of insertions and deletion in VCF, only in <a href="../terminologies/#autosomes-non-gap-regions">autosomal regions</a>, <a href="../terminologies/#high-quality-variants">high quality variants</a> by <a href="../terminologies/#samtools-view">bcftools view</a>, (<code>bcftools view -H -v indels -f PASS....INS / bcftools view -H -v indels -f PASS....DEL</code>).</li>
+<li><strong>Description:</strong> The ratio between number of short insertion and deletion (less than 50bp) in <a href="../References/#vcf-format">VCF</a>, only in <a href="../terminologies/#autosomes-non-gap-regions">autosomal regions</a>, <a href="../terminologies/#high-quality-variants">high quality variants</a>.</li>
+<li><strong>Implementation details:</strong> In the <a href="../References/#npm-sample-qc">NPM-sample-QC</a> reference implementation, calculate the ratio of insertions and deletion in VCF, only in <a href="../terminologies/#autosomes-non-gap-regions">autosomal regions</a>, <a href="../terminologies/#high-quality-variants">high quality variants</a> by <a href="../References/#samtools-view">bcftools view</a>, (<code>bcftools view -H -v indels -f PASS....INS / bcftools view -H -v indels -f PASS....DEL</code>).</li>
 <li><strong>Type:</strong> Float 2 decimal precision (eg. 1.13)</li>
 <li><strong>Functionally equivalent implementations:</strong><ul>
 <li><a href="../References/#npm-sample-qc">NPM sample qc</a></li>
-<li><a href="../References/#icgc-argo">ICGC-ARGO dnaalnqc</a></li>
+<li><a href="../References/#icgc-argo">ICGC-ARGO vcfqc</a></li>
 </ul>
 </li>
 </ul>
