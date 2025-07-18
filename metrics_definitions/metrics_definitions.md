@@ -252,7 +252,7 @@ vcfqc: [https://github.com/icgc-argo-workflows/vcfqc](https://github.com/icgc-ar
 
 ### DRAGEN
 
-[https://sapac.support.illumina.com/sequencing/sequencing_software/dragen-bio-it-platform.html](https://sapac.support.illumina.com/sequencing/sequencing_software/dragen-bio-it-platform.html)
+[Illumina DRAGEN Bio-IT Platform 3.7 User Guide](https://support.illumina.com/content/dam/illumina-support/documents/documentation/software_documentation/dragen-bio-it/Illumina-DRAGEN-Bio-IT-Platform-User-Guide-1000000141465-00.pdf)
 
 ### Bedtools subtract
 
