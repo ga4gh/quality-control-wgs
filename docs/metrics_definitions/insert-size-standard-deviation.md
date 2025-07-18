@@ -5,5 +5,6 @@
 - **Implementation details:** In the [NPM-sample-QC](terminologies.md#npm-sample-qc) reference implementation it is computed using [samtools stats](terminologies.md#samtools-stats), reporting the insert_size_standard_deviation field. Duplicated reads are included. No mapping qualiy is applied.
 - **Type:** Float 1 decimal precision (eg. 99.4)
 - **Functionally equivalent implementations:**
-    - [ARGO dnaalnqc v1.1.0](terminologies.md#argo)
-
+    - [NPM sample qc](References.md#npm-sample-qc)
+    - [ARGO dnaalnqc](References.md#argo)
+    - [DRAGEN v3.7.6](References.md#dragen).

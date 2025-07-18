@@ -5,5 +5,6 @@
 - **Implementation details:** In the [NPM-sample-QC](terminologies.md#npm-sample-qc) reference implementation, the genome-wide sequencing coverage percentage of bases attaining at least 15X of the non gap regions of GRCh38 assembly, autosomes only using [bedtools subtract](terminologies.md#bedtools-subtract), non duplicated reads, non overlapping bases, primary alignments, achieving a base quality of 20 or greater and mapping quality of 20 or greater is derived from [GATK Picard’s CollectWgsMetrics](terminologies.md#picard-collectwgsmetrics), reporting the PCT_15X field.
 - **Type:** Float 2 decimal precision (eg. 96.02)
 - **Functionally equivalent implementations:**
-    - [ARGO dnaalnqc v1.1.0](terminologies.md#argo)
+    - [NPM sample qc](References.md#npm-sample-qc)
+    - [ARGO dnaalnqc](References.md#argo)
 

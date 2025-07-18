@@ -5,6 +5,7 @@
 - **Implementation details:** In the [NPM-sample-QC](terminologies.md#npm-sample-qc) reference implementation it is computed using [samtools stats](terminologies.md#samtools-stats), reporting the insert_size_average field. Duplicated reads are included. No mapping qualiy is applied.
 - **Type:** Float 1 decimal precision (eg. 430.1)
 - **Functionally equivalent implementations:**
-    - [ARGO dnaalnqc v1.1.0](terminologies.md#argo)
-    - [DRAGEN v3.7.6](terminologies.md#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Insert length: mean`
+    - [NPM sample qc](References.md#npm-sample-qc)
+    - [ARGO dnaalnqc](References.md#argo)
+    - [DRAGEN v3.7.6](References.md#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Insert length: mean`
 
