@@ -10,6 +10,8 @@ For development and production samples, QC of Whole Genome Sequencing (WGS) resu
 
 Given the increase in the number of population-scale studies and clinical genome testing, we believe that creating a common framework for QC of WGS results is needed to ensure that data generation adheres to published guidelines, in turn establishing confidence in the data quality and facilitating the exchange of results across initiatives. We propose to engage with GA4GH/NI contributors and relevant tool developers to work on a reference implementation that would provide practical recommendations on this matter. In particular, such work would complement existing guidelines by providing (i) standardized definitions for key QC metrics, (ii) a new file format/schema to make it easier to report QC metric outputs, (iii) tools for calculating them, and (iv) benchmarking resources that would aid in the interpretation and monitoring of results.
 
+For the initial round of this project, we propose to focus on QC of human WGS datasets (germline), generated with short-read technologies for research or clinical use.
+
 ## WGS Quality Control - Metrics Definition 
 
 Definitions for WGS Quality Control Metrics can be found in [metrics definitions](https://github.com/ga4gh/quality-control-wgs/tree/main/metrics_definitions).
