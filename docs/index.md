@@ -28,7 +28,7 @@ For the initial round of this project, we propose to focus on QC of human WGS da
 -  [Meeting Minutes](https://docs.google.com/document/d/1a4ns_QbN4OzDiSThyfsZ0JITfrZTmW3g3HCWDpqPvr4/edit?usp=share_link)
 
 
-Roadmap v2: Expanding the Scope of WGS Quality Control Standards
+**Roadmap v2: Expanding the Scope of WGS Quality Control Standards**
 
 We are actively developing the next version of the WGS QC Roadmap to support:
 - Long-read sequencing QC
