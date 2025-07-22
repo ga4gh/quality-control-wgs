@@ -15,6 +15,16 @@
 -  [Landscape Analysis](https://docs.google.com/spreadsheets/d/1SKy1p38RJf3YNJ33XPIS8qLY5exF93pxdfozaiMnJqQ/edit?usp=share_link)
 -  [Meeting Minutes](https://docs.google.com/document/d/1a4ns_QbN4OzDiSThyfsZ0JITfrZTmW3g3HCWDpqPvr4/edit?usp=share_link)
 
+# Roadmap v2: Expanding the Scope of WGS QC Standards
+
+We are actively developing the next version of the WGS Quality Control Roadmap to support:
+- Long-read sequencing QC
+- Somatic variant QC
+- Deeper metrics for short-read germline sequencing
+- Integration with GA4GH products like Data Connect and DaMaSC
+
+[Read the full Roadmap v2 plan ](https://docs.google.com/document/d/1n5w9NMRyrvhk1bxJeqQ7zTeS5qoueRX-nWjSq8bZ2wI/edit?tab=t.0)
+
 # Mailing List / Google Group
 
 This project has a Google Group/mailing list for those interested in contributing to development of the standard or following along with progress. Please reach out to reggan.thomas@ga4gh.org for more information.

@@ -32,9 +32,9 @@ Deployment of WGS Quality Control Implementions via GA4GH [DockStore](https://do
 - [Landscape Analysis](https://docs.google.com/spreadsheets/d/1SKy1p38RJf3YNJ33XPIS8qLY5exF93pxdfozaiMnJqQ/edit?usp=share_link)
 - [Original Proposal](https://docs.google.com/document/d/11xwiM7eGE10kwIl7zsr9tL5ZuNlqGdW9/edit?usp=sharing&ouid=107543167341861034315&rtpof=true&sd=true)
 
-## Roadmap v2: Expanding the Scope of WGS QC Standards
+## Roadmap v2: Expanding the Scope of WGS Quality Control Standards
 
-We are actively developing the next version of the WGS Quality Control Roadmap to support:
+We are actively developing the next version of the WGS QC Roadmap to support:
 - Long-read sequencing QC
 - Somatic variant QC
 - Deeper metrics for short-read germline sequencing
