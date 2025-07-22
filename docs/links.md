@@ -15,9 +15,9 @@
 -  [Landscape Analysis](https://docs.google.com/spreadsheets/d/1SKy1p38RJf3YNJ33XPIS8qLY5exF93pxdfozaiMnJqQ/edit?usp=share_link)
 -  [Meeting Minutes](https://docs.google.com/document/d/1a4ns_QbN4OzDiSThyfsZ0JITfrZTmW3g3HCWDpqPvr4/edit?usp=share_link)
 
-# Roadmap v2: Expanding the Scope of WGS QC Standards
+# Roadmap v2: Expanding the Scope of WGS Quality Control Standards
 
-We are actively developing the next version of the WGS Quality Control Roadmap to support:
+We are actively developing the next version of the WGS QC Roadmap to support:
 - Long-read sequencing QC
 - Somatic variant QC
 - Deeper metrics for short-read germline sequencing
