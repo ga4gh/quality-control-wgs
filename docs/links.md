@@ -18,6 +18,7 @@
 # Roadmap v2: Expanding the Scope of WGS Quality Control Standards
 
 We are actively developing the next version of the WGS QC Roadmap to support:
+
 -  Long-read sequencing QC
 -  Somatic variant QC
 -  Deeper metrics for short-read germline sequencing
