@@ -8,6 +8,8 @@
 
 WGS Quality Control Standards describes a set of key quality control metrics and their detailed definitions that can be used as the basis for standardised guidelines for reporting quality control metrics for whole genome sequencing (WGS). Creating a common framework for QC of WGS results is needed to ensure that data generation adheres to published guidelines, and in turn, establishes confidence in the data quality and facilitates the exchange of results across initiatives.
 
+For the initial round of this project, we propose to focus on QC of human WGS datasets (germline), generated with short-read technologies for research or clinical use.
+
 <iframe width="560" height="315" 
   src="https://www.youtube.com/embed/ODpBsoIhNwE" 
   title="Product Overview - YouTube video" frameborder="0" 
