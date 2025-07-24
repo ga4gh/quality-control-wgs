@@ -14,7 +14,7 @@ For the initial round of this project, we propose to focus on QC of human WGS da
 
 ## WGS Quality Control - Metrics Definition 
 
-Definitions for WGS Quality Control Metrics can be found in [metrics definitions](https://github.com/ga4gh/quality-control-wgs/tree/main/metrics_definitions).
+Definitions for WGS Quality Control Metrics can be found in [metrics definitions](https://ga4gh.github.io/quality-control-wgs/metrics_definitions/about/).
 
 ## WGS Quality Control - Implementions
 
