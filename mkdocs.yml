@@ -1,17 +1,18 @@
 site_name: GA4GH WGS Quality Control Standards
 site_url: https://ga4gh.github.io/wgs-qc
 repo_url: https://github.com/ga4gh/quality-control-wgs
-copyright: GA4GH Large Scale Genomics Workstream, wgs-qc team
+copyright: GA4GH Large Scale Genomics Workstream, WGS-QC Standards team
 
 plugins:
   - search
   - table-reader
 
 nav:
-  - About:
-     - motivation.md
-     - implementations.md
-     - links.md
+  - overview.md
+  - motivation.md
+  - roadmap_v1.md
+  - roadmap_v2.md
+  - links.md
   - Specifications: 
      - Metric definitions: metrics_definitions/README.md 
      - Alignment metrics:
@@ -34,6 +35,11 @@ nav:
        - metrics_definitions/ratio-transitions-transversions-ti-tv.md
      - Terminologies & Concepts: metrics_definitions/terminologies.md
      - References: metrics_definitions/References.md
+  - Implementations:
+     - About: implementations/README.md
+     - NPM-sample-qc: implementations/npm-sample-qc_implementations.md
+     - ICGC-ARGO-dnaalnqc: implementations/argo-dnalanqc_implementations.md
+     - ICGC-ARGO-vcfqc: implementations/argo-vcfqc_implementations.md
   - Implementation Benchmarking:
      - About: benchmark_resources/README.md
      - Resources: benchmark_resources/benchmark_resources_data.md

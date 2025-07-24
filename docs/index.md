@@ -27,15 +27,3 @@ For the initial round of this project, we propose to focus on QC of human WGS da
 -  [Landscape Analysis](https://docs.google.com/spreadsheets/d/1SKy1p38RJf3YNJ33XPIS8qLY5exF93pxdfozaiMnJqQ/edit?usp=share_link)
 -  [Meeting Minutes](https://docs.google.com/document/d/1a4ns_QbN4OzDiSThyfsZ0JITfrZTmW3g3HCWDpqPvr4/edit?usp=share_link)
 
-
-**Roadmap v2: Expanding the Scope of WGS Quality Control Standards**
-
-We are actively developing the next version of the WGS QC Roadmap to support:
-
--  Long-read sequencing QC
--  Somatic variant QC
--  Deeper metrics for short-read germline sequencing
--  Integration with GA4GH products like Data Connect and DaMaSC
--  Increase WGS QC adoption - engage data producers and consumers broad usage of the standards
-
-[Read the full Roadmap v2 plan ](https://docs.google.com/document/d/1n5w9NMRyrvhk1bxJeqQ7zTeS5qoueRX-nWjSq8bZ2wI/edit?tab=t.0)
