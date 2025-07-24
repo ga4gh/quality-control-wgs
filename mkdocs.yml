@@ -14,7 +14,7 @@ nav:
   - roadmap_v2.md
   - links.md
   - Specifications: 
-     - Metric definitions: metrics_definitions/README.md 
+     - About: metrics_definitions/README.md 
      - Alignment metrics:
        - metrics_definitions/bases-q30.md
        - metrics_definitions/cross-contamination.md
