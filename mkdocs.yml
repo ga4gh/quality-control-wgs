@@ -1,20 +1,21 @@
 site_name: GA4GH WGS Quality Control Standards
 site_url: https://ga4gh.github.io/wgs-qc
 repo_url: https://github.com/ga4gh/quality-control-wgs
-copyright: GA4GH Large Scale Genomics Workstream, wgs-qc team
+copyright: GA4GH Large Scale Genomics Workstream, WGS-QC Standards team
 
 plugins:
   - search
   - table-reader
 
 nav:
-  - About:
-     - motivation.md
-     - implementations.md
-     - links.md
+  - overview.md
+  - motivation.md
+  - roadmap_v1.md
+  - roadmap_v2.md
+  - links.md
   - Specifications: 
-     - Metric definitions: metrics_definitions/about.md 
-     - Alignment metrics:
+     - About: metrics_definitions/README.md 
+     - Post Alignment metrics:
        - metrics_definitions/bases-q30.md
        - metrics_definitions/cross-contamination.md
        - metrics_definitions/genome-coverage-uniformity.md
@@ -24,7 +25,7 @@ nav:
        - metrics_definitions/percent-autosomes-covered-15-x.md
        - metrics_definitions/percent-reads-mapped.md
        - metrics_definitions/percent-reads-properly-paired.md
-     - Variant calling metrics:
+     - Post Variant calling metrics:
        - metrics_definitions/count-deletions.md
        - metrics_definitions/count-insertions.md
        - metrics_definitions/count-snvs.md
@@ -34,10 +35,15 @@ nav:
        - metrics_definitions/ratio-transitions-transversions-ti-tv.md
      - Terminologies & Concepts: metrics_definitions/terminologies.md
      - References: metrics_definitions/References.md
+  - Implementations:
+     - About: implementations/README.md
+     - NPM-sample-qc: implementations/npm-sample-qc_implementations.md
+     - ICGC-ARGO-dnaalnqc: implementations/argo-dnalanqc_implementations.md
+     - ICGC-ARGO-vcfqc: implementations/argo-vcfqc_implementations.md
   - Implementation Benchmarking:
-     - About: benchmark_resources_about.md
-     - Resources: benchmark_resources_data.md
-     - Jupyter Notebook: benchmark_resources_notebook.md 
+     - About: benchmark_resources/README.md
+     - Resources: benchmark_resources/benchmark_resources_data.md
+     - Jupyter Notebook: benchmark_resources/benchmark_resources_notebook.md 
 
 
 
