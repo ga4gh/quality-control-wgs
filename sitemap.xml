@@ -5,22 +5,6 @@
          <lastmod>2025-07-24</lastmod>
     </url>
     <url>
-         <loc>https://ga4gh.github.io/wgs-qc/benchmark_resources_about/</loc>
-         <lastmod>2025-07-24</lastmod>
-    </url>
-    <url>
-         <loc>https://ga4gh.github.io/wgs-qc/benchmark_resources_data/</loc>
-         <lastmod>2025-07-24</lastmod>
-    </url>
-    <url>
-         <loc>https://ga4gh.github.io/wgs-qc/benchmark_resources_notebook/</loc>
-         <lastmod>2025-07-24</lastmod>
-    </url>
-    <url>
-         <loc>https://ga4gh.github.io/wgs-qc/implementations/</loc>
-         <lastmod>2025-07-24</lastmod>
-    </url>
-    <url>
          <loc>https://ga4gh.github.io/wgs-qc/links/</loc>
          <lastmod>2025-07-24</lastmod>
     </url>
@@ -29,11 +13,51 @@
          <lastmod>2025-07-24</lastmod>
     </url>
     <url>
-         <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/References/</loc>
+         <loc>https://ga4gh.github.io/wgs-qc/overview/</loc>
          <lastmod>2025-07-24</lastmod>
     </url>
     <url>
-         <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/about/</loc>
+         <loc>https://ga4gh.github.io/wgs-qc/roadmap_v1/</loc>
+         <lastmod>2025-07-24</lastmod>
+    </url>
+    <url>
+         <loc>https://ga4gh.github.io/wgs-qc/roadmap_v2/</loc>
+         <lastmod>2025-07-24</lastmod>
+    </url>
+    <url>
+         <loc>https://ga4gh.github.io/wgs-qc/benchmark_resources/</loc>
+         <lastmod>2025-07-24</lastmod>
+    </url>
+    <url>
+         <loc>https://ga4gh.github.io/wgs-qc/benchmark_resources/benchmark_resources_data/</loc>
+         <lastmod>2025-07-24</lastmod>
+    </url>
+    <url>
+         <loc>https://ga4gh.github.io/wgs-qc/benchmark_resources/benchmark_resources_notebook/</loc>
+         <lastmod>2025-07-24</lastmod>
+    </url>
+    <url>
+         <loc>https://ga4gh.github.io/wgs-qc/implementations/</loc>
+         <lastmod>2025-07-24</lastmod>
+    </url>
+    <url>
+         <loc>https://ga4gh.github.io/wgs-qc/implementations/argo-dnalanqc_implementations/</loc>
+         <lastmod>2025-07-24</lastmod>
+    </url>
+    <url>
+         <loc>https://ga4gh.github.io/wgs-qc/implementations/argo-vcfqc_implementations/</loc>
+         <lastmod>2025-07-24</lastmod>
+    </url>
+    <url>
+         <loc>https://ga4gh.github.io/wgs-qc/implementations/npm-sample-qc_implementations/</loc>
+         <lastmod>2025-07-24</lastmod>
+    </url>
+    <url>
+         <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/</loc>
+         <lastmod>2025-07-24</lastmod>
+    </url>
+    <url>
+         <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/References/</loc>
          <lastmod>2025-07-24</lastmod>
     </url>
     <url>
