@@ -13,7 +13,7 @@ nav:
      - implementations.md
      - links.md
   - Specifications: 
-     - Metric definitions: metrics_definitions/about.md 
+     - Metric definitions: metrics_definitions/README.md 
      - Alignment metrics:
        - metrics_definitions/bases-q30.md
        - metrics_definitions/cross-contamination.md
@@ -35,9 +35,9 @@ nav:
      - Terminologies & Concepts: metrics_definitions/terminologies.md
      - References: metrics_definitions/References.md
   - Implementation Benchmarking:
-     - About: benchmark_resources_about.md
-     - Resources: benchmark_resources_data.md
-     - Jupyter Notebook: benchmark_resources_notebook.md 
+     - About: benchmark_resources/README.md
+     - Resources: benchmark_resources/benchmark_resources_data.md
+     - Jupyter Notebook: benchmark_resources/benchmark_resources_notebook.md 
 
 
 
