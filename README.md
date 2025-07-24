@@ -12,7 +12,8 @@ The documentation is stored in the /docs folder, with a subfolder corresponding 
  - Reference Implementions: [/docs/implementations/README.md](/docs/implementations/README.md)
  - Implementions Benchmarking: [/docs/benchmark_resources/README.md](/docs/benchmark_resources/README.md)
 
-
+## Contributing
+To contribute, edit the files in the docs subdirectory. Please submit any changes for review via PR or Discussions.
 
 ## Mailing List / Google Group
 
