@@ -13,4 +13,4 @@ Deployment of WGS Quality Control Implementions via GA4GH [DockStore](https://do
 
 - [NPM-sample-qc](https://dockstore.org/workflows/github.com/c-BIG/NPM-sample-qc/NPM-sample-qc:master?tab=info)
 - [ICGC-ARGO-dnaalnqc](https://dockstore.org/workflows/github.com/icgc-argo-workflows/dnaalnqc/dnaalnqc:main?tab=info)
-- [ICGC-ARGO-vcfqc]()
+- [ICGC-ARGO-vcfqc](https://dockstore.org/workflows/github.com/icgc-argo-workflows/vcfqc/VCFQC:main?tab=info)
