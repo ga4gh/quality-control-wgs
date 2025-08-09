@@ -16,5 +16,5 @@ These resources serve multiple key purposes:
 
 To assist with result interpretation, we also provide an interactive [Jupyter Notebook](https://github.com/ga4gh/quality-control-wgs/blob/main/benchmark_resources/stats/Metrics_distribution.ipynb) that visualizes metric distributions across these samples. This enables users to explore how QC metrics vary at the population level and supports comparative analysis.
 
-<p><strong>Example:</strong></p>
-<img src="../100samples-dist-plot.png" alt="Benchmarking diagram" width="500">
+**Example:** ![Benchmarking diagram](100samples-dist-plot.png)
+
