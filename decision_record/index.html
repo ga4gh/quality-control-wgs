@@ -1,0 +1,2096 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://ga4gh.github.io/wgs-qc/decision_record/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Architectural Decision Record - GA4GH WGS Quality Control Standards</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Architectural Decision Record";
+        var mkdocs_page_input_path = "decision_record.md";
+        var mkdocs_page_url = "/wgs-qc/decision_record/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> GA4GH WGS Quality Control Standards
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../motivation/">Motivation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../roadmap_v1/">Roadmap v1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../roadmap_v2/">Roadmap v2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../links/">Links</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Specifications</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../metrics_definitions/">About</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Post Alignment metrics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/bases-q30/">Bases ≥ Q30</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/cross-contamination/">Cross contamination</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/genome-coverage-uniformity/">Genome coverage uniformity</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/insert-size-standard-deviation/">Insert size standard deviation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/mean-autosome-coverage/">Mean autosome coverage</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/mean-insert-size/">Mean insert size</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/percent-autosomes-covered-15-x/">Percent autosomes covered ≥ 15 X</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/percent-reads-mapped/">Percent reads mapped</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/percent-reads-properly-paired/">Percent reads properly paired</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Post Variant calling metrics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/count-deletions/">Count: Deletions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/count-insertions/">Count: Insertions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/count-snvs/">Count: SNVs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/ratio-heterozygous-homozygous-indels/">Ratio: Heterozygous/Homozygous (indels)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/ratio-heterozygous-homozygous-snvs/">Ratio: Heterozygous/Homozygous (SNVs)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/ratio-insertions-deletions/">Ratio: Insertions/Deletions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../metrics_definitions/ratio-transitions-transversions-ti-tv/">Ratio: Transitions/Transversions (ti/tv)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../metrics_definitions/terminologies/">Terminologies & Concepts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../metrics_definitions/References/">References</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Implementations</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../implementations/">About</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../implementations/npm-sample-qc_implementations/">NPM-sample-qc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../implementations/argo-dnalanqc_implementations/">ICGC-ARGO-dnaalnqc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../implementations/argo-vcfqc_implementations/">ICGC-ARGO-vcfqc</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Implementation Benchmarking</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark_resources/">About</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark_resources/benchmark_resources_data/">Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark_resources/benchmark_resources_notebook/">Jupyter Notebook</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Decision record</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Architectural Decision Record</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#contents">Contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2025-05-27">2025-05-27</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2025-04-22">2025-04-22</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_1">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_1">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2025-02-25">2025-02-25</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_2">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_2">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2025-01-21">2025-01-21</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_3">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_3">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2024-11-26">2024-11-26</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_4">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_4">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2024-10-22">2024-10-22</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_5">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_5">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2024-09-24">2024-09-24</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_6">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_6">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2024-07-23">2024-07-23</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_7">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_7">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2024-06-25">2024-06-25</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_8">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_8">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2024-05-28">2024-05-28</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_9">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_9">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2024-03-26">2024-03-26</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_10">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_10">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2024-02-27">2024-02-27</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_11">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_11">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2024-01-30">2024-01-30</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_12">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_12">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2023-11-28">2023-11-28</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_13">Decision</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2023-10-24">2023-10-24</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_14">Decision</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2023-09-26">2023-09-26</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_15">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_13">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2023-08-22">2023-08-22</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_16">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_14">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2023-03-28">2023-03-28</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_17">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_15">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2023-02-21">2023-02-21</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_18">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_16">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2023-01-17">2023-01-17</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2022-12-13">2022-12-13</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_19">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_17">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2022-09-13">2022-09-13</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_20">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_18">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2022-07-26">2022-07-26</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_21">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_19">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2022-05-17">2022-05-17</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_22">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_20">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2022-04-12">2022-04-12</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_23">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_21">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2022-03-08">2022-03-08</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_24">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_22">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2022-01-18">2022-01-18</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_25">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_23">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2021-11-30">2021-11-30</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_26">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_24">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2021-10-26">2021-10-26</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_27">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_25">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2021-09-14">2021-09-14</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_28">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_26">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2021-08-10">2021-08-10</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_29">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_27">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2021-06-29">2021-06-29</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#decision_30">Decision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rationale_28">Rationale</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">GA4GH WGS Quality Control Standards</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Decision record</li>
+      <li class="breadcrumb-item active">Architectural Decision Record</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ga4gh/quality-control-wgs/edit/master/docs/decision_record.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="architectural-decision-record">Architectural Decision Record</h1>
+<p><em>This document serves as a record of decisions made throughout the product development process. Each entry outlines a decision that has been formally approved by members of the WGS-QC workgroup. Together, these ADRs capture the institutional memory of key decisions and their underlying rationales. The aim is to preserve the context behind these choices and share this knowledge with the broader community.</em></p>
+<h2 id="contents">Contents</h2>
+<div class="toc">
+<ul>
+<li><a href="#architectural-decision-record">Architectural Decision Record</a><ul>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#2025-05-27">2025-05-27</a><ul>
+<li><a href="#decision">Decision</a></li>
+<li><a href="#rationale">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2025-04-22">2025-04-22</a><ul>
+<li><a href="#decision_1">Decision</a></li>
+<li><a href="#rationale_1">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2025-02-25">2025-02-25</a><ul>
+<li><a href="#decision_2">Decision</a></li>
+<li><a href="#rationale_2">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2025-01-21">2025-01-21</a><ul>
+<li><a href="#decision_3">Decision</a></li>
+<li><a href="#rationale_3">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2024-11-26">2024-11-26</a><ul>
+<li><a href="#decision_4">Decision</a></li>
+<li><a href="#rationale_4">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2024-10-22">2024-10-22</a><ul>
+<li><a href="#decision_5">Decision</a></li>
+<li><a href="#rationale_5">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2024-09-24">2024-09-24</a><ul>
+<li><a href="#decision_6">Decision</a></li>
+<li><a href="#rationale_6">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2024-07-23">2024-07-23</a><ul>
+<li><a href="#decision_7">Decision</a></li>
+<li><a href="#rationale_7">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2024-06-25">2024-06-25</a><ul>
+<li><a href="#decision_8">Decision</a></li>
+<li><a href="#rationale_8">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2024-05-28">2024-05-28</a><ul>
+<li><a href="#decision_9">Decision</a></li>
+<li><a href="#rationale_9">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2024-03-26">2024-03-26</a><ul>
+<li><a href="#decision_10">Decision</a></li>
+<li><a href="#rationale_10">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2024-02-27">2024-02-27</a><ul>
+<li><a href="#decision_11">Decision</a></li>
+<li><a href="#rationale_11">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2024-01-30">2024-01-30</a><ul>
+<li><a href="#decision_12">Decision</a></li>
+<li><a href="#rationale_12">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2023-11-28">2023-11-28</a><ul>
+<li><a href="#decision_13">Decision</a></li>
+</ul>
+</li>
+<li><a href="#2023-10-24">2023-10-24</a><ul>
+<li><a href="#decision_14">Decision</a></li>
+</ul>
+</li>
+<li><a href="#2023-09-26">2023-09-26</a><ul>
+<li><a href="#decision_15">Decision</a></li>
+<li><a href="#rationale_13">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2023-08-22">2023-08-22</a><ul>
+<li><a href="#decision_16">Decision</a></li>
+<li><a href="#rationale_14">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2023-03-28">2023-03-28</a><ul>
+<li><a href="#decision_17">Decision</a></li>
+<li><a href="#rationale_15">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2023-02-21">2023-02-21</a><ul>
+<li><a href="#decision_18">Decision</a></li>
+<li><a href="#rationale_16">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2023-01-17">2023-01-17</a></li>
+<li><a href="#2022-12-13">2022-12-13</a><ul>
+<li><a href="#decision_19">Decision</a></li>
+<li><a href="#rationale_17">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2022-09-13">2022-09-13</a><ul>
+<li><a href="#decision_20">Decision</a></li>
+<li><a href="#rationale_18">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2022-07-26">2022-07-26</a><ul>
+<li><a href="#decision_21">Decision</a></li>
+<li><a href="#rationale_19">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2022-05-17">2022-05-17</a><ul>
+<li><a href="#decision_22">Decision</a></li>
+<li><a href="#rationale_20">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2022-04-12">2022-04-12</a><ul>
+<li><a href="#decision_23">Decision</a></li>
+<li><a href="#rationale_21">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2022-03-08">2022-03-08</a><ul>
+<li><a href="#decision_24">Decision</a></li>
+<li><a href="#rationale_22">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2022-01-18">2022-01-18</a><ul>
+<li><a href="#decision_25">Decision</a></li>
+<li><a href="#rationale_23">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2021-11-30">2021-11-30</a><ul>
+<li><a href="#decision_26">Decision</a></li>
+<li><a href="#rationale_24">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2021-10-26">2021-10-26</a><ul>
+<li><a href="#decision_27">Decision</a></li>
+<li><a href="#rationale_25">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2021-09-14">2021-09-14</a><ul>
+<li><a href="#decision_28">Decision</a></li>
+<li><a href="#rationale_26">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2021-08-10">2021-08-10</a><ul>
+<li><a href="#decision_29">Decision</a></li>
+<li><a href="#rationale_27">Rationale</a></li>
+</ul>
+</li>
+<li><a href="#2021-06-29">2021-06-29</a><ul>
+<li><a href="#decision_30">Decision</a></li>
+<li><a href="#rationale_28">Rationale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="2025-05-27">2025-05-27</h2>
+<h3 id="decision">Decision</h3>
+<p><strong>Finalization of NPM-sample-qc release v0.13.4</strong></p>
+<ul>
+<li>Addressed precision inconsistencies in the cross-contamination rate matrix (from 2 to 4 decimal places)</li>
+<li>Resolved inclusion logic for multi-allelic sites in sample QC</li>
+<li>Fixed incorrect count inflation due to string length checks in metrics involving alternate alleles</li>
+</ul>
+<p><strong>Alignment with Argo Repository</strong></p>
+<ul>
+<li>Verified functional equivalence between NPM and Argo pipelines, except for “percentage of reads properly paired”</li>
+<li>Agreed to update the functional equivalent implementation and clearly document exceptions in the metric definitions</li>
+<li>Decided to link the Argo reference implementation in the G4GH repository alongside NPM as part of the formal documentation set</li>
+</ul>
+<p><strong>Approval Process for Product Release</strong></p>
+<ul>
+<li>Timeline and document preparation agreed:</li>
+<li>Finalize: Product submission form, REWS form, and Security form</li>
+<li>Select PRC members and initiate public feedback channels</li>
+<li>Public comment period: July 15 – August 15, 2025</li>
+<li>PRC meeting: To be held during the same window (July 15–August 15)</li>
+<li>Target release: October 29, 2025 (GA4GH Plenary Session)</li>
+</ul>
+<p><strong>Metric Definition Improvements</strong></p>
+<ul>
+<li>Each metric matrix will now include its field type to eliminate ambiguity</li>
+<li>Plan to improve clarity between nominal, continuous, and derived metrics across pipelines</li>
+</ul>
+<p><strong>Roadmap Additions</strong></p>
+<p>Confirmed inclusion of the following deliverables in the roadmap:</p>
+<ul>
+<li>A Common Practice Resource Guide for adopters</li>
+<li>A Peer-reviewed Publication to increase visibility and adoption of the standard</li>
+<li>Committed to updating the roadmap document accordingly</li>
+</ul>
+<h3 id="rationale">Rationale</h3>
+<ul>
+<li>Ensures technical precision, consistency, and compatibility across platforms (NPM, Argo)</li>
+<li>Formalizes the approval and feedback process in accordance with GA4GH standards</li>
+<li>Supports adoption through documentation, tooling references, and academic publication</li>
+<li>Enhances transparency and interpretability of metrics by standardizing field definitions and formats</li>
+</ul>
+<h2 id="2025-04-22">2025-04-22</h2>
+<h3 id="decision_1">Decision</h3>
+<p><strong>Include Multi-Allelic Indels in QC Metrics</strong></p>
+<ul>
+<li>Update the NPM QC pipeline to count multi-allelic sites in indel metrics (insertion/deletion counts and ratios).</li>
+<li>Remove existing filters that exclude multi-allelic sites to ensure biological relevance and data fidelity.</li>
+</ul>
+<p><strong>Define Somatic Variant Metrics</strong></p>
+<ul>
+<li>Specify required input files (e.g., VCF, BAM) for somatic mutation QC calculations.</li>
+<li>Collaborate with Argo to integrate their VCF QC pipeline as a reference implementation.</li>
+<li>Address tumor purity/ploidy dependencies in metric definitions.</li>
+</ul>
+<p><strong>Expand Ecosystem Integration</strong></p>
+<ul>
+<li>Align with GA4GH Data Connect and Damasc for federated querying of QC metrics.</li>
+<li>Engage Nomad and EGA to promote adoption beyond GA4GH.</li>
+<li>Plan ISO TC 215 alignment post-version 1 release.</li>
+</ul>
+<p><strong>Roadmap Prioritization</strong></p>
+<ul>
+<li>Version 1 (Short-Read WGS): Finalize multi-allelic and somatic updates.</li>
+<li>Version 2: Add long-read sequencing and advanced somatic QC.</li>
+</ul>
+<h3 id="rationale_1">Rationale</h3>
+<p><strong>Multi-Allelic Indels</strong></p>
+<ul>
+<li>Biological Relevance: Excluding multi-allelic sites risks omitting true variants (e.g., complex indels in cancer/population genomics).</li>
+<li>Data Integrity: Metrics should reflect raw input without arbitrary filtering.</li>
+<li>Implementation Impact: Minimal pipeline adjustments needed (removes a filter, no computational overhead).</li>
+</ul>
+<p><strong>Somatic Variants</strong></p>
+<ul>
+<li>Standardization Need: Somatic pipelines lack unified QC metrics (e.g., tumor-normal concordance, artifact detection).</li>
+<li>Argo’s Benchmark: Their VCF QC pipeline provides a validated starting point.</li>
+<li>Clarity: Explicit input requirements (e.g., "Tumor VCF + BAM") prevent ambiguity.</li>
+</ul>
+<p><strong>Ecosystem Integration</strong></p>
+<ul>
+<li>Interoperability: Data Connect enables centralized QC metric querying across repositories.</li>
+<li>Adoption: Partnerships with Nomad/EGA ensure real-world utility.</li>
+<li>Regulatory Alignment: ISO TC 215 collaboration future-proofs the standard.</li>
+</ul>
+<p><strong>Roadmap</strong></p>
+<ul>
+<li>Short-read focus (v1): Ensures deliverability while deferring complex long-read/somatic challenges to v2</li>
+</ul>
+<h2 id="2025-02-25">2025-02-25</h2>
+<h3 id="decision_2">Decision</h3>
+<p><strong>1. NPM Repository</strong></p>
+<ul>
+<li>Confirm that there are no open issues or pull requests.</li>
+<li>Issues #136 and #138 are closed, resolving the cross-contamination rate calculation and updating the README.</li>
+<li>Pull Requests #137 and #141 are merged, updating the Nextflow manifest version and adding license details to the README.</li>
+<li>Pull Request #144 is merged, correcting the cross-contamination metric name and updating unit test results.</li>
+</ul>
+<p><strong>2. GA4GH Repository</strong></p>
+<ul>
+<li>
+<p>Acknowledge pending issues:</p>
+</li>
+<li>
+<p>issue #40 (printing median value) – pending.</p>
+</li>
+<li>issue #46 (copyright update) – pending.</li>
+<li>
+<p>issue #50 (update reference implementation and docstore links) – pending.</p>
+</li>
+<li>
+<p>Closed/linked issues:</p>
+</li>
+<li>
+<p>issue #45 (linked to NPM #137) – resolved in NPM and merged to GA4GH release 13.2.</p>
+</li>
+<li>
+<p>issue #55 closed, correcting cross-contamination metric name.</p>
+</li>
+<li>
+<p>Pending pull requests:</p>
+</li>
+<li>issue #56 awaiting Argo VCF QC implementation results.</li>
+</ul>
+<p><strong>3. Argo Implementation</strong></p>
+<ul>
+<li>Accept Argo’s completion of the VCF QC reference implementation, with 100-sample symmetric results expected in early March for correlation with the NPM reference implementation.</li>
+<li>Note Argo’s ongoing work on somatic mutation, with updates expected early March.</li>
+<li>Accept external contribution for minor license file fixes.</li>
+</ul>
+<p><strong>4. Product Approval and Security Forms</strong></p>
+<ul>
+<li>Complete and submit the Product Approval Submission Form and Security Form to the GA4GH committee.</li>
+<li>Prepare a Public Review Committee (PRC) with members from multiple categories.</li>
+<li>Publish a recorded product presentation for a 30-day public comment period before PRC review.</li>
+</ul>
+<p><strong>5. GA4GH Connect Session</strong></p>
+<ul>
+<li>Present WGS QC roadmap and interoperability plans on April 4, 2025, 11:15 ET.</li>
+<li>Rename current document as <strong>Version 1.0</strong> and the forthcoming document as <strong>Version 2.0</strong>.</li>
+<li>Include updates in Roadmap v2: QC for long-read germline post-alignment, long-read germline post-variant calling, structural variation, and somatic mutation.</li>
+</ul>
+<h3 id="rationale_2">Rationale</h3>
+<ul>
+<li>
+<p>Repository alignment: Closing, merging, and linking related issues ensures consistent metric naming, updated documentation, and maintained compatibility across NPM and GA4GH repositories.</p>
+</li>
+<li>
+<p>Reference implementation verification: Coordinating NPM and Argo results strengthens confidence in the specification’s reproducibility and accuracy.</p>
+</li>
+<li>
+<p>Compliance and transparency: Completing GA4GH product approval requirements, including security forms and a public review period, ensures the process meets governance standards.</p>
+</li>
+<li>
+<p>Forward planning: Versioning and roadmap updates maintain clarity on current vs. future scope, enabling structured evolution of the specification.</p>
+</li>
+</ul>
+<h2 id="2025-01-21">2025-01-21</h2>
+<h3 id="decision_3">Decision</h3>
+<p><strong>1. Finalize Version 1.0 Release</strong></p>
+<ul>
+<li>Close remaining PRs: Merge PR #57 (cross-contamination rate fix) and update reference implementation links (Issue #50).</li>
+<li>Publish release notes: Document all changes (closed Issues #45, #55, #136, #138; merged PRs #137, #141, #144).</li>
+</ul>
+<p><strong>2. Integrate Argo’s VCF QC Implementation</strong></p>
+<ul>
+<li>Include as a reference implementation after March testing completion.</li>
+<li>Add somatic mutation metrics (under development) to Version 2.0 roadmap.</li>
+</ul>
+<p><strong>3. Prepare for GA4GH Product Approval</strong></p>
+<ul>
+<li>Complete submission and security forms for committee review.</li>
+<li>Form Public Review Committee (PRC) with cross-workstream members.</li>
+<li>Share recorded presentation for 30-day public comment (pre-PRC review).</li>
+</ul>
+<p><strong>4. Plan Version 2.0 &amp; Connect Session</strong></p>
+<ul>
+<li>Scope: Long-read QC (germline/somatic), structural variants, GA4GH ecosystem interoperability.</li>
+<li>April 4 Connect Session: Present roadmap and align with Data Connect/Damasc.</li>
+</ul>
+<h3 id="rationale_3">Rationale</h3>
+<p><strong>1. Version 1.0 Readiness</strong></p>
+<ul>
+<li>Closed Issues/PRs: Critical fixes (e.g., cross-contamination precision, license updates) ensure stability.</li>
+<li>Argo’s Contribution: VCF QC implementation expands use cases beyond NPM’s pipeline.</li>
+</ul>
+<p><strong>2. Product Approval</strong></p>
+<ul>
+<li>GA4GH Compliance: Formal review ensures alignment with federation standards.</li>
+<li>Transparency: Public comment period invites community feedback.</li>
+</ul>
+<p><strong>3. Version 2.0 Priorities</strong></p>
+<ul>
+<li>Long-Read/Somatic Gaps: Address emerging sequencing technologies and cancer genomics needs.</li>
+<li>Ecosystem Integration: Data Connect/Damasc compatibility enhances adoption.</li>
+</ul>
+<p><strong>4. Connect Session</strong></p>
+<ul>
+<li>Visibility: Showcases progress to GA4GH members and external stakeholders (e.g., EGA, Nomad)</li>
+</ul>
+<h2 id="2024-11-26">2024-11-26</h2>
+<h3 id="decision_4">Decision</h3>
+<p><strong>1. Separate QC Workflows by File Type</strong></p>
+<ul>
+<li>BAM/CRAM Workflow: Alignment/post-alignment QC (NPM-led).</li>
+<li>VCF Workflow: Variant calling QC (Argo-led).</li>
+<li>Rationale: Simplifies implementation, testing, and adoption for distinct pipeline stages.</li>
+</ul>
+<p><strong>2. Close Pending Issues</strong></p>
+<ul>
+<li>Issue #41: Dockstore registration (close).</li>
+<li>Issue #48: README updates (close).</li>
+<li>Issue #44: Median value implementation (defer to Version 2.0).</li>
+</ul>
+<p><strong>3. Align NPM/Argo Metrics</strong></p>
+<ul>
+<li>Resolve Issue #45 (decimal precision) via cross-validation with GATK.</li>
+<li>Action: Justin/Linda to finalize comments.</li>
+</ul>
+<p><strong>4. Version 2.0 Scope</strong></p>
+<ul>
+<li>Somatic Workflow: Argo to lead (align with Issue #46).</li>
+<li>Long-Read QC: Seek public benchmarks (e.g., Platinum dataset).</li>
+<li>Single Metric Document: Unify definitions across workflows.</li>
+</ul>
+<p><strong>5. GA4GH Approval Timeline</strong></p>
+<ul>
+<li>Target April–July 2025 for full approval.</li>
+<li>Next Steps: Complete submission documents (Thomas to guide).</li>
+</ul>
+<h3 id="rationale_4">Rationale</h3>
+<p><strong>1. Workflow Separation</strong></p>
+<ul>
+<li>Modularity: Enables independent updates (e.g., VCF metrics without BAM changes).</li>
+<li>User Flexibility: Labs can adopt workflows relevant to their pipelines.</li>
+<li>Validation Efficiency: Simplifies benchmarking (e.g., GIAB for VCF, Platinum for long-reads).</li>
+</ul>
+<p><strong>2. Version 2.0 Priorities</strong></p>
+<ul>
+<li>Somatic Focus: Addresses critical gap in cancer genomics.</li>
+<li>Long-Reads: Prepares for emerging technologies (ONT/PacBio).</li>
+<li>Unified Docs: Reduces redundancy and improves clarity.</li>
+</ul>
+<p><strong>3. Approval Process</strong></p>
+<ul>
+<li>GA4GH Alignment: Ensures interoperability with Data Connect/Damasc.</li>
+<li>Community Review: Incorporates feedback via public comment period</li>
+</ul>
+<h2 id="2024-10-22">2024-10-22</h2>
+<h3 id="decision_5">Decision</h3>
+<p><strong>1. Diversify Benchmark Resources</strong></p>
+<ul>
+<li>Merge PR #42: Expand 100-sample benchmark to include diverse ethnicities.</li>
+<li>Action: Argo to run pipeline on updated sample list for cross-validation.</li>
+</ul>
+<p><strong>2. Standardize Metric Precision</strong></p>
+<ul>
+<li>Decimal Consistency: Align NPM/Argo cross-contamination rates (avoid rounding to 0%).</li>
+<li>Documentation: Add precision requirements to metric definitions (GitHub Issue #TBD).</li>
+</ul>
+<p><strong>3. VCF QC Implementation</strong></p>
+<ul>
+<li>Reference Pipeline: Argo’s VCF QC workflow is now production-ready for testing.</li>
+<li>Deprecate MultiQC: NPM v0.13 removes MultiQC dependency (simplifies outputs).</li>
+</ul>
+<p><strong>4. Somatic/Long-Read Roadmap</strong></p>
+<ul>
+<li>Somatic QC: Collaborate with Dragen to align with GA4GH metrics.</li>
+<li>Long-Reads: Use Platinum dataset (bioRxiv 10.1101/2024.10.02.616333) as benchmark.</li>
+</ul>
+<p><strong>5. GA4GH Ecosystem Integration</strong></p>
+<ul>
+<li>Data Connect: Engage leads to incorporate QC metrics into federated queries.</li>
+<li>Publication: Draft GA4GH best practices paper for QC standards.</li>
+</ul>
+<h3 id="rationale_5">Rationale</h3>
+<p><strong>1. Benchmark Diversity</strong></p>
+<ul>
+<li>Representation Matters: Ethnic diversity reduces bias in QC thresholds.</li>
+<li>Validation: Parallel runs (NPM/Argo) ensure metric robustness across populations.</li>
+</ul>
+<p><strong>2. Metric Precision</strong></p>
+<ul>
+<li>Clinical Relevance: Rounding contamination rates to 0% masks critical quality issues.</li>
+<li>Interoperability: Consistent precision enables cross-pipeline comparisons.</li>
+</ul>
+<p><strong>3. VCF QC Readiness</strong></p>
+<ul>
+<li>User Need: Separate VCF workflow simplifies adoption for variant-focused labs.</li>
+<li>Maintenance: Removing MultiQC reduces dependency conflicts.</li>
+</ul>
+<p><strong>4. Future-Proofing</strong></p>
+<ul>
+<li>Somatic/Dragen: Industry alignment accelerates adoption.</li>
+<li>Long-Reads: Platinum dataset provides gold-standard validation</li>
+</ul>
+<h2 id="2024-09-24">2024-09-24</h2>
+<h3 id="decision_6">Decision</h3>
+<p><strong>1. Two-Phase Implementation Approach</strong></p>
+<ul>
+<li>Phase 1 (v1): Finalize short-read WGS QC standard and achieve GA4GH production status</li>
+<li>Phase 2 (v2): Expand scope to:<ul>
+<li>Somatic mutation QC (Argo-led implementation)</li>
+<li>Long-read sequencing QC / Structural variant calling QC</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Documentation Strategy</strong></p>
+<ul>
+<li>Maintain single unified metric definition document</li>
+<li>Add versioned appendices for new data types (somatic/long-read)</li>
+</ul>
+<p><strong>3. Pipeline Architecture</strong></p>
+<ul>
+<li>Develop specialized QC pipelines for:<ul>
+<li>Short-read alignment (BAM/CRAM)</li>
+<li>Variant calling (VCF)</li>
+<li>Somatic mutation</li>
+<li>Long-read data</li>
+</ul>
+</li>
+<li>Preserve interoperability through shared JSON schema</li>
+</ul>
+<p><strong>4. Ethnicity Considerations</strong></p>
+<ul>
+<li>Formalize ethnicity-specific benchmarking in v1.1 update</li>
+<li>Document expected metric ranges by population group</li>
+</ul>
+<p><strong>5. Governance</strong></p>
+<ul>
+<li>Form working subgroups for:<ul>
+<li>Somatic QC (Argo chair)</li>
+<li>Long-read QC (open chair)</li>
+</ul>
+</li>
+<li>Monthly cross-group syncs to maintain alignment</li>
+</ul>
+<h3 id="rationale_6">Rationale</h3>
+<p><strong>1. Progressive Standardization</strong></p>
+<ul>
+<li>Completing short-read standard first provides stable foundation</li>
+<li>Parallel development risks scope creep and delays</li>
+</ul>
+<p><strong>2. Technical Pragmatism</strong></p>
+<ul>
+<li>Separate pipelines allow:<ul>
+<li>Technology-specific optimizations</li>
+<li>Independent versioning</li>
+<li>Gradual adoption</li>
+</ul>
+</li>
+<li>Shared schema ensures interoperability</li>
+</ul>
+<p><strong>3. Biological Realism</strong></p>
+<ul>
+<li>Ethnicity-specific ranges reflect true genetic diversity</li>
+<li>Prevents false quality flags in diverse cohorts</li>
+</ul>
+<p><strong>4. Community Alignment</strong></p>
+<ul>
+<li>Argo's clinical genomics expertise suits somatic leadership</li>
+<li>Open chair encourages long-read community participation</li>
+</ul>
+<h2 id="2024-07-23">2024-07-23</h2>
+<h3 id="decision_7">Decision</h3>
+<p><strong>1. Update Post-Alignment QC Metrics Definitions</strong></p>
+<ul>
+<li>Refine functional equivalence for DRAGEN v3.7 and other aligners.</li>
+<li>Focus on "not hard-to-sequence" regions (ensure benchmark regions exclude problematic genomic areas).</li>
+<li>Clarify implementation requirements for:<ul>
+<li>Coverage depth uniformity</li>
+<li>Mapping quality distribution</li>
+<li>Insert size metrics</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Expand Benchmark Dataset Diversity</strong></p>
+<ul>
+<li>Add ethnically diverse samples to the 100-sample benchmark set.</li>
+<li>Prioritize inclusion of:<ul>
+<li>African, East Asian, South Asian, and admixed populations</li>
+<li>Samples with varying GC content and complexity</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Resolve Pending Pull Requests</strong></p>
+<ul>
+<li>PR #21, #22, #31, #32, #33: Finalize reviews and merges.</li>
+<li>PR #22: Update comparison analysis between NPM and DRAGEN v3.7.</li>
+</ul>
+<p><strong>4. Improve Visualization &amp; Reporting</strong></p>
+<ul>
+<li>Enhance Jupyter notebooks for:<ul>
+<li>Super-population stratification</li>
+<li>Side-by-side tool comparisons (NPM vs. DRAGEN)</li>
+</ul>
+</li>
+<li>Standardize plots for GA4GH documentation.</li>
+</ul>
+<p><strong>5. Collaborate with GA4GH DRS Group</strong></p>
+<ul>
+<li>Define standardized region sets for benchmarking (e.g., "not hard-to-sequence" BED files).</li>
+<li>Ensure compatibility with GA4GH Data Repository Service (DRS) for metric sharing.</li>
+</ul>
+<h3 id="rationale_7">Rationale</h3>
+<p><strong>1. Metric Refinements</strong></p>
+<ul>
+<li>DRAGEN v3.7 Alignment: Ensures interoperability with industry-standard pipelines.</li>
+<li>"Not Hard-to-Sequence" Regions: Reduces false QC failures in problematic genomic areas (e.g., high homology regions).</li>
+<li>Functional Equivalence: Allows fair comparison across tools (e.g., NPM vs. DRAGEN).</li>
+</ul>
+<p><strong>2. Diverse Benchmarking</strong></p>
+<ul>
+<li>Ethnic Representation: Prevents population-specific biases in QC thresholds.</li>
+<li>Genomic Diversity: Captures wider range of technical challenges (e.g., GC extremes).</li>
+</ul>
+<p><strong>3. Visualization &amp; Reporting</strong></p>
+<ul>
+<li>Population Stratification: Helps labs interpret metric ranges for their cohorts.</li>
+<li>Tool Comparisons: Identifies systematic differences between implementations.</li>
+</ul>
+<p><strong>4. DRS Integration</strong></p>
+<ul>
+<li>Reproducibility: Standardized regions enable cross-study comparisons.</li>
+<li>FAIR Compliance: DRS enables federated querying of QC metrics</li>
+</ul>
+<h2 id="2024-06-25">2024-06-25</h2>
+<h3 id="decision_8">Decision</h3>
+<p><strong>1. Investigate Sample Stratification in QC Plots</strong></p>
+<ul>
+<li>Hypothesis Testing: Correlate the two observed sample clusters with 1KGP ethnicity data (super-populations).</li>
+<li>Action: Update Jupyter notebooks to color-code samples by ethnicity.</li>
+</ul>
+<p><strong>2.DRAGEN v3.7.8 Functional Equivalence</strong></p>
+<ul>
+<li>Root Cause: NPM’s region exclusion vs. DRAGEN’s lack of equivalent metrics.</li>
+<li>Short-Term Fix:<ul>
+<li>Run DRAGEN with whitelist regions (if supported).</li>
+<li>Document workarounds for missing metrics (e.g., coverage uniformity).</li>
+</ul>
+</li>
+<li>Long-Term Proposal:<ul>
+<li>Request DRAGEN to adopt whitelist by default via Illumina collaboration.</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. VCF QC Tool Standardization</strong></p>
+<ul>
+<li>Clarify Tools: Specify whether bcftools, GATK, or custom scripts are used for VCF QC.</li>
+<li>Add to Docs: Update README with tool versions and parameters.</li>
+</ul>
+<p><strong>4.Plotting Improvements</strong></p>
+<ul>
+<li>Replot Correlation Charts:<ul>
+<li>Fix axis scaling (log where appropriate).</li>
+<li>Add jitter to overlapping ratio points.</li>
+</ul>
+</li>
+<li>Ethnicity Annotation: Label clusters if ethnicity-linked.</li>
+</ul>
+<p><strong>5. Plenary Attendance Plan</strong></p>
+<ul>
+<li>Remote Participation: Prioritize key discussions for asynchronous input (Slack/email).</li>
+<li>Delegate Presentation: Assign on-site attendees (e.g., Justin, Nicolas) to represent the group.</li>
+</ul>
+<h3 id="rationale_8">Rationale</h3>
+<p><strong>1. Ethnicity-Driven QC Variation</strong></p>
+<ul>
+<li>Biological Reality: Metric distributions often differ by ancestry (e.g., AFR vs. EUR).</li>
+<li>Mitigation: Annotate plots to prevent misinterpretation as technical artifacts.</li>
+</ul>
+<p><strong>2. DRAGEN Compatibility</strong></p>
+<ul>
+<li>User Need: Labs using DRAGEN require comparable QC outputs.</li>
+<li>Advocacy: Pushing for whitelist adoption improves future interoperability.</li>
+</ul>
+<p><strong>3. Visualization Clarity</strong></p>
+<ul>
+<li>Jitter: Resolves overplotting in ratio metrics (e.g., Ti/Tv).</li>
+<li>Log Scales: Reveals patterns in skewed distributions (e.g., depth).</li>
+</ul>
+<p><strong>4. Remote Collaboration</strong></p>
+<ul>
+<li>Inclusivity: Ensures absent members can contribute to decisions</li>
+</ul>
+<h2 id="2024-05-28">2024-05-28</h2>
+<h3 id="decision_9">Decision</h3>
+<p><strong>1. Functional Equivalence Confirmed</strong></p>
+<ul>
+<li>AWS 1KGP DRAGEN vs. NPM QC:<ul>
+<li>3 metrics initially discrepant due to partial BAM processing.</li>
+<li>64 samples reanalyzed; results now show 100% correlation for yield/alignment metrics.</li>
+</ul>
+</li>
+<li>Action:<ul>
+<li>Fix BAM loading issue in pipeline (GitHub Issue #TBD).</li>
+<li>Document DRAGEN-NPM benchmark protocol.</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Variant Calling QC Metrics</strong></p>
+<ul>
+<li>PR #31 Review: Finalize definitions for:<ul>
+<li>Transition/Transversion (Ti/Tv) ratios</li>
+<li>Indel size distributions</li>
+<li>Multiallelic site frequencies</li>
+</ul>
+</li>
+<li>Action: All members review proposed metrics.</li>
+</ul>
+<p><strong>3. ISO Standardization Alignment</strong></p>
+<ul>
+<li>Clarify Engagement:<ul>
+<li>TC 140 (NGS): Focus on wet-lab protocols.</li>
+<li>Bioinformatics TC: Target for QC metric standards.</li>
+</ul>
+</li>
+<li>Action: Draft GA4GH-ISO crosswalk document (Thomas/Linda).</li>
+</ul>
+<p><strong>4. GA4GH Product Integration</strong></p>
+<ul>
+<li>DRS Collaboration: Ensure QC metrics are queryable via Data Repository Service.</li>
+<li>Roadmap: Add interoperability milestone for Q3 2024.</li>
+</ul>
+<h3 id="rationale_9">Rationale</h3>
+<p><strong>1. Tool Validation</strong></p>
+<ul>
+<li>Reproducibility: Confirms NPM and DRAGEN outputs are comparable when processed fully.</li>
+<li>Transparency: Documents edge cases (partial BAM loads) for future debugging.</li>
+</ul>
+<p><strong>2. VC Metric Standardization</strong></p>
+<ul>
+<li>Clinical Relevance: Ti/Tv ratios detect sequencing artifacts.</li>
+<li>Biological Insight: Indel distributions vary by disease context.</li>
+</ul>
+<p><strong>3. ISO Harmonization</strong></p>
+<ul>
+<li>Regulatory Impact: Aligns GA4GH standards with international frameworks.</li>
+<li>Scope Clarity: Separates wet-lab (TC 140) from bioinformatics standards.</li>
+</ul>
+<p><strong>4. Ecosystem Integration</strong></p>
+<ul>
+<li>FAIR Data: DRS enables federated QC metric access.</li>
+</ul>
+<h2 id="2024-03-26">2024-03-26</h2>
+<h3 id="decision_10">Decision</h3>
+<p><strong>1. Define Functional Equivalence Thresholds</strong></p>
+<ul>
+<li>High Agreement Metrics (✅):<ul>
+<li>Require &lt;5% relative difference (e.g., mean coverage, properly paired reads).</li>
+</ul>
+</li>
+<li>Disputed Metrics (❌):<ul>
+<li>% Reads Mapped: Investigate mapping algorithm differences.</li>
+<li>Insert Size Std Dev: Exclude from cross-tool comparisons.</li>
+</ul>
+</li>
+<li>Non-Equivalent Metrics:<ul>
+<li>Label clearly in reports (e.g., "DRAGEN lacks PCT_Autosome_15x").</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Address Cell Line vs. Primary Sample Bias</strong></p>
+<ul>
+<li>Annotate 1KGP Data: Flag immortalized cell line status in benchmarks.</li>
+<li>Supplement with Primary Samples: Use Ivo’s inter-lab comparison data where possible.</li>
+</ul>
+<p><strong>3. Variant Calling QC Standardization</strong></p>
+<ul>
+<li>Core Metrics:<ul>
+<li>Ti/Tv ratio (tumor/normal concordance for somatic).</li>
+<li>Indel size spectrum.</li>
+</ul>
+</li>
+<li>Exclusions:<ul>
+<li>DRAGEN-specific metrics without NPM equivalents.</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. Pipeline Improvements</strong></p>
+<ul>
+<li>DRAGEN Whitelisting: Test <code>--region</code> parameter for assembly gap exclusion.</li>
+<li>NPM Updates: Add warning for cell line artifacts.</li>
+</ul>
+<h3 id="rationale_10">Rationale</h3>
+<p><strong>1. Threshold Clarity</strong></p>
+<ul>
+<li>5% threshold balances biological variability with technical reproducibility.</li>
+<li>Explicit non-equivalence prevents false comparisons.</li>
+</ul>
+<p><strong>2. Sample Type Transparency</strong></p>
+<ul>
+<li>Cell lines show +15% false positives vs. primary samples (per Ivo’s data).</li>
+<li>Annotations ensure appropriate interpretation.</li>
+</ul>
+<p><strong>3. Variant QC Focus</strong></p>
+<ul>
+<li>Ti/Tv ratios detect PCR artifacts; indel sizes reveal alignment issues</li>
+</ul>
+<h2 id="2024-02-27">2024-02-27</h2>
+<h3 id="decision_11">Decision</h3>
+<p><strong>1. VCF-Centric QC Contributions</strong></p>
+<ul>
+<li>Open Collaboration: Invite all members to propose metric definitions via GitHub markdown.</li>
+<li>Linking Pipelines: Use <code>.gitmodules</code> to reference external QC implementations (e.g., Argo’s pipeline).</li>
+</ul>
+<p><strong>2. Workflow Versioning</strong></p>
+<ul>
+<li>NPM v0.12: Now reflects Picard updates.</li>
+<li>Argo Pipeline: Pending PR for updates (MH to guide GitHub submodule process).</li>
+</ul>
+<p><strong>3. Long-Read Terminology</strong></p>
+<ul>
+<li>Scope: Officially include long-read QC in Roadmap v2.</li>
+<li>Clarification: Define "long-read" as:<ul>
+<li>PacBio HiFi: ≥Q20, ≥10 kb reads.</li>
+<li>Oxford Nanopore: ≥Q15, ultra-long reads.</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. Registry Integration</strong></p>
+<ul>
+<li>Docstore Registration: Accelerate via GA4GH Tool Registry Service.</li>
+<li>Metadata Alignment: Sync with GA4GH Metadata Schema group.</li>
+</ul>
+<h3 id="rationale_11">Rationale</h3>
+<p><strong>1. Transparent Contributions</strong></p>
+<ul>
+<li>GitHub markdown ensures traceability; .gitmodules enables modular pipeline reuse.</li>
+</ul>
+<p><strong>2. Forward Compatibility</strong></p>
+<ul>
+<li>Submodule approach allows independent pipeline updates without breaking references.</li>
+</ul>
+<p><strong>3. Technology Neutrality</strong></p>
+<ul>
+<li>Explicit long-read definitions prevent ambiguity in v2 planning.</li>
+</ul>
+<p><strong>4. Ecosystem Alignment</strong></p>
+<ul>
+<li>Docstore/Data Registry integration enables federated QC queries</li>
+</ul>
+<h2 id="2024-01-30">2024-01-30</h2>
+<h3 id="decision_12">Decision</h3>
+<p><strong>1. Roadmap Document Updates</strong></p>
+<ul>
+<li>Adopt new table of contents structure (per Maxime's proposal)</li>
+<li>Rename "Expected Completion Date" → "Completed Date"</li>
+<li>Add checkboxes for tracking progress</li>
+<li>Mark completed items as we progress</li>
+</ul>
+<p><strong>2. Milestone Adjustments</strong></p>
+<p><strong>Schema Integration</strong></p>
+<ul>
+<li>Connect with Experiment Metadata group</li>
+<li>Engage DRS team</li>
+</ul>
+<p><strong>Reference Tools</strong></p>
+<ul>
+<li>PR #19 ready</li>
+<li>Merge PR</li>
+<li>Continue Argo improvements</li>
+</ul>
+<p><strong>Metric Finalization</strong></p>
+<ul>
+<li>Identify responsible parties</li>
+<li>Schedule alignment meeting</li>
+</ul>
+<p><strong>3. 2024 Priority Projects</strong></p>
+<ul>
+<li>Post-Variant Calling QC Metrics<ul>
+<li>Select 5-7 key metrics (Ti/Tv ratio, indel spectrum, etc.)</li>
+<li>Formalize definitions in GitHub markdown</li>
+<li>Implement in ≥2 workflows (NPM + Argo)</li>
+</ul>
+</li>
+<li>Reference Implementations<ul>
+<li>Formalize Argo workflow as second independent implementation</li>
+<li>Establish validation protocol</li>
+</ul>
+</li>
+<li>GA4GH Integration<ul>
+<li>Experiment Metadata WG (primary)</li>
+<li>DRS standard (secondary)</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. Benchmarking Resources</strong></p>
+<ul>
+<li>Current: DRAGEN v3.7.6 dataset available</li>
+<li>Needed: Additional version comparisons</li>
+<li>Action: Nominate benchmark coordinator</li>
+</ul>
+<h3 id="rationale_12">Rationale</h3>
+<p><strong>1. Transparent Tracking</strong></p>
+<ul>
+<li>Checkboxes and renamed dates improve accountability</li>
+<li>Clear documentation of completed work</li>
+</ul>
+<p><strong>2. Accelerating Progress</strong></p>
+<ul>
+<li>Merging PR #19 unblocks dependent work</li>
+<li>Parallel development of Argo implementation saves time</li>
+</ul>
+<p><strong>3. Strategic Focus</strong></p>
+<ul>
+<li>VCF metrics address urgent community needs</li>
+<li>Dual implementations ensure robustness</li>
+<li>Metadata/DRS integration enables FAIR QC data</li>
+</ul>
+<p><strong>4. Resource Optimization</strong></p>
+<ul>
+<li>Leverage existing DRAGEN data while planning expansions</li>
+<li>Technical paper will attract collaborators</li>
+</ul>
+<h2 id="2023-11-28">2023-11-28</h2>
+<h3 id="decision_13">Decision</h3>
+<ul>
+<li>
+<p>WG agree for the reference implementation to use picard to compute coverage based metrics with the default parameters (exclude unmapped reads &amp; BQ &lt; 20)</p>
+</li>
+<li>
+<p>WG see the benefit of running the pipeline on 3202 samples from 1000Genome project in order to define the range of accepted values to define functional equivalence.</p>
+</li>
+<li>
+<p>ARGO pipeline will work on Dockstore registration</p>
+</li>
+<li>
+<p>Align ARGO and NPM before running 1000 Genome dataset</p>
+</li>
+<li>
+<p>Need to participate to Experiments Metadata Standard and invite a representative to our meeting</p>
+</li>
+</ul>
+<h2 id="2023-10-24">2023-10-24</h2>
+<h3 id="decision_14">Decision</h3>
+<p>Is the current process sufficient to ensure implementations work as advertised!</p>
+<p>Seems that with 100 samples tested we already see some divergence in the implementations. It might not need to go further.</p>
+<h2 id="2023-09-26">2023-09-26</h2>
+<h3 id="decision_15">Decision</h3>
+<p><strong>1. Scope Expansion for Metrics</strong>  </p>
+<ul>
+<li>Primary Focus: Germline short-read WGS QC (current priority).</li>
+<li>Future Extensions:<ul>
+<li>Variant Types: SNPs + small indels (Phase 1) → Structural Variants (Phase 2).</li>
+<li>Read-Level QC: Deferred (e.g., FASTQ-style metrics, vendor quality tags).</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Vendor Engagement</strong></p>
+<ul>
+<li>DRAGEN (Illumina):<ul>
+<li>Request alignment of DRAGEN 3.7.8+ with GA4GH metric definitions.</li>
+<li>Collaborate on standardizing variant-level QC flags.</li>
+</ul>
+</li>
+<li>Unified Output Format: Advocate for a consolidated file (JSON/CRAM-tag) for all metrics.</li>
+</ul>
+<p><strong>3. NIH Metric Framework Integration</strong></p>
+<ul>
+<li>Adopt/adapt NIH’s germline QC metrics where applicable.</li>
+<li>SV-CNV Cross-Validation: Explore in Phase 2 (per DC’s suggestion).</li>
+</ul>
+<p><strong>4. Working Group Priorities</strong></p>
+<ul>
+<li>Short-Term: Finalize SNP/small-indel VCF metrics (Q2 2024).</li>
+<li>Long-Term:<ul>
+<li>Structural variant QC (2025).</li>
+<li>Vendor tag standardization (post-2024).</li>
+</ul>
+</li>
+</ul>
+<h3 id="rationale_13">Rationale</h3>
+<p><strong>1. Focus on Germline Short-Reads</strong></p>
+<ul>
+<li>Addresses immediate community needs (clinical/large-scale genomics).</li>
+<li>Provides foundation for future expansions.</li>
+</ul>
+<p><strong>2. Vendor Collaboration</strong></p>
+<ul>
+<li>DRAGEN Ubiquity: Ensures broad adoption of standards.</li>
+<li>Unified Outputs: Simplifies integration for end users.</li>
+</ul>
+<p><strong>3. NIH Alignment</strong></p>
+<ul>
+<li>Leverages existing NIH/CSER work to avoid duplication.</li>
+<li>SV-CNV sanity checks improve variant reliability.</li>
+</ul>
+<p><strong>4. Phased Approach</strong></p>
+<ul>
+<li>Prevents scope creep while planning for SVs/long-reads</li>
+</ul>
+<h2 id="2023-08-22">2023-08-22</h2>
+<h3 id="decision_16">Decision</h3>
+<p><strong>1. VCF-Centric QC Metrics Framework</strong></p>
+<ul>
+<li>Scope: Focus on germline short variants (SNPs/indels &lt;50bp) from standard callers (e.g., DeepVariant, GATK).</li>
+</ul>
+<p><strong>Core Metrics:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Definition</th>
+<th>Filter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Insertion Count</td>
+<td>PASS variants only</td>
+<td>Exclude SVs</td>
+</tr>
+<tr>
+<td>Deletion Count</td>
+<td>PASS variants only</td>
+<td>Exclude SVs</td>
+</tr>
+<tr>
+<td>Ti/Tv Ratio</td>
+<td>All variants</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Filtering: Standardize on PASS-only for critical metrics (per Linda/Jukka consensus).</li>
+</ul>
+<p><strong>2. Implementation &amp; Validation</strong></p>
+<ul>
+<li>Reference Workflows:<ul>
+<li>NPM (Nextflow): Current benchmark.</li>
+<li>Argo (GATK-based): To be formalized.</li>
+</ul>
+</li>
+<li>Benchmarking:<ul>
+<li>Run on 10K samples (Oliver’s bad-quality WGS + 1KG).</li>
+<li>Compare via Dockstore for reproducibility.</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. PR #7 Merge</strong></p>
+<ul>
+<li>Approve major revision of metric definitions for:<ul>
+<li>BAM/CRAM QC (mature).</li>
+<li>VCF QC (initial draft).</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. Somatic/Long-Read Deferral</strong></p>
+<ul>
+<li>Postpone until germline metrics are stable.</li>
+<li>Exception: Basic Ti/Tv for tumor/normal pairs.</li>
+</ul>
+<h3 id="rationale_14">Rationale</h3>
+<p><strong>1. Practical Focus</strong></p>
+<ul>
+<li>PASS-only filtering reflects clinical/lab standards.</li>
+<li>Size cutoff (&lt;50bp) aligns with major variant callers.</li>
+</ul>
+<p><strong>2. Scalable Validation</strong></p>
+<ul>
+<li>10K samples stress-test metric robustness.</li>
+<li>Dockstore ensures workflow portability.</li>
+</ul>
+<p><strong>3. Ecosystem Alignment</strong></p>
+<ul>
+<li>PR #7 harmonizes with NIH/CSER frameworks.</li>
+<li>Delaying SVs avoids dilution of effort.</li>
+</ul>
+<h2 id="2023-03-28">2023-03-28</h2>
+<h3 id="decision_17">Decision</h3>
+<p><strong>1. Metric Definition Updates</strong></p>
+<ul>
+<li>Adopt PR revisions to clarify:<ul>
+<li>Remove ambiguous booleans (e.g., "include duplicates?") → Replace with plain-language descriptions.</li>
+<li>Standardize insert size reporting (mean + median absolute deviation).</li>
+<li>Rename "% read map" (was "read mapping quality") for clarity.</li>
+</ul>
+</li>
+<li>Implementation Details Section:<ul>
+<li>Add tool-specific parameters (e.g., <code>verifyBAMID2</code> for contamination).</li>
+<li>Document functionally equivalent thresholds (e.g., 1000 Genomes benchmarks).</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Coverage Metrics</strong></p>
+<ul>
+<li>Retain 15x autosome coverage (vs. AoU’s 20x):<ul>
+<li>Balances clinical utility and sequencing economics.</li>
+</ul>
+</li>
+<li>Evenness Calculation:<ul>
+<li>Standardize on median/mean coverage ratio (simple, reproducible).</li>
+<li>Future: Evaluate dispersion-based methods for tumor samples.</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Contamination Rate</strong></p>
+<ul>
+<li>Include as optional metric:<ul>
+<li>Tools: <code>verifyBAMID2</code> (alignment) or <code>GATK</code> <code>CalculateContamination</code> (post-calling).</li>
+<li>No universal threshold: Labs set own cutoffs (e.g., ≤1% for clinical).</li>
+<li>Exclude ACMG panel coverage: Too project-specific.</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. VCF-Centric Additions</strong></p>
+<ul>
+<li>Required: Ti/Tv ratio, indel spectrum.</li>
+<li>Optional: Cross-sample contamination (tumor/normal).</li>
+</ul>
+<h3 id="rationale_15">Rationale</h3>
+<p><strong>1. Clarity vs. Flexibility</strong></p>
+<ul>
+<li>Plain-language definitions reduce implementation drift.</li>
+<li>Optional contamination accommodates diverse use cases (research vs. clinical).</li>
+</ul>
+<p><em>82. Coverage Practicality</em>*</p>
+<ul>
+<li>15x covers most germline needs; 20x adds marginal value.</li>
+<li>Median/mean ratio is robust for evenness (per ICGC experience).</li>
+</ul>
+<p><strong>3. Ecosystem Alignment</strong></p>
+<ul>
+<li>AoU metrics inform but don’t dictate standards.</li>
+<li>Tumor-specific methods deferred to somatic roadmap.</li>
+</ul>
+<h2 id="2023-02-21">2023-02-21</h2>
+<h3 id="decision_18">Decision</h3>
+<p><strong>1. Repository Structure &amp; Governance</strong></p>
+<ul>
+<li>Folder Organization:<ul>
+<li><code>/roadmap</code>: High-level deliverables</li>
+<li><code>/definitions</code>: Metric specifications (one .md per metric)</li>
+<li><code>/implementations</code>: Reference workflows (Singapore NPM, Argo)</li>
+</ul>
+</li>
+<li>Approval Process: Merge PRs after 72-hour review window.</li>
+</ul>
+<p><strong>2. Metric Definition Standards</strong></p>
+<ul>
+<li>Template:</li>
+</ul>
+<pre><code>markdown
+Copy
+Download
+</code></pre>
+<pre><code>### `ID`
+`mean_autosome_coverage`  
+
+
+### `Description`  
+Mean coverage depth across autosomes, excluding assembly gaps.  
+
+
+### `Implementation`  
+- **Tools**: mosdepth (default), samtools  
+- **Parameters**: `-Q 13`, `--region autosomes.bed`  
+- **Validated Ranges**: 25–35x (WGS)  
+
+
+### `Notes`  
+Aligns with All of Us 20x threshold but uses 15x for broader utility. 
+</code></pre>
+<h3 id="rationale_16">Rationale</h3>
+<p><strong>1. Clarity &amp; Reproducibility</strong></p>
+<ul>
+<li>Plain-English definitions prevent tool-specific assumptions.</li>
+<li>Dockstore integration enables cloud-scale validation.</li>
+</ul>
+<p><strong>2. Biological Utility</strong></p>
+<ul>
+<li>Dual mapping metrics address distinct quality aspects.</li>
+<li>Whitelists ensure consistent autosomal coverage calculations.</li>
+</ul>
+<p><strong>3. Ecosystem Alignment</strong></p>
+<ul>
+<li>AoU/ICGC cross-pollination avoids duplication.</li>
+<li>Modular structure accommodates future expansions (e.g., somatic)</li>
+</ul>
+<h2 id="2023-01-17">2023-01-17</h2>
+<p><strong>NA</strong></p>
+<h2 id="2022-12-13">2022-12-13</h2>
+<h3 id="decision_19">Decision</h3>
+<p><strong>1. GitHub Governance</strong></p>
+<ul>
+<li>Protected <code>main</code> branch: Require 2-3 reviews before merging (Maxime/Lindsay to configure)</li>
+<li>Process documentation: Adopt conventions from other GA4GH Work Stream repos (Lindsay to draft)</li>
+<li>Repository naming: Retain current name (<code>wgs-sample-qc</code>), clarify scope in README</li>
+</ul>
+<p><strong>2. SC Proposal Preparation</strong></p>
+<ul>
+<li>Submit questionnaire by Jan 12, with slides to follow</li>
+<li>Key deliverables:<ul>
+<li>Standardized JSON schemas for 7 core metrics</li>
+<li>Reference implementations (Singapore-NPM, AGHA)</li>
+<li>Benchmarking protocol (GIAB + 10X Linked-Read datasets)</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Technical Scope</strong></p>
+<ul>
+<li>Exclude sample/tumor metadata: QC outputs will not include genetic or clinical data</li>
+<li>API development: Defer to later phase; focus on file-based JSON outputs initially</li>
+</ul>
+<p><strong>4. Functional Equivalence</strong></p>
+<ul>
+<li>Use metrics to compare pipelines (e.g., via statistical thresholds)</li>
+<li>Adopt alignment statistics framework from <code>alignstats</code> as reference</li>
+</ul>
+<h3 id="rationale_17">Rationale</h3>
+<ul>
+<li>Controlled Collaboration: Protected branches ensure stability while allowing community input.</li>
+<li>Clear Boundaries: Separating QC metrics from sample metadata prevents misuse and simplifies adoption.</li>
+<li>SC Alignment: Explicit deliverables (JSON schemas, implementations) demonstrate production readiness.</li>
+<li>Interoperability: File-first approach ensures compatibility with existing workflows; API can be added later.</li>
+</ul>
+<h2 id="2022-09-13">2022-09-13</h2>
+<h3 id="decision_20">Decision</h3>
+<p><strong>1. Finalize Reference Implementations</strong></p>
+<ul>
+<li>Singapore-NPM: Complete DSL2 transition and local resource handling (Nicolas/Maxime)</li>
+<li>AGHA: Test and provide feedback on implementation (Sehrish)</li>
+</ul>
+<p><strong>2. Standardize Benchmarking Data</strong></p>
+<ul>
+<li>Use GIAB Baid dataset (PCR-free/PCR-plus WGS/WES) as primary benchmark</li>
+<li>Supplement with AGHA’s 10X Linked-Read (poor-quality data)</li>
+<li>Host datasets on AWS Open Data/Google Cloud for accessibility (Oliver)</li>
+</ul>
+<p><strong>3. Refine Metric Definitions</strong></p>
+<ul>
+<li>Revise descriptions for the 7 core metrics (Nicolas/Maxime)</li>
+<li>Align JSON schemas with GA4GH standards</li>
+</ul>
+<p><strong>4. Adjust Roadmap</strong></p>
+<ul>
+<li>Move ontology development to a later milestone</li>
+<li>Add GA4GH Standards Interoperability as a near-term milestone</li>
+<li>Prioritize pipeline validation over theoretical standardization</li>
+</ul>
+<h3 id="rationale_18">Rationale</h3>
+<p><strong>Practical Focus:</strong></p>
+<p>Core metrics and implementations provide immediate value for cross-pipeline comparison.</p>
+<p><strong>Data Diversity:</strong></p>
+<p>Combining GIAB (gold standard) and problematic datasets (10X Linked-Read) ensures robust validation.</p>
+<p><strong>Technical Scalability:</strong>
+- DSL2 improves workflow portability.
+- Local resource handling reduces runtime dependencies.</p>
+<p><strong>Roadmap Realism:</strong></p>
+<p>Separating ontology work allows focus on production-ready </p>
+<h2 id="2022-07-26">2022-07-26</h2>
+<h3 id="decision_21">Decision</h3>
+<p><strong>1. Prioritize 5 core metrics for initial standardization:</strong></p>
+<ul>
+<li>Mean autosomal coverage</li>
+<li>Mapping quality distribution</li>
+<li>Contamination estimate</li>
+<li>Insert size metrics</li>
+<li>Read depth distribution</li>
+</ul>
+<p><strong>2. Maintain two implementation tracks:</strong></p>
+<ul>
+<li>Minimal implementation: Core 5 metrics only (for benchmarking/comparison)</li>
+<li>Extended implementation: Full metric set (for exploratory analysis)</li>
+</ul>
+<p><strong>3. Improve workflow portability:</strong></p>
+<ul>
+<li>Resolve environment-specific hardcoding in Nextflow/Docker</li>
+<li>Implement versioned releases with changelog</li>
+<li>Adopt GA4GH tool registry (Dockstore) for sharing</li>
+</ul>
+<p><strong>4. Curate test datasets:</strong></p>
+<ul>
+<li>Include both high-quality (1000 Genomes) and problematic samples</li>
+<li>AGHA to share failed runs (Azure/AWS)</li>
+<li>Explore ICGC blacklisted samples where possible</li>
+</ul>
+<h3 id="rationale_19">Rationale</h3>
+<p><strong>1. Practical adoption:</strong></p>
+<p>Core metrics address critical QC needs while remaining manageable
+Dual implementation balances standardization with flexibility</p>
+<p><strong>2. Technical robustness:</strong></p>
+<p>Focused metrics simplify cross-tool comparison
+Version control ensures reproducibility</p>
+<p><strong>3. Validation requirements:</strong></p>
+<p>Problematic samples are essential for testing metric sensitivity
+Public/private dataset mix provides comprehensive coverage</p>
+<h2 id="2022-05-17">2022-05-17</h2>
+<h3 id="decision_22">Decision</h3>
+<p><strong>1. Defer large-scale ontology development and focus on:</strong></p>
+<ul>
+<li>Finalizing JSON schemas for key metrics (e.g., coverage, contamination)</li>
+<li>Publishing reference implementations (Nextflow/Docker workflows)</li>
+<li>Documenting minimum metadata requirements (e.g., refget IDs, tool versions)</li>
+</ul>
+<p><strong>2. Adopt a hybrid approach for ontologies:</strong></p>
+<ul>
+<li>Use existing terms (e.g., GenEpiO) where possible.</li>
+<li>Define only critical new terms (e.g., "autosomal_depth_of_coverage").</li>
+<li>Link JSON fields to ontology IDs (e.g., <code>"metric_type"</code>: <code>"GENEPIO:XXXX"</code>).</li>
+</ul>
+<p><strong>3. Curate benchmarking datasets:</strong></p>
+<ul>
+<li>Prioritize real-world problematic samples (AGHA to share failed runs).</li>
+<li>Supplement with ICGC/CINECA data where accessible.</li>
+<li>Avoid synthetic data (per Ivo’s feedback on biological realism).</li>
+</ul>
+<p><strong>4. Align with GA4GH tooling:</strong></p>
+<ul>
+<li>Use Dockstore for workflow sharing.</li>
+<li>Adopt refget for reference standardization.</li>
+</ul>
+<h3 id="rationale_20">Rationale</h3>
+<ul>
+<li>Practical adoption: JSON schemas and workflows provide immediate value to labs.</li>
+<li>Resource efficiency: Ontology work is time-intensive; defer to post-implementation.</li>
+<li>Real-world validation: Problematic samples (not just GIAB) are critical for QC use cases.</li>
+<li>Interoperability: Hybrid JSON+ontology approach balances rigor and flexibility</li>
+</ul>
+<h2 id="2022-04-12">2022-04-12</h2>
+<h3 id="decision_23">Decision</h3>
+<p>Adopt OBO Foundry principles for ontology development:</p>
+<ul>
+<li>Reuse existing terms from GenEpiO where applicable</li>
+<li>Create new terms following best practices (precise labels, technical definitions)</li>
+<li>Maintain separation between concepts and implementation details</li>
+</ul>
+<p><strong>2. Pilot with mean autosomal coverage:</strong></p>
+<ul>
+<li>Create 3 new terms (depth/breadth of autosome coverage)</li>
+<li>Reuse 2 existing GenEpiO terms</li>
+<li><code>Structure as:
+Copy
+Download</code></li>
+</ul>
+<pre><code>sequencing metric
+└── coverage metric
+    ├── depth of autosome coverage (new)
+    └── breadth of autosome coverage (new)
+    }
+</code></pre>
+<p><strong>3.Standardize parameters:</strong></p>
+<p>Use "reference genome accession" (refget-compliant)
+Replace "BED file name" with "genomic region filter URI"
+Rename "minimum mapping quality score" to "minimum mapping quality threshold"</p>
+<p><strong>4. Implement layered specification:</strong></p>
+<p>Ontology layer: Universal definitions (e.g., "depth of coverage")
+Application profile: Required fields for implementations (JSON schema)
+Guidance documentation: Tool-specific parameters (e.g., mosdepth settings)</p>
+<h3 id="rationale_21">Rationale</h3>
+<p><strong>1. Interoperability:</strong></p>
+<ul>
+<li>OBO Foundry compliance ensures compatibility with existing biomedical ontologies</li>
+<li>GenEpiO provides established framework for genomic quality terms</li>
+</ul>
+<p><strong>2. Precision:</strong></p>
+<ul>
+<li>Technical definitions disambiguate metrics (e.g., "autosomal" vs whole-genome)</li>
+<li>Parameter standardization prevents implementation drift (e.g., refget for references)</li>
+</ul>
+<p><strong>3. Scalability:</strong></p>
+<ul>
+<li>Pilot approach validates methodology before expanding to other metrics</li>
+<li>Layered design accommodates both universal concepts and tool-specific needs</li>
+</ul>
+<p><strong>4. FAIR compliance:</strong></p>
+<ul>
+<li>URIs for region filters enable reproducibility</li>
+<li>Versioned terms maintain backward compatibility</li>
+</ul>
+<h2 id="2022-03-08">2022-03-08</h2>
+<h3 id="decision_24">Decision</h3>
+<p><strong>1. Adopt GENEPIO ontology as foundation for QC metric standardization, with initial focus on:</strong></p>
+<ul>
+<li>Mean autosomal coverage as pilot term</li>
+<li>Alignment with existing GENEPIO quality terms (e.g., GENEPIO_0000087)</li>
+</ul>
+<p><strong>2. Develop layered implementation:</strong></p>
+<ul>
+<li>Reference ontology: Generic metric definitions (platform/algorithm-agnostic)</li>
+<li>Application profiles: JSON schemas specifying required fields for implementations</li>
+<li>Controlled vocabularies: For parameters (e.g., mapping quality thresholds)</li>
+</ul>
+<p><strong>3. Curate reference datasets from:</strong></p>
+<ul>
+<li>Genome in a Bottle (GIAB) Ashkenazim Trio</li>
+<li>ILMN Dragen 1kGP AWS dataset</li>
+<li>CINECA synthetic data (supplemental)</li>
+</ul>
+<p><strong>4. Establish governance model:</strong></p>
+<ul>
+<li>GENEPIO team maintains core ontology</li>
+<li>GA4GH community extends through application profiles</li>
+<li>Implementation feedback loop via GitHub</li>
+</ul>
+<h3 id="rationale_22">Rationale</h3>
+<p><strong>1. Avoids duplication by building on established GENEPIO framework</strong></p>
+<p><strong>2. Balances flexibility and rigor:</strong></p>
+<ul>
+<li>Ontology provides semantic backbone</li>
+<li>JSON profiles enable practical adoption</li>
+</ul>
+<p><strong>3. Comprehensive validation:</strong>
+- GIAB data provides gold-standard references
+- Multiple platforms reveal edge cases</p>
+<p><strong>4. Sustainable maintenance:</strong></p>
+<ul>
+<li>Leverages existing GENEPIO infrastructure</li>
+<li>Clear separation between universal definitions and implementation-specific needs</li>
+</ul>
+<h2 id="2022-01-18">2022-01-18</h2>
+<h3 id="decision_25">Decision</h3>
+<p><strong>1. Expand proof-of-concept analysis to:</strong></p>
+<ul>
+<li>Include Genome in a Bottle trio datasets</li>
+<li>Compare Dragen vs. non-Dragen implementations (via CWL workflows)</li>
+<li>Analyze diagnostic vs. research pipeline differences (SickKids use case)</li>
+</ul>
+<p><strong>2. Develop a QC metrics ontology with:</strong></p>
+<ul>
+<li>Standardized JSON schema (initially non-LD, transitionable to JSON-LD)</li>
+<li>Controlled vocabularies for key fields (reference, filters, warning flags)</li>
+<li>Alignment with GA4GH standards (refget for references, future BED file standards)</li>
+</ul>
+<p><strong>3. Define implementation priorities:</strong></p>
+<ul>
+<li>Core utility tools for metric calculation (independent of alignment/variant calling)</li>
+<li>Warning/flagging system for outlier metrics</li>
+<li>Top-level metadata (pipeline version, reference checksums, UMI info if available)</li>
+</ul>
+<p><strong>4. Engage GA4GH work streams to:</strong></p>
+<ul>
+<li>Formalize ontology with Melanie Courtot (EBI)</li>
+<li>Align with refget and file format teams</li>
+</ul>
+<h3 id="rationale_23">Rationale</h3>
+<p><strong>Evidence-based standardization:</strong></p>
+<ul>
+<li>SickKids comparison showed pipeline differences are smaller than metric definition differences (e.g., coverage calculations).</li>
+<li>Expanding to public datasets (GIAB) ensures broader applicability.</li>
+</ul>
+<p><strong>Interoperability:</strong></p>
+<ul>
+<li>Plain JSON allows immediate implementation while enabling future transition to JSON-LD.</li>
+<li>Refget checksums provide precise reference tracking without redundant metadata.</li>
+</ul>
+<p><strong>Practical adoption:</strong></p>
+<ul>
+<li>Decoupled QC tools enable integration with diverse pipelines (Dragen/non-Dragen).</li>
+<li>Warning flags address real-world needs for outlier detection (e.g., diagnostic labs).</li>
+</ul>
+<p><strong>Community alignment:</strong></p>
+<ul>
+<li>Leveraging GA4GH ontologies (DUO) ensures compatibility with existing standards.</li>
+<li>CWL workflows support reproducibility across platforms.</li>
+</ul>
+<h2 id="2021-11-30">2021-11-30</h2>
+<h3 id="decision_26">Decision</h3>
+<p><strong>1. Adopt an ontology-based approach</strong> for metric standardization, leveraging Melanie Courtot's expertise from EBI and building on DUO ontology experience</p>
+<p><strong>2. Structure implementation documentation with:</strong></p>
+<ul>
+<li>Clear reporting guidelines with examples</li>
+<li>Implementation-specific sections (organized as a table of contents for submitted tools/scripts)</li>
+<li>Controlled vocabulary section for standardized fields</li>
+</ul>
+<p><strong>3. Implement reference standardization using:</strong></p>
+<ul>
+<li>Mandatory refget checksums for precise reference identification</li>
+<li>Optional human-readable reference descriptions</li>
+</ul>
+<p><strong>4. Expand proof-of-concept with SickKids diagnostic vs genome center comparisons to identify:</strong></p>
+<ul>
+<li>Pipeline version differences</li>
+<li>Unexplained metric variations</li>
+</ul>
+<p><strong>5. Separate metadata architecture:</strong></p>
+<ul>
+<li>Top-level metadata section for global properties</li>
+<li>Metric-specific fields (marked N/A when not applicable)</li>
+</ul>
+<h3 id="rationale_24">Rationale</h3>
+<p><strong>Ontology benefits:</strong></p>
+<p>Enables semantic interoperability across implementations
+Leverages existing GA4GH expertise (DUO experience)
+Provides structured framework for community contributions</p>
+<p><strong>Implementation clarity:</strong></p>
+<p>Multiple real-world examples (SickKids, PRECISE) demonstrate practical adaptation
+Structured documentation supports diverse tool integration</p>
+<p><strong>Reference standardization:</strong></p>
+<p>Refget ensures precise reproducibility
+Maintains flexibility for different genome builds
+Complements ongoing GA4GH work on BED file standardization</p>
+<p><strong>Evidence-based development:</strong></p>
+<p>Diagnostic vs research pipeline comparisons reveal practical challenges
+Guides refinement of controlled vocabulary</p>
+<p><strong>Scalable architecture:</strong></p>
+<p>Separated metadata accommodates both global and metric-specific needs
+"N/A" convention maintains structure while allowing implementation flexibility</p>
+<h2 id="2021-10-26">2021-10-26</h2>
+<h3 id="decision_27">Decision</h3>
+<p><strong>1. Adopt JSON as the primary output format for QC metrics, structured as:</strong></p>
+<ul>
+<li><code>sample_id</code>,</li>
+<li><code>qc_metrics</code> (aligned with the minimal definitions document),</li>
+<li><code>reference_metadata</code> (e.g., refget checksum, BED file path).</li>
+</ul>
+<p><strong>2. Separate global BAM properties</strong> (e.g., duplicate marking, UMI usage) from per-metric calculations, with:</p>
+<ul>
+<li>A header section documenting filters/assumptions (e.g., clipping, overlapping bases),</li>
+<li>Optional tool-specific annotations (e.g., <code>samtools</code> flags).</li>
+</ul>
+<p><strong>3. Prioritize runtime efficiency:</strong></p>
+<ul>
+<li>Allow streaming computation (e.g., <code>samtools</code> <code>mpileup</code>),</li>
+<li>Avoid reprocessing BAMs when possible (leverage existing headers/tools like <code>mosdepth</code>).</li>
+</ul>
+<p><strong>4. Benchmark implementations using NA12878, focusing on:</strong></p>
+<ul>
+<li>Coverage discrepancies (autosomes vs. full genome),</li>
+<li>Variant counting methods (SNPs/indels categorization),</li>
+<li>Contamination metric harmonization.</li>
+</ul>
+<p><strong>5. Engage GA4GH Work Streams</strong> (e.g., <code>VRS</code>, <code>refget</code>) to align with broader standards, but defer BAM header embedding due to impracticality.</p>
+<h3 id="rationale_25">Rationale</h3>
+<p><strong>Interoperability:</strong> </p>
+<p>JSON ensures machine-readability and tool-agnostic adoption.</p>
+<p><strong>Transparency:</strong> </p>
+<p>Global headers clarify assumptions (e.g., filters applied) without bloating per-metric outputs.</p>
+<p><strong>Performance:</strong> </p>
+<p>Streaming-compatible tools (e.g., <code>samtools</code>) enable scalable QC for large cohorts.</p>
+<p><strong>Validation:</strong> </p>
+<p>NA12878 comparisons expose definitional nuances (e.g., coverage thresholds, overlapping bases).</p>
+<p><strong>Community Alignment:</strong> </p>
+<p>Leveraging GA4GH standards (e.g., <code>refget</code>) future-proofs the framework, while avoiding premature BAM header modifications.</p>
+<h2 id="2021-09-14">2021-09-14</h2>
+<h3 id="decision_28">Decision</h3>
+<p><strong>1. Define a core set of QC metrics for germline WGS, covering:</strong></p>
+<ul>
+<li>Alignment (e.g., coverage, mapping quality),</li>
+<li>Variant calling (high-level metrics only),</li>
+<li>Sample contamination (with explicit type definitions),</li>
+<li>Yield &amp; quality (e.g., read quality, duplication).</li>
+</ul>
+<p><strong>2. Standardize metric definitions with:</strong></p>
+<ul>
+<li>Unique names/IDs,</li>
+<li>Clear descriptions (including assumptions like clipping or filters),</li>
+<li>Preferred open-source tools (avoiding proprietary solutions).</li>
+</ul>
+<p><strong>3. Allow flexible implementations</strong> but require documentation of methodology (e.g., reference regions, tool versions).</p>
+<p><strong>4. Optimize for runtime</strong>—avoid recomputing metrics when avoidable (e.g., reuse BAM/CRAM stats).</p>
+<p><strong>5. Validate via GitHub collaboration</strong>—test implementations on NA12878 and refine definitions iteratively.</p>
+<h3 id="rationale_26">Rationale</h3>
+<p><strong>Comparability:</strong> Ensures metrics are interpretable across pipelines.</p>
+<p><strong>Practicality:</strong> Prioritizes widely supported tools and efficient computations.</p>
+<p><strong>Adaptability:</strong> Definitions accommodate multiple technologies (e.g., short/long reads).</p>
+<p><strong>Transparency:</strong> Documenting tool-specific assumptions mitigates misinterpretation (e.g., rounding differences).</p>
+<p><strong>Community-driven:</strong> GitHub-based validation ensures real-world usability.</p>
+<h2 id="2021-08-10">2021-08-10</h2>
+<h3 id="decision_29">Decision</h3>
+<p>The group decided to define a foundational set of WGS QC metrics, focusing first on those that are:</p>
+<ul>
+<li>Technically feasible to obtain from aligned data (BAM/CRAM)</li>
+<li>Widely used and accepted across institutions</li>
+<li>Relevant for determining sample usability and data quality</li>
+<li>Able to be calculated independently of platform or variant calling pipeline (where possible)</li>
+</ul>
+<p><strong>Initial Metric Categories and Examples</strong></p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Example Metrics (Proposed)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coverage</td>
+<td>Mean read depth, % of genome covered at ≥X (e.g., 20x), genome completeness, absolute/effective coverage</td>
+</tr>
+<tr>
+<td><strong>Mappability</strong></td>
+<td>% mappable reads, % mapped, % aligned, cross-species contamination</td>
+</tr>
+<tr>
+<td><strong>Library/Read Quality</strong>.</td>
+<td>% duplication, median fragment length, insert size, ATCG dropout, uniformity of coverage</td>
+</tr>
+<tr>
+<td><strong>Yield</strong></td>
+<td>Total bases &gt; Q30 (e.g., Gb &gt; Q30), total reads</td>
+</tr>
+<tr>
+<td><strong>Contamination</strong></td>
+<td>Estimated contamination (e.g., verifyBAMID, % mixed reads), noise proxy metrics</td>
+</tr>
+<tr>
+<td><strong>Callable Regions</strong></td>
+<td>% callable bases (e.g., genome, OMIM, ClinVar), reference genome version and regions covered</td>
+</tr>
+<tr>
+<td><strong>Technology-specific flags</strong></td>
+<td>Low-quality base prevalence, read length bias, differences in Q-score distribution (e.g., Illumina vs PacBio)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Additional distinctions:</strong></p>
+<p><strong>Metric format:</strong> scalar (e.g., % mapped) vs. distributional (e.g., insert size histogram)</p>
+<p><strong>Metric derivation:</strong> Derived directly from aligned reads, with clear documentation of computational choices (e.g., read depth calculation approach)</p>
+<p><strong>Standardization approach:</strong> Each metric will be defined both in plain language and optionally mapped to a reference implementation (e.g., Nextflow module)</p>
+<h3 id="rationale_27">Rationale</h3>
+<p><strong>1. Wide applicability:</strong> The selected metrics are broadly relevant and feasible for institutions to report without needing extensive pipeline changes.</p>
+<p><strong>2. Reproducibility:</strong> Focusing on BAM/CRAM-level metrics avoids reliance on downstream tools that vary more widely (e.g., variant callers).</p>
+<p><strong>3. Interoperability:</strong> Enables initial comparison across institutions even with varied processing approaches.</p>
+<p><strong>4. Incremental adoption:</strong> Allows organizations to begin contributing metrics from their current pipelines and participate in convergence over time.</p>
+<p><strong>5. Clarity:</strong> A living document and GitHub repository will track metric definitions, including optional reference code.</p>
+<h2 id="2021-06-29">2021-06-29</h2>
+<h3 id="decision_30">Decision</h3>
+<p><strong>1: Start with a Minimal, Agreed-Upon Set of QC Metrics</strong></p>
+<p><strong>2: Develop Clear Definitions for Each Metric</strong></p>
+<p><strong>3: Separate File Format/Schema from QC Computation Pipeline</strong></p>
+<p><strong>4: Use the GitHub Repository and a Shared Google Doc for Collaborative Metric Listing</strong></p>
+<p><strong>5: Exclude Somatic Sequencing from Scope</strong></p>
+<p><strong>6: Ensure QC Metric Definitions are Build-Agnostic Where Possible</strong></p>
+<p><strong>7: Encourage Metrics to Be Accompanied by Contextual Information</strong></p>
+<p><strong>8. Create a Mailing List for Ongoing Communication</strong></p>
+<h3 id="rationale_28">Rationale</h3>
+<p><strong>1.</strong></p>
+<ul>
+<li>Initiatives have diverse pipelines and stages of QC implementation.</li>
+<li>A common denominator will enable cross-project communication and comparability without requiring changes to local pipelines.</li>
+<li>Enables tracking and understanding across systems with varied infrastructure maturity (e.g., ingest-only QC vs. end-of-project QC).</li>
+</ul>
+<p><strong>2.</strong></p>
+<ul>
+<li>Different initiatives use the same metric names with differing meanings or computational methods.</li>
+<li>Ambiguity in metric definitions leads to miscommunication both within and across initiatives.</li>
+<li>Needed for interoperability and trust when sharing data or results.</li>
+</ul>
+<p><strong>3.</strong></p>
+<ul>
+<li>Some participants only need a standardized way to share and store metrics (file format/schema).</li>
+<li>Others also want a pipeline to calculate them.</li>
+<li>Decoupling these allows flexibility: adoption of the schema without forcing a specific implementation.</li>
+</ul>
+<p><strong>4.</strong></p>
+<p>Facilitates asynchronous collaboration.
+Enables commenting and harmonization of metric names, definitions, and formats.
+Promotes transparency and traceability of decisions made.</p>
+<p><strong>5.</strong></p>
+<ul>
+<li>Somatic sequencing introduces additional complexity.</li>
+<li>Current efforts focus on germline WGS; including somatic would dilute the effort and make consensus more difficult.</li>
+</ul>
+<p><strong>6.</strong></p>
+<ul>
+<li>Some initiatives use different reference genomes.</li>
+<li>Metrics need to remain interpretable across builds for consistent reporting and downstream use.</li>
+</ul>
+<p><strong>7.</strong></p>
+<ul>
+<li>Tool outputs can differ even for the “same” metric, depending on implementation details or assumptions.</li>
+<li>Making the computation method transparent helps others interpret the results accurately and decide on fitness for use.</li>
+</ul>
+<p><strong>8.</strong></p>
+<ul>
+<li>Supports continuous engagement.</li>
+<li>Avoids fragmented updates and misaligned efforts between meetings.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../benchmark_resources/benchmark_resources_notebook/" class="btn btn-neutral float-left" title="Jupyter Notebook"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>GA4GH Large Scale Genomics Workstream, WGS-QC Standards team</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ga4gh/quality-control-wgs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../benchmark_resources/benchmark_resources_notebook/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
