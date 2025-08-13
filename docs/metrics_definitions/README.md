@@ -13,6 +13,7 @@ This section lists several example metrics in an attempt to capture which fields
 - Id (mandatory): Metric identifier
 - Description (mandatory): Metric description.
 - Implementation details (mandatory): Tool and version used to calculate the metric & insights into the metric implementation, where possible.
+- Type: whether a metric is an integer or float, and for float values, to define the minimal required decimal precision to ensure consistent reporting across workflows.
 - Functionally equivalent implementations (optional): A description of what constitute a valid alternative implementation producing values within an acceptable range of variation when compared to value(s) reported by the reference implementation when computing the metric i.e Validated equivalent implementations. We welcome the inclusion of candidate equivalent implementations.
 
 See individual metric definions under [Post Alignment metrics](https://ga4gh.github.io/quality-control-wgs/metrics_definitions/) and [Post Variant calling metrics](https://ga4gh.github.io/quality-control-wgs/metrics_definitions/)
