@@ -16,6 +16,7 @@ We are actively developing the next version of the WGS QC Roadmap to support:
 -  Long-read sequencing QC
 -  Somatic variant QC
 -  Deeper metrics for short-read germline sequencing
+-  Other Reference genome assembly
 -  Integration with GA4GH products like Data Connect and DaMaSC
 
 [Read the full Roadmap v2 plan ](https://docs.google.com/document/d/1n5w9NMRyrvhk1bxJeqQ7zTeS5qoueRX-nWjSq8bZ2wI/edit?tab=t.0)
