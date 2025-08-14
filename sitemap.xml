@@ -2,134 +2,134 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/decision_record/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/links/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/motivation/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/overview/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/roadmap_v1/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/roadmap_v2/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/benchmark_resources/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/benchmark_resources/benchmark_resources_data/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/benchmark_resources/benchmark_resources_notebook/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/implementations/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/implementations/argo-dnalanqc_implementations/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/implementations/argo-vcfqc_implementations/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/implementations/npm-sample-qc_implementations/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/References/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/bases-q30/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/count-deletions/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/count-insertions/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/count-snvs/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/cross-contamination/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/genome-coverage-uniformity/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/insert-size-standard-deviation/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/mean-autosome-coverage/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/mean-insert-size/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/percent-autosomes-covered-15-x/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/percent-reads-mapped/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/percent-reads-properly-paired/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/ratio-heterozygous-homozygous-indels/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/ratio-heterozygous-homozygous-snvs/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/ratio-insertions-deletions/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/ratio-transitions-transversions-ti-tv/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
     <url>
          <loc>https://ga4gh.github.io/wgs-qc/metrics_definitions/terminologies/</loc>
-         <lastmod>2025-08-13</lastmod>
+         <lastmod>2025-08-14</lastmod>
     </url>
 </urlset>
