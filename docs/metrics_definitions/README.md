@@ -1,5 +1,5 @@
 
-The specification section outlines the key quality control (QC) metrics defined by the QC of WGS Workgroup, along with their detailed descriptions. In developing these definitions, we have identified common [terminologies and concepts](terminologies.md) relevant across multiple metrics. These shared elements form the basis for a controled vocabulary which we aim to map to existing ontology(ies) terms (See [Roadmap](roadmap_v2.md)).
+The specification section outlines the key quality control (QC) metrics defined by the QC of WGS Workgroup, along with their detailed descriptions. In developing these definitions, we have identified common [terminologies and concepts](terminologies.md) relevant across multiple metrics. These shared elements form the basis for a controled vocabulary which we aim to map to existing ontology(ies) terms (See [Roadmap](roadmap_v2.md).
 
 The initial scope of this work focuses on QC for germline whole-genome sequencing (WGS). 
 QC can be assessed at various stages of WGS data processing and analysis pipeline (e.g., post-FASTQ generation, post-alignment, post-variant calling). For this first release, the emphasis is on metrics derived from BAM/CRAM and VCF files. While all current QC metrics address short-read based WGS, their definition are designed to be technology-agnostic and adaptable to other sequencing approaches.
