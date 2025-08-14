@@ -13,6 +13,7 @@
 
 ["WGS Quality Control Standards"](https://www.ga4gh.org/product/wgs-quality-control-standards/) GA4GH product page
 
+-  [GitHub Repository](https://github.com/ga4gh/quality-control-wgs)
 -  [Product Overview](https://youtu.be/ODpBsoIhNwE)
 -  [Original Proposal](https://docs.google.com/document/d/11xwiM7eGE10kwIl7zsr9tL5ZuNlqGdW9/edit?usp=sharing&ouid=107543167341861034315&rtpof=true&sd=true)
 -  [Roadmap Document](https://docs.google.com/document/d/1T2Ls5HRz5xR9sQkH6YnktFWfjEEmSBchA6twHbfGJ_o/edit?usp=sharing)
