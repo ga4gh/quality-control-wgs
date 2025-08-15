@@ -43,7 +43,9 @@ nav:
   - Implementation Benchmarking:
      - About: benchmark_resources/README.md
      - Resources: benchmark_resources/benchmark_resources_data.md
-     - Jupyter Notebook: benchmark_resources/benchmark_resources_notebook.md 
+     - Jupyter Notebook: benchmark_resources/benchmark_resources_notebook.md
+  - Decision record:
+     - decision_record.md
 
 
 
