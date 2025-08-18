@@ -1,18 +1,21 @@
+
+The specification section outlines the key quality control (QC) metrics defined by the QC of WGS Workgroup, along with their detailed descriptions. In developing these definitions, we have identified common [terminologies and concepts](terminologies.md) relevant across multiple metrics. These shared elements form the basis for a controled vocabulary which we aim to map to existing ontology(ies) terms (See [Roadmap](../roadmap_v2.md)).
+
+The initial scope of this work focuses on QC for germline whole-genome sequencing (WGS). 
+QC can be assessed at various stages of WGS data processing and analysis pipeline (e.g., post-FASTQ generation, post-alignment, post-variant calling). For this first release, the emphasis is on metrics derived from BAM/CRAM and VCF files. While all current QC metrics address short-read based WGS, their definition are designed to be technology-agnostic and adaptable to other sequencing approaches.
+
 # Metric definitions
 
-In this document, the QC of WGS workgroup intends to identify a set of key QC metrics and spell out their detailed definitions. Whilst doing so, we expect to encounter recurrent information fields that apply to many metrics. Those can then be used as the basis for standardised guidelines for reporting QC metrics.
+See individual metric definions under [Post Alignment metrics](https://ga4gh.github.io/quality-control-wgs/metrics_definitions/) and [Post Variant calling metrics](https://ga4gh.github.io/quality-control-wgs/metrics_definitions/)
 
-# General notes
+# Metric definition template
 
-In terms of scope, the workgroup has agreed to focus on QC of germline WGS first. While all of the workgroup participants are working with short-read data at the moment, we wish to make the definitions general enough to be applicable to other technologies as well. The workgroup also acknowledges that there are multiple stages in the analysis pipeline at which one may want to perform QC (e.g. post-FASTQ generation, post-alignment, post-variant calling). For the first iteration of the guidelines, the workgroup has agreed to focus on metrics that can be obtained from a BAM/CRAM and VCF file.
-
-# Controlled vocabulary
-
-This section lists several example metrics in an attempt to capture which fields would be required to accurately describe how each metric has been calculated. When defining each metric, we attempt to align to the following general template:
+QC metrics adhere to this general template:
 
 - Id (mandatory): Metric identifier
 - Description (mandatory): Metric description.
 - Implementation details (mandatory): Tool and version used to calculate the metric & insights into the metric implementation, where possible.
+- Type (mandatory): whether a metric is an integer or float, and for float values, to define the minimal required decimal precision to ensure consistent reporting across workflows.
 - Functionally equivalent implementations (optional): A description of what constitute a valid alternative implementation producing values within an acceptable range of variation when compared to value(s) reported by the reference implementation when computing the metric i.e Validated equivalent implementations. We welcome the inclusion of candidate equivalent implementations.
 
-See individual metric definions under [Post Alignment metrics](https://ga4gh.github.io/quality-control-wgs/metrics_definitions/) and [Post Variant calling metrics](https://ga4gh.github.io/quality-control-wgs/metrics_definitions/)
+
