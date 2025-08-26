@@ -23,8 +23,7 @@ For the initial round of this project, we propose to focus on QC of human WGS da
 
 <br>
 
-**["WGS Quality Control Standards"](https://www.ga4gh.org/product/wgs-quality-control-standards/) GA4GH product page**
-
+-  [WGS Quality Control Standards product page"](https://www.ga4gh.org/product/wgs-quality-control-standards/)
 -  [GitHub Repository](https://github.com/ga4gh/quality-control-wgs)
 -  [Product Overview](https://youtu.be/ODpBsoIhNwE)
 -  [Original Proposal](https://docs.google.com/document/d/11xwiM7eGE10kwIl7zsr9tL5ZuNlqGdW9/edit?usp=sharing&ouid=107543167341861034315&rtpof=true&sd=true)

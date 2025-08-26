@@ -1,9 +1,9 @@
 name: Publish docs to GitHub pages 
 on:
-  workflow_dispatch:
   push:
     branches:
-      - main 
+      - main
+  workflow_dispatch: 
 
 permissions:
   contents: write
