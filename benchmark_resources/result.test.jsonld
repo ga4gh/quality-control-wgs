@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "biosample": "https://schema.org/sample",
+    "wgs_qc_metrics": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/",
+    "mean_autosome_coverage": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/mean-autosome-coverage/",
+    "cross_contamination_rate": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/cross-contamination-rate/",
+    "insert_size_std_deviation": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/insert-size-std-deviation/",
+    "mad_autosome_coverage": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/mad-autosome-coverage/",
+    "mean_insert_size": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/mean-insert-size/",
+    "pct_autosomes_15x": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/pct-autosomes-15x/",
+    "pct_reads_mapped": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/pct-reads-mapped/",
+    "pct_reads_properly_paired": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/pct-reads-properly-paired/",
+    "yield_bp_q30": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/yield-bp-q30/",
+    "variant_metrics": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/variant-metrics/",
+    "count_deletions": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/count-deletions/",
+    "count_insertions": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/count-insertions/",
+    "count_snvs": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/count-snvs/",
+    "ratio_heterozygous_homzygous_indel": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/ratio-heterozygous-homzygous-indel/",
+    "ratio_heterozygous_homzygous_snv": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/ratio-heterozygous-homzygous-snv/",
+    "ratio_insertion_deletion": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/ratio-insertion-deletion/",
+    "ratio_transitions_transversions_snv": "https://ga4gh.github.io/quality-control-wgs/metrics_definitions/ratio-transitions-transversions-snv/"
+  },
+  "@type": "Dataset",
+  "biosample": {
+    "@id": "HG00100"
+  },
+  "wgs_qc_metrics": {
+    "@type": "PropertyValue",
+    "aln_metrics": {
+      "cross_contamination_rate": 0.0,
+      "insert_size_std_deviation": 99.4,
+      "mad_autosome_coverage": 4,
+      "mean_autosome_coverage": 29.94,
+      "mean_insert_size": 430.1,
+      "pct_autosomes_15x": 95.9,
+      "pct_reads_mapped": 99.78,
+      "pct_reads_properly_paired": 98.19,
+      "yield_bp_q30": 102984371235
+    },
+    "variant_metrics": {
+      "count_deletions": 484308,
+      "count_insertions": 480073,
+      "count_snvs": 3906868,
+      "ratio_heterozygous_homzygous_indel": 1.93,
+      "ratio_heterozygous_homzygous_snv": 1.57,
+      "ratio_insertion_deletion": 0.99,
+      "ratio_transitions_transversions_snv": 1.96
+    }
+  }
+}
