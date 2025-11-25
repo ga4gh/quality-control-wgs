@@ -6,6 +6,174 @@ _This document serves as a record of decisions made throughout the product devel
 
 [TOC]
 
+
+## 2025-09-23
+
+### Decision
+
+- Metric Definition Attributes
+
+    - Extend the metric definition template with attributes:
+    - Data type (e.g., WGS Short-read/Long-read, RNA-Seq, single-cell)
+    - Assembly/reference sequence collection (aligned with GA4GH Refget terminology rather than just "assembly")
+    - Version (of the metric definition and of the reference implementation/tool)
+    - External references and access IDs where applicable
+
+- Schema Flexibility
+
+    - JSON schema will allow for attributes that adapt across different data types and technologies.
+    - Include placeholders for implementation details while distinguishing them from **version-controlled definitions.**
+
+- Terminology Alignment
+
+    - Use the term **“reference genome sequence collection”** (per GA4GH standards) instead of "assembly."
+    - Use **“version”** consistently (instead of "tool") to avoid ambiguity.
+
+- Backward Compatibility
+
+    - Maintain compatibility with hg19/GRCh37 to meet PRC and adapter requirements.
+    - Explicitly track which genome builds a given metric definition supports.
+
+- Focus of Metrics
+
+    - Prioritize broad quality assessment metrics (coverage, duplication, contamination) before complex site-specific metrics.
+    - Document site-specific extensions as optional, not required for baseline adoption.
+
+- Public Outreach and Roadmap
+
+    - Gather feedback from **clinical genomics laboratories community** to refine applicability.
+    - Explore support for **long read sequencing** and **somatic QC metrics** in future versions.
+    - Provide real-world examples of QC metric implementation (~PRECISE data)
+    - Develop validation tools to check compliance against JSON schema.
+
+### Rationale
+
+- **Interoperability:** Defining attributes like data type, reference collection, and version ensures metrics can be consistently interpreted across datasets.
+- **Clarity:** Separating implementation details from versioned definitions reduces confusion when pipelines evolve.
+- **Alignment:** Using GA4GH-compliant terminology (e.g., "reference genome sequence collection") avoids schema drift.
+- **Adoption:** Clinical genomics groups require backward compatibility (hg19) and simple, clear metrics for implementation.
+- **Future-proofing:** The schema design anticipates additional sequencing technologies without requiring disruptive changes
+- **Metrics:** discusses the challenges of implementing site-specific metrics and suggests focusing on broader quality assessments.
+
+## 2025-08-26
+
+### Decision
+
+- Git Issues & Pull Requests
+
+    - Minor patches applied to align the NPM sample QC README and MkDocs config file.
+    - Product specification document updated and published via GitHub IO page.
+    - Repository alignment confirmed with no blocking issues pending for the release.
+
+- Product Approval Process
+
+    - Product approved by REWS, DSW, and PRC.
+    - Feedback from adapters (Illumina, EGA) required before final submission to the GA4GH Steering Committee.
+    - Steering Committee review scheduled for end of October.
+
+- PRC Recommendations
+
+    - Add support for additional genome assemblies (hg19).
+    - Include more variant QC metrics in the specification.
+    - Revisit GA4GH ontology development and improve alignment.
+    - Provide better guidance and feedback channels for clinical genomics labs.
+
+- Public Feedback
+
+    - Add support for other sequencing data types (RNA-seq, single-cell sequencing).
+    - Provide implementation examples and a validation tool/schema checker.
+    - Roadmap Updates
+    - Include support for hg19, long-read sequencing, and somatic mutation QC metrics.
+    - Update schema from JSON Schema to JSON-LD for better interoperability.
+    - Integrate GA4GH QC metrics into the Pan-Canadian Genome Project (PCG) data model.
+
+### Rationale
+
+- **Technical Consistency:** Repository patches ensure reproducible reference implementations.
+- **Adoption Readiness:** Addressing PRC and public feedback increases community confidence and encourages adoption by clinical and research groups.
+- **Interoperability:** Supporting multiple assemblies (hg19/GRCh37) and sequencing modalities expands applicability across datasets.
+- **Governance & Transparency:** Completing approval steps ensures the release meets GA4GH’s review and public comment requirements.
+
+
+## 2025-07-22
+
+### Decision
+
+- Product Specification Page Structure
+
+    - Use a structured page including:
+      - Introduction
+      - Motivation
+      - Implementation
+      - Benchmarking results
+
+    - Generate the page using MkDocs tools with individual markdown files for each metric.
+
+- Metric Definition
+
+    - Maintain one authoritative metric definition file for all QC metrics.
+    - Each metric may have an individual markdown file, linked to a JSON schema for programmatic validation.
+    - Align metric definitions with VCF for variant calling, but remain flexible to adapt when VRS becomes a better standard.
+    - Recognize the need for standardized nomenclature for structural variants to support cross-pipeline comparison and benchmarking.
+
+- Reference Genome
+
+    - GRCh38 is the chosen primary reference genome for QC metrics.
+    - Include a supporting write-up justifying the use of GRCh38.
+    - Allow consideration for additional assemblies (e.g., GRCh37/hg19) in future updates, based on adapter feedback to support legacy data (EGA).
+
+- Product Approval Process
+
+    - Submit documents to Regulatory Ethics Workstream and Data Security Workstream.
+    - Solicit implementer feedback from NPM and Argo pipelines.
+    - Incorporate PRC feedback, including expanding QC metrics and considering alternative reference genomes.
+    - Timeline is aligned with GA4GH plenary presentation opportunities.
+
+- Roadmap and Integration
+
+    - Engage with the Pan-Canadian Genome Library for integration.
+    - Consider additional variant QC metrics based on project requirements and community feedback.
+
+### Rationale
+
+- **Consistency:** A single metric definition ensures consistent interpretation across projects, tools, and pipelines.
+- **Interoperability:** Linking markdown metric files to a JSON schema allows both human-readable and machine-readable documentation.
+- **Benchmarking:** Standardized nomenclature for variants and reference genome selection enables fair comparison of QC across datasets.
+- **Adoption:** Structured product specification pages and supporting write-ups facilitate uptake by clinical and research communities.
+- **Future-proofing:** Flexibility to adapt to VRS and alternative assemblies ensures long-term relevance.
+
+
+## 2025-06-27
+
+### Decision
+
+- Released **NPM-sample-qc v0.13.5** as the near-final reference implementation for GA4GH v1.
+
+- Added **disclaimer on sensitive identifiers** in the README.
+
+- Added **Nextflow workflow citation** and Dockstore product specification details.
+
+- Closed major GitHub issues/PRs (metric definition updates, benchmark uploads, repo links).
+
+- Submitted approval documents to **REWS & DSWS** committees; addressed reviewer comments from Jessica (data security) and Gemma (EDI).
+
+- Initiated outreach to LMIC efforts (e.g., GenomeIndia Consortium).
+
+### Rationale
+
+- Align NPM and ARGO implementations on metric precision (indel counts, multi-allelic counts).
+
+- Improve clarity and usability for implementers (disclaimer, workflow citation, Dockstore product details).
+
+- Keep GA4GH repositories updated with latest benchmark results and pipeline versions.
+
+- Meet regulatory, ethics, and data security requirements for GA4GH product approval.
+
+- Address Equity, Diversity, and Inclusion (EDI) concerns by engaging LMIC communities and ensuring non-prescriptive standards.
+
+- Provide general guidance on sensitive data handling without assuming implementer responsibilities.
+
+
 ## 2025-05-27
 
 ### Decision
