@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WGS QC Metrics JSON-LD Result File",
+  "description": "Validation schema for JSON-LD QC result files following GA4GH WGS QC Standards.",
+  "type": "object",
+
+  "required": ["@context", "@type", "biosample", "wgs_qc_metrics"],
+
+  "properties": {
+    "@context": {
+      "description": "JSON-LD context defining term mappings.",
+      "type": ["object", "string"]
+    },
+
+    "@type": {
+      "description": "JSON-LD type (e.g., Dataset).",
+      "type": "string"
+    },
+
+    "biosample": {
+      "type": "object",
+      "required": ["@id"],
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "Biosample identifier."
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "wgs_qc_metrics": {
+      "type": "object",
+      "required": ["@type", "aln_metrics", "variant_metrics"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "description": "JSON-LD type for metrics (e.g., PropertyValue)."
+        },
+
+        "aln_metrics": {
+          "type": "object",
+          "required": [
+            "cross_contamination_rate",
+            "insert_size_std_deviation",
+            "mad_autosome_coverage",
+            "mean_autosome_coverage",
+            "mean_insert_size",
+            "pct_autosomes_15x",
+            "pct_reads_mapped",
+            "pct_reads_properly_paired",
+            "yield_bp_q30"
+          ],
+          "properties": {
+            "cross_contamination_rate": {
+              "type": "number",
+              "multipleOf": 0.0001
+            },
+            "insert_size_std_deviation": {
+              "type": "number",
+              "multipleOf": 0.1
+            },
+            "mad_autosome_coverage": {
+              "type": "integer"
+            },
+            "mean_autosome_coverage": {
+              "type": "number",
+              "multipleOf": 0.01
+            },
+            "mean_insert_size": {
+              "type": "number",
+              "multipleOf": 0.1
+            },
+            "pct_autosomes_15x": {
+              "type": "number",
+              "multipleOf": 0.01
+            },
+            "pct_reads_mapped": {
+              "type": "number",
+              "multipleOf": 0.01
+            },
+            "pct_reads_properly_paired": {
+              "type": "number",
+              "multipleOf": 0.01
+            },
+            "yield_bp_q30": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false
+        },
+
+        "variant_metrics": {
+          "type": "object",
+          "required": [
+            "count_deletions",
+            "count_insertions",
+            "count_snvs",
+            "ratio_heterozygous_homzygous_indel",
+            "ratio_heterozygous_homzygous_snv",
+            "ratio_insertion_deletion",
+            "ratio_transitions_transversions_snv"
+          ],
+          "properties": {
+            "count_deletions": { "type": "integer" },
+            "count_insertions": { "type": "integer" },
+            "count_snvs": { "type": "integer" },
+            "ratio_heterozygous_homzygous_indel": {
+              "type": "number",
+              "multipleOf": 0.01
+            },
+            "ratio_heterozygous_homzygous_snv": {
+              "type": "number",
+              "multipleOf": 0.01
+            },
+            "ratio_insertion_deletion": {
+              "type": "number",
+              "multipleOf": 0.01
+            },
+            "ratio_transitions_transversions_snv": {
+              "type": "number",
+              "multipleOf": 0.01
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+
+  "additionalProperties": false
+}
