@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://ga4gh.github.io/wgs-qc/metrics_definitions/sop/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Metrics Definitions SOP - GA4GH WGS Quality Control Standards</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Metrics Definitions SOP";
+        var mkdocs_page_input_path = "metrics_definitions/sop.md";
+        var mkdocs_page_url = "/wgs-qc/metrics_definitions/sop/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> GA4GH WGS Quality Control Standards
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../overview/">Overview</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../motivation/">Motivation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../roadmap_v1/">Roadmap v1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../roadmap_v2/">Roadmap v2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../links/">Links</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Specifications</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">About</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Metrics Definitions SOP</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Post Alignment metrics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../bases-q30/">Bases ≥ Q30</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cross-contamination/">Cross contamination</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome-coverage-uniformity/">Genome coverage uniformity</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../insert-size-standard-deviation/">Insert size standard deviation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../mean-autosome-coverage/">Mean autosome coverage</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../mean-insert-size/">Mean insert size</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../percent-autosomes-covered-15-x/">Percent autosomes covered ≥ 15 X</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../percent-reads-mapped/">Percent reads mapped</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../percent-reads-properly-paired/">Percent reads properly paired</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Post Variant calling metrics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../count-deletions/">Count: Deletions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../count-insertions/">Count: Insertions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../count-snvs/">Count: SNVs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ratio-heterozygous-homozygous-indels/">Ratio: Heterozygous/Homozygous (indels)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ratio-heterozygous-homozygous-snvs/">Ratio: Heterozygous/Homozygous (SNVs)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ratio-insertions-deletions/">Ratio: Insertions/Deletions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ratio-transitions-transversions-ti-tv/">Ratio: Transitions/Transversions (ti/tv)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../terminologies/">Terminologies & Concepts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../References/">References</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Implementations</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../implementations/">About</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../implementations/npm-sample-qc_implementations/">NPM-sample-qc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../implementations/argo-dnalanqc_implementations/">ICGC-ARGO-dnaalnqc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../implementations/argo-vcfqc_implementations/">ICGC-ARGO-vcfqc</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Implementation Benchmarking</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../benchmark_resources/">About</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../benchmark_resources/benchmark_resources_data/">Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../benchmark_resources/benchmark_resources_notebook/">Jupyter Notebook</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Decision record</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../decision_record/">Architectural Decision Record</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">GA4GH WGS Quality Control Standards</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Specifications</li>
+      <li class="breadcrumb-item active">Metrics Definitions SOP</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ga4gh/quality-control-wgs/edit/master/docs/metrics_definitions/sop.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="standard-operating-procedure-sop">Standard Operating Procedure (SOP)</h1>
+<p><embed alt="My PDF" src="../SOP_GA4GH_WGSQC_Standards_V2.pdf" style="width:100%;height:800px" type="application/pdf"></embed></p>
+<h1 id="standard-operating-procedure-sop_1">Standard Operating Procedure (SOP)</h1>
+<h3 id="title">Title</h3>
+<p><strong>SOP for Creating New and Updating Existing QC Metric Definitions for WGS-QC Standards v2.0</strong></p>
+<h3 id="version">Version</h3>
+<p>• SOP Version: 1.0</p>
+<p>• Maintained by: GA4GH WGS-QC Workgroup</p>
+<hr>
+<h3 id="1-purpose">1. Purpose</h3>
+<p>The purpose of this SOP is to define a clear, standardized process for GA4GH WGS-QC workgroup members and subject-matter experts to contribute to the development of <strong>WGS-QC Standards v2.0.</strong> This includes: </p>
+<ul>
+<li>
+<p>Creating <strong>new QC metric definitions</strong> for short-read and long-read WGS </p>
+</li>
+<li>
+<p>Updating or amending <strong>existing QC metric definitions from v1.0</strong></p>
+</li>
+<li>
+<p>Differentiating QC metrics by <strong>sequencing data type (short-read vs long-read)</strong></p>
+</li>
+</ul>
+<p>This SOP supports the <strong>roadmap v2</strong> activities and ensures consistency, traceability, and reviewability of QC metric definitions prior to publication.</p>
+<hr>
+<h3 id="2-scope">2. Scope</h3>
+<p>This SOP applies to: All contributors to the GA4GH WGS-QC Standards GitHub repository </p>
+<ul>
+<li>Development of QC metrics for:<ul>
+<li>Short-read WGS </li>
+<li>Long-read WGS (ONT, PacBio, Constellation) </li>
+</ul>
+</li>
+<li>Metric definition work contributing to WGS-QC Standards v2.0</li>
+</ul>
+<p>Out of scope: </p>
+<ul>
+<li>Tool benchmarking or performance evaluation </li>
+<li>Dataset-specific QC thresholds</li>
+</ul>
+<hr>
+<h3 id="3-references">3. References</h3>
+<ul>
+<li>
+<p><a href="https://github.com/ga4gh/quality-control-wgs">GA4GH WGS-QC GitHub Repository (v1.0):</a></p>
+</li>
+<li>
+<p><a href="https://ga4gh.github.io/quality-control-wgs/metrics_definitions/">Metric Definition Template (current):</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ga4gh/quality-control-wgs/tree/gh-pages">Published specifications (gh-pages):</a></p>
+</li>
+</ul>
+<hr>
+<h3 id="4-roles-and-responsibilities">4. Roles and Responsibilities</h3>
+<h4 id="41-contributors">4.1 Contributors</h4>
+<ul>
+<li>Propose new QC metrics or updates to existing metrics</li>
+<li>Author metric definitions using the agreed template</li>
+<li>Submit changes via GitHub pull requests</li>
+</ul>
+<h4 id="42-reviewers-wgs-qc-workgroup">4.2 Reviewers (WGS-QC Workgroup)</h4>
+<ul>
+<li>Review metric definitions for clarity, correctness, and alignment with consensus</li>
+<li>Provide feedback and request revisions where required</li>
+<li>Approve and merge contributions</li>
+</ul>
+<h4 id="43-maintainers">4.3 Maintainers</h4>
+<ul>
+<li>Manage branches and releases</li>
+<li>Publish approved metric definitions to gh-pages</li>
+</ul>
+<hr>
+<h3 id="5-overview-of-contribution-workflow">5. Overview of Contribution Workflow</h3>
+<ol>
+<li>Clone the GA4GH WGS-QC repository</li>
+<li>Create a new feature branch</li>
+<li>Create or update QC metric definition files <code>(.md)</code></li>
+<li>Commit and push changes</li>
+<li>Create a pull request (PR)</li>
+<li>Review, revise, and merge into <code>develop-definition-v2</code></li>
+<li>Publish approved metrics to <code>gh-pages</code></li>
+</ol>
+<hr>
+<h3 id="6-metric-definition-requirements-v20">6. Metric Definition Requirements (v2.0)</h3>
+<p>Each QC metric definition <strong>must</strong> follow the latest workgroup-consensus template and be authored as a <strong>Markdown (.md)</strong> file.</p>
+<h4 id="61-mandatory-and-optional-fields">6.1 Mandatory and Optional Fields</h4>
+<p>Each metric definition must include the following sections:</p>
+<ul>
+<li><strong>ID (mandatory):</strong> Unique metric identifier (e.g., <code>yield_bp_q30</code>)</li>
+<li><strong>Description (mandatory):</strong> Clear description of what the metric measures</li>
+<li><strong>Implementation details (mandatory):</strong> How the metric is calculated or derived</li>
+<li><strong>Type (mandatory):</strong> Whether the metric value is an integer or float. For float values, the minimal required decimal precision must be defined to ensure consistent reporting across workflows.</li>
+<li><strong>Functionally equivalent implementation (optional):</strong> Alternative implementations/tools</li>
+<li><strong>Data type (mandatory):</strong> <code>short-read | long-read</code></li>
+<li><strong>Assembly (mandatory):</strong> <code>GRCh37 | GRCh38</code></li>
+<li><strong>Version (mandatory):</strong> <code>1.0 | 2.0</code></li>
+<li><strong>Sequencing platform / Technology (optional):</strong> <code>Illumina</code> | <code>Constellation</code> | <code>ONT</code> | <code>PacBio</code></li>
+<li><strong>Associated aligner (optional):</strong> Free text or controlled list (e.g., <code>BWA-MEM, DRAGEN, Minimap2..</code>)</li>
+<li><strong>Associated variant caller (optional):</strong> Free text or controlled list (e.g., <code>GATK, DRAGEN, DeepVariant..</code>)</li>
+</ul>
+<h4 id="62-versioning-guidance">6.2 Versioning Guidance</h4>
+<ul>
+<li>Existing v1.0 metrics that are <strong>amended or extended</strong> for v2.0 must:<ul>
+<li>Clearly state <code>Version: 2.0</code></li>
+<li>Document changes or clarifications in the implementation details</li>
+</ul>
+</li>
+<li>New metrics introduced in Roadmap v2 must be labelled as Version: 2.0</li>
+</ul>
+<hr>
+<h3 id="7-github-contribution-procedure">7. GitHub Contribution Procedure</h3>
+<h4 id="71-clone-repository">7.1 Clone Repository</h4>
+<pre><code>git clone https://github.com/ga4gh/quality-control-wgs.git
+cd quality-control-wgs
+</code></pre>
+<h4 id="72-create-feature-branch">7.2 Create Feature Branch</h4>
+<pre><code>Create a new branch for your contribution:
+git checkout -b feature/&lt;short-description&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code>git checkout -b feature/long-read-coverage-metric
+</code></pre>
+<h4 id="73-navigate-to-metric-definitions-directory">7.3 Navigate to Metric Definitions Directory</h4>
+<pre><code>cd docs/metrics_definitions
+</code></pre>
+<h4 id="74-create-or-update-metric-definition">7.4 Create or Update Metric Definition</h4>
+<ul>
+<li>Create a new <code>.md</code> file using the metric definition template, <strong>or</strong></li>
+<li>Amend/update an existing metric definition to:<ul>
+<li>Correct errors</li>
+<li>Improve clarity</li>
+<li>Differentiate short-read vs long-read sequencing
+File naming should be descriptive and consistent with existing metrics.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="8-commit-and-push-changes">8. Commit and Push Changes</h3>
+<p>Stage and commit your changes:</p>
+<pre><code>git add &lt;file(s)&gt;
+git commit -m "Add/update QC metric definition for &lt;metric name&gt;"
+</code></pre>
+<p>Push your feature branch to origin:</p>
+<pre><code>git push origin feature/&lt;short-description&gt;
+</code></pre>
+<h3 id="9-pull-request-pr-process">9. Pull Request (PR) Process</h3>
+<ol>
+<li>Create a Pull Request (PR) from your feature branch</li>
+<li>Target branch: <code>develop-definition-v2</code></li>
+<li>Provide a clear PR description including:<ul>
+<li>Purpose of the metric</li>
+<li>Whether it is new or an update to v1.0</li>
+<li>Any sequencing-type-specific considerations</li>
+<li>Links to or references for any relevant GitHub issues, pull requests, or discussion threads</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="91-recommended-pull-request-pr-description-template">9.1 Recommended Pull Request (PR) Description Template</h3>
+<pre><code>## Summary 
+Brief description of the QC metric being added or updated. 
+
+## Metric Scope 
+- Metric name / ID: 
+- New metric or update to existing v1.0 metric: 
+- Data type: short-read | long-read 
+
+## Rationale 
+Explain why this metric is required or why changes are proposed. 
+
+## Implementation Notes 
+Key implementation details, assumptions, or sequencing-technology-specific 
+considerations. 
+
+## Related Discussions 
+- GitHub issue(s): &lt;link&gt; 
+- Pull request(s): &lt;link&gt; 
+- Workgroup discussion / meeting notes (if applicable): &lt;link&gt;
+</code></pre>
+<p>Contributors are encouraged to use the following template when creating a pull request:9.2 Review and Approval</p>
+<ul>
+<li>PRs will be reviewed by WGS-QC workgroup members</li>
+<li>Contributors may be asked to revise content based on feedback</li>
+<li>Once approved, PRs will be merged into <code>develop-definition-v2</code> branch</li>
+</ul>
+<hr>
+<h3 id="10-publication">10. Publication</h3>
+<ul>
+<li>Approved metric definitions will be published via the <code>gh-pages</code> branch</li>
+<li>Published content represents the <strong>official WGS-QC v2.0 product specification</strong></li>
+</ul>
+<hr>
+<h3 id="11-change-management">11. Change Management</h3>
+<ul>
+<li>All changes must be tracked via GitHub commits and PRs</li>
+<li>Major updates or breaking changes should be discussed during workgroup meetings</li>
+</ul>
+<hr>
+<h3 id="12-contact">12. Contact</h3>
+<p>For questions or clarification, please contact the GA4GH WGS-QC workgroup via the GitHub repository or scheduled workgroup meetings.</p>
+<hr>
+<h3 id="list-of-potential-long-read-qc-metrics">List of Potential Long-read QC Metrics</h3>
+<p>The following non-exhaustive list represents candidate QC metrics for consideration as part of the WGS-QC v2.0 roadmap. These metrics are provided to guide discussion, prioritization, and contribution by the workgroup and domain experts.</p>
+<pre><code>Read and Coverage-level Metrics::
+
+Read N50
+Yield (bp) 
+Yield (reads ≥ N bp): 0, 10,000, 50,000, 100,000 
+Read number ?
+Reads mapped 
+Reads mapped (%) 
+Median read quality / Mean read quality 
+Median read length / Mean read length 
+Autosomal depth (mean), non-gap white listed regions 
+Bases with ≥ N-fold coverage (e.g. 5X / 10X / 15X) 
+Genome coverage uniformity 
+Contamination
+
+Variant-level Metrics::
+
+SNV count 
+Indel count (short indels | long indels) 
+Heterozygous / Homozygous ratio (SNVs | Indels) 
+Transition / Transversion (Ti/Tv) rate
+
+</code></pre></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../" class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../bases-q30/" class="btn btn-neutral float-right" title="Bases ≥ Q30">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>GA4GH Large Scale Genomics Workstream, WGS-QC Standards team</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ga4gh/quality-control-wgs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../bases-q30/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
