@@ -7,6 +7,210 @@ _This document serves as a record of decisions made throughout the product devel
 [TOC]
 
 
+## 2026-01-20
+
+### Rationale
+
+**1. Read Length Metrics**
+
+Long-read technologies rely heavily on read length distribution metrics to characterize sequencing performance. Read N50 remains a widely understood and consistently reported indicator of long-read data characteristics. Assembly derived metrics (e.g., contig N50) were considered unsuitable for QC purposes due to dependency on downstream assembly algorithms and parameter choices, which may obscure underlying sequencing performance.
+
+**2. Yield and Base Quality Metrics** 
+
+Yield and base quality metrics are foundational for sequencing QC; however, base quality scoring systems differ across technologies and basecalling models. Direct cross-platform comparability of base-quality based metrics may therefore be misleading without appropriate contextual metadata.
+
+**3. Indel and Structural Variant Threshold**
+
+A 50 bp threshold distinguishing short indels from structural variants is historically established and widely adopted in genomics practice. Although biologically continuous, maintaining a pragmatic size based boundary supports harmonization and comparability across pipelines and technologies.
+
+**4. Mapping and Coverage Definitions**
+
+Mapping and coverage metrics are sensitive to alignment strategies and genomic region definitions. To ensure consistency, restrictions to primary alignments and high confidence genomic regions improve reproducibility. PCR duplicate handling remains relevant for short-read technologies but is not applicable to most long-read workflows.
+
+**5. Read Count Metrics**
+
+Total read counts may be less informative for long-read sequencing, where yield and read length distribution better capture performance characteristics.
+
+**6. Contamination Assessment**
+
+Cross-sample contamination remains a critical QC consideration. However, mandating specific tools risks obsolescence and limits flexibility across technologies.
+
+**7. Vendor-Specific Metrics**
+
+Some platforms provide proprietary or platform-specific metrics (e.g., physical coverage or compressed identity). While potentially informative, these lack universal applicability across sequencing technologies.
+
+### Decision
+
+**1. Read Length Metrics**
+
+Read N50 is retained as a core read-level QC metric. Assembly derived N50 metrics are excluded from WGS-QC v2.0.
+A clarification note will state that interpretation of Read N50 may vary across sequencing technologies.
+
+**2.Yield and Base Quality Metrics**
+
+Yield and base-quality metrics are retained. Reporting must acknowledge technology specific definitions. Minimal contextual metadata (e.g., sequencing platform and basecaller version) shall accompany these metrics to support interpretation.
+
+**3. Indel and Structural Variant Threshold**
+
+The 50 bp threshold is retained. Short indels (<50 bp) shall be derived from SNP short-indel callers, and structural variants (≥50 bp) from dedicated SV callers.
+
+**4. Mapping and Coverage Definitions**
+
+Mapping and coverage metrics shall:
+
+- Use primary alignments only
+- Be restricted to autosomal, non-gapped, high-confidence regions
+- Prefer per-base coverage definitions
+
+PCR duplicate handling will be documented but explicitly noted as not applicable to non amplified long-read technologies.
+
+**5. Read Count Metrics**
+
+Total read count and reads-mapped count are classified as optional QC metrics. Primary emphasis remains on yield, read length distribution, and coverage metrics.
+
+**6. Contamination Assessment**
+
+Contamination assessment remains a required QC concept. Tool-specific implementations are not mandated. Technology agnostic, VCF-based approaches are preferred where feasible.
+
+**7. Vendor-Specific Metrics**
+
+Vendor-specific metrics are not included as mandatory QC metrics. They may be documented as optional or informative metrics in WGS-QC v2.0.
+
+
+## 2025-11-25
+
+### Rationale
+
+**1. Promotion of WGS-QC Standard to ISO**
+
+- Elevating the GA4GH WGS-QC to an ISO standard increases **credibility, regulatory acceptance**, and **industry-level adoption.**
+
+- ISO TC215/SC1 already handles genomic informatics standards; Singapore (Nicholas and Justin) participates in the national mirror committee.
+
+- ISO 22692 (DNA sequencing QC) exists, but:
+
+    - It provides only a **high-level list** of QC elements.
+
+    - It lacks **definitions, implementation details, and clarity.**
+
+    - Several participating countries have commented that parts of ISO 22692 (esp. data processing QC) lack meaning.
+
+- Therefore, WGS-QC could **complement ISO 22692** or serve as a **new standalone ISO standard.**
+
+
+**2. Roadmap Version 2 (Scope Expansion)**
+
+- PRC and public comments highlight the need to update the reference workflows and metadata model.
+
+- Current implementation couples short-read alignment and variant QC into a single workflow; decoupling increases modularity.
+
+- Adaptation by EGA and others requires **GRCh37** support (currently only GRCh38).
+
+- Using **refget** is preferred for sequence collection interoperability via the GF4GH ecosystem.
+
+- JSON-LD improves **semantic meaning**, enables linking metric results to metric definitions, and supports richer metadata (assembly, datatype, version).
+
+- Long-read sequencing and somatic mutation QC require new workflows and definitions.
+
+
+**3. Long-Read Sequencing QC Metrics**
+
+- Long-read technologies vary significantly (ONT, PacBio, Illumina Constellation), requiring careful metric harmonization.
+
+- High-level goals:
+
+    - **Platform-agnostic** metrics.
+
+    - Avoid metrics that can be gamed (e.g., assembly-level N50).
+
+    - Clearly separate technologies’ internal differences (e.g., circular consensus in PacBio; ONT base-calling reinterpretations).
+
+- Read-level N50 is considered meaningful across major platforms; assembly-level N50 can be included but must be treated as a post-assembly metric.
+
+- Structural variant (SV) definitions differ substantially across technologies; insertion vs. duplication distinctions are non-trivial.
+
+**4. Structural Variant (SV) Metrics**
+
+- SV calling is complex; current roadmap does not explicitly address SV QC.
+
+- Long-read insertions/deletions overlap with SV concepts, but treating them as “large indels” avoids ambiguity.
+
+- A true SV QC framework would require:
+
+    - Ontology decisions.
+
+    - Consistent definitions across VCF and VRSpec.
+
+    - Technology-agnostic interpretations of insertions vs. duplications.
+
+
+**5. Adoption & Collaboration**
+
+- Illumina is integrating the standard into their **4.5 release.**
+
+- Engagement with EGA will begin after GRCh37 compatibility is implemented.
+
+- Coordination with long-read providers continues (PacBio, ONT, Constellation).
+
+
+**6. Publications & Events**
+
+- GA4GH Connect is scheduled for Spring 2026.
+
+- Publication timeline targets Q2 2026.
+
+### Decision
+
+**1. Promotion of WGS-QC Standard to ISO**
+
+- Proceed with exploring ISO alignment, pending GA4GH Secretariat guidance.
+
+- Await response from the GA4GH Secretariat on cross-SDO alignment procedure.
+
+- Continue internal review of ISO 22692 to determine best alignment path.
+
+**2. Roadmap Version 2 (Scope Expansion)**
+
+- Rewrite workflows into distinct pipelines:
+
+**Short-read (alignment + variant QC), Long-read**, and **Somatic**.
+
+- Add GRCh37 support using **refget** sequence collections.
+
+- Convert metric results from **JSON to JSON-LD;** new JSON-schema implemented.
+
+- Update metric definition templates to include datatype, assembly, and version fields.
+
+- Continue integration work with GA4GH Data Connect and other ecosystem components.
+
+**3. Long-Read Sequencing QC Metrics**
+- Adopt **platform-agnostic long-read metrics** wherever possible.
+
+- Use **read-length N50** as a core metric (not assembly N50).
+
+- Technology-specific metrics will **not** be included in the standard unless there is cross-platform consensus.
+
+- SV metrics require a **separate, explicit discussion** and cannot be included implicitly via long-read indels.
+
+**4. Structural Variant (SV) Metrics**
+
+- **SV metrics will NOT be included in Roadmap V2 unless explicitly scoped.**
+
+- Current long-read indel definitions will remain, but SV will require a **separate future track** if pursued.
+
+**5. Adoption & Collaboration**
+
+- Maintain ongoing collaboration and invite long-read vendors to future meetings.
+
+- Begin long-read and somatic mutation **landscape analysis** (Justin and Regan), potentially extending to Argo if they lead somatic.
+
+**6. Publications & Events**
+
+- Start drafting manuscript; aim for Q2 2026 submission.
+
+- Present progress at GA4GH Connect 2026.
+
+
 ## 2025-09-23
 
 ### Decision
