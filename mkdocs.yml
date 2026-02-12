@@ -3,9 +3,13 @@ site_url: https://ga4gh.github.io/wgs-qc
 repo_url: https://github.com/ga4gh/quality-control-wgs
 copyright: GA4GH Large Scale Genomics Workstream, WGS-QC Standards team
 
+markdown_extensions:
+  - attr_list
+
 plugins:
   - search
   - table-reader
+  - mkdocs-pdf
 
 nav:
   - overview.md
@@ -15,6 +19,7 @@ nav:
   - links.md
   - Specifications: 
      - About: metrics_definitions/README.md 
+     - Metrics Definitions SOP: metrics_definitions/sop.md
      - Post Alignment metrics:
        - metrics_definitions/bases-q30.md
        - metrics_definitions/cross-contamination.md
