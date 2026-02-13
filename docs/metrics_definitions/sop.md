@@ -1,5 +1,4 @@
 # Standard Operating Procedure (SOP)
-![My PDF](SOP_GA4GH_WGSQC_Standards_V2.pdf){ type=application/pdf style="width:100%;height:800px" }
 
 ### Title
 **SOP for Creating New and Updating Existing QC Metric Definitions for WGS-QC Standards v2.0**
