@@ -125,7 +125,7 @@ git checkout -b feature/long-read-coverage-metric
 cd docs/metrics_definitions
 ```
 #### 7.4 Create or Update Metric Definition
-- Create a new metric definition markdown (`.md`) file follwing the above metric definition template, **or**
+- Create a new metric definition markdown (`.md`) file following the above metric definition template, **or**
 - Amend/update an existing v1.0 metric definition (eg. docs/metrics_definitions/bases-q30.md) to:
     - Correct errors
     - Improve clarity
