@@ -80,7 +80,7 @@ Out of scope:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
  
-### 6. Metric Definition Requirements (v2.0)
+### 6. Metric Definition Requirements (template v2.0)
 Each QC metric definition **must** follow the latest workgroup-consensus template and be authored as a **Markdown (.md)** file.
 
 #### 6.1 Mandatory and Optional Fields
@@ -209,7 +209,7 @@ For questions or clarification, please contact the GA4GH WGS-QC workgroup via th
 ------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 
 ### List of Potential Long-read QC Metrics
-The following non-exhaustive list represents candidate QC metrics for consideration as part of the WGS-QC v2.0 roadmap. These metrics are provided to guide discussion, prioritization, and contribution by the workgroup and domain experts.
+The following non-exhaustive list represents candidate QC metrics for consideration as part of the WGS-QC v2.0 roadmap. These metrics are provided to guide [discussion](https://github.com/ga4gh/quality-control-wgs/discussions), prioritization, and contribution by the workgroup and domain experts.
 
 ```
 Read and Coverage-level Metrics::
@@ -222,7 +222,7 @@ Reads mapped (%)
 Median read quality
 Median read length 
 Autosomal depth (mean), non-gap white listed regions 
-Bases with ≥ N-fold coverage (e.g. 5X / 10X / 15X) 
+Bases with ≥ N-fold coverage (coverage by quartiles or multiple depth bin e.g. 5X / 10X / 15X) 
 Genome coverage uniformity 
 Contamination
 
