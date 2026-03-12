@@ -215,13 +215,12 @@ The following non-exhaustive list represents candidate QC metrics for considerat
 Read and Coverage-level Metrics::
 
 Read N50
-Yield (bp) 
-Yield (reads ≥ N bp): 0, 10,000, 50,000, 100,000 
-Read number ?
-Reads mapped 
+Yield (read/bp BQ 10/20/30) 
+Yield (reads ≥ N bp): N25, N50, N75
+Read number
 Reads mapped (%) 
-Median read quality / Mean read quality 
-Median read length / Mean read length 
+Median read quality
+Median read length 
 Autosomal depth (mean), non-gap white listed regions 
 Bases with ≥ N-fold coverage (e.g. 5X / 10X / 15X) 
 Genome coverage uniformity 
@@ -231,8 +230,11 @@ Variant-level Metrics::
 
 SNV count 
 Indel count (short indels | long indels) 
+- Insertions and Deletions count
+- Insertions / Deletions ratio
 Heterozygous / Homozygous ratio (SNVs | Indels) 
 Transition / Transversion (Ti/Tv) rate
+Phase block NG50
 
 ```
 
