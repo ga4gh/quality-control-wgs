@@ -87,7 +87,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#5-overview-of-contribution-workflow">5. Overview of Contribution Workflow</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#6-metric-definition-requirements-v20">6. Metric Definition Requirements (v2.0)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#6-metric-definition-requirements-template-v20">6. Metric Definition Requirements (template v2.0)</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#61-mandatory-and-optional-fields">6.1 Mandatory and Optional Fields</a>
     </li>
@@ -299,7 +299,7 @@
 <li>Publish approved metrics to <code>gh-pages</code></li>
 </ol>
 <hr>
-<h3 id="6-metric-definition-requirements-v20">6. Metric Definition Requirements (v2.0)</h3>
+<h3 id="6-metric-definition-requirements-template-v20">6. Metric Definition Requirements (template v2.0)</h3>
 <p>Each QC metric definition <strong>must</strong> follow the latest workgroup-consensus template and be authored as a <strong>Markdown (.md)</strong> file.</p>
 <h4 id="61-mandatory-and-optional-fields">6.1 Mandatory and Optional Fields</h4>
 <p>Each metric definition must include the following sections:</p>
@@ -418,7 +418,7 @@ considerations.
 <p>For questions or clarification, please contact the GA4GH WGS-QC workgroup via the GitHub repository or scheduled workgroup meetings.</p>
 <hr>
 <h3 id="list-of-potential-long-read-qc-metrics">List of Potential Long-read QC Metrics</h3>
-<p>The following non-exhaustive list represents candidate QC metrics for consideration as part of the WGS-QC v2.0 roadmap. These metrics are provided to guide discussion, prioritization, and contribution by the workgroup and domain experts.</p>
+<p>The following non-exhaustive list represents candidate QC metrics for consideration as part of the WGS-QC v2.0 roadmap. These metrics are provided to guide <a href="https://github.com/ga4gh/quality-control-wgs/discussions">discussion</a>, prioritization, and contribution by the workgroup and domain experts.</p>
 <pre><code>Read and Coverage-level Metrics::
 
 Read N50
@@ -429,7 +429,7 @@ Reads mapped (%)
 Median read quality
 Median read length 
 Autosomal depth (mean), non-gap white listed regions 
-Bases with ≥ N-fold coverage (e.g. 5X / 10X / 15X) 
+Bases with ≥ N-fold coverage (coverage by quartiles or multiple depth bin e.g. 5X / 10X / 15X) 
 Genome coverage uniformity 
 Contamination
 
