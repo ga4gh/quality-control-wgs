@@ -8,4 +8,9 @@
     - [NPM sample qc](References.md#npm-sample-qc)
     - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
     - [DRAGEN v3.7.6](References.md#dragen). Extracted from [sample-id].mapping_metrics.csv, key name: `MAPPING/ALIGNING SUMMARY,,Insert length: mean`
-
+- **Sequencing read type:** short-read
+- **Reference genome assembly:** GRCh37 | GRCh38
+- **Version:** 2.0
+- **Sequencing technology:**
+- **Associated aligner**
+- **Associated basecaller**
