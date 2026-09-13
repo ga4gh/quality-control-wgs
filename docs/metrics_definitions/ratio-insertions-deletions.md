@@ -5,7 +5,7 @@
 
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, multiallelic records are split, and variants are atomized and normalized (reference-based left-aligned) against the matching reference FASTA using [bcftools](https://www.htslib.org/doc/bcftools.html) (`bcftools norm -m -any -f reference.fa`). The callset is then restricted to autosomal non-gap intervals, retaining only (`FILTER=PASS`) records with an alternate genotype (`GT="alt"`). Sequence-resolved short insertions (`ILEN>0 && ILEN<50`) and short deletions (`ILEN<0 && ILEN>-50`) are counted separately, and the insertion-to-deletion ratio is calculated by dividing the insertion count by the deletion count. The same procedure is used for every sequencing read type.
 - **Comments:** 
-Record the bcftools version, reference assembly and FASTA checksum, evaluation-region checksum, selected sample, normalization and atomization command, filters, variant caller, and caller parameters. The same procedure is used for every sequencing read type.
+Record the bcftools version, reference assembly and FASTA checksum, evaluation-region checksum, selected sample, normalization and atomization command, filters, variant caller, and caller parameters.
 ```
 # Normalize and filter sample variants
 bcftools norm -f reference.fa -m -any input.vcf.gz \
