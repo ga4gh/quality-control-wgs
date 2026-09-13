@@ -7,13 +7,14 @@
   -  Only primary alignments of [high quality reads](terminologies.md#high-quality-reads) are evaluated;secondary and supplementary alignments are excluded.
   - No filtering of [Duplicated reads](terminologies.md#duplicated-reads) is performed, [soft-clipped bases](terminologies.md#clipped-bases) are retained, and no minimum [mapping quality](terminologies.md#mapping-quality) threshold is applied.
   - For discontiguous-long-read data,  paired-end read records are processed identically to short reads, counting only observed sequenced bases and excluding the unsequenced span intervals between read ends.
-- **Comments:** Use samtools stats and custom script alternate to GATK Picard’s CollectQualityYieldMetrics PF_Q30_BASES used in v1.0.
-#open to both SE and PE accounting Ultima sequencing?
-#high quality reads (reads passing the sequencing instrument/vendor quality filter; SAM flag 0x200 not set)
-#keep clipped bases to invoke unaligned bam/cram; explicitly soft-clipped only applicable to aligned bam/cram and our std expect aligned bam/cram.
-For discontiguous-long-read sequencing, bases shall be computed and reported only at the read level or from reads, not at the template level.
-If this metric is also applicable to discontiguous-long-read sequencing at the template level, the computation method shall be specified.
-Technology-specific implementation details (e.g., BX tags, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition/Implementaion.
+- **Comments:** 
+    - Use samtools stats and custom script alternate to GATK Picard’s CollectQualityYieldMetrics PF_Q30_BASES used in v1.0.
+    - open to both SE and PE accounting Ultima sequencing?
+    - high quality reads (reads passing the sequencing instrument/vendor quality filter; SAM flag 0x200 not set)
+    - keep clipped bases to invoke unaligned bam/cram; explicitly soft-clipped only applicable to aligned bam/cram and our std expect aligned bam/cram.
+    - For discontiguous-long-read sequencing, bases shall be computed and reported only at the read level or from reads, not at the template level.
+    - If this metric is also applicable to discontiguous-long-read sequencing at the template level, the computation method shall be specified.
+    - Technology-specific implementation details (e.g., BX tags, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition/Implementaion.
 - **Type:** Integer (eg. 102984371235)
 - **Functionally equivalent implementations:**
     - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
