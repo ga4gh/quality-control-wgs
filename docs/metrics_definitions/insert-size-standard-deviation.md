@@ -7,9 +7,10 @@
 - **Functionally equivalent implementations:**
     - [NPM sample qc](References.md#npm-sample-qc)
     - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
-- **Sequencing read type:** short-read
+- **Sequencing read type:** short-read | discontiguous-long-read
 - **Reference genome assembly:** GRCh37 | GRCh38
 - **Version:** 2.0
-- **Sequencing technology:**
-- **Associated aligner**
-- **Associated basecaller**
+- **Sequencing technology:** Illumina | Illumina TruPath Genome (proximity mapped reads; formerly Constellation)
+- **Associated aligner:** BWA-MEM/BWA-MEM2 or DRAGEN mapper (Illumina short-read); DRAGEN TruPath pipeline (Illumina proximity mapped reads); record exact version and parameters.
+- **Associated variant caller:**
+- **Associated basecaller:** N/A
