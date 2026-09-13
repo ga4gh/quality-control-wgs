@@ -3,7 +3,7 @@
 - **ID:** count_snvs
 - **Description:** Total count of single nucleotide variant (SNV) alternate alleles observed in the [autosomal non-gap regions](terminologies.md#autosomes-non-gap-regions). Only [high quality variants](terminologies.md#high-quality-variants) are included. Multiallelic records must be split and normalized (reference based left-aligned) prior to counting. This metric applies across short-read, contiguous long-read, and discontiguous long-read callsets.
 
-# the variant caller and its exact version and parameters must be reported because they can materially affect the result.
+#the variant caller and its exact version and parameters must be reported because they can materially affect the result.
 
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, variants are normalized against the matching reference FASTA and multiallelic records are split using [bcftools](https://www.htslib.org/doc/bcftools.html) (`bcftools norm -f reference.fa -m -any`). The callset is then restricted to autosomal non-gap intervals, retaining only (`FILTER=PASS`) records with an alternate genotype (`GT="alt"`). SNVs are filtered and counted using (`bcftools view -H -v snps -f PASS -R autosomal_nongap.bed -i 'GT="alt"`).
 

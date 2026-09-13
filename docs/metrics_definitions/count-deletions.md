@@ -3,11 +3,11 @@
 - **ID:** count_deletions
 - **Description:** Total count of sequence-resolved short-deletion alternate alleles 1 to 49 bp in length observed in the [autosomal non-gap regions](terminologies.md#autosomes-non-gap-regions). Only [high quality variants](terminologies.md#high-quality-variants) are included. Multiallelic records must be split and normalized (reference based left-aligned) prior to counting. Symbolic and complex alleles lacking explicit sequence resolution are excluded. This metric applies across short-read, contiguous long-read, and discontiguous long-read callsets.
 
-# because variant caller choice, version, and parameterization substantially influence deletion yields, these provenance details must be reported alongside the metric 'OR' Variant caller name, exact version, and invocation parameters must be reported, as caller heuristics materially impact indel counts 'OR' the variant caller and its exact version and parameters must be reported because they can materially affect the result.
+#because variant caller choice, version, and parameterization substantially influence deletion yields, these provenance details must be reported alongside the metric 'OR' Variant caller name, exact version, and invocation parameters must be reported, as caller heuristics materially impact indel counts 'OR' the variant caller and its exact version and parameters must be reported because they can materially affect the result.
 
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, variants are normalized against the matching reference FASTA and split across multiallelic records using [bcftools](https://www.htslib.org/doc/bcftools.html) (`bcftools norm -f reference.fa -m -any`). The callset is then restricted to autosomal non-gap intervals, retaining only (`FILTER=PASS`) records with an alternate genotype (`GT="alt"`). Finally, indels are filtered to count records satisfying `ILEN<0 && ILEN>-50`.
 
-# Record the bcftools version, reference assembly and FASTA checksum, evaluation-region checksum, normalization command, filters, variant caller, and caller parameters. The same procedure is used for every sequencing read type.
+#Record the bcftools version, reference assembly and FASTA checksum, evaluation-region checksum, normalization command, filters, variant caller, and caller parameters. The same procedure is used for every sequencing read type.
 
 - **Comments:** 
     - non-gap regions 'excluding centromeric/telomeric assembly gaps'
