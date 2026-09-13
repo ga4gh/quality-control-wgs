@@ -24,6 +24,7 @@ n_del=$(bcftools filter -i 'TYPE="indel" && ILEN < 0 && ILEN > -50' filtered_sam
 # Compute insertion-to-deletion ratio
 awk -v ins="$n_ins" -v del="$n_del" 'BEGIN { if (del > 0) printf "%.4f\n", ins / del; else print "NA" }'
 ```
+Calculate the ratio as `insertion count / deletion count`; report both component counts and report `N/A`, rather than infinity, when the deletion count is zero.
 - **Type:** Float, 2 decimal precision (eg. 1.13)
 - **Functionally equivalent implementations:**
   - [ICGC-ARGO vcfqc](References.md#icgc-argo), when the same normalization, atomization, size, sample-genotype, PASS-status, symbolic-allele, and evaluation-region rules are applied.
