@@ -11,7 +11,7 @@
 
 - **Comments:** 
     - non-gap regions 'excluding centromeric/telomeric assembly gaps'
-    - symbolic records (e.g., <DEL>) and complex unphased replacements are omitted.
+    - symbolic records (e.g., `<DEL>`) and complex unphased replacements are omitted.
     - PASS variant has successfully met all quality and filtering criteria defined by the variant caller.
 ```
 bcftools norm -f reference.fa -m -any input.vcf.gz \
