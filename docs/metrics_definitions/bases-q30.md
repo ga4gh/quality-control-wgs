@@ -9,7 +9,7 @@
   - For discontiguous-long-read data,  paired-end read records are processed identically to short reads, counting only observed sequenced bases and excluding the unsequenced span intervals between read ends.
 - **Comments:** 
     - Use samtools stats and custom script alternate to GATK Picard’s CollectQualityYieldMetrics PF_Q30_BASES used in v1.0.
-    - open to both SE and PE accounting Ultima sequencing?
+    - open to both SE and PE accounting Ultima single-end (SE) sequencing?
     - high quality reads (reads passing the sequencing instrument/vendor quality filter; SAM flag 0x200 not set)
     - keep clipped bases to invoke unaligned bam/cram; explicitly soft-clipped only applicable to aligned bam/cram and our std expect aligned bam/cram.
     - For discontiguous-long-read sequencing, bases shall be computed and reported only at the read level or from reads, not at the template level.
