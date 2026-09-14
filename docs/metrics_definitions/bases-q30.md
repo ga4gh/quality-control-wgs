@@ -4,7 +4,7 @@
 - **ID:** yield_bp_q30
 - **Description:** Total number of bases with a [base quality score](terminologies.md#base-quality-score) of 30 or greater ([Phred scale](terminologies.md#phred-scale)) from (primary alignmnet of?) the [high quality reads](terminologies.md#high-quality-reads) (say passing vendor quality filters?) in short-read or discontiguous-long-read sequencing data. Secondary and supplementary alignments are excluded. [Duplicated reads](terminologies.md#duplicated-reads) and [soft-clipped bases](terminologies.md#clipped-bases) are included, and no minimum [mapping quality](terminologies.md#mapping-quality) is imposed. For discontiguous long-read sequencing, only physically sequenced (observed) bases are counted; the unsequenced span of the inferred proximity molecule or template does not contribute to this metric.
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, this metric is computed using [samtools stats](terminologies.md#samtools-stats), coupled with a custom parser that sums bases with [base quality score](terminologies.md#base-quality-score) 30 or greater from the First Fragment Quality (FFQ) and Last Fragment Quality (LFQ) tables. This implementation is identical for short-read and discontiguous-long-read data:
-  -  Only (primary alignmnet of?) [high quality reads](terminologies.md#high-quality-reads) (say passing vendor quality filters?) are evaluated;secondary and supplementary alignments are excluded.
+  -  Only (primary alignmnet of?) [high quality reads](terminologies.md#high-quality-reads) (say reads passing the sequencing instrument/vendor quality filter; SAM flag 0x200 not set?) are evaluated;secondary and supplementary alignments are excluded.
   - No filtering of [Duplicated reads](terminologies.md#duplicated-reads) is performed, [soft-clipped bases](terminologies.md#clipped-bases) are retained, and no minimum [mapping quality](terminologies.md#mapping-quality) threshold is applied.
   - For discontiguous-long-read data,  paired-end read records are processed identically to short reads, counting only observed sequenced bases and excluding the unsequenced span intervals between read ends.
 - **Comments:** 
@@ -18,6 +18,7 @@
     - Technology-specific implementation details (e.g., BX tags, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition/Implementaion.
     ```
     samtools stats -F 0x900 in.bam > in.stats // exclude secondary and supplementary alignments while preserving all unmapped, mapped, duplicate reads, and soft-clipped bases.
+    awk '$1 ~ /^[FL]FQ$/ { for (i = 33; i <= NF; i++) sum += $i } END { print "Total >=Q30 bases (PE):", sum }' stats.txt
     ```
 - **Type:** Integer (eg. 102984371235)
 - **Functionally equivalent implementations:**
