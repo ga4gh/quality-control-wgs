@@ -25,6 +25,7 @@ samtools view -F 2304 input.bam \
       printf "P50: %d\n", a[p50_idx];
       printf "P75: %d\n", a[p75_idx];
     }'
+# samtools view -F 2304 input.bam | awk '{print length($10)}' | datamash q1 1 median 1 q3 1
 
 # Option 2: Long-read text extraction via NanoStat (no plots generated)
 NanoStat --bam input.bam \
