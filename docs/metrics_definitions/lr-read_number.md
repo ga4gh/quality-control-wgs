@@ -12,7 +12,7 @@ In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, in
 Template-level metrics shall exclude singleton reads for which no containing template is defined.
 Technology-specific implementation details (e.g., BX tags, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition.
 - **Comments:**
-use all the reads mapped+primary alignment or primary alignments only?
+use all the reads unmapped+primary alignment or primary alignments only?
 excluding supplementary and secondary reads and duplicate reads are included.
   - **Count Inferred Template:**
 ```
