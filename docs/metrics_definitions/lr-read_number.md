@@ -29,6 +29,7 @@ samtools view -F 2304 input_discontiguous.bam \
 # Flag 2304 (0x900) excludes secondary (256) and supplementary (2048) records
 samtools view -c -F 2304 input.bam
 samtools stats 'raw total sequences'
+samtools idxstats input.bam | awk '{mapped+=$3; unmapped+=$4} END {print "Total Primary Reads: " (mapped + unmapped)}'
 
 # Option 2: Long-read text metrics via NanoStat (excludes supplementary, no plots generated)
 NanoStat --bam input.bam \
