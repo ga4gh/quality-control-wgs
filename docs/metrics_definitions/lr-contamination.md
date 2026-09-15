@@ -1,9 +1,19 @@
-# Contamination
-- **ID:** contamination
-- **Description:** The estimated proportion of sequencing data originating from non-target organisms, unrelated human samples, or other unintended DNA sources. Contamination can reduce variant calling accuracy, alter allele balance, inflate apparent yield, and create misleading QC signals.
-- **Implementation details:** Estimate contamination using taxonomic classification, alignment to alternate references, k-mer based methods, or genotype/allele-balance based methods. The method should specify whether it detects non-human contamination, human cross-sample contamination, or both. For ONT and PacBio workflows, contamination assessment may be performed before alignment using reads or after alignment using variant/genotype patterns. The chosen method should be documented because different tools measure different contamination signals.
-- **Type:** Float, fraction or percentage (eg. 0.006; 0.6%)
+# Cross contamination
+
+- **ID:** cross_contamination_rate
+- **Description:** The estimated proportion of human DNA originating from another individual in a human sequencing sample. This metric measures human cross-sample contamination and is distinct from non-target-organism contamination. For short reads, include instrument-filter-passing reads where such a filter exists and non-duplicated primary alignments. For discontiguous long reads, apply the same inclusion criteria as for short-read data because the sequence observations are paired short reads supplemented with long-range proximity information. For contiguous long reads, include non-duplicated primary alignments from reads passing a fixed, platform-appropriate minimum per-read quality threshold. The per-read quality threshold and quality-score definition must be reported. For ONT, use the basecaller-provided per-read `qs` value or its documented equivalent. For PacBio, use the `rq` predicted-accuracy value or its documented equivalent. No additional minimum mapping-quality threshold is imposed by this metric definition; any filtering applied internally by the implementation must be recorded.
+- **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, estimate inter-sample human DNA contamination from BAM/CRAM alignments mapped to GRCh38 using [VerifyBamID2](https://github.com/Griffan/VerifyBamID) and the pre-calculated [1000 Genomes Project reference panel](References.md#verifybamid-reference-panel). Set `NumPC` to `4` and report `FREEMIX` from the `.selfSM` output as `cross_contamination_rate`.
+  - For short-read and discontiguous-long-read data, use instrument-filter-passing, non-duplicated primary alignments where the instrument filter is available.
+  - For contiguous-long-read data, first select reads using the agreed technology-specific per-read quality threshold, then apply the same reference panel and VerifyBamID2 settings. Record the read-selection expression, threshold, aligner, and basecaller or consensus-caller version.
+  - Use the same reference assembly and ancestry reference panel for comparisons. Before the reference implementation is designated as validated for a long-read profile, benchmark it with known human DNA mixtures across the expected contamination range and confirm that `FREEMIX` is comparable with the short-read reference profile.
+- **Type:** Float, 4 decimal precision (eg. 0.0007)
 - **Functionally equivalent implementations:**
-  - Kraken2
-  - Centrifuge
-  - VerifyBamID
+  - [ICGC-ARGO dnaalnqc](References.md#icgc-argo), using the same reference assembly, ancestry panel, and alignment inclusion policy.
+  - [DRAGEN v3.7.6](References.md#dragen), reporting `MAPPING/ALIGNING SUMMARY,,Estimated sample contamination`, for sequencing profiles in which equivalence to the reference implementation has been benchmarked.
+- **Sequencing read type:** short-read | contiguous-long-read | discontiguous-long-read
+- **Reference genome assembly:** GRCh38
+- **Version:** 2.0
+- **Sequencing technology:** Illumina | Oxford Nanopore Technologies (ONT) | Pacific Biosciences (PacBio) | Illumina TruPath Genome (proximity mapped reads; formerly Constellation)
+- **Associated aligner:** BWA-MEM/BWA-MEM2 or DRAGEN mapper (Illumina short-read) | minimap2 (ONT) | pbmm2/minimap2 (PacBio) | DRAGEN TruPath pipeline (Illumina proximity mapped reads). Record the exact version and parameters.
+- **Associated variant caller:** N/A
+- **Associated basecaller:** N/A (Illumina short-read and proximity mapped reads) | Dorado (ONT) | SMRT Link/CCS (PacBio). Record the exact version and model where applicable.
