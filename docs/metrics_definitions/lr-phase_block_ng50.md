@@ -90,9 +90,9 @@ awk -F'\t' '
 
 To strictly enforce non-gap autosomal intervals (e.g., excluding centromeres, telomeres, and unsequenced N gaps), the interval definition must be applied in two places:
 
-`- Variant filtering (bcftools view -T): Restricts variant evaluation to callable non-gap regions so spurious edge calls are excluded.
+- Variant filtering (bcftools view -T): Restricts variant evaluation to callable non-gap regions so spurious edge calls are excluded.
 
-  - Denominator calculation ($G$): The length supplied to WhatsHap's --chr-lengths should reflect the effective non-gap base count per chromosome, rather than the raw chromosome coordinate span from the .fai file. If the full coordinate span is used, multi-megabase centromeric assembly gaps will artificially deflate the NG50 metric.
+- Denominator calculation ($G$): The length supplied to WhatsHap's --chr-lengths should reflect the effective non-gap base count per chromosome, rather than the raw chromosome coordinate span from the .fai file. If the full coordinate span is used, multi-megabase centromeric assembly gaps will artificially deflate the NG50 metric.
 ```
 # 1. Generate autosomal non-gap intervals and calculate effective chromosome lengths (G)
 #    Assume 'autosomes_non_gap.bed' contains non-gap callable intervals for chr1-22
