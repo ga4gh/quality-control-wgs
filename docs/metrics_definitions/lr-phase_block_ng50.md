@@ -113,6 +113,21 @@ bcftools view \
 
 tabix -p vcf filtered_phased_snvs.vcf.gz
 
+OR
+# 1. Normalize and split multiallelics while preserving phase tags
+# 2. Filter strictly for PASS, heterozygous biallelic SNVs within autosomal non-gap BED
+bcftools norm -m -any --keep-phased -f reference.fasta input_phased.vcf.gz -Ou \
+  | bcftools view \
+      -T autosomes_non_gap.bed \
+      -f PASS \
+      -g het \
+      -m2 -M2 \
+      -v snps \
+      -i 'FORMAT/DP >= 10 && FORMAT/GQ >= 20' \
+      -Oz -o filtered_phased_snvs.vcf.gz
+
+tabix -p vcf filtered_phased_snvs.vcf.gz
+
 # 3. Compute phasing statistics using WhatsHap with non-gap lengths
 whatshap stats \
   --chr-lengths autosome_non_gap_lengths.tsv \
@@ -133,6 +148,8 @@ awk -F'\t' '
     else print val;
   }
 ' phase_stats.tsv
+
+
 ```
 - **Type:** Integer, base pairs (eg. 28500000) or N/A when chromosome lengths are unavailable
 - **Functionally equivalent implementations:**
