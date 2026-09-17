@@ -10,7 +10,7 @@
 - **Comments:** 
     - Use samtools stats and custom script alternate to GATK Picard’s CollectQualityYieldMetrics PF_Q30_BASES used in v1.0. which includes both mapped primary alignemnt and unmapped reads and duplicate reads. Exclude secondary, supplemetary reads.
     - open to both single-end (SE) and paired-end (PE), accounting Ultima single-end (SE) sequencing?
-    - high quality reads - reads passing the sequencing instrument/vendor quality filter; SAM flag 0x200 not set.
+    - high quality reads - reads passing the sequencing instrument/vendor quality filter; SAM flag 0x200 not set. (instrument-filter-passing reads where such a filter exists)
     - **Right to use only from primary alignments (0x904) or primary records including unmapped reads? and include/exclude duplicate reads?**
     - keep clipped bases to invoke unaligned bam/cram; explicitly soft-clipped only applicable to aligned bam/cram and our std implementation expect aligned bam/cram input.
     - For discontiguous-long-read sequencing, bases shall be computed and reported only at the read level or from reads, not at the template level.
