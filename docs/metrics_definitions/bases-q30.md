@@ -16,7 +16,8 @@ For discontiguous-long-read data,  paired-end read records are processed identic
     - If this metric is also applicable to discontiguous-long-read sequencing at the template level, the computation method shall be specified.
     - Technology-specific implementation details (e.g., **BX tags**, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition/Implementaion.
     ```
-    samtools stats -F 0x900 in.bam > in.stats // exclude secondary and supplementary alignments while preserving all unmapped, mapped, duplicate reads, and soft-clipped bases. To exclude vendor quality check (QC-failed 0x200) use -F 2816 instead of -F 0x900.
+    samtools stats -F 0x900 in.bam > in.stats 
+    // exclude secondary and supplementary alignments while preserving all unmapped, mapped, duplicate reads, and soft-clipped bases. To exclude vendor quality check (QC-failed 0x200) use -F 2816 instead of -F 0x900.
     awk '$1 ~ /^[FL]FQ$/ { for (i = 33; i <= NF; i++) sum += $i } END { print "Total >=Q30 bases (PE):", sum }' stats.txt
     ```
 - **Type:** Integer (eg. 102984371235)
