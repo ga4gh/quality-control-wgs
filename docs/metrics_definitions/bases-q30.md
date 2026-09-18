@@ -8,13 +8,13 @@ primary alignmnets and unmapped reads of [high quality reads](terminologies.md#h
 For discontiguous-long-read data,  paired-end read records are processed identically to short reads, counting only observed sequenced bases and excluding the unsequenced span intervals between read ends.
 - **Comments:** 
     - Use `samtools stats` and custom script alternate to `GATK Picard’s CollectQualityYieldMetrics` `PF_Q30_BASES` used in `v1.0`. which includes both mapped primary alignemnt and unmapped reads and duplicate reads. Exclude secondary, supplemetary reads.
-    - open to both single-end (SE) and paired-end (PE), accounting Ultima single-end (SE) sequencing?
+    - open to both `single-end (SE)` and `paired-end (PE)`, accounting **Ultima single-end (SE) sequencing**?
     - high quality reads - reads passing the sequencing instrument/vendor quality filter / instrument-filter-passing reads where such a filter exists; SAM flag 0x200 not set.
     - **Right to use only from primary alignments (0x904) or primary records including unmapped reads? and include/exclude duplicate reads?**
     - keep clipped bases to invoke unaligned bam/cram; explicitly soft-clipped only applicable to aligned bam/cram and our std implementation expect aligned bam/cram input.
     - For discontiguous-long-read sequencing, bases shall be computed and reported only at the read level or from reads, not at the template level.
     - If this metric is also applicable to discontiguous-long-read sequencing at the template level, the computation method shall be specified.
-    - Technology-specific implementation details (e.g., BX tags, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition/Implementaion.
+    - Technology-specific implementation details (e.g., **BX tags**, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition/Implementaion.
     ```
     samtools stats -F 0x900 in.bam > in.stats // exclude secondary and supplementary alignments while preserving all unmapped, mapped, duplicate reads, and soft-clipped bases. To exclude vendor quality check (QC-failed 0x200) use -F 2816 instead of -F 0x900.
     awk '$1 ~ /^[FL]FQ$/ { for (i = 33; i <= NF; i++) sum += $i } END { print "Total >=Q30 bases (PE):", sum }' stats.txt
