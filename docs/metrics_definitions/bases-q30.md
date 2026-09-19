@@ -11,8 +11,7 @@ For discontiguous-long-read data,  paired-end read records are processed identic
     - open to both `single-end (SE)` and `paired-end (PE)`, accounting **Ultima single-end (SE) sequencing**?
     - high quality reads - reads passing the sequencing instrument/vendor quality filter / instrument-filter-passing reads where such a filter exists; SAM flag 0x200 not set.
     - **Right to use only from primary alignments (0x904) or primary records including unmapped reads? and include/exclude duplicate reads?**
-    - keep clipped bases to invoke unaligned bam/cram; explicitly soft-clipped only applicable to aligned bam/cram and our std implementation expect aligned bam/cram input.
-    - For discontiguous-long-read sequencing, bases shall be computed and reported only at the read level or from reads, not at the template level.
+    - explicit quote soft-clipped only applicable to aligned bam/cram and our std implementation expect aligned bam/cram input.
     - If this metric is also applicable to discontiguous-long-read sequencing at the template level, the computation method shall be specified.
     - Technology-specific implementation details (e.g., **BX tags**, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition/Implementaion.
     ```
