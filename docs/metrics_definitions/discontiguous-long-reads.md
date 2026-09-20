@@ -5,6 +5,7 @@ Using [SAM](https://samtools.github.io/hts-specs/SAMv1.pdf) terminology, the _te
 This results in sequencing data that has attributes of both short and long read sequencing technologies.
 As such, quality control of such data is a combination of _template_ level metrics, and _read_ level metrics.
 To account for this, discontiguous long read sequencing technologies must report both _template_ level metrics and _read_ level metrics.
+These metrics must be reported separately and, as such, discontiguous long read sequencing technologies must report two distinct sets of metrics.
 
 The following general principles apply to discontiguous long read sequencing technologies metrics:
 
@@ -17,11 +18,12 @@ The following general principles apply to discontiguous long read sequencing tec
 These metrics should be independent of the number of _reads_ per _template_.
 - _template_ metrics that do not have a meaningful equivalent to the contiguous long read should not be reported.
 - _Read_ level metrics should include all reads, regardless of whether a containing _template_ as identified for that _read_.
-- _template_ level metrics should exclude singleton reads for which no containing _template_ is defined.
+- _template_ level metrics should exclude singleton reads for which no containing _template_ is defined or for which the _template_ provides no additional information that than provided by the _read_ itself.
+-- A singleton pair-end _read_ pair is considered a singleton read for the purpose of determining _template_ membership.
 
 - A common set of variant-level metrics should be redundantly reported for both _template_ and _read_ level metrics outputs.
 That is, the variant calling output from the discontiguous long read secondary analysis pipeline should be used for both metrics outputs.
 The _read_-level variant calls should not be calculated based on a separate _template_-naive secondary analysis pipeline.
 - For metrics calculation purposes, discontiguous phase blocks should be split into contiguous phase blocks and phasing metrics calculated based on the contiguous blocks.
-The definition underestimates the phasing capability of discontiguous long read technologies but provides the closest match to 
-- Metrics downstream of variant calling should also be common
+Note that this definition underestimates the phasing capability of discontiguous long read technologies but provides the closest equivalent to contiguous sequencing technologies.
+- Metrics downstream of variant calling should also be identical and redundantly reported for both _template_ and _read_ level metrics outputs.

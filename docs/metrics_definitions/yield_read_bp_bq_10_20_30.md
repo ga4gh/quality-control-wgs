@@ -201,7 +201,7 @@ samtools view -F 2304 input.bam \
   - [Dorado summary](https://github.com/nanoporetech/dorado) using `mean_qscore_template` and `sequence_length_template` for ONT, with the same thresholds, complete read set, and inclusion rules
   - [NanoPlot](https://github.com/wdecoster/NanoPlot) for ONT reads, using the same complete read set, thresholds, read-level Q-score definition, and inclusion rules
   - [pysam](https://pysam.readthedocs.io/) aggregation of BAM read length and the ONT `qs` or PacBio HiFi `rq` tag, using the same thresholds and inclusion rules
-- **Sequencing read type:** contiguous-long-read
+- **Sequencing read type:** short-read | contiguous-long-read | discontiguous-long-read
 - **Reference genome assembly:** GRCH37 |GRCh38
 - **Version:** 2.0
 - **Sequencing technology:** Oxford Nanopore Technologies (ONT) | Pacific Biosciences (PacBio)

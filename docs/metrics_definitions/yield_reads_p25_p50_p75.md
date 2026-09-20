@@ -46,7 +46,7 @@ echo "P75: $p75"
 - **Functionally equivalent implementations:**
   - [NanoPlot](https://github.com/wdecoster/NanoPlot) without downsampling
   - [pycoQC](https://github.com/a-slide/pycoQC) using the complete read set
-- **Sequencing read type:** contiguous-long-read
+- **Sequencing read type:** short-read | contiguous-long-read | discontiguous-long-read
 - **Reference genome assembly:** N/A
 - **Version:** 2.0
 - **Sequencing technology:** Oxford Nanopore Technologies (ONT) | Pacific Biosciences (PacBio)
