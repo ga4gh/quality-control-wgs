@@ -38,23 +38,23 @@ The final metric is reported as the raw integer sum of all passing bases across 
 
     with pysam.AlignmentFile(bam_file, "rb") as samfile:
         for read in samfile:
-        # EXCLUDE: Secondary alignments (Flag 0x100)
-        if read.is_secondary:
-            continue
+            # EXCLUDE: Secondary alignments (Flag 0x100)
+            if read.is_secondary:
+                continue
+                
+            # EXCLUDE: Vendor/QC-failed reads (Flag 0x200)
+            if read.is_qcfail:
+                continue
             
-        # EXCLUDE: Vendor/QC-failed reads (Flag 0x200)
-        if read.is_qcfail:
-            continue
-        
-        # INCLUDED: 
-        # - Supplementary alignments (0x800)
-        # - Duplicate reads (0x400)
-        # - Unmapped reads (0x4)
+            # INCLUDED: 
+            # - Supplementary alignments (0x800)
+            # - Duplicate reads (0x400)
+            # - Unmapped reads (0x4)
 
-        # read.query_qualities provides BQ scores for all bases in the sequence,
-        # which naturally includes soft-clipped segments.
-        if read.query_qualities:
-            total_bases_passing += sum(1 for q in read.query_qualities if q >= bq_cutoff)
+            # read.query_qualities provides BQ scores for all bases in the sequence,
+            # which naturally includes soft-clipped segments.
+            if read.query_qualities:
+                total_bases_passing += sum(1 for q in read.query_qualities if q >= bq_cutoff)
 
     print(f"Total bases (excluding secondary & QC-fail) with BQ >= {bq_cutoff}: {total_bases_passing}")
 
