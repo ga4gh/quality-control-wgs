@@ -79,7 +79,8 @@ The final metric is reported as the raw integer sum of all passing bases across 
     END {print count}"
     ' | awk '{sum+=$1} END {print "Total bases >= 30: " sum}'
 
-    and Unmpped reads:
+
+and Unmpped reads:
 
     samtools view -f 4 -F 768 input.bam | awk -v cutoff=30 \
     'BEGIN {FS="\t"} {
@@ -88,7 +89,7 @@ The final metric is reported as the raw integer sum of all passing bases across 
         if (ord[chars[i]] == 0) ord[chars[i]] = index("!\"#$%&'\''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~", chars[i]) - 1;
         if (ord[chars[i]] >= cutoff) count++;
     }
-} END {print count}'
+    } END {print count}'
 
 OR 
 Unaligned data:
