@@ -21,7 +21,7 @@ The final metric is reported as the raw integer sum of all passing bases across 
     - If this metric is also applicable to discontiguous-long-read sequencing at the template level, the computation method shall be specified.
     - Technology-specific implementation details (e.g., **BX tags**, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition/Implementaion.
 
-    ```
+```
     samtools stats -F 0x300 in.bam > in.stats 
     // exclude secondary 0x100 / 256 while preserving all unmapped, mapped, duplicate reads, and soft-clipped bases. To exclude vendor quality check (QC-failed 0x200 / 512) use -F 768.
     awk '$1 ~ /^[FL]FQ$/ { for (i = 33; i <= NF; i++) sum += $i } END { print "Total >=Q30 bases (PE):", sum }' stats.txt
