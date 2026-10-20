@@ -94,8 +94,8 @@ and Unmpped reads:
 OR 
 Unaligned data:
 
-samtools stats -F 0x200 unaligned.bam > unaligned.stats
-awk '/^FFQ|^LFQ/ && $2 >= 30 {sum += $3} END {print sum}' unaligned.stats
+    samtools stats -F 0x200 unaligned.bam > unaligned.stats
+    awk '/^FFQ|^LFQ/ && $2 >= 30 {sum += $3} END {print sum}' unaligned.stats
 ```
 - **Type:** Integer (eg. 102984371235)
 - **Functionally equivalent implementations:**
