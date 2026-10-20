@@ -59,8 +59,8 @@ The final metric is reported as the raw integer sum of all passing bases across 
     print(f"Total bases (excluding secondary & QC-fail) with BQ >= {bq_cutoff}: {total_bases_passing}")
 
     OR
-   
-    mapped reads:
+    Mapped reads:
+
     # 1. Get a list of all chromosomes/contigs from the BAM header
     # 2. Use xargs to process them in parallel across 8 cores
     # 3. Stream the regions, filter flags, and sum base qualities using a fast Awk array
@@ -79,19 +79,20 @@ The final metric is reported as the raw integer sum of all passing bases across 
     END {print count}"
     ' | awk '{sum+=$1} END {print "Total bases >= 30: " sum}'
 
-    and unmpped reads:
+    and Unmpped reads:
+
     samtools view -f 4 -F 768 input.bam | awk -v cutoff=30 \
-'BEGIN {FS="\t"} {
-  n = split($11, chars, "");
-  for (i = 1; i <= n; i++) {
-    if (ord[chars[i]] == 0) ord[chars[i]] = index("!\"#$%&'\''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~", chars[i]) - 1;
-    if (ord[chars[i]] >= cutoff) count++;
-  }
+    'BEGIN {FS="\t"} {
+    n = split($11, chars, "");
+    for (i = 1; i <= n; i++) {
+        if (ord[chars[i]] == 0) ord[chars[i]] = index("!\"#$%&'\''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~", chars[i]) - 1;
+        if (ord[chars[i]] >= cutoff) count++;
+    }
 } END {print count}'
 
 OR 
-
 Unaligned data:
+
 samtools stats -F 0x200 unaligned.bam > unaligned.stats
 awk '/^FFQ|^LFQ/ && $2 >= 30 {sum += $3} END {print sum}' unaligned.stats
     ```
