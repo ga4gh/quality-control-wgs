@@ -26,7 +26,7 @@ The final metric is reported as the raw integer sum of all passing bases across 
     // exclude secondary 0x100 / 256 while preserving all unmapped, mapped, duplicate reads, and soft-clipped bases. To exclude vendor quality check (QC-failed 0x200 / 512) use -F 768.
     awk '$1 ~ /^[FL]FQ$/ { for (i = 33; i <= NF; i++) sum += $i } END { print "Total >=Q30 bases (PE):", sum }' stats.txt
 
-    OR
+OR
 
     Python (Pysam) custom script
     import pysam
@@ -58,8 +58,8 @@ The final metric is reported as the raw integer sum of all passing bases across 
 
     print(f"Total bases (excluding secondary & QC-fail) with BQ >= {bq_cutoff}: {total_bases_passing}")
 
-    OR
-    Mapped reads:
+OR
+Mapped reads:
 
     # 1. Get a list of all chromosomes/contigs from the BAM header
     # 2. Use xargs to process them in parallel across 8 cores
@@ -96,7 +96,7 @@ Unaligned data:
 
 samtools stats -F 0x200 unaligned.bam > unaligned.stats
 awk '/^FFQ|^LFQ/ && $2 >= 30 {sum += $3} END {print sum}' unaligned.stats
-    ```
+```
 - **Type:** Integer (eg. 102984371235)
 - **Functionally equivalent implementations:**
     - [ICGC-ARGO dnaalnqc](References.md#icgc-argo)
