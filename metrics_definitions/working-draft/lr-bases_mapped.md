@@ -10,9 +10,10 @@ In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, th
 Numerator calculation: For each read, query coordinates $[q_{\text{start}}, q_{\text{end}})$ corresponding to aligned or inserted CIGAR operations (M, I, =, and X) are extracted across its primary and supplementary records. Soft-clipped (S) and hard-clipped (H) bases are excluded. Overlapping query intervals between split or chimeric alignments are merged to ensure each sequenced base position is counted at most once.
 
 Denominator calculation: The total query length is accumulated from the sequence length (length(SEQ)) of all passing primary records (both mapped and unmapped).
+
 The final metric is calculated as: $$\text{Mapped Base Percentage} = 100 \times \frac{\sum \text{merged aligned query bases}}{\sum \text{primary query length}}$$
 
-When the denominator is zero, N/A is reported. This procedure is applied independently to each sequencing read type.
+When the denominator is zero, N/A is reported. The same procedure is used for every sequencing read type. / This procedure is applied independently to each sequencing read type.
 - **Comments:**
   - [high quality reads](terminologies.md#high-quality-reads)
 For short-read and discontiguous-long-read data, include instrument-filter-passing reads where such a filter exists. For contiguous-long-read data, include reads passing a fixed, platform-appropriate minimum per-read quality threshold. For ONT, use the Dorado or MinKNOW `qs` tag, which contains the per-read mean basecall Q-score, or its documented equivalent. For PacBio, use the `rq` tag, which contains predicted read accuracy, or its documented equivalent.
