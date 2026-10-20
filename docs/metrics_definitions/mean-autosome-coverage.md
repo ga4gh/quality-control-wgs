@@ -3,16 +3,11 @@
 - **ID:** mean_autosome_coverage
 - **Description:** The arithmetic mean sequencing depth evaluated across all base positions within the defined autosomal non-gap evaluation intervals of the selected reference genome. The denominator is fixed as the total base count across these target intervals, fully accounting for positions with zero coverage ($0\times$) rather than excluding unsequenced regions.
 
- Short reads and discontiguous long reads: Derived from non-duplicate primary alignments of [high-quality reads](terminologies.md#high-quality-reads). Alignments that are unmapped (0x4), secondary (0x100), QC-failed (0x200), duplicate (0x400), (and supplementary (0x800)?) are excluded (-F 1796 (-F 3844?)). Overlapping paired-end read segments are counted only once per physical molecule. For discontiguous long reads, only directly sequenced and aligned segments contribute to depth; the inferred template distance between paired observations must not be counted as sequence coverage. It is critical that the (BAM/CRAM) alignment files be readily marked for duplicated reads.
+ Short reads, discontiguous long reads and Contiguous long reads: Derived from non-duplicate primary and supplementraty alignments of [high-quality reads](terminologies.md#high-quality-reads). Alignments that are unmapped (0x4), secondary (0x100), QC-failed (0x200), duplicate (0x400) are excluded (-F 1796). Clipped bases are excluded. Overlapping read segments are counted only once per physical molecule. For discontiguous long reads, only directly sequenced and aligned segments contribute to depth; the inferred template distance between paired observations must not be counted as sequence coverage. It is critical that the (BAM/CRAM) alignment files be readily marked for duplicated reads.
 
- Contiguous long reads: Derived from non-duplicate primary alignments of [high-quality reads](terminologies.md#high-quality-reads) reads meeting platform-specific per-read quality thresholds using read-level tags (`qs` for ONT, `rq` for PacBio) without per-base quality filtering. Unmapped, secondary, QC-failed, and duplicate records are excluded (-F 3844). The applied quality score threshold, caller version, and tag definition must be recorded.
+  - **Implementation details: Working** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, mean autosome coverage is computed using `mosdepth` across the autosomal non-gap interval file (`--by autosomes_non_gap.bed`). Input records are restricted to primary and supplementary alignments of [high-quality reads](terminologies.md#high-quality-reads) by excluding unmapped, secondary, QC-failed, duplicates using --flag 1796. Overlapping mate-pair bases for short reads and discontiguous long reads are resolved natively by mosdepth. For contiguous long reads, overlapping supplementary reads in the bam/cram filtered/counted once using BAM parsing... . Mean coverage is parsed directly from the total_region entry (column 4) in the generated `*.mosdepth.summary.txt` report. If the evaluated non-gap interval file contains zero valid bases, N/A is reported. 
 
-- **##Implementation details:** In the [samtools depth v1.24](https://www.htslib.org/doc/samtools-depth.html) reference implementation, calculate depth only across the agreed, non-overlapping autosomal non-gap BED intervals.
-  - #For short-read and discontiguous-long-read data, use a minimum base quality of 20, minimum mapping quality of 20, exclusion flags `UNMAP,SECONDARY,QCFAIL,DUP,SUPPLEMENTARY`, and paired-end overlap removal. A representative command is `samtools depth -b autosomal_non_gap.bed -q 20 -Q 20 -s -G UNMAP,SECONDARY,QCFAIL,DUP,SUPPLEMENTARY aligned.bam`.
-  - #For contiguous-long-read data, first select reads using the agreed technology-specific per-read quality threshold. ONT BAM records may be selected using the `qs` tag and PacBio BAM records using the `rq` tag through `samtools view --expr`. Run `samtools depth` on the resulting alignments with a minimum base quality of 0, minimum mapping quality of 20, and the same exclusion flags. Do not apply paired-end overlap removal to unpaired contiguous reads.
-  - #Sum the reported depth values and divide by the total length of the BED intervals. Positions absent from the `samtools depth` output have zero depth; they contribute zero to the numerator but remain in the denominator. Record the samtools version, reference assembly, BED-file checksum, mapping-quality threshold, read- or base-quality profile, per-read quality threshold, aligner, and basecaller or consensus-caller version.
-
-  - **Implementation details: Working** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, mean autosome coverage is computed using `mosdepth` across the autosomal non-gap interval file (`--by autosomes_non_gap.bed`). Input records are restricted to primary alignments of [high-quality reads](terminologies.md#high-quality-reads) by excluding unmapped, secondary, QC-failed, duplicates using --flag 1796. Overlapping mate-pair bases for short reads and discontiguous long reads are resolved natively by mosdepth. (For short reads exclude non-supplementary records?). For contiguous long reads, fast BAM parsing (--fast-mode) is enabled. Mean coverage is parsed directly from the total_region entry (column 4) in the generated `*.mosdepth.summary.txt` report. If the evaluated non-gap interval file contains zero valid bases, N/A is reported. 
+## Fast Mode (--fast-mode): Even when using --fast-mode (which skips detailed internal CIGAR micro-parsing for speed), mosdepth relies on the standard mapped boundaries from the BAM/CRAM record rather than including unmapped soft-clipped tails.
 
 - **Comments:**
 ```
@@ -22,7 +17,7 @@
 mosdepth \
   --threads 4 \
   --by autosomes_non_gap.bed \
-  --flag 3844 \
+  --flag 1796 \
   --no-per-base \
   short_read_cov \
   input_short_read.bam
@@ -40,7 +35,7 @@ mosdepth \
   --fast-mode \
   --threads 4 \
   --by autosomes_non_gap.bed \
-  --flag 3844 \
+  --flag 1796 / 3844 \
   --no-per-base \
   long_read_cov \
   input_long_read.bam
@@ -52,8 +47,6 @@ printf "Mean Autosome Coverage: %s\n" "$lr_mean_cov"
 ```
 - **Type:** Float, 2 decimal precision (eg. 30.94)
 - **Functionally equivalent implementations:**
-  - [GATK Picard CollectWgsMetrics](https://gatk.broadinstitute.org/hc/en-us/articles/360036804671-CollectWgsMetrics-Picard), reporting `MEAN_COVERAGE`, for short-read and discontiguous-long-read profiles when the same evaluation regions, base-quality threshold, mapping-quality threshold, duplicate policy, primary-alignment policy, and overlap policy are used.
-  - [mosdepth](https://github.com/brentp/mosdepth) for the contiguous-long-read profile after identical technology-specific per-read quality and alignment filtering. Mosdepth is not considered equivalent for the short-read or discontiguous-long-read profile unless base quality ≥20 filtering is reproduced and benchmarked.
 - **Sequencing read type:** short-read | contiguous-long-read | discontiguous-long-read
 - **Reference genome assembly:** GRCh37 | GRCh38
 - **Version:** 2.0
