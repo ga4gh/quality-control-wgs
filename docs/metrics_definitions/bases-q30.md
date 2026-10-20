@@ -31,20 +31,20 @@ The final metric is reported as the raw integer sum of all passing bases across 
     Python (Pysam) custom script
     import pysam
 
-bam_file = "input.bam"
-bq_cutoff = 30  # Your target BQ score
+    bam_file = "input.bam"
+    bq_cutoff = 30  # Your target BQ score
 
-total_bases_passing = 0
+    total_bases_passing = 0
 
-with pysam.AlignmentFile(bam_file, "rb") as samfile:
-    for read in samfile:
-        # EXCLUDE: Secondary alignments (Flag 0x100)
-        if read.is_secondary:
-            continue
+    with pysam.AlignmentFile(bam_file, "rb") as samfile:
+        for read in samfile:
+            # EXCLUDE: Secondary alignments (Flag 0x100)
+            if read.is_secondary:
+                continue
             
-        # EXCLUDE: Vendor/QC-failed reads (Flag 0x200)
-        if read.is_qcfail:
-            continue
+            # EXCLUDE: Vendor/QC-failed reads (Flag 0x200)
+            if read.is_qcfail:
+                continue
         
         # INCLUDED: 
         # - Supplementary alignments (0x800)
@@ -64,8 +64,7 @@ print(f"Total bases (excluding secondary & QC-fail) with BQ >= {bq_cutoff}: {tot
     # 1. Get a list of all chromosomes/contigs from the BAM header
     # 2. Use xargs to process them in parallel across 8 cores
     # 3. Stream the regions, filter flags, and sum base qualities using a fast Awk array
-    samtools view -H input.bam | grep "^@SQ" | cut -f2 | sed 's/SN://' | \
-xargs -I {} -n 1 -P 8 sh -c '
+    samtools view -H input.bam | grep "^@SQ" | cut -f2 | sed 's/SN://' | \xargs -I {} -n 1 -P 8 sh -c '
   samtools view -F 768 input.bam "{}" | awk -v cutoff=30 \
   "BEGIN {FS=\"\t\"} 
   {
