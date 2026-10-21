@@ -62,6 +62,6 @@ samtools view -F 2304 input.bam \
 - **Reference genome assembly:** GRCh37 | GRCH38
 - **Version:** 2.0
 - **Sequencing technology:** Oxford Nanopore Technologies (ONT) | Pacific Biosciences (PacBio)
-- **Associated aligner:** N/A
+- **Associated aligner:** BWA-MEM/BWA-MEM2 or DRAGEN aligner (Illumina short-read) | DRAGEN TruPath pipeline (Illumina proximity mapped reads). Record the exact version and parameters.
 - **Associated variant caller:** N/A
 - **Associated basecaller:** Dorado (ONT) | SMRT Link/CCS (PacBio); record exact version and model.
