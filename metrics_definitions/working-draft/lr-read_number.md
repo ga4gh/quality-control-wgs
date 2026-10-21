@@ -22,9 +22,9 @@
 Include another metric 'total base yiled' and drop yiled bases mapped percent or both where available?\
 
     - **Pre-Alignment Data:**
-        The total number of high-quality reads in the raw sequencing dataset.\
-        For paired short-read and discontiguous long-read datasets, each read end is counted as an individual read rather than counting read pairs or inferred templates.\
-        Read count should be interpreted alongside total base yield and read-length distribution, particularly for contiguous long-read datasets where read lengths can vary substantially.
+     The total number of high-quality reads in the raw sequencing dataset.\
+    For paired short-read and discontiguous long-read datasets, each read end is counted as an individual read rather than counting read pairs or inferred templates.\
+    Read count should be interpreted alongside total base yield and read-length distribution, particularly for contiguous long-read datasets where read lengths can vary substantially.
 
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, read counts are calculated by enumerating [high quality reads](terminologies.md#high-quality-reads) across short-read, contiguous-long-read, and discontiguous-long-read datasets. Alignments marked as secondary (0x100), reads not passing platform/vendor quality controls (0x200) and supplementary (0x800) are excluded using samtools (`samtools view -c -F 0x900`), while duplicate reads (0x400) are retained. For short paired-end and discontiguous datasets, each read end is counted as an individual read. For long-read datasets, total read counts, can be generated using (`NanoStat --no_supplementary`).
 
