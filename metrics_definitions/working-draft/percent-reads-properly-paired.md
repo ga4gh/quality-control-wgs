@@ -12,7 +12,7 @@
             **Excluded from Denominator::**  Secondary alignments, supplementary alignments, and reads failing platform or vendor quality controls.
             **Excluded from Numerator Only:** [Duplicate reads](terminologies.md#duplicated-reads), secondary alignments, supplementary alignments, and reads failing platform or vendor quality controls.
 
-            Applicable to short paired-end sequencing datasets, evaluating proper pairing status based on platform- or aligner-defined orientation and distance criteria.
+            Applicable to short paired-end sequencing datasets, measuring the physical template length or distance between paired read ends on the reference genome.
 
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation it is computed using [samtools stats](References.md#samtools-stats), reporting the percentage of properly paired reads mapped on GRCh38 assembly. Duplicated reads are included/excluded. No mapping qualiy is applied.
 - **Comments:** 

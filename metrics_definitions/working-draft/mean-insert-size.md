@@ -1,7 +1,16 @@
 # Mean insert size
 
 - **ID:** mean_insert_size
-- **Description:** The mean insert size of short paired-end sequencing [high quality reads](terminologies.md#high-quality-reads), [primary alignments](terminologies.md#primary-alignments), mapped on [GRCh38 assembly](terminologies.md#grch38-assembly). [Duplicated reads](terminologies.md#duplicated-reads) and [clipped bases](terminologies.md#clipped-bases) are included. No minimum [mapping quality](terminologies.md#mapping-quality) is imposed.
+- **Description:** 
+    - **Post-Alignment Data:**
+   The mean insert size (fragment length between paired-end read ends) derived from the outermost aligned genomic coordinates of eligible paired-end [high quality reads](terminologies.md#high-quality-reads) with primary alignments mapped to the selected reference genome.\
+        - **Inclusions & Exclusions:**
+
+            **Included:** Primary alignments. No minimum mapping quality (MAPQ) threshold is imposed.\
+            **Excluded:** [Duplicate reads](terminologies.md#duplicated-reads), reads failing platform or vendor quality controls, secondary alignments, supplementary alignments, unmapped reads and clipped bases (since calculations rely strictly on aligned genomic coordinates rather than full query lengths).
+
+            Applicable to short paired-end sequencing datasets, evaluating proper pairing status based on platform- or aligner-defined orientation and distance criteria.
+
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation it is computed using [samtools stats](References.md#samtools-stats), reporting the insert_size_average field. Duplicated reads are included. No mapping qualiy is applied.
 - **Comments:** 
 mapped on Reference genome instead of GRCh38/37
