@@ -19,7 +19,7 @@
             **Excluded:** Secondary and supplementary alignments from initiating new template counts.\
             This metric reflects original input library molecule yield and should be evaluated alongside segment count and contact distribution.
 
-Include another metric 'total base yiled' and drop yiled bases mapped percent or both where available?\
+Include another metric 'total base yiled' and drop yiled bases mapped percent or both where available?
 
     - **Pre-Alignment Data:**
    The total number of high-quality reads in the raw sequencing dataset.\
