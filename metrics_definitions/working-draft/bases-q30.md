@@ -29,82 +29,82 @@
     - If this metric is also applicable to discontiguous-long-read sequencing at the template level, the computation method shall be specified.
     - Technology-specific implementation details (e.g., **BX tags**, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition/Implementaion.
 
-```
-    samtools stats -F 0x300 in.bam > in.stats 
-    // exclude secondary 0x100 / 256 while preserving all unmapped, mapped, duplicate reads, and soft-clipped bases. To exclude vendor quality check (QC-failed 0x200 / 512) use -F 768.
-    awk '$1 ~ /^[FL]FQ$/ { for (i = 33; i <= NF; i++) sum += $i } END { print "Total >=Q30 bases (PE):", sum }' stats.txt
+    ```
+        samtools stats -F 0x300 in.bam > in.stats 
+        // exclude secondary 0x100 / 256 while preserving all unmapped, mapped, duplicate reads, and soft-clipped bases. To exclude vendor quality check (QC-failed 0x200 / 512) use -F 768.
+        awk '$1 ~ /^[FL]FQ$/ { for (i = 33; i <= NF; i++) sum += $i } END { print "Total >=Q30 bases (PE):", sum }' stats.txt
 
-OR
+    OR
 
-    Python (Pysam) custom script
-    import pysam
+        Python (Pysam) custom script
+        import pysam
 
-    bam_file = "input.bam"
-    bq_cutoff = 30  # Your target BQ score
+        bam_file = "input.bam"
+        bq_cutoff = 30  # Your target BQ score
 
-    total_bases_passing = 0
+        total_bases_passing = 0
 
-    with pysam.AlignmentFile(bam_file, "rb") as samfile:
-        for read in samfile:
-            # EXCLUDE: Secondary alignments (Flag 0x100)
-            if read.is_secondary:
-                continue
+        with pysam.AlignmentFile(bam_file, "rb") as samfile:
+            for read in samfile:
+                # EXCLUDE: Secondary alignments (Flag 0x100)
+                if read.is_secondary:
+                    continue
+                    
+                # EXCLUDE: Vendor/QC-failed reads (Flag 0x200)
+                if read.is_qcfail:
+                    continue
                 
-            # EXCLUDE: Vendor/QC-failed reads (Flag 0x200)
-            if read.is_qcfail:
-                continue
-            
-            # INCLUDED: 
-            # - Supplementary alignments (0x800)
-            # - Duplicate reads (0x400)
-            # - Unmapped reads (0x4)
+                # INCLUDED: 
+                # - Supplementary alignments (0x800)
+                # - Duplicate reads (0x400)
+                # - Unmapped reads (0x4)
 
-            # read.query_qualities provides BQ scores for all bases in the sequence,
-            # which naturally includes soft-clipped segments.
-            if read.query_qualities:
-                total_bases_passing += sum(1 for q in read.query_qualities if q >= bq_cutoff)
+                # read.query_qualities provides BQ scores for all bases in the sequence,
+                # which naturally includes soft-clipped segments.
+                if read.query_qualities:
+                    total_bases_passing += sum(1 for q in read.query_qualities if q >= bq_cutoff)
 
-    print(f"Total bases (excluding secondary & QC-fail) with BQ >= {bq_cutoff}: {total_bases_passing}")
+        print(f"Total bases (excluding secondary & QC-fail) with BQ >= {bq_cutoff}: {total_bases_passing}")
 
-OR
-Mapped reads:
+    OR
+    Mapped reads:
 
-    # 1. Get a list of all chromosomes/contigs from the BAM header
-    # 2. Use xargs to process them in parallel across 8 cores
-    # 3. Stream the regions, filter flags, and sum base qualities using a fast Awk array
-    samtools view -H input.bam | grep "^@SQ" | cut -f2 | sed 's/SN://' | \ xargs -I {} -n 1 -P 8 sh -c '
-    samtools view -F 768 input.bam "{}" | awk -v cutoff=30 \
-    "BEGIN {FS=\"\t\"} 
-    {
-        # Split the QUAL string (11th field) into individual characters
-        n = split(\$11, chars, \"\");
+        # 1. Get a list of all chromosomes/contigs from the BAM header
+        # 2. Use xargs to process them in parallel across 8 cores
+        # 3. Stream the regions, filter flags, and sum base qualities using a fast Awk array
+        samtools view -H input.bam | grep "^@SQ" | cut -f2 | sed 's/SN://' | \ xargs -I {} -n 1 -P 8 sh -c '
+        samtools view -F 768 input.bam "{}" | awk -v cutoff=30 \
+        "BEGIN {FS=\"\t\"} 
+        {
+            # Split the QUAL string (11th field) into individual characters
+            n = split(\$11, chars, \"\");
+            for (i = 1; i <= n; i++) {
+            # Convert Phred character to numeric BQ score (ASCII - 33)
+            if (ord[chars[i]] == 0) ord[chars[i]] = id = index(\"!\\\"#\$%&'\''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_~\`abcdefghijklmnopqrstuvwxyz{|}~\", chars[i]) - 1;
+            if (ord[chars[i]] >= cutoff) count++;
+            }
+        } 
+        END {print count}"
+        ' | awk '{sum+=$1} END {print "Total bases >= 30: " sum}'
+
+
+    and Unmpped reads:
+
+        samtools view -f 4 -F 768 input.bam | awk -v cutoff=30 \
+        'BEGIN {FS="\t"} {
+        n = split($11, chars, "");
         for (i = 1; i <= n; i++) {
-        # Convert Phred character to numeric BQ score (ASCII - 33)
-        if (ord[chars[i]] == 0) ord[chars[i]] = id = index(\"!\\\"#\$%&'\''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_~\`abcdefghijklmnopqrstuvwxyz{|}~\", chars[i]) - 1;
-        if (ord[chars[i]] >= cutoff) count++;
+            if (ord[chars[i]] == 0) ord[chars[i]] = index("!\"#$%&'\''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~", chars[i]) - 1;
+            if (ord[chars[i]] >= cutoff) count++;
         }
-    } 
-    END {print count}"
-    ' | awk '{sum+=$1} END {print "Total bases >= 30: " sum}'
+        } END {print count}'
 
+    OR 
+    Pre-alignment data:
 
-and Unmpped reads:
-
-    samtools view -f 4 -F 768 input.bam | awk -v cutoff=30 \
-    'BEGIN {FS="\t"} {
-    n = split($11, chars, "");
-    for (i = 1; i <= n; i++) {
-        if (ord[chars[i]] == 0) ord[chars[i]] = index("!\"#$%&'\''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~", chars[i]) - 1;
-        if (ord[chars[i]] >= cutoff) count++;
-    }
-    } END {print count}'
-
-OR 
-Pre-alignment data:
-
-    samtools stats -F 0x200 unaligned.bam > unaligned.stats
-    awk '/^FFQ|^LFQ/ && $2 >= 30 {sum += $3} END {print sum}' unaligned.stats
-```
+        samtools stats -F 0x200 unaligned.bam > unaligned.stats
+        awk '/^FFQ|^LFQ/ && $2 >= 30 {sum += $3} END {print sum}' unaligned.stats
+    ```
 
 - **Type:** Integer (eg. 102984371235)
 - **Functionally equivalent implementations:**
