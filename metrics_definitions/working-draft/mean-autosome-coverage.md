@@ -1,13 +1,19 @@
 # Mean autosome coverage
 
 - **ID:** mean_autosome_coverage
-- **Description:** The arithmetic mean sequencing depth evaluated across all base positions within the defined autosomal non-gap evaluation intervals of the selected reference genome. The denominator is fixed as the total base count across these target intervals, fully accounting for positions with zero coverage ($0\times$) rather than excluding unsequenced regions.
+- **Description:** 
+    - **Post-Alignment Data:**
+   The arithmetic mean sequencing depth evaluated across all base positions within the defined [autosomal non gap](#autosomes-non-gap-regions) evaluation intervals of the selected reference genome.\
+   Denominator: Fixed as the total base count across target autosomal intervals, fully accounting for positions with zero coverage (0X) rather than excluding unsequenced regions.\
+  
+        - **Inclusions & Exclusions:**
 
- Short reads, discontiguous long reads and Contiguous long reads: Derived from non-duplicate primary and supplementraty alignments of [high-quality reads](terminologies.md#high-quality-reads). Alignments that are unmapped (0x4), secondary (0x100), QC-failed (0x200), duplicate (0x400) are excluded (-F 1796). Clipped bases are excluded. Overlapping read segments are counted only once per physical molecule. For discontiguous long reads, only directly sequenced and aligned segments contribute to depth; the inferred template distance between paired observations must not be counted as sequence coverage. It is critical that the (BAM/CRAM) alignment files be readily marked for duplicated reads.
+            **Included:** Primary and supplementary alignments of eligible [high-quality reads](terminologies.md#high-quality-reads).\
+            **Excluded::**  Unmapped records, secondary alignments, reads failing platform or vendor quality controls, [duplicate reads](terminologies.md#duplicated-reads), and clipped bases. (Note: Alignment files must have duplicate reads properly marked).\
+            **Overlapping Segments:** Overlapping read segments (such as overlapping paired-end reads or overlapping primary/supplementary alignment segments from the same physical molecule) are counted only once per genomic position to prevent double-counting.\
+            **Applicability:** Applies universally across short reads, contiguous long reads, and discontiguous long reads. Discontiguous long read only directly sequenced and aligned segments contribute to sequence depth; unsequenced intervening template spans between pairs or proximity segments do not count toward coverage.
 
   - **Implementation details: Working** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, mean autosome coverage is computed using `mosdepth` across the autosomal non-gap interval file (`--by autosomes_non_gap.bed`). Input records are restricted to primary and supplementary alignments of [high-quality reads](terminologies.md#high-quality-reads) by excluding unmapped, secondary, QC-failed, duplicates using --flag 1796. Overlapping mate-pair bases for short reads and discontiguous long reads are resolved natively by mosdepth. For contiguous long reads, overlapping supplementary reads in the bam/cram filtered/counted once using BAM parsing... . Mean coverage is parsed directly from the total_region entry (column 4) in the generated `*.mosdepth.summary.txt` report. If the evaluated non-gap interval file contains zero valid bases, N/A is reported. 
-
-## Fast Mode (--fast-mode): Even when using --fast-mode (which skips detailed internal CIGAR micro-parsing for speed), mosdepth relies on the standard mapped boundaries from the BAM/CRAM record rather than including unmapped soft-clipped tails.
 
 - **Comments:**
 ```
