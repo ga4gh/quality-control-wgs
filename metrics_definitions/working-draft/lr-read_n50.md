@@ -77,6 +77,6 @@ awk -F':' '/Read length N50/ {gsub(/,/, "", $2); print $2}' nanostats.txt | tr -
 - **Reference genome assembly:** N/A
 - **Version:** 2.0
 - **Sequencing technology:** Illumina | Oxford Nanopore Technologies (ONT) | Pacific Biosciences (PacBio) | Illumina TruPath Genome (proximity mapped reads; formerly Constellation)
-- **Associated aligner:** N/A
+- **Associated aligner:** BWA-MEM/BWA-MEM2 or DRAGEN aligner (Illumina short-read) | DRAGEN TruPath pipeline (Illumina proximity mapped reads). Record the exact version and parameters.
 - **Associated variant caller:** N/A
 - **Associated basecaller:** N/A (Illumina short-read and proximity mapped reads) | Dorado/MinKNOW integrated Dorado (ONT) | SMRT Link/CCS (PacBio). Record the exact version and model where applicable.
