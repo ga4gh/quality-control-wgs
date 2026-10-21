@@ -2,9 +2,9 @@
 
 - **ID:** `read_length_percentiles_p25_p50_p75`
 - **Description:** 
+    - **Post-Alignment Data:**
    The read lengths, in base pairs, at the 25th percentile (P25), 50th percentile (median / P50), and 75th percentile (P75) of the read-length distribution derived from [high-quality reads](terminologies.md#high-quality-reads) across sequencing datasets.
    For every qualifying primary record, the full sequenced query length (including [soft-clipped bases](terminologies.md#clipped-bases), but excluding hard-clipped bases) is added to the cumulative yield for the respective quality threshold.
-   
         - **Inclusions & Exclusions:**
 
             **Included:** 
