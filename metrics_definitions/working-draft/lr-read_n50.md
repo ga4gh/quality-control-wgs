@@ -9,12 +9,12 @@
             **Included:** 
             Mapped and unmapped primary records, [duplicate reads](terminologies.md#duplicated-reads), and [soft-clipped bases](terminologies.md#clipped-bases) (measured from the full sequenced query string/SEQ length).\
             **Excluded:** Secondary alignments, supplementary alignments, and hard-clipped bases.\
-            \
-            For paired-end short-read and discontiguous long-read datasets, each read end is evaluated as an individual read rather than aggregating read pairs or inferred physical template lengths.\
+            
+            For paired-end short-read and discontiguous long-read datasets, each read end is evaluated as an individual read rather than aggregating read pairs or inferred physical template lengths.
 
         **Inferred Template N50 (Discontiguous Long-Read)(`inferred_template_n50`)**
          The length-weighted median length of inferred physical templates (molecules) derived from discontiguous long-read sequencing datasets. It is defined as the template length L such that templates of length ≥ L, when sorted in descending order of length, account for at least 50% of the total cumulative length of all inferred templates.\
-        &ensp;Grouping: Relies on chimeric segments or paired/multiplexed read segments that originate from the same physical molecule or concatemer, grouped and evaluated as a single template unit rather than treating individual read ends or alignment segments separately.\
+        &ensp;Grouping: Relies on chimeric segments or paired/multiplexed read segments that originate from the same physical molecule or concatemer, grouped and evaluated as a single template unit rather than treating individual read ends or alignment segments separately.
 
         &ensp;Length Determination: The length of each inferred template is typically measured by its genomic span (the distance between the outermost mapped coordinates of its constituent segments) or total constituent base length, depending on the specific analytical implementation.
         - **Inclusions & Exclusions:**
