@@ -31,8 +31,8 @@
   - **Inferred Template Count (Discontiguous Long-Read)**
 In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, inferred physical templates from discontiguous long-read datasets (e.g., TruPath, Pore-C or Hi-C concatemers) are determined by collapsing read alignments by molecule/read ID. Using samtools, secondary and supplementary alignments are excluded (-F 2304) to prevent duplicate segment tallying, and the primary QNAME identifiers (field 1) are deduplicated to produce the final physical template count.
 
-Template-level metrics shall exclude singleton reads for which no containing template is defined.
-Technology-specific implementation details (e.g., BX tags, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition.
+  Template-level metrics shall exclude singleton reads for which no containing template is defined.
+  Technology-specific implementation details (e.g., BX tags, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition.
 - **Comments:**
   - **Count Inferred Template:**
 ```
