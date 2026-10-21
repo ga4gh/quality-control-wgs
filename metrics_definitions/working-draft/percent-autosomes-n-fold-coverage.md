@@ -20,8 +20,8 @@ For contiguous long reads, the fast BAM-parsing mode (`--fast-mode`) is enabled.
 For contiguous long reads, overlapping supplementary reads in the bam/cram filtered/counted once using BAM parsing... .
 Percentage values are derived directly from the generated `*.thresholds.bed.gz` summary row (`total`), dividing the base count at each threshold index by the total evaluated interval base count ($N_{\text{total}}$, including $0\times$ positions) multiplied by 100. If the total evaluated non-gap length is zero, N/A is reported for all thresholds.
 - **Comments:**
-high quality reads - reads passing the sequencing instrument/vendor quality filter / instrument-filter-passing reads where such a filter exists; SAM flag 0x200 not set!
-Contiguous Long Reads: Derived from non-duplicate primary alignments of high-quality reads that meet a platform-specific minimum per-read quality threshold (utilizing platform-standard read quality or predicted accuracy metrics).
+high quality reads - reads passing the sequencing instrument/vendor quality filter / instrument-filter-passing reads where such a filter exists; SAM flag 0x200 not set!\
+Contiguous Long Reads: Derived from non-duplicate primary alignments of high-quality reads that meet a platform-specific minimum per-read quality threshold (utilizing platform-standard read quality or predicted accuracy metrics).\
 For ONT, read filtering uses the basecaller-generated per-read mean Q-score tag (qs) or its documented equivalent. For PacBio, read filtering uses the predicted accuracy tag (rq) or its documented equivalent. The specific threshold value, tag, and caller version must be recorded.
 ```
 # ------------------------------------------------------------------------------
