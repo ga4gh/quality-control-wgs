@@ -15,7 +15,7 @@
 
         **Inferred Template Percent Mapped (Discontiguous Long-Read)** (`inferred_template_pct_mapped`)
          The percentage of eligible inferred physical templates (molecules) derived from discontiguous long-read sequencing datasets that are successfully represented by primary alignments on the reference genome.\
-        &ensp;Numerator: Inferred templates that have at least one qualifying mapped primary segment/record.\
+        &ensp;Numerator: Inferred templates that have at least more than one qualifying mapped primary segment/record.\
         &ensp;Denominator: All eligible inferred templates (both mapped and unmapped).
         - **Inclusions & Exclusions:**
 
