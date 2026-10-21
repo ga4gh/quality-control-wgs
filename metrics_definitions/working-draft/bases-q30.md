@@ -17,14 +17,14 @@
     
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, this metric is computed using [samtools stats](terminologies.md#samtools-stats), coupled with a custom parser that sums bases with [base quality score](terminologies.md#base-quality-score) 30 or greater from the First Fragment Quality (FFQ) and Last Fragment Quality (LFQ) tables. This implementation is identical for short-read and discontiguous-long-read data: evaluation is restricted to primary alignments and unmapped reads from [high quality reads](terminologies.md#high-quality-reads) (filtering out 0x100, (0x200)), while secondary alignments are excluded. [Duplicate reads](terminologies.md#duplicated-reads) are retained, [clipped bases](terminologies.md#clipped-bases) are included, and no [mapping quality](terminologies.md#mapping-quality) filter is applied. For discontiguous-long-read data, records are processed identically to short reads, counting only observed sequenced bases and excluding the unsequenced span intervals between read ends.
 
-**Pre-Alignment Data:**
-The count of high-quality bases ($Q \ge 30$) for unaligned data is computed directly from the declared unaligned BAM or CRAM file containing sequencing-read-type-specific high-quality reads. Reads failing platform or vendor quality checks (SAM flag 0x200) are excluded.
-Metric evaluation: Evaluated across the raw Phred quality array (QUAL field) of each eligible primary record. Each base quality score represents the error probability on the Phred scale ($Q = -10 \log_{10} P_{\text{error}}$).
-Base accumulator: For every byte in the record's QUAL array where $\text{value} \ge 30$, the high-quality base accumulator increments by one.
-Missing quality handling: In accordance with the SAM specification, if a record stores an unassigned quality field (represented by * or a missing quality buffer), its bases cannot be evaluated and do not increment the count.
-The final metric is reported as the raw integer sum of all passing bases across the library. When the total sequenced length is zero, N/A is reported. This procedure is applied independently to each sequencing read type.
+    **Pre-Alignment Data:**
+    The count of high-quality bases ($Q \ge 30$) for unaligned data is computed directly from the declared unaligned BAM or CRAM file containing sequencing-read-type-specific high-quality reads. Reads failing platform or vendor quality checks (SAM flag 0x200) are excluded.
+    Metric evaluation: Evaluated across the raw Phred quality array (QUAL field) of each eligible primary record. Each base quality score represents the error probability on the Phred scale ($Q = -10 \log_{10} P_{\text{error}}$).
+    Base accumulator: For every byte in the record's QUAL array where $\text{value} \ge 30$, the high-quality base accumulator increments by one.
+    Missing quality handling: In accordance with the SAM specification, if a record stores an unassigned quality field (represented by * or a missing quality buffer), its bases cannot be evaluated and do not increment the count.
+    The final metric is reported as the raw integer sum of all passing bases across the library. When the total sequenced length is zero, N/A is reported. This procedure is applied independently to each sequencing read type.
 - **Comments:** 
-    - open to both `single-end (SE)` and `paired-end (PE)`, accounting **Ultima single-end (SE) sequencing**?
+    - open to both `single-end (SE)` and `paired-end (PE)`?
     - high quality reads - reads passing the sequencing instrument/vendor quality filter / instrument-filter-passing reads where such a filter exists; SAM flag 0x200 not set.
     - If this metric is also applicable to discontiguous-long-read sequencing at the template level, the computation method shall be specified.
     - Technology-specific implementation details (e.g., **BX tags**, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition/Implementaion.
@@ -100,7 +100,7 @@ and Unmpped reads:
     } END {print count}'
 
 OR 
-Unaligned data:
+Pre-alignment data:
 
     samtools stats -F 0x200 unaligned.bam > unaligned.stats
     awk '/^FFQ|^LFQ/ && $2 >= 30 {sum += $3} END {print sum}' unaligned.stats
