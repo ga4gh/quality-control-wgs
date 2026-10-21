@@ -1,14 +1,31 @@
 # Read number
 - **ID:** read_number
-- **Description:** The total number of [high quality reads](terminologies.md#high-quality-reads) across short-red, continuous-long-read, discontiguous-long-read datasets, excluding supplementary, reads not passing platform/vendor quality controls (0x200), and secondary alignments. Duplicate reads are included. For paired-end short-read and discontiguous long-read data, each read end is counted as an individual read rather than counting read pairs or inferred templates (e.g., proximity ligation molecules/templates). 
+- **Description:** 
+    - **Post-Alignment Data:**
+   The total number of [high quality reads](terminologies.md#high-quality-reads) across short-read, contiguous long-read, and discontiguous long-read datasets.
+        - **Inclusions & Exclusions:**
+
+            **Included:** 
+            [Duplicate reads](terminologies.md#duplicated-reads). For paired-end short-read and discontiguous long-read data, each read end is counted as an individual read rather than counting read pairs or inferred templates.\
+            **Excluded:** Secondary alignments, supplementary alignments, and reads failing platform or vendor quality controls.
+        - **Inferred Template Count (Discontiguous Long-Read)**
+    - **Pre-Alignment Data:**
+        The total number of high-quality reads in the raw sequencing dataset.\
+        For paired short-read and discontiguous long-read datasets, each read end is counted as an individual read rather than counting read pairs or inferred templates.\
+        Read count should be interpreted alongside total base yield and read-length distribution, particularly for contiguous long-read datasets where read lengths can vary substantially.
+
 
   - **Inferred Template Count (Discontiguous Long-Read)**
-The total number of [high quality reads](terminologies.md#high-quality-reads) inferred physical templates (molecules) derived from discontiguous long-read sequencing (e.g., proximity-ligation or pore-C data). In this metric, all chimeric segments or paired/multiplexed read segments originating from the same physical molecule or concatemer are grouped and enumerated as a single inferred template, rather than counting individual alignment segments or read ends separately. Secondary and supplementary alignments are excluded from initiating new template counts. Duplicate templates are included unless otherwise specified? This metric reflects original input library molecule yield and should be evaluated alongside segment count and contact distribution.
+  The total number of inferred physical molecules derived from discontiguous long-read sequencing (e.g., proximity-ligation or Pore-C data).\
+  Chimeric segments or paired/multiplexed read segments originating from the same physical molecule or concatemer are grouped and enumerated as a single inferred template rather than counting individual alignment segments or read ends separately.
+        - **Inclusions & Exclusions:**
 
-Unaligned data: 
-The total number of [high quality reads](terminologies.md#high-quality-reads) in a sequencing dataset. For paired short-read and discontiguous-long-read datasets, each read end is counted as an individual read rather than counting read pairs or inferred templates. Read number should be interpreted together with total base yield and the read-length distribution, particularly for contiguous-long-read datasets in which read lengths can vary substantially.
-
-Include another metric 'total base yiled' and drop yiled bases mapped percent?.
+            **Included:** 
+            Duplicate templates (unless otherwise specified).\
+            **Excluded:** Secondary and supplementary alignments from initiating new template counts.\
+            This metric reflects original input library molecule yield and should be evaluated alongside segment count and contact distribution.
+            
+Include another metric 'total base yiled' and drop yiled bases mapped percent or both where available?.
 
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, read counts are calculated by enumerating [high quality reads](terminologies.md#high-quality-reads) across short-read, contiguous-long-read, and discontiguous-long-read datasets. Alignments marked as secondary (0x100), reads not passing platform/vendor quality controls (0x200) and supplementary (0x800) are excluded using samtools (`samtools view -c -F 0x900`), while duplicate reads (0x400) are retained. For short paired-end and discontiguous datasets, each read end is counted as an individual read. For long-read datasets, total read counts, can be generated using (`NanoStat --no_supplementary`).
 
