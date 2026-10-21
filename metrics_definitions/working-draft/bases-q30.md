@@ -116,4 +116,4 @@
 - **Sequencing technology:** Illumina | Illumina TruPath Genome (proximity mapped reads; formerly Constellation)
 - **Associated aligner:** BWA-MEM/BWA-MEM2 or DRAGEN aligner (Illumina short-read) | DRAGEN TruPath pipeline (Illumina proximity mapped reads). Record the exact version and parameters.
 - **Associated variant caller:** N/A
-- **Associated basecaller:** Dorado/MinKNOW, Illumina Real-Time Analysis (RTA), Circular Consensus Sequencing (CCS)/SMRT Link/DeepConsensus. version..
+- **Associated basecaller:** Dorado/MinKNOW, Illumina Real-Time Analysis (RTA), Circular Consensus Sequencing (CCS)/SMRT Link/DeepConsensus. Record the exact version.
