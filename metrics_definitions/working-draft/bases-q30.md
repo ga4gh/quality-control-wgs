@@ -4,7 +4,7 @@
 - **ID:** yield_bp_q30
 - **Description:** 
     - **Post-Alignment Data:**
-   The total number of bases with a [base quality score](terminologies.md#base-quality-score) of 30 or greater ([Phred scale](terminologies.md#phred-scale)) derived from primary alignments, non-overlapping portions of supplementary alignments, and unmapped records of [high quality reads](terminologies.md#high-quality-reads) in the dataset.
+   The total number of bases with a [base quality score](terminologies.md#base-quality-score) of 30 or greater ([Phred scale](terminologies.md#phred-scale)) derived from primary alignments, non-overlapping portions of supplementary alignments, and unmapped records of [high quality reads](terminologies.md#high-quality-reads) in the dataset.\
         - **Inclusions & Exclusions:**
 
             **Included:** Non-overlapping bases from primary and supplementary alignments, unmapped records, [duplicate reads](terminologies.md#duplicated-reads), and [clipped bases](terminologies.md#clipped-bases). No minimum [mapping quality](terminologies.md#mapping-quality) threshold is imposed. (Note: It is critical that alignment files have duplicate reads properly marked).\
