@@ -8,8 +8,8 @@
 
         - **Inclusions & Exclusions:**
 
-        **Included:** Non-overlapping bases from primary and supplementary alignments, unmapped records, [duplicate reads](terminologies.md#duplicated-reads), and [clipped bases](terminologies.md#clipped-bases). No minimum [mapping quality](terminologies.md#mapping-quality) threshold is imposed. (Note: It is critical that alignment files have duplicate reads properly marked).\
-        **Excluded:** Secondary alignments and reads failing platform or vendor quality controls.
+            **Included:** Non-overlapping bases from primary and supplementary alignments, unmapped records, [duplicate reads](terminologies.md#duplicated-reads), and [clipped bases](terminologies.md#clipped-bases). No minimum [mapping quality](terminologies.md#mapping-quality) threshold is imposed. (Note: It is critical that alignment files have duplicate reads properly marked).\
+            **Excluded:** Secondary alignments and reads failing platform or vendor quality controls.
 
     - **Pre-Alignment Data:**
         The total number of bases with a base quality score of 30 or greater (Phred scale) derived from high-quality reads within the raw sequencing dataset.
