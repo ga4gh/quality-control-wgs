@@ -32,6 +32,8 @@ OR 'reads mapped' - 'non-primary alignments' - 'supplementary alignments' /'raw 
 - **Comments:**
   - For short-read and discontiguous-long-read data, include [high quality reads](terminologies.md#high-quality-reads) defined as are instrument-filter-passing reads where such a filter exists. For contiguous-long-read data, include [high quality reads](terminologies.md#high-quality-reads) reads are defined those passing a fixed, platform-appropriate minimum per-read quality threshold. For ONT, use the Dorado or MinKNOW `qs` tag (mean basecall Q-score) or its documented equivalent. For PacBio, use the `rq` tag (predicted read accuracy) or its documented equivalent.
   - Record the samtools version, reference assembly, quality-inclusion profile, ONT `qs` or PacBio `rq` threshold where applicable, duplicate policy, mapping-quality policy, aligner, and basecaller or consensus-caller version.
+  
+  - TruPath technology: Singleton read: read not associated with any template (no BX SAM tag)
 ```
   # Generate summary statistics excluding secondary (256) and supplementary (2048) alignments
 samtools stats -F 2304 input.bam > sample_stats.txt
