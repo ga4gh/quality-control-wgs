@@ -1,17 +1,28 @@
 # Percent autosomes with ≥N-fold coverage
 
 - **ID:** pct_autosomes_n_fold_coverage
-- **Description:** The percentages of bases in the defined autosomal non-gap evaluation regions of the selected reference genome attaining sequencing depth ≥5×, ≥10×, ≥15× and ≥20× after applying sequencing-read-type-specific inclusion criteria. The denominator is fixed as the total base count of the evaluation intervals, ensuring that unsequenced and zero-coverage positions ($0\times$) are fully retained rather than omitted.
+- **Description:** 
+- **Description:** 
+    - **Post-Alignment Data:**
+   The percentage of bases within the defined [autosomal non gap](#autosomes-non-gap-regions) evaluation intervals of the selected reference genome that attain a sequencing depth of at least N-fold (specifically evaluated at thresholds such as > 5X, > 10X, > 15X, and > 20X).\
+   Numerator: The total number of base positions within the evaluation intervals meeting or exceeding the specified depth threshold (N-fold).\
+   Denominator: Fixed as the total base count across target autosomal evaluation intervals, fully accounting for positions with zero coverage (0X) rather than omitting unsequenced regions.
+  
+        - **Inclusions & Exclusions:**
 
-Short reads and discontiguous-long reads: Coverage is derived from non-duplicate primary and supplementary alignments of [high-quality reads](terminologies.md#high-quality-reads). Alignments that are unmapped (0x4), secondary (0x100), QC-failed (0x200), duplicate (0x400) reads are excluded (-F 1796). (Overlapping paired-end segments are counted only once per physical molecule.) Overlapping read segments are counted only once per physical molecule. For discontiguous long reads, only directly sequenced and mapped bases of read pairs contribute to coverage; inferred intervening template spans must not be counted as continuous sequence coverage. It is critical that the (BAM/CRAM) alignment files be readily marked for duplicated reads.
+            **Included:** Primary and supplementary alignments of eligible [high-quality reads](terminologies.md#high-quality-reads).\
+            **Excluded::**  Unmapped records, secondary alignments, reads failing platform or vendor quality controls, [duplicate reads](terminologies.md#duplicated-reads), and clipped bases. (Note: Alignment files must have duplicate reads properly marked).\
+            **Overlapping Segments:** Overlapping read segments (such as overlapping paired-end reads or overlapping primary/supplementary alignment segments from the same physical molecule) are counted only once per genomic position to prevent double-counting.\
+            **Applicability:** Applies universally across short reads, contiguous long reads, and discontiguous long reads. Discontiguous long read only directly sequenced and aligned segments contribute to sequence depth; unsequenced intervening template spans between pairs or proximity segments do not count toward coverage.
 
-Contiguous-long reads: Coverage is derived from non-duplicate primary alignments of high-quality reads passing a fixed, platform-specific minimum per-read quality threshold. 
-For ONT, read filtering uses the basecaller-generated per-read mean Q-score tag (qs) or its documented equivalent. For PacBio, read filtering uses the predicted accuracy tag (rq) or its documented equivalent. The specific threshold value, tag, and caller version must be recorded.
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, coverage thresholds are calculated using `mosdepth` evaluated strictly across the autosomal non-gap interval file (`--by autosomes_non_gap.bed`) with threshold cutoffs set via `--thresholds 5,10,15,20`. Alignments are filtered using `--flag 1796` to retain only primary, non-duplicate, supplementary records from [high-quality reads](terminologies.md#high-quality-reads). For short paired-end reads and discontiguous long reads, overlapping mate segments are resolved natively by mosdepth without double counting. 
 For contiguous long reads, the fast BAM-parsing mode (`--fast-mode`) is enabled.
 For contiguous long reads, overlapping supplementary reads in the bam/cram filtered/counted once using BAM parsing... .
 Percentage values are derived directly from the generated `*.thresholds.bed.gz` summary row (`total`), dividing the base count at each threshold index by the total evaluated interval base count ($N_{\text{total}}$, including $0\times$ positions) multiplied by 100. If the total evaluated non-gap length is zero, N/A is reported for all thresholds.
 - **Comments:**
+high quality reads - reads passing the sequencing instrument/vendor quality filter / instrument-filter-passing reads where such a filter exists; SAM flag 0x200 not set!
+Contiguous Long Reads: Derived from non-duplicate primary alignments of high-quality reads that meet a platform-specific minimum per-read quality threshold (utilizing platform-standard read quality or predicted accuracy metrics).
+For ONT, read filtering uses the basecaller-generated per-read mean Q-score tag (qs) or its documented equivalent. For PacBio, read filtering uses the predicted accuracy tag (rq) or its documented equivalent. The specific threshold value, tag, and caller version must be recorded.
 ```
 # ------------------------------------------------------------------------------
 # 1. Short-Read & Discontiguous Long-Read Evaluation
