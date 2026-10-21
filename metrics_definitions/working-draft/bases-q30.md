@@ -11,7 +11,7 @@
             **Excluded:** Secondary alignments and reads failing platform or vendor quality controls.
 
     - **Pre-Alignment Data:**
-        The total number of bases with a base quality score of 30 or greater (Phred scale) derived from high-quality reads within the raw sequencing dataset.
+        The total number of bases with a base quality score of 30 or greater (Phred scale) derived from [high quality reads](terminologies.md#high-quality-reads) within the raw sequencing dataset.
 
     For discontiguous long-read sequencing, only physically sequenced (observed) bases are counted; the unsequenced span of the inferred proximity molecule or template does not contribute to this metric.
     
