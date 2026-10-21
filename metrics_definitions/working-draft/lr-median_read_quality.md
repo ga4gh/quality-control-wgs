@@ -1,10 +1,23 @@
 # Median read quality
 
 - **ID:** median_read_quality
-- **Description:** The median [Phred scaled](terminologies.md#phred-scale) quality score of eligible [high quality reads](terminologies.md#high-quality-reads) across short-read, contiguous long-read, and discontiguous long-read datasets. The eligible-read population comprises mapped and unmapped primary records, excluding secondary (and supplementary) alignments to prevent multi-aligned segments from being counted multiple times. Duplicate reads are retained. For short-read data, the per-read quality is derived from the mean base quality across the sequenced query string. For contiguous long-read data, platform-standard tags are used where available, such as the Dorado or MinKNOW qs tag (mean basecall Q-score) for ONT, or the rq tag (predicted read accuracy converted to Phred scale) for PacBio. For paired-end short-read and discontiguous long-read data, each read end is evaluated as an individual read rather than aggregating read pairs or inferred physical templates. This metric serves as a direct indicator of sequencing accuracy and basecall reliability across the run.
+- **Description:** 
+    - **Post-Alignment Data:**
+   The median [Phred scaled](terminologies.md#phred-scale) quality score of eligible [high-quality reads](terminologies.md#high-quality-reads) across sequencing datasets.
+   Per-read quality is derived from the mean base quality across the sequenced query string or obtained directly from platform-reported summary scores. The median is then calculated across all included reads.
+        - **Inclusions & Exclusions:**
 
-Unaligned data:
-The median of the per-read quality scores across reads in the dataset. The per-read score must be the score reported by the platform/basecaller or the explicitly documented score derived from the read's base qualities. This is a read-level calibration metric, not a count of individual bases above a Q threshold.
+            **Included:** 
+            Mapped and unmapped primary records, [duplicate reads](terminologies.md#duplicated-reads), and [soft-clipped bases](terminologies.md#clipped-bases).\
+            **Excluded:** Secondary alignments, supplementary alignments (to prevent multi-aligned segments from being counted multiple times), and reads failing platform or vendor quality controls.
+            
+            For paired-end and discontiguous sequencing data, each read end is evaluated as an individual read rather than aggregating read pairs or inferred physical templates.\
+            This metric serves as a direct indicator of overall sequencing accuracy and basecall reliability across the run.
+
+    - **Pre-Alignment Data:**
+   The median of the per-read quality scores across [high-quality reads](terminologies.md#high-quality-reads) in the raw dataset.\
+   The per-read score is derived from base quality strings (such as FASTQ QUAL values) or platform-reported read-level quality metrics.\
+   This is a read-level calibration metric, not a count of individual bases above a specific quality threshold. For paired-end and discontiguous datasets, each read end is treated as an individual read rather than using read-pair or inferred template lengths.
 
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, median read quality is calculated across mapped and unmapped primary records per-read mean base quality in the declared input BAM/CRAM file. Alignments marked as secondary (0x100) (and supplementary (0x800)) are excluded using samtools (-F 2304), while duplicate reads (0x400) and soft-clipped bases are retained. Only the QUAL string or platform-reported mean basecall Q-score of the of the primary reads is used for reads with supplementary alignments. For contiguous and discontiguous long-read datasets, the median read quality score generated using (`NanoStat --no_supplementary`). For BAM/CRAM files containing platform-specific summary tags, the score can also be evaluated by parsing the per-read mean quality tag (e.g., qs for ONT or -10 * log10(1 - rq) for PacBio).  When the total eligible read count is zero, N/A is reported. The same procedure applies to every sequencing read type. 
 

@@ -8,7 +8,7 @@
         - **Inclusions & Exclusions:**
 
             **Included:** 
-            Mapped and unmapped primary records, duplicate reads, and [soft-clipped bases](terminologies.md#clipped-bases) (measured from the full sequenced query sequence length/(SEQ) length).\
+            Mapped and unmapped primary records, [duplicate reads](terminologies.md#duplicated-reads), and [soft-clipped bases](terminologies.md#clipped-bases) (measured from the full sequenced query sequence length/(SEQ) length).\
             **Excluded:** Secondary alignments, supplementary alignments (to prevent multi-aligned segments from distorting the distribution), and hard-clipped bases.
             
             For paired-end and discontiguous sequencing data, each read end is evaluated as an individual read rather than aggregating read pairs or measuring inferred physical template spans.\
