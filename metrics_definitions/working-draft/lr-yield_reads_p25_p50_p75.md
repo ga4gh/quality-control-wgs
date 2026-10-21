@@ -77,5 +77,5 @@ echo "P75: $p75"
 - **Reference genome assembly:** N/A
 - **Version:** 2.0
 - **Sequencing technology:** Oxford Nanopore Technologies (ONT) | Pacific Biosciences (PacBio)
-- **Associated aligner:** N/A
+- **Associated aligner:** BWA-MEM/BWA-MEM2 or DRAGEN aligner (Illumina short-read) | DRAGEN TruPath pipeline (Illumina proximity mapped reads). Record the exact version and parameters.
 - **Associated basecaller:** Dorado (ONT) | SMRT Link/CCS (PacBio); record the exact version and model.
