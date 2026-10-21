@@ -34,7 +34,6 @@
 
 Use the read sequences present in the declared input dataset; Do not downsample. If a sample spans multiple files, combine all included read lengths or concatenate the files losslessly before calculation; never average per-file N50 values. For paired short-read or discontiguous-long-read data, include the eligible reads from both mates in one sample-level calculation and count each mate separately.
 - **Comments:**
-  - Applicable to raw sequencing data before alignemnt/mapping.
   - Calculation must state whether adapter trimming, quality trimming, hard clipping, instrument filtering, or platform-specific pass/fail filtering was performed before the metric was calculated?
 ```
 # Option 1: Universal calculation via samtools + awk
