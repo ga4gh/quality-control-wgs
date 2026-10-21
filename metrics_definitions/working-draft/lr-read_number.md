@@ -8,7 +8,7 @@
             **Included:** 
             [Duplicate reads](terminologies.md#duplicated-reads). For paired-end short-read and discontiguous long-read data, each read end is counted as an individual read rather than counting read pairs or inferred templates.\
             **Excluded:** Secondary alignments, supplementary alignments, and reads failing platform or vendor quality controls.
-        - **Inferred Template Count (Discontiguous Long-Read)**
+        **Inferred Template Count (Discontiguous Long-Read)**
          The total number of inferred physical molecules derived from discontiguous long-read sequencing (e.g., proximity-ligation or Pore-C data).\
         Chimeric segments or paired/multiplexed read segments originating from the same physical molecule or concatemer are grouped and enumerated as a single inferred template rather than counting individual alignment segments or read ends separately.
         - **Inclusions & Exclusions:**
