@@ -12,7 +12,7 @@
             
             For paired-end and discontiguous sequencing data, base yields are accumulated per individual read end; unsequenced intervening template spans do not contribute to this metric.
 
-        **Inferred Template Yield in Bases at Q10/Q20/Q30 (Discontiguous Long-Read) (`inferred_template_yield_bp_q10_q20_q30`)**
+        **Inferred Template Yield in Bases at Q10/Q20/Q30 (Discontiguous Long-Read)** (`inferred_template_yield_bp_q10_q20_q30`)
          The total base yield derived from inferred physical templates (molecules) whose quality or accuracy scores meet or exceed the Q10, Q20, and Q30 thresholds (corresponding to 90%, 99%, and 99.9% predicted accuracy under the ([Phred scale](terminologies.md#phred-scale))) in discontiguous long-read sequencing datasets.\
         &ensp;Grouping: Chimeric segments or paired/multiplexed read segments originating from the same physical molecule or concatemer are grouped and evaluated as a single template unit rather than treating individual read ends or segments separately.\
         &ensp;Quality Assessment: The quality score or predicted accuracy of each inferred template is determined by evaluating its constituent segments against the respective Q10, Q20, and Q30 criteria.\
@@ -234,6 +234,6 @@ samtools view -F 2304 input.bam \
 - **Reference genome assembly:** GRCH37 |GRCh38
 - **Version:** 2.0
 - **Sequencing technology:** Oxford Nanopore Technologies (ONT) | Pacific Biosciences (PacBio)
-- **Associated aligner:** N/A
+- **Associated aligner:** BWA-MEM/BWA-MEM2 or DRAGEN aligner (Illumina short-read) | DRAGEN TruPath pipeline (Illumina proximity mapped reads). Record the exact version and parameters.
 - **Associated variant caller:** N/A
 - **Associated basecaller:** Dorado or MinKNOW-integrated Dorado (ONT) | SMRT Link CCS/`ccs` (PacBio); record the exact version and model.
