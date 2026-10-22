@@ -3,11 +3,9 @@
 - **ID:** genome_coverage_uniformity
 - **Description:**
     - **Post-Alignment Data:**
-   A sequencing-read-type-specific measure of how evenly usable sequencing depth is distributed across defined [autosomal non gap](#autosomes-non-gap-regions) evaluation regions of the selected reference genome, summarized using distribution percentiles and dispersion metrics (25th percentile / Q1, median / Q2, 75th percentile / Q3, Interquartile Range [IQR = Q3 - Q1], and unscaled Median Absolute Deviation [MAD = median(|d_i - median(d)|)]).\
+   A sequencing-read-type-specific measure of how evenly usable sequencing depth is distributed across defined [autosomal non gap](#autosomes-non-gap-regions) evaluation regions of the selected reference genome, summarized using distribution percentiles and dispersion metrics (25th percentile / Q1, median / Q2, 75th percentile / Q3, Interquartile Range [IQR = Q3 - Q1], and unscaled Median Absolute Deviation [MAD = median(|d_i - median(d)|)]).
 
       &ensp;Short-Read & Discontiguous Long-Read Datasets: Evaluated across the pooled per-base depth distribution within target autosomal evaluation intervals, fully retaining zero-coverage positions (0X).\
-        Discontiguous long-read only directly sequenced and mapped segments contribute to coverage depth; unsequenced intervening template spans between pairs or proximity segments do not count toward continuous coverage.\
-        
       &ensp;Contiguous Long-Read Datasets: Evaluated by partitioning the autosomal non-gap evaluation intervals into non-overlapping, contiguous 10,000-bp windows (excluding edge windows shorter than 10,000 bp), retaining zero-coverage windows.\
         Metrics (Q1, median, Q3, IQR, and MAD) are calculated across all window mean depths rather than individual base positions.
   
@@ -16,7 +14,6 @@
             **Included:** Non-duplicate primary and supplementary alignments of eligible [high-quality reads](terminologies.md#high-quality-reads).\
             **Excluded::**  Unmapped records, secondary alignments, reads failing platform or vendor quality controls, [duplicate reads](terminologies.md#duplicated-reads), and clipped bases. (Note: Alignment files must have duplicate reads properly marked).\
             **Overlapping Segments:** Overlapping read segments (such as overlapping paired-end reads or overlapping primary/supplementary alignment segments from the same physical molecule) are counted only once per genomic position to prevent double-counting.\
-            \
             **Applicability:** Applies universally across short reads, contiguous long reads, and discontiguous long reads. Discontiguous long read only directly sequenced and aligned segments contribute to sequence depth; unsequenced intervening template spans between pairs or proximity segments do not count toward coverage.
 
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, coverage distributions are calculated strictly over the autosomal non-gap interval file using `mosdepth`. Input records are restricted to [high-quality reads](terminologies.md#high-quality-reads) by excluding unmapped, secondary, QC-failed, duplicate reads `--flag 1796`. For short-read and discontiguous long-read data, overlapping paired bases are resolved natively by `mosdepth` without double counting. Summary statistics (Q1, Median, Q3, IQR (Q3 - Q1), unscaled MAD) are computed directly from the discrete cumulative frequency distribution in `*.mosdepth.region.dist.txt`. For contiguous long-read data, window-level mean depths are generated across fixed 10,000-bp bins using `mosdepth`. Non-parametric summary statistics are computed across the window mean values (column 4 of `*.regions.bed.gz`). If the evaluation region contains zero valid intervals, N/A is reported for all metrics.
