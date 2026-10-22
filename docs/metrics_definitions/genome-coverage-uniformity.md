@@ -13,8 +13,8 @@
   
         - **Inclusions & Exclusions:**
 
-            **Included:** Non-duplicate primary and supplementary alignments of eligible [high-quality reads](terminologies.md#high-quality-reads). (Note: Alignment files must have duplicate reads properly marked).\
-            **Excluded::**  Unmapped records, secondary alignments, reads failing platform or vendor quality controls, [duplicate reads](terminologies.md#duplicated-reads), and clipped bases.\
+            **Included:** Primary and supplementary alignments of eligible [high-quality reads](terminologies.md#high-quality-reads). (Note: Alignment files must have duplicate reads properly marked).\
+            **Excluded::**  Unmapped records, secondary alignments, reads failing platform or vendor quality controls, [duplicate reads](terminologies.md#duplicated-reads), and clipped bases. (Note: Alignment files must have duplicate reads properly marked).\
             **Overlapping Segments:** Overlapping read segments (such as overlapping paired-end reads or overlapping primary/supplementary alignment segments from the same physical molecule) are counted only once per genomic position to prevent double-counting.\
             **Applicability:** Applies universally across short reads, contiguous long reads, and discontiguous long reads. Discontiguous long read only directly sequenced and aligned segments contribute to sequence depth; unsequenced intervening template spans between pairs or proximity segments do not count toward coverage.
 
