@@ -3,7 +3,7 @@
 - **ID:** genome_coverage_uniformity
 - **Description:**
     - **Post-Alignment Data:**
-   A sequencing-read-type-specific measure of how evenly usable sequencing depth is distributed across defined autosomal non-gap evaluation regions of the selected reference genome, summarized using distribution percentiles and dispersion metrics (25th percentile / Q1, median / Q2, 75th percentile / Q3, Interquartile Range [IQR = Q3 - Q1], and unscaled Median Absolute Deviation [MAD = median(\vertd_i - median(d)\vert)])
+   A sequencing-read-type-specific measure of how evenly usable sequencing depth is distributed across defined autosomal non-gap evaluation regions of the selected reference genome, summarized using distribution percentiles and dispersion metrics (25th percentile / Q1, median / Q2, 75th percentile / Q3, Interquartile Range [IQR = Q3 - Q1], and unscaled Median Absolute Deviation [MAD = median(|d_i - median(d)|)])
   
         - **Inclusions & Exclusions:**
 
