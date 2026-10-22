@@ -5,11 +5,11 @@
     - **Post-Alignment Data:**
    The percentage of sequenced query bases from eligible [high quality reads](terminologies.md#high-quality-reads) that align to the selected reference genome.\
    Numerator: Unique query base positions aligned or inserted (such as matches, mismatches, and insertions) across primary and supplementary records, with overlapping query intervals merged to prevent double-counting.\
-   Denominator: The total sequenced query length across all primary records (both mapped and unmapped).
+   Denominator: The total sequenced query length across both mapped and unmapped reads.
         - **Inclusions & Exclusions:**
 
             **Included:** No minimum mapping quality (MAPQ) threshold is imposed.\
-            **Excluded from Denominator::**  Reads failing platform or vendor quality controls.
+            **Excluded from Denominator::**  [Duplicate reads](terminologies.md#duplicated-reads), Reads failing platform or vendor quality controls.\
             **Excluded from Numerator Only:** [Duplicate reads](terminologies.md#duplicated-reads), secondary alignments, [soft-clipped bases](terminologies.md#clipped-bases), and hard-clipped bases.
 
             For paired-end and discontiguous sequencing data, query bases from each read end are evaluated individually; unsequenced intervening template spans do not contribute to this metric.
