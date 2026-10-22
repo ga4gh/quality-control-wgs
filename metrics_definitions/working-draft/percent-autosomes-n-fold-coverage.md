@@ -2,7 +2,6 @@
 
 - **ID:** pct_autosomes_n_fold_coverage
 - **Description:** 
-- **Description:** 
     - **Post-Alignment Data:**
    The percentage of bases within the defined [autosomal non gap](#autosomes-non-gap-regions) evaluation intervals of the selected reference genome that attain a sequencing depth of at least N-fold (specifically evaluated at thresholds such as > 5X, > 10X, > 15X, and > 20X).\
    Numerator: The total number of base positions within the evaluation intervals meeting or exceeding the specified depth threshold (N-fold).\
