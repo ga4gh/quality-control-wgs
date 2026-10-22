@@ -12,18 +12,18 @@ See individual metric definions under [Post Alignment metrics](https://ga4gh.git
 
 QC metrics adhere to this general template:
 
-- Id (mandatory): Unique identifier assigned to the QC metric.
-- Description (mandatory): Definition and intended interpretation of the QC metric.
-- Implementation details (mandatory): Information describing the reference implementation used to compute the QC metric, including the computational method, software, and software version, and parameters where applicable.
-- Data yype (mandatory): The QC metric shall be reported as either an integer or floating-point value. For floating-point values, the minimum reporting precision shall be specified.
-- Functionally equivalent implementations (optional): Alternative software implementations, workflows, or analytical pipelines that have been demonstrated through benchmarking to produce results consistent with the reference implementation for this QC metric within an acceptable range of variation.
-- Sequencing read type (mandatory): Applicable sequencing data type (e.g., short-read or long-read).
-- Reference genome assembly (mandatory): Applicable reference genome assembly (e.g., GRCh37 or GRCh38).
-- Version (mandatory): Version of the metric definition.
-- Sequencing technology (optional): Applicable sequencing platform or technology (e.g., Illumina, Oxford Nanopore Technologies, PacBio, Ultima Genomics).
-- Associated aligner (optional): Alignment software name and version applicable to the metric, where relevant.
+- **Id (mandatory):** Unique identifier assigned to the QC metric.
+- **Description (mandatory):** Definition and intended interpretation of the QC metric.
+- **Implementation details (mandatory):** Information describing the reference implementation used to compute the QC metric, including the computational method, software, and software version, and parameters where applicable.
+- **Data yype (mandatory):** The QC metric shall be reported as either an integer or floating-point value. For floating-point values, the minimum reporting precision shall be specified.
+- **Functionally equivalent implementations (optional):** Alternative software implementations, workflows, or analytical pipelines that have been demonstrated through benchmarking to produce results consistent with the reference implementation for this QC metric within an acceptable range of variation.
+- **Sequencing read type (mandatory):** Applicable sequencing data type (e.g., short-read or long-read).
+- **Reference genome assembly (mandatory):** Applicable reference genome assembly (e.g., GRCh37 or GRCh38).
+- **Version (mandatory):** Version of the metric definition.
+- **Sequencing technology (optional):** Applicable sequencing platform or technology (e.g., Illumina, Oxford Nanopore Technologies, PacBio, Ultima Genomics).
+- **Associated aligner (optional):** Alignment software name and version applicable to the metric, where relevant.
 (e.g., BWA-MEM, DRAGEN v3.8, DRAGEN v4.4.7, Minimap2..)
-- Associated variant caller (optional): Variant calling software name and version applicable to the metric, where relevant. (e.g., GATK Haplotypecaller v4.6.2.0, Mutect2, DRAGEN 3.8, DRAGEN v4.4.7, DeepVariant,..)
-- Associated basecaller (optional): (Illumina RTA short-read and proximity mapped reads) | Dorado (ONT) | SMRT Link/CCS (PacBio)
+- **Associated variant caller (optional):** Variant calling software name and version applicable to the metric, where relevant. (e.g., GATK Haplotypecaller v4.6.2.0, Mutect2, DRAGEN 3.8, DRAGEN v4.4.7, DeepVariant,..)
+- **Associated basecaller (optional):** (Illumina RTA short-read and proximity mapped reads) | Dorado (ONT) | SMRT Link/CCS (PacBio)
 
 
