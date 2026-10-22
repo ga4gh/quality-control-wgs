@@ -10,7 +10,7 @@
 
             **Included:** No minimum mapping quality (MAPQ) threshold is imposed.\
             **Excluded from Denominator::**  [Duplicate reads](terminologies.md#duplicated-reads), Reads failing platform or vendor quality controls.\
-            **Excluded from Numerator Only:** [Duplicate reads](terminologies.md#duplicated-reads), secondary alignments, [soft-clipped bases](terminologies.md#clipped-bases), and hard-clipped bases.
+            **Excluded from Numerator Only:** [Duplicate reads](terminologies.md#duplicated-reads), secondary alignments, and hard-clipped bases.
 
             For paired-end and discontiguous sequencing data, query bases from each read end are evaluated individually; unsequenced intervening template spans do not contribute to this metric.
 
