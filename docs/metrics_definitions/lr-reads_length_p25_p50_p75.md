@@ -21,7 +21,7 @@
 
             **Included:** 
             Duplicate templates (unless explicitly filtered out).\
-            **Excluded:** Secondary and supplementary alignments from initiating new template length calculations.\
+            **Excluded:** Secondary (and supplementary?) alignments from initiating new template length calculations.\
             These quartiles summarize the size distribution, fragmentation profile, and structural span of the original input library molecules, serving as a key indicator of proximity-ligation success and library integrity.
 
     - **Pre-Alignment Data:**
