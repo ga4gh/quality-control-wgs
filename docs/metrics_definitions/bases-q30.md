@@ -3,17 +3,17 @@
 
 - **ID:** yield_bp_q30
 - **Description:** 
+    - **Pre-Alignment Data:**
+        The total number of bases with a base quality score of 30 or greater (Phred scale) derived from [high quality reads](terminologies.md#high-quality-reads) within the raw sequencing dataset.
+
+    For discontiguous long-read sequencing, only physically sequenced (observed) bases are counted; the unsequenced span of the inferred proximity molecule or template does not contribute to this metric.
+    
     - **Post-Alignment Data:**
    The total number of bases with a [base quality score](terminologies.md#base-quality-score) of 30 or greater ([Phred scale](terminologies.md#phred-scale)) derived from primary alignments, non-overlapping portions of supplementary alignments, and unmapped records of [high quality reads](terminologies.md#high-quality-reads) in the dataset.
         - **Inclusions & Exclusions:**
 
             **Included:** Non-overlapping bases from primary and supplementary alignments, unmapped records, [duplicate reads](terminologies.md#duplicated-reads), and [soft-clipped bases](terminologies.md#clipped-bases). No minimum [mapping quality](terminologies.md#mapping-quality) threshold is imposed.\
             **Excluded:** Secondary alignments and reads failing platform or vendor quality controls.
-
-    - **Pre-Alignment Data:**
-        The total number of bases with a base quality score of 30 or greater (Phred scale) derived from [high quality reads](terminologies.md#high-quality-reads) within the raw sequencing dataset.
-
-    For discontiguous long-read sequencing, only physically sequenced (observed) bases are counted; the unsequenced span of the inferred proximity molecule or template does not contribute to this metric.
     
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, this metric is computed using [samtools stats](terminologies.md#samtools-stats), coupled with a custom parser that sums bases with [base quality score](terminologies.md#base-quality-score) 30 or greater from the First Fragment Quality (FFQ) and Last Fragment Quality (LFQ) tables. This implementation is identical for short-read and discontiguous-long-read data: evaluation is restricted to primary alignments and unmapped reads from [high quality reads](terminologies.md#high-quality-reads) (filtering out 0x100, (0x200)), while secondary alignments are excluded. [Duplicate reads](terminologies.md#duplicated-reads) are retained, [clipped bases](terminologies.md#clipped-bases) are included, and no [mapping quality](terminologies.md#mapping-quality) filter is applied. For discontiguous-long-read data, records are processed identically to short reads, counting only observed sequenced bases and excluding the unsequenced span intervals between read ends.
 
