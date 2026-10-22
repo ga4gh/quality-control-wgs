@@ -24,7 +24,8 @@
   - short paired-end mosdepth default setting. For contiguous long-read use --fast-mode / -x though it's not check the overlapping physical pair-end reads, it massive number of small insertions and deletions compared to short reads. Evaluating every tiny CIGAR operation adds extreme computational overhead. Skipping internal CIGAR operations (treating the read as a continuous block from start to end) is standard practice for long-read coverage tracking. With and without '-x' yield virtually identical coverage profiles.\
   - not using --fast-mode and removing overlapping bases.
   - high quality reads - reads passing the sequencing instrument/vendor quality filter / instrument-filter-passing reads where such a filter exists; SAM flag 0x200 not set. For contiguous-long reads quality thresholds using read-level tags (qs for ONT, rq for PacBio).\
-  - Quality Thresholds (Contiguous Long Reads): Input reads are restricted to those meeting a platform-specific minimum per-read quality threshold using platform-standard read quality or predicted accuracy metrics, without filtering individual base qualities.\
+  Quality Thresholds (Contiguous Long Reads): Input reads are restricted to those meeting a platform-specific minimum per-read quality threshold using platform-standard read quality or predicted accuracy metrics, without filtering individual base qualities.\
+  \
   Contiguous Long Reads: Derived from non-duplicate primary alignments of high-quality reads that meet a platform-specific minimum per-read quality threshold using/utilizing platform-standard read quality or predicted accuracy metrics / using read-level tags (such as qs for ONT, rq for PacBio) without filtering on individual base qualities.
 
 ```
