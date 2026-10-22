@@ -5,11 +5,11 @@
     - **Post-Alignment Data:**
    A sequencing-read-type-specific measure of how evenly usable sequencing depth is distributed across defined [autosomal non gap](#autosomes-non-gap-regions) evaluation regions of the selected reference genome, summarized using distribution percentiles and dispersion metrics (25th percentile / Q1, median / Q2, 75th percentile / Q3, Interquartile Range [IQR = Q3 - Q1], and unscaled Median Absolute Deviation [MAD = median(|d_i - median(d)|)]).\
 
-    &ensp;Short-Read & Discontiguous Long-Read Datasets: Evaluated across the pooled per-base depth distribution within target autosomal evaluation intervals, fully retaining zero-coverage positions (0X).\
-      Discontiguous long-read only directly sequenced and mapped segments contribute to coverage depth; unsequenced intervening template spans between pairs or proximity segments do not count toward continuous coverage.\
-      
-    &ensp;Contiguous Long-Read Datasets: Evaluated by partitioning the autosomal non-gap evaluation intervals into non-overlapping, contiguous 10,000-bp windows (excluding edge windows shorter than 10,000 bp), retaining zero-coverage windows.\
-      Metrics (Q1, median, Q3, IQR, and MAD) are calculated across all window mean depths rather than individual base positions.
+      &ensp;Short-Read & Discontiguous Long-Read Datasets: Evaluated across the pooled per-base depth distribution within target autosomal evaluation intervals, fully retaining zero-coverage positions (0X).\
+        Discontiguous long-read only directly sequenced and mapped segments contribute to coverage depth; unsequenced intervening template spans between pairs or proximity segments do not count toward continuous coverage.\
+        
+      &ensp;Contiguous Long-Read Datasets: Evaluated by partitioning the autosomal non-gap evaluation intervals into non-overlapping, contiguous 10,000-bp windows (excluding edge windows shorter than 10,000 bp), retaining zero-coverage windows.\
+        Metrics (Q1, median, Q3, IQR, and MAD) are calculated across all window mean depths rather than individual base positions.
   
         - **Inclusions & Exclusions:**
 
