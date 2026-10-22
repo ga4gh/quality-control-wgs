@@ -3,7 +3,7 @@
 - **ID:** mean_insert_size
 - **Description:** 
     - **Post-Alignment Data:**
-   The mean insert size (fragment length between paired-end read ends) derived from the outermost aligned genomic coordinates of eligible paired-end [high quality reads](terminologies.md#high-quality-reads) with primary alignments mapped to the selected reference genome.\
+   The mean insert size (fragment length between paired-end read ends) derived from the outermost aligned genomic coordinates of eligible paired-end [high quality reads](terminologies.md#high-quality-reads) with primary alignments mapped to the selected reference genome.
         - **Inclusions & Exclusions:**
 
             **Included:** Primary alignments. No minimum mapping quality (MAPQ) threshold is imposed.\

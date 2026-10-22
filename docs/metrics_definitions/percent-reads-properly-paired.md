@@ -8,9 +8,8 @@
    Denominator: All primary records (both mapped and unmapped) of eligible paired-end [high quality](terminologies.md#high-quality-reads).
         - **Inclusions & Exclusions:**
 
-            **Included in Denominator:** [Duplicate reads](terminologies.md#duplicated-reads). No minimum mapping quality (MAPQ) threshold is imposed.\
-            **Excluded from Denominator::**  Secondary alignments, supplementary alignments, and reads failing platform or vendor quality controls.
-            **Excluded from Numerator Only:** [Duplicate reads](terminologies.md#duplicated-reads), secondary alignments, supplementary alignments, and reads failing platform or vendor quality controls.
+            **Included:** Mapped and unmapped primary records. No minimum mapping quality (MAPQ) threshold is imposed. (Note: It is critical that alignment files have duplicate reads properly marked).\
+            **Excluded from both Numerator and Denominator::** Secondary alignments, supplementary alignments, reads failing platform or vendor quality controls, and duplicate reads.
 
             Applicable to short paired-end sequencing datasets, measuring the physical template length or distance between paired read ends on the reference genome.
 
