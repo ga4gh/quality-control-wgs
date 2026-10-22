@@ -4,11 +4,10 @@
 - **Description:** 
     - **Post-Alignment Data:**
    The read lengths, in base pairs, at the 25th percentile (P25), 50th percentile (median / P50), and 75th percentile (P75) of the read-length distribution derived from [high-quality reads](terminologies.md#high-quality-reads) across sequencing datasets.\
-   Derived from the full sequenced query sequence length (SEQ length) of qualifying records.
         - **Inclusions & Exclusions:**
 
             **Included:** 
-            Primary alignments, non-overlapping portions of supplementary alignments, unmapped records, [duplicate reads](terminologies.md#duplicated-reads), and [soft-clipped bases](terminologies.md#clipped-bases) of eligible [high-quality reads](terminologies.md#high-quality-reads). No minimum mapping quality threshold is imposed.\
+            Primary alignments, non-overlapping portions of supplementary alignments, unmapped records, [duplicate reads](terminologies.md#duplicated-reads), and [soft-clipped bases](terminologies.md#clipped-bases) measured from the full sequenced query sequence length (SEQ length) of eligible [high-quality reads](terminologies.md#high-quality-reads). No minimum mapping quality threshold is imposed.\
             **Excluded:** Secondary alignments, hard-clipped bases, and reads failing platform or vendor quality controls.
             
             For paired-end and discontiguous sequencing data, each read end is evaluated as an individual read rather than aggregating read pairs or measuring inferred physical template spans.\
@@ -22,7 +21,7 @@
 
             **Included:** 
             Duplicate templates (unless explicitly filtered out).\
-            **Excluded:** Secondary (and supplementary?) alignments from initiating new template length calculations.\
+            **Excluded:** Secondary and supplementary alignments from initiating new template length calculations.\
             These quartiles summarize the size distribution, fragmentation profile, and structural span of the original input library molecules, serving as a key indicator of proximity-ligation success and library integrity.
 
     - **Pre-Alignment Data:**
