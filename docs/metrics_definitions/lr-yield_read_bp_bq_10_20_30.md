@@ -2,27 +2,16 @@
 - **ID:** yield_bp_read_q10_q20_q30
 - **Description:** 
     - **Post-Alignment Data:**
-   The total base yield derived from eligible [high-quality reads](terminologies.md#high-quality-reads) whose read-level mean quality scores meet or exceed the Q10, Q20, and Q30 thresholds across sequencing datasets.
-   For every qualifying primary record, the full sequenced query length (including [soft-clipped bases](terminologies.md#clipped-bases), but excluding hard-clipped bases) is added to the cumulative yield for the respective quality threshold.
+   The cumulative base yield derived from eligible [high-quality reads](terminologies.md#high-quality-reads) whose read-level mean quality scores meet or exceed the ([Phred scale](terminologies.md#phred-scale)) Q10, Q20, and Q30 thresholds across sequencing datasets.\
+   For every qualifying record, the full sequenced query length (including soft-clipped bases, but excluding hard-clipped bases) is added to the cumulative yield for the respective quality threshold.
+
         - **Inclusions & Exclusions:**
 
             **Included:** 
-            Mapped and unmapped primary records, [duplicate reads](terminologies.md#duplicated-reads), and [soft-clipped bases](terminologies.md#clipped-bases).\
-            **Excluded:** Secondary alignments, supplementary alignments, and hard-clipped bases.
-            
+            Primary alignments, non-overlapping portions of supplementary alignments, unmapped records, [duplicate reads](terminologies.md#duplicated-reads), and [soft-clipped bases](terminologies.md#clipped-bases) of eligible [high-quality reads](terminologies.md#high-quality-reads) meeting the respective Phred quality threshold. No minimum mapping quality threshold is imposed.\
+            **Excluded:** Secondary alignments, hard-clipped bases, and reads failing platform or vendor quality controls.
+
             For paired-end and discontiguous sequencing data, base yields are accumulated per individual read end; unsequenced intervening template spans do not contribute to this metric.
-
-        **Inferred Template Yield in Bases at Q10/Q20/Q30 (Discontiguous Long-Read)** (`inferred_template_yield_bp_q10_q20_q30`)
-         The total base yield derived from inferred physical templates (molecules) whose quality or accuracy scores meet or exceed the Q10, Q20, and Q30 thresholds (corresponding to 90%, 99%, and 99.9% predicted accuracy under the ([Phred scale](terminologies.md#phred-scale))) in discontiguous long-read sequencing datasets.\
-        &ensp;Grouping: Chimeric segments or paired/multiplexed read segments originating from the same physical molecule or concatemer are grouped and evaluated as a single template unit rather than treating individual read ends or segments separately.\
-        &ensp;Quality Assessment: The quality score or predicted accuracy of each inferred template is determined by evaluating its constituent segments against the respective Q10, Q20, and Q30 criteria.\
-        &ensp;Yield Accumulation: For each qualifying inferred template, the cumulative constituent base length (or genomic span) is added to the total yield for that quality threshold.
-        - **Inclusions & Exclusions:**
-
-            **Included:** 
-            Duplicate templates (unless explicitly filtered out).\
-            **Excluded:** Secondary and supplementary alignments from initiating new template yield counts.\
-            This metric reflects the total structural yield of high-quality original input molecules, serving as a vital measure of library complexity and sequencing performance at varying stringency thresholds.
 
     - **Pre-Alignment Data:**
    The total base yield derived from [high-quality reads](terminologies.md#high-quality-reads) whose read-level quality scores meet or exceed the Q10, Q20, and Q30 thresholds, corresponding to 90%, 99%, and 99.9% predicted accuracy under the ([Phred scale](terminologies.md#phred-scale)), respectively.\
