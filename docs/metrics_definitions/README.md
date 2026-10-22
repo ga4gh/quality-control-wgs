@@ -12,10 +12,18 @@ See individual metric definions under [Post Alignment metrics](https://ga4gh.git
 
 QC metrics adhere to this general template:
 
-- Id (mandatory): Metric identifier
-- Description (mandatory): Metric description.
-- Implementation details (mandatory): Tool and version used to calculate the metric & insights into the metric implementation, where possible.
-- Type (mandatory): whether a metric is an integer or float, and for float values, to define the minimal required decimal precision to ensure consistent reporting across workflows.
-- Functionally equivalent implementations (optional): A description of what constitute a valid alternative implementation producing values within an acceptable range of variation when compared to value(s) reported by the reference implementation when computing the metric i.e Validated equivalent implementations. We welcome the inclusion of candidate equivalent implementations.
+- Id (mandatory): Unique identifier assigned to the QC metric.
+- Description (mandatory): Definition and intended interpretation of the QC metric.
+- Implementation details (mandatory): Information describing the reference implementation used to compute the QC metric, including the computational method, software, and software version, and parameters where applicable.
+- Data yype (mandatory): The QC metric shall be reported as either an integer or floating-point value. For floating-point values, the minimum reporting precision shall be specified.
+- Functionally equivalent implementations (optional): Alternative software implementations, workflows, or analytical pipelines that have been demonstrated through benchmarking to produce results consistent with the reference implementation for this QC metric within an acceptable range of variation.
+- Sequencing read type (mandatory): Applicable sequencing data type (e.g., short-read or long-read).
+- Reference genome assembly (mandatory): Applicable reference genome assembly (e.g., GRCh37 or GRCh38).
+- Version (mandatory): Version of the metric definition.
+- Sequencing technology (optional): Applicable sequencing platform or technology (e.g., Illumina, Oxford Nanopore Technologies, PacBio, Ultima Genomics).
+- Associated aligner (optional): Alignment software name and version applicable to the metric, where relevant.
+(e.g., BWA-MEM, DRAGEN v3.8, DRAGEN v4.4.7, Minimap2..)
+- Associated variant caller (optional): Variant calling software name and version applicable to the metric, where relevant. (e.g., GATK Haplotypecaller v4.6.2.0, Mutect2, DRAGEN 3.8, DRAGEN v4.4.7, DeepVariant,..)
+- Associated basecaller (optional): (Illumina RTA short-read and proximity mapped reads) | Dorado (ONT) | SMRT Link/CCS (PacBio)
 
 
