@@ -26,7 +26,7 @@ ONT and PacBio quality scores are not assumed to be numerically interchangeable,
   - For ONT, a Dorado/MinKNOW sequencing summary may instead be supplied so the platform-provided per-read score is used. For PacBio HiFi, use FASTQ qualities or a validated conversion of the BAM `rq` predicted-accuracy tag and document the conversion. 
   - The implementation should define whether failed reads, unclassified reads, unmapped reads, or quality-filtered reads are included.
   - Record input type, quality-score definition, basecaller/consensus-caller model, pass/fail inclusion rule, and any prior filtering. Benchmark ONT and PacBio separately.\
-See how platform-reported quality score per read assigned for the primary-supplmentary reads; whether the score is based on full sequences in the read or only the matching and the split segment get it's own mean score (Inclusion: non-overlapping portions of supplementary alignments?).
+See how platform-reported quality score per read assigned for the primary-supplmentary reads; whether the score is based on full sequences in the read or only the matching and the split segment get it's own mean score **(Inclusion: non-overlapping portions of supplementary alignments?)**.
 ```
 # Option 1: Direct long-read text extraction via NanoStat (excludes supplementary, no plots generated)
 NanoStat --bam input.bam \
