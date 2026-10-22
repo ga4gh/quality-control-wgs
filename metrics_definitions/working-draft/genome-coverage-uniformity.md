@@ -7,7 +7,7 @@
    Fold 80 Base Penalty: The ratio of the mean sequencing depth to the 20th percentile (P20) of the per-base sequencing depth across the evaluation territory (F80BP = Mean Depth / 20th Percentile Depth). It estimates the relative extra sequencing effort required due to coverage non-uniformity. Lower values indicate more uniform coverage, with a value of 1 representing ideal uniformity.
 
       &ensp;Short-Read & Discontiguous Long-Read Datasets: Evaluated across the pooled per-base depth distribution within target autosomal evaluation intervals, fully retaining zero-coverage positions (0X).\
-      &ensp;Metrics Q1, median, Q3, IQR, MAD, and Fold 80 Base Penalty.
+      &ensp;Metrics Q1, median, Q3, IQR, MAD, and Fold 80 Base Penalty.\
       &ensp;Contiguous Long-Read Datasets: Evaluated by partitioning the autosomal non-gap evaluation intervals into non-overlapping, contiguous 10,000-bp windows (excluding edge windows shorter than 10,000 bp), retaining zero-coverage windows.\
         Metrics (Q1, median, Q3, IQR, and MAD) are calculated across all window mean depths rather than individual base positions.
   
