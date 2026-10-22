@@ -2,6 +2,10 @@
 
 - **ID:** `read_length_percentiles_p25_p50_p75`
 - **Description:** 
+    - **Pre-Alignment Data:**
+   The read lengths, in base pairs, at the 25th percentile (P25), median (P50), and 75th percentile (P75) of the read-length distribution derived from [high-quality reads](terminologies.md#high-quality-reads) across sequencing datasets.\
+   For paired-end and discontiguous datasets, each read end is treated as an individual read rather than using read-pair or inferred template lengths.
+
     - **Post-Alignment Data:**
    The read lengths, in base pairs, at the 25th percentile (P25), 50th percentile (median / P50), and 75th percentile (P75) of the read-length distribution derived from [high-quality reads](terminologies.md#high-quality-reads) across sequencing datasets.
         - **Inclusions & Exclusions:**
@@ -23,10 +27,6 @@
             Duplicate templates (unless explicitly filtered out).\
             **Excluded:** Secondary (and supplementary?) alignments from initiating new template length calculations.\
             These quartiles summarize the size distribution, fragmentation profile, and structural span of the original input library molecules, serving as a key indicator of proximity-ligation success and library integrity.
-
-    - **Pre-Alignment Data:**
-   The read lengths, in base pairs, at the 25th percentile (P25), median (P50), and 75th percentile (P75) of the read-length distribution derived from [high-quality reads](terminologies.md#high-quality-reads) across sequencing datasets.\
-   For paired-end and discontiguous datasets, each read end is treated as an individual read rather than using read-pair or inferred template lengths.
 
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, read-length percentiles are calculated from mapped and unmapped primary records in the declared input BAM/CRAM file that satisfy the sequencing-read-type-specific [high-quality reads](terminologies.md#high-quality-reads) criteria. Secondary (0x100) (and supplementary (0x800) alignements, and reads not passing platform/vendor quality controls (0x200) are excluded) alignments are excluded using samtools (-F 2304), while duplicate reads (0x400) are retained. Query lengths (SEQ length) are extracted, sorted, and evaluated at the rank indices for the 25th, 50th, and 75th percentiles. Only the query length (SEQ length) of the primary alignment is used for reads with supplementary alignments. For long-read datasets, this can also be extracted directly using (`NanoStat --no_supplementary`). If the total eligible read count is zero, N/A is reported for all quartiles. The same procedure applies to every sequencing read type.
 - **Comments:**

@@ -2,6 +2,13 @@
 
 - **ID:** read_n50
 - **Description:** 
+    - **Pre-Alignment Data:**
+   The length-weighted median read length within the raw sequencing dataset, defined as the read length $L$ such that 50% of the total sequenced bases are contained in reads with length ≥ L.\
+   For short-read and discontiguous long-read paired-end datasets, each read end is treated as an individual read rather than using read-pair or inferred template lengths.\
+   \
+   Short-Read Datasets: Reflects the read-length distribution after quality or adapter trimming.\
+   Contiguous Long-Read Datasets: Serves as a key indicator of high-molecular-weight (HMW) DNA integrity and library fragment size.
+   
     - **Post-Alignment Data:**
    The length-weighted median read length of eligible [high-quality reads](terminologies.md#high-quality-reads) across short-read, contiguous long-read, and discontiguous long-read datasets. It is defined as the read length L such that reads of length ≥ L, when sorted in descending order, contain at least 50% of the total sequenced base yield.
         - **Inclusions & Exclusions:**
@@ -22,13 +29,6 @@
             Duplicate templates (unless explicitly filtered out).\
             **Excluded:** Secondary and supplementary alignments from initiating new template length calculations.\
             This metric evaluates the size distribution and structural integrity of the original input library molecules, serving as a key indicator of proximity-ligation efficiency and long-range capture success.
-
-    - **Pre-Alignment Data:**
-   The length-weighted median read length within the raw sequencing dataset, defined as the read length $L$ such that 50% of the total sequenced bases are contained in reads with length ≥ L.\
-   For short-read and discontiguous long-read paired-end datasets, each read end is treated as an individual read rather than using read-pair or inferred template lengths.\
-   \
-   Short-Read Datasets: Reflects the read-length distribution after quality or adapter trimming.\
-   Contiguous Long-Read Datasets: Serves as a key indicator of high-molecular-weight (HMW) DNA integrity and library fragment size.
 
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, Read N50 is computed across mapped and unmapped primary records of sequencing-read-type-specific [high-quality reads](terminologies.md#high-quality-reads). Secondary (0x100) (and supplementary (0x800) alignements, and reads not passing platform/vendor quality controls (0x200) are excluded)) alignments are excluded using [samtools `view`](https://www.htslib.org/doc/samtools-view.html) (-F 2304), while duplicate reads (0x400) and soft-clipped bases are retained. Query lengths (SEQ length) are sorted in descending order, and lengths are accumulated until the cumulative sum meets or exceeds 50% of the total sequenced base yield. Only the query length (SEQ length) of the primary alignment is used for reads with supplementary alignments. For paired-end short-read or discontiguous long-read data, each mate is counted separately as an individual read. For long-read datasets, this can be extracted directly using (`NanoStat --no_supplementary`). When total base yield is zero, N/A is reported. The same procedure applies to every sequencing read type.
 
