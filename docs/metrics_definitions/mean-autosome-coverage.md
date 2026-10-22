@@ -4,7 +4,7 @@
 - **Description:** 
     - **Post-Alignment Data:**
    The arithmetic mean sequencing depth evaluated across all base positions within the defined [autosomal non gap](#autosomes-non-gap-regions) evaluation intervals of the selected reference genome.\
-   Denominator: Fixed as the total base count across target autosomal intervals, fully accounting for positions with zero coverage (0X) rather than excluding unsequenced regions.\
+   Denominator: Fixed as the total base count across target autosomal intervals, fully accounting for positions with zero coverage (0X) rather than excluding unsequenced regions.
   
         - **Inclusions & Exclusions:**
 
