@@ -1,9 +1,33 @@
 # Yield in bases from reads at Q10/Q20/Q30
 - **ID:** yield_bp_read_q10_q20_q30
-- **Description:** Total yield in base pairs derived from eligible [high-quality reads](terminologies.md#high-quality-reads) whose read-level mean quality scores meet or exceed Q10, Q20, and Q30 thresholds across short-read, contiguous long-read, and discontiguous long-read datasets. For every qualifying primary record, the complete sequenced query sequence length (SEQ length, including soft-clipped bases but excluding hard-clipped bases) is added to the cumulative yield for that threshold. The eligible-read population comprises mapped and unmapped primary records, excluding secondary (and supplementary) alignments while retaining duplicate reads. For ONT, the platform-reported mean basecall Q-score (qs tag) is used. For PacBio HiFi, predicted read accuracy (rq tag) thresholds of $\ge 0.90$, $\ge 0.99$, and $\ge 0.999$ are applied, with an rq of 1.0 qualifying at all three thresholds. For paired-end short-read and discontiguous long-read data, base yields are accumulated per read end; unsequenced intervening template spans do not contribute to this metric.
+- **Description:** 
+    - **Post-Alignment Data:**
+   The total base yield derived from eligible [high-quality reads](terminologies.md#high-quality-reads) whose read-level mean quality scores meet or exceed the Q10, Q20, and Q30 thresholds across sequencing datasets.
+   For every qualifying primary record, the full sequenced query length (including [soft-clipped bases](terminologies.md#clipped-bases), but excluding hard-clipped bases) is added to the cumulative yield for the respective quality threshold.
+        - **Inclusions & Exclusions:**
 
-Unaligned data:
-The total number of bases derived from long reads whose read-level quality scores meet or exceed Q10, Q20, and Q30. For each threshold, the length of every qualifying read is added to the corresponding base yield. Under the Phred model, Q10 corresponds to 90% predicted read accuracy, Q20 to 99%, and Q30 to 99.9%. For Oxford Nanopore Technologies (ONT), use the platform-reported read mean basecall Q-score. For Pacific Biosciences (PacBio) HiFi reads, use the predicted read accuracy reported in the BAM `rq` tag; `rq` values of at least 0.90, 0.99, and 0.999 correspond to Q10, Q20, and Q30, respectively.
+            **Included:** 
+            Mapped and unmapped primary records, [duplicate reads](terminologies.md#duplicated-reads), and [soft-clipped bases](terminologies.md#clipped-bases).\
+            **Excluded:** Secondary alignments, supplementary alignments, and hard-clipped bases.
+            
+            For paired-end and discontiguous sequencing data, base yields are accumulated per individual read end; unsequenced intervening template spans do not contribute to this metric.
+
+        **Inferred Template Yield in Bases at Q10/Q20/Q30 (Discontiguous Long-Read)** (`inferred_template_yield_bp_q10_q20_q30`)
+         The total base yield derived from inferred physical templates (molecules) whose quality or accuracy scores meet or exceed the Q10, Q20, and Q30 thresholds (corresponding to 90%, 99%, and 99.9% predicted accuracy under the ([Phred scale](terminologies.md#phred-scale))) in discontiguous long-read sequencing datasets.\
+        &ensp;Grouping: Chimeric segments or paired/multiplexed read segments originating from the same physical molecule or concatemer are grouped and evaluated as a single template unit rather than treating individual read ends or segments separately.\
+        &ensp;Quality Assessment: The quality score or predicted accuracy of each inferred template is determined by evaluating its constituent segments against the respective Q10, Q20, and Q30 criteria.\
+        &ensp;Yield Accumulation: For each qualifying inferred template, the cumulative constituent base length (or genomic span) is added to the total yield for that quality threshold.
+        - **Inclusions & Exclusions:**
+
+            **Included:** 
+            Duplicate templates (unless explicitly filtered out).\
+            **Excluded:** Secondary and supplementary alignments from initiating new template yield counts.\
+            This metric reflects the total structural yield of high-quality original input molecules, serving as a vital measure of library complexity and sequencing performance at varying stringency thresholds.
+
+    - **Pre-Alignment Data:**
+   The total base yield derived from [high-quality reads](terminologies.md#high-quality-reads) whose read-level quality scores meet or exceed the Q10, Q20, and Q30 thresholds, corresponding to 90%, 99%, and 99.9% predicted accuracy under the ([Phred scale](terminologies.md#phred-scale)), respectively.\
+   For paired-end and discontiguous datasets, base yields are accumulated per individual read end rather than using read pairs or inferred template lengths.
+
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, base yields stratified across quality thresholds (Q10, Q20, Q30) are evaluated on mapped and unmapped primary records within the declared input BAM/CRAM file. Alignments marked as secondary (0x100) (and supplementary (0x800), and reads not passing platform/vendor quality controls (0x200) are ) excluded using samtools (-F 2304), while duplicate reads (0x400) are retained. For contiguous long-read datasets, cumulative base yields can be parsed directly from the summary text matrix generated by (`NanoStat --no_supplementary`). For platform-specific long-read BAMs, base yields are tallied by summing the query length of records satisfying the `qs` (ONT) or `rq` (PacBio) cutoffs. For short-read data, the mean base quality per read is computed from the QUAL string and qualifying query sequence lengths are summed. Only the QUAL string or platform-reported mean basecall Q-score of the of the primary reads is used for reads with supplementary alignments. If the total read count is zero, 0 is reported for each threshold. The same procedure applies to every sequencing read type.
 
 In the [SAMtools](https://www.htslib.org/) reference implementation, use an unaligned BAM containing one record per read and sum the BAM `SEQ` length of reads meeting each threshold. For ONT, obtain the read-level Q-score from the BAM `qs` tag and report `yield_bp_read_q10`, `yield_bp_read_q20`, and `yield_bp_read_q30` by summing the lengths of reads with `qs` values greater than or equal to 10, 20, and 30, respectively. For PacBio HiFi, obtain predicted read accuracy from the BAM `rq` tag and sum the lengths of reads with `rq` values greater than or equal to 0.90, 0.99, and 0.999, respectively. An `rq` value of 1.0 qualifies at all three thresholds without requiring conversion to an infinite Phred score. Use the complete logical sample without downsampling, and count each read only once. Record the input type, platform, basecaller or consensus-caller version and model, pass/fail inclusion rule, and any trimming or prior filtering.
@@ -210,6 +234,6 @@ samtools view -F 2304 input.bam \
 - **Reference genome assembly:** GRCH37 |GRCh38
 - **Version:** 2.0
 - **Sequencing technology:** Oxford Nanopore Technologies (ONT) | Pacific Biosciences (PacBio)
-- **Associated aligner:** N/A
+- **Associated aligner:** BWA-MEM/BWA-MEM2 or DRAGEN aligner (Illumina short-read) | DRAGEN TruPath pipeline (Illumina proximity mapped reads). Record the exact version and parameters.
 - **Associated variant caller:** N/A
 - **Associated basecaller:** Dorado or MinKNOW-integrated Dorado (ONT) | SMRT Link CCS/`ccs` (PacBio); record the exact version and model.

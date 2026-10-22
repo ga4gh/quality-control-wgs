@@ -1,7 +1,19 @@
 # Percent reads properly paired
 
 - **ID:** pct_reads_properly_paired
-- **Description:** The percentage of short paired-end sequencing [high quality](terminologies.md#high-quality-reads), properly paired reads, [primary alignments](terminologies.md#primary-alignments), to the selected reference genome / mapped on [GRCh38 assembly](terminologies.md#grch38-assembly). Secondary and supplementary alignments are excluded, while mapped and unmapped primary records are retained in the denominator. [Duplicated reads](terminologies.md#duplicated-reads) are included/excluded (and reads not passing platform/vendor quality controls (0x200) are excluded). No minimum [mapping quality](terminologies.md#mapping-quality) is imposed.
+- **Description:** 
+    - **Post-Alignment Data:**
+   The percentage of eligible paired-end [high quality](terminologies.md#high-quality-reads) represented by properly paired primary alignments to the selected reference genome.\
+   Numerator: Properly paired primary alignments of eligible [high quality](terminologies.md#high-quality-reads).\
+   Denominator: All primary records (both mapped and unmapped) of eligible paired-end [high quality](terminologies.md#high-quality-reads).
+        - **Inclusions & Exclusions:**
+
+            **Included in Denominator:** [Duplicate reads](terminologies.md#duplicated-reads). No minimum mapping quality (MAPQ) threshold is imposed.\
+            **Excluded from Denominator::**  Secondary alignments, supplementary alignments, and reads failing platform or vendor quality controls.
+            **Excluded from Numerator Only:** [Duplicate reads](terminologies.md#duplicated-reads), secondary alignments, supplementary alignments, and reads failing platform or vendor quality controls.
+
+            Applicable to short paired-end sequencing datasets, measuring the physical template length or distance between paired read ends on the reference genome.
+
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation it is computed using [samtools stats](References.md#samtools-stats), reporting the percentage of properly paired reads mapped on GRCh38 assembly. Duplicated reads are included/excluded. No mapping qualiy is applied.
 - **Comments:** 
 mapped on Reference genome instead of GRCh38/37
@@ -30,5 +42,6 @@ awk -v n="$NUMERATOR" -v d="$DENOMINATOR" 'BEGIN {printf "Custom Percentage: %.2
 - **Version:** 2.0
 - **Sequencing technology:** Illumina | Illumina TruPath Genome (proximity mapped reads; formerly Constellation)
 - **Associated aligner:** BWA-MEM/BWA-MEM2 or DRAGEN mapper (Illumina short-read); DRAGEN TruPath pipeline (Illumina proximity mapped reads); record exact version and parameters.
-- **Associated basecaller:** N/A
+- **Associated variant caller:** N/A
+- **Associated basecaller:** Dorado/MinKNOW, Illumina Real-Time Analysis (RTA), Circular Consensus Sequencing (CCS)/SMRT Link/DeepConsensus. Record the exact version.
 

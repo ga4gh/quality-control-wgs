@@ -1,22 +1,38 @@
 # Read number
 - **ID:** read_number
-- **Description:** The total number of [high quality reads](terminologies.md#high-quality-reads) across short-red, continuous-long-read, discontiguous-long-read datasets, excluding supplementary, reads not passing platform/vendor quality controls (0x200), and secondary alignments. Duplicate reads are included. For paired-end short-read and discontiguous long-read data, each read end is counted as an individual read rather than counting read pairs or inferred templates (e.g., proximity ligation molecules/templates). 
+- **Description:** 
+    - **Post-Alignment Data:**
+   The total number of [high quality reads](terminologies.md#high-quality-reads) across short-read, contiguous long-read, and discontiguous long-read datasets.
+        - **Inclusions & Exclusions:**
 
-  - **Inferred Template Count (Discontiguous Long-Read)**
-The total number of [high quality reads](terminologies.md#high-quality-reads) inferred physical templates (molecules) derived from discontiguous long-read sequencing (e.g., proximity-ligation or pore-C data). In this metric, all chimeric segments or paired/multiplexed read segments originating from the same physical molecule or concatemer are grouped and enumerated as a single inferred template, rather than counting individual alignment segments or read ends separately. Secondary and supplementary alignments are excluded from initiating new template counts. Duplicate templates are included unless otherwise specified? This metric reflects original input library molecule yield and should be evaluated alongside segment count and contact distribution.
+            **Included:** 
+            [Duplicate reads](terminologies.md#duplicated-reads). For paired-end short-read and discontiguous long-read data, each read end is counted as an individual read rather than counting read pairs or inferred templates.\
+            **Excluded:** Secondary alignments, supplementary alignments, and reads failing platform or vendor quality controls.\
+            \
+        **Inferred Template Count (Discontiguous Long-Read)**
+         The total number of inferred physical molecules derived from discontiguous long-read sequencing (e.g., proximity-ligation or Pore-C data).\
+        Chimeric segments or paired/multiplexed read segments originating from the same physical molecule or concatemer are grouped and enumerated as a single inferred template rather than counting individual alignment segments or read ends separately.
+        - **Inclusions & Exclusions:**
 
-Unaligned data: 
-The total number of [high quality reads](terminologies.md#high-quality-reads) in a sequencing dataset. For paired short-read and discontiguous-long-read datasets, each read end is counted as an individual read rather than counting read pairs or inferred templates. Read number should be interpreted together with total base yield and the read-length distribution, particularly for contiguous-long-read datasets in which read lengths can vary substantially.
+            **Included:** 
+            Duplicate templates (unless otherwise specified).\
+            **Excluded:** Secondary and supplementary alignments from initiating new template counts.\
+            This metric reflects original input library molecule yield and should be evaluated alongside segment count and contact distribution.
 
-Include another metric 'total base yiled' and drop yiled bases mapped percent?.
+          Include another metric 'total base yiled' and drop yiled bases mapped percent or both where available?\
+
+    - **Pre-Alignment Data:**
+   The total number of high-quality reads in the raw sequencing dataset.\
+   For paired short-read and discontiguous long-read datasets, each read end is counted as an individual read rather than counting read pairs or inferred templates.\
+   Read count should be interpreted alongside total base yield and read-length distribution, particularly for contiguous long-read datasets where read lengths can vary substantially.
 
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, read counts are calculated by enumerating [high quality reads](terminologies.md#high-quality-reads) across short-read, contiguous-long-read, and discontiguous-long-read datasets. Alignments marked as secondary (0x100), reads not passing platform/vendor quality controls (0x200) and supplementary (0x800) are excluded using samtools (`samtools view -c -F 0x900`), while duplicate reads (0x400) are retained. For short paired-end and discontiguous datasets, each read end is counted as an individual read. For long-read datasets, total read counts, can be generated using (`NanoStat --no_supplementary`).
 
   - **Inferred Template Count (Discontiguous Long-Read)**
 In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, inferred physical templates from discontiguous long-read datasets (e.g., TruPath, Pore-C or Hi-C concatemers) are determined by collapsing read alignments by molecule/read ID. Using samtools, secondary and supplementary alignments are excluded (-F 2304) to prevent duplicate segment tallying, and the primary QNAME identifiers (field 1) are deduplicated to produce the final physical template count.
 
-Template-level metrics shall exclude singleton reads for which no containing template is defined.
-Technology-specific implementation details (e.g., BX tags, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition.
+  Template-level metrics shall exclude singleton reads for which no containing template is defined.
+  Technology-specific implementation details (e.g., BX tags, SAM template identifiers, or other platform-specific tags) should be documented only where they deviate from the general metric definition.
 - **Comments:**
   - **Count Inferred Template:**
 ```
@@ -54,6 +70,6 @@ awk -F':' '/Number of reads/ {gsub(/,/, "", $2); print $2}' nanostats.txt | tr -
 - **Reference genome assembly:** N/A
 - **Version:** 2.0
 - **Sequencing technology:** Illumina | Oxford Nanopore Technologies (ONT) | Pacific Biosciences (PacBio) | Illumina TruPath Genome (proximity mapped reads; formerly Constellation)
-- **Associated aligner:** N/A
+- **Associated aligner:** BWA-MEM/BWA-MEM2 or DRAGEN aligner (Illumina short-read) | DRAGEN TruPath pipeline (Illumina proximity mapped reads). Record the exact version and parameters.
 - **Associated variant caller:** N/A
-- **Associated basecaller:** N/A (Illumina short-read and proximity mapped reads) | Dorado/MinKNOW integrated Dorado (ONT) | SMRT Link/CCS (PacBio). Record the exact version and model where applicable.
+- **Associated basecaller:** N/A

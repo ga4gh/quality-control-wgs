@@ -1,10 +1,34 @@
 # Read length percentiles (P25, P50, P75)
 
 - **ID:** `read_length_percentiles_p25_p50_p75`
-- **Description:** The read lengths, in base pairs, at the 25th percentile (P25 / Q1), 50th percentile (P50 / Q2 / median), and 75th percentile (P75 / Q3) of the read-length distribution of eligible [high-quality reads](terminologies.md#high-quality-reads) across short-read, contiguous long-read, and discontiguous long-read datasets. The eligible-read population comprises mapped and unmapped primary records meeting sequencing-read-type-specific [high-quality reads](terminologies.md#high-quality-reads) criteria, excluding secondary (and supplementary) alignments to prevent multi-aligned segments from distorting the distribution. Duplicate reads are retained. Read length is measured from the full sequenced query sequence (including soft-clipped bases, but excluding hard-clipped bases). For paired-end short-read and discontiguous long-read data, each read end is evaluated as an individual read rather than  aggregating read pairs or measuring inferred physical template spans. These quartiles summarize read-length spread, library fragmentation, and tail skewness, particularly for long-read datasets where lengths vary substantially.
+- **Description:** 
+    - **Post-Alignment Data:**
+   The read lengths, in base pairs, at the 25th percentile (P25), 50th percentile (median / P50), and 75th percentile (P75) of the read-length distribution derived from [high-quality reads](terminologies.md#high-quality-reads) across sequencing datasets.
+   For every qualifying primary record, the full sequenced query length (including [soft-clipped bases](terminologies.md#clipped-bases), but excluding hard-clipped bases) is added to the cumulative yield for the respective quality threshold.
+        - **Inclusions & Exclusions:**
 
-Unaligned data:
-The read lengths, in base pairs, at the 25th percentile (P25), median (P50), and 75th percentile (P75) of the read-length distribution of eligible [high-quality reads](terminologies.md#high-quality-reads). These metrics summarize the distribution of read lengths in contiguous long read datasets / across short-read, contiguous long-read, and discontiguous long-read datasets.
+            **Included:** 
+            Mapped and unmapped primary records, [duplicate reads](terminologies.md#duplicated-reads), and [soft-clipped bases](terminologies.md#clipped-bases) (measured from the full sequenced query sequence length/(SEQ) length).\
+            **Excluded:** Secondary alignments, supplementary alignments (to prevent multi-aligned segments from distorting the distribution), and hard-clipped bases.
+            
+            For paired-end and discontiguous sequencing data, each read end is evaluated as an individual read rather than aggregating read pairs or measuring inferred physical template spans.\
+            These quartiles summarize read-length spread, library fragmentation, and tail skewness, particularly for long-read datasets where lengths vary substantially.
+
+        **Inferred Template Length Percentiles (P25, P50, P75) (Discontiguous Long-Read)** (`inferred_template_length_percentiles_p25_p50_p75`)
+         The lengths, in base pairs, at the 25th percentile (P25), 50th percentile (median / P50), and 75th percentile (P75) of the physical template length distribution derived from [high-quality reads](terminologies.md#high-quality-reads) in discontiguous long-read sequencing datasets.\
+        &ensp;Grouping: Chimeric segments or paired/multiplexed read segments that originate from the same physical molecule or concatemer are grouped and evaluated as a single template unit rather than treating individual read ends separately.\
+        &ensp;Length Determination: The length of each inferred template is measured by its genomic span (the distance between the outermost mapped coordinates of its constituent segments) or its total constituent base length, depending on the analytical implementation.
+        - **Inclusions & Exclusions:**
+
+            **Included:** 
+            Duplicate templates (unless explicitly filtered out).\
+            **Excluded:** Secondary and supplementary alignments from initiating new template length calculations.\
+            These quartiles summarize the size distribution, fragmentation profile, and structural span of the original input library molecules, serving as a key indicator of proximity-ligation success and library integrity.
+
+    - **Pre-Alignment Data:**
+   The read lengths, in base pairs, at the 25th percentile (P25), median (P50), and 75th percentile (P75) of the read-length distribution derived from [high-quality reads](terminologies.md#high-quality-reads) across sequencing datasets.\
+   For paired-end and discontiguous datasets, each read end is treated as an individual read rather than using read-pair or inferred template lengths.
+
 - **Implementation details:** In the [NPM-sample-QC](References.md#npm-sample-qc) reference implementation, read-length percentiles are calculated from mapped and unmapped primary records in the declared input BAM/CRAM file that satisfy the sequencing-read-type-specific [high-quality reads](terminologies.md#high-quality-reads) criteria. Secondary (0x100) (and supplementary (0x800) alignements, and reads not passing platform/vendor quality controls (0x200) are excluded) alignments are excluded using samtools (-F 2304), while duplicate reads (0x400) are retained. Query lengths (SEQ length) are extracted, sorted, and evaluated at the rank indices for the 25th, 50th, and 75th percentiles. Only the query length (SEQ length) of the primary alignment is used for reads with supplementary alignments. For long-read datasets, this can also be extracted directly using (`NanoStat --no_supplementary`). If the total eligible read count is zero, N/A is reported for all quartiles. The same procedure applies to every sequencing read type.
 - **Comments:**
 ```
@@ -53,5 +77,5 @@ echo "P75: $p75"
 - **Reference genome assembly:** N/A
 - **Version:** 2.0
 - **Sequencing technology:** Oxford Nanopore Technologies (ONT) | Pacific Biosciences (PacBio)
-- **Associated aligner:** N/A
+- **Associated aligner:** BWA-MEM/BWA-MEM2 or DRAGEN aligner (Illumina short-read) | DRAGEN TruPath pipeline (Illumina proximity mapped reads). Record the exact version and parameters.
 - **Associated basecaller:** Dorado (ONT) | SMRT Link/CCS (PacBio); record the exact version and model.
