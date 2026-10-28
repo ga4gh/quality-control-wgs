@@ -5,7 +5,7 @@
     - **Post-Alignment Data:**
    A sequencing-read-type-specific measure of how evenly usable sequencing depth is distributed across defined [autosomal non gap](#autosomes-non-gap-regions) evaluation regions of the selected reference genome, summarized using distribution percentiles and dispersion metrics (25th percentile / Q1, median / Q2, 75th percentile / Q3, Interquartile Range [IQR = Q3 - Q1], and unscaled Median Absolute Deviation [MAD = median(|d_i - median(d)|)]), and the Fold 80 Base Penalty (F80BP).\
 
-    Fold 80 Base Penalty: The ratio of the mean sequencing depth to the 20th percentile (P20) of the per-base sequencing depth across the evaluation territory (F80BP = Mean Depth / 20th Percentile Depth). It estimates the relative extra sequencing effort required due to coverage non-uniformity. Lower values indicate more uniform coverage, with a value of 1 representing ideal uniformity.
+  &ensp;Fold 80 Base Penalty: The ratio of the mean sequencing depth to the 20th percentile (P20) of the per-base sequencing depth across the evaluation territory (F80BP = Mean Depth / 20th Percentile Depth). It estimates the relative extra sequencing effort required due to coverage non-uniformity. Lower values indicate more uniform coverage, with a value of 1 representing ideal uniformity.
 
       - Short-Read & Discontiguous Long-Read Datasets: Evaluated across the pooled per-base depth distribution within target autosomal evaluation intervals, fully retaining zero-coverage positions (0X).\
       &ensp;Metrics Q1, median, Q3, IQR, MAD, and Fold 80 Base Penalty.\
